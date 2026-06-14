@@ -72,6 +72,8 @@ img,table{max-width:100%}
   max-width:none;aspect-ratio:1/1;object-fit:cover;
   box-shadow:0 12px 36px rgba(0,0,0,.5),0 0 0 3px rgba(201,168,76,.18),0 0 0 5px var(--vin),0 0 0 6px rgba(201,168,76,.4);
   display:block}
+.hero-brand{display:flex;flex-direction:column;align-items:center;gap:12px}
+.hero-made{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.62);font-weight:500;text-align:center}
 .brand-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:14px;color:var(--gold);font-size:11.5px;letter-spacing:5px;text-transform:uppercase;font-weight:600}
 .brand-eyebrow .hl{width:28px;height:1px;background:var(--gold)}
 .brand-name{font-family:'Cormorant Garamond',serif;font-size:78px;font-weight:700;line-height:.95;letter-spacing:1.5px;color:#fff;margin-bottom:14px}
@@ -490,9 +492,12 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 <!-- ═══════════════════ HERO ═══════════════════ -->
 <div class="hero">
   <div class="hero-inner">
-    <img class="hero-logo" src="logo-monvel.jpg" alt="Despacho Monvel · Montalvo Velázquez">
+    <div class="hero-brand">
+      <img class="hero-logo" src="logo-monvel.jpg" alt="Monvel — software contable para despachos, hecho en Despacho Montalvo Velázquez">
+      <span class="hero-made">Hecho por un despacho real</span>
+    </div>
     <div>
-      <div class="brand-eyebrow"><span class="hl"></span><span>Despacho Monvel</span><span class="hl"></span></div>
+      <div class="brand-eyebrow"><span class="hl"></span><span>Software para despachos</span><span class="hl"></span></div>
       <h1 class="brand-name">MONVEL</h1>
       <div class="brand-ornament"><span class="hl"></span><span class="diamond"></span><span class="hl"></span></div>
       <div class="brand-tag">"Todo tu despacho, en un solo lugar."</div>
