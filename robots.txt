@@ -1,0 +1,5 @@
+# robots.txt para www.monvel.mx — permite a todos los buscadores indexar la landing.
+User-agent: *
+Allow: /
+
+Sitemap: https://www.monvel.mx/sitemap.xml

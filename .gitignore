@@ -1,0 +1,21 @@
+# Repo de la landing pública (monvel.mx) — solo assets estáticos.
+# Todo el contenido de esta carpeta es público; aquí solo se ignora basura del SO.
+
+# Windows / OneDrive
+desktop.ini
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+
+# Office / temporales
+~$*
+*.tmp
+*.bak
+
+# Editores
+.vscode/
+.idea/
+*.swp

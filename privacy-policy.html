@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aviso de Privacidad — Monvel · Autofill SAT</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+           max-width: 760px; margin: 30px auto; padding: 0 20px; color: #2b2b2b; line-height: 1.6; }
+    h1 { color: #6E1A2B; border-bottom: 3px solid #6E1A2B; padding-bottom: 8px; }
+    h2 { color: #6E1A2B; margin-top: 32px; font-size: 19px; }
+    h3 { color: #571320; margin-top: 22px; font-size: 16px; }
+    code, kbd { background: #f5f0f1; padding: 2px 6px; border-radius: 3px; font-size: 90%; }
+    .meta { background: #f5f0f1; padding: 14px 18px; border-radius: 8px; font-size: 13.5px; margin: 16px 0; }
+    table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14px; }
+    th, td { border: 1px solid #ddd; padding: 9px 12px; text-align: left; vertical-align: top; }
+    th { background: #f5f0f1; color: #571320; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+    .badge-ok { background: #E8F5E9; color: #1B5E20; }
+    .badge-no { background: #FFEBEE; color: #8E1212; }
+  </style>
+</head>
+<body>
+  <h1>Aviso de Privacidad — Monvel · Autofill SAT</h1>
+
+  <div class="meta">
+    <strong>Extensión:</strong> Monvel · Autofill SAT (Chrome / Edge)<br>
+    <strong>Versión:</strong> 1.0.0<br>
+    <strong>Responsable del tratamiento:</strong> Despacho Monvel · Sistema CFDI<br>
+    <strong>Última actualización:</strong> 24 de mayo de 2026
+  </div>
+
+  <h2>1. Resumen ejecutivo</h2>
+  <p>
+    Esta extensión <strong>NO recopila, almacena, transmite ni vende datos personales de los usuarios</strong>.
+    Solo facilita el autollenado del formulario de inicio de sesión del portal del SAT
+    (<code>sat.gob.mx</code>) con las credenciales del cliente activo en una instalación local
+    de <strong>Monvel CFDI</strong> que el propio contador opera en su despacho.
+  </p>
+
+  <h2>2. Datos que la extensión procesa</h2>
+  <table>
+    <thead>
+      <tr><th>Dato</th><th>¿Se procesa?</th><th>¿Se almacena?</th><th>¿Se envía a terceros?</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>URL del servidor Monvel local<br>(ej. <code>https://localhost:8443</code>)</td>
+        <td><span class="badge badge-ok">Sí</span></td>
+        <td>Local: <code>chrome.storage.local</code></td>
+        <td><span class="badge badge-no">No</span></td>
+      </tr>
+      <tr>
+        <td>Token de pareja con Monvel<br>(cadena aleatoria de 64 caracteres)</td>
+        <td><span class="badge badge-ok">Sí</span></td>
+        <td>Local: <code>chrome.storage.local</code></td>
+        <td><span class="badge badge-no">No</span></td>
+      </tr>
+      <tr>
+        <td>RFC del cliente activo</td>
+        <td><span class="badge badge-ok">Sí</span> (en memoria, mientras se hace autofill)</td>
+        <td><span class="badge badge-no">No</span></td>
+        <td><span class="badge badge-no">No</span></td>
+      </tr>
+      <tr>
+        <td>Contraseña CIEC del cliente activo</td>
+        <td><span class="badge badge-ok">Sí</span> (en memoria, mientras se hace autofill)</td>
+        <td><span class="badge badge-no">No</span></td>
+        <td><span class="badge badge-no">No</span></td>
+      </tr>
+      <tr>
+        <td>Historial de navegación</td>
+        <td><span class="badge badge-no">No</span></td>
+        <td><span class="badge badge-no">No</span></td>
+        <td><span class="badge badge-no">No</span></td>
+      </tr>
+      <tr>
+        <td>Cookies de otros sitios</td>
+        <td><span class="badge badge-no">No</span></td>
+        <td><span class="badge badge-no">No</span></td>
+        <td><span class="badge badge-no">No</span></td>
+      </tr>
+      <tr>
+        <td>Analytics / telemetría</td>
+        <td><span class="badge badge-no">No</span></td>
+        <td><span class="badge badge-no">No</span></td>
+        <td><span class="badge badge-no">No</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Flujo de datos</h2>
+  <p>Cuando el contador entra al formulario de login del SAT:</p>
+  <ol>
+    <li>La extensión detecta que está en un dominio del SAT (solo: <code>login.siat.sat.gob.mx</code>, <code>cfdiau.sat.gob.mx</code>, <code>rfcampc.siat.sat.gob.mx</code>).</li>
+    <li>Hace una solicitud HTTPS al servidor Monvel del despacho (<code>https://localhost:8443/extension/credenciales-cliente-activo</code>) enviando el token de pareja.</li>
+    <li>El servidor Monvel valida el token, identifica al cliente activo y devuelve <strong>RFC + CIEC desencriptada</strong>.</li>
+    <li>La extensión inyecta esos valores en los campos del formulario del SAT y los descarta de memoria inmediatamente.</li>
+    <li>El contador escribe el captcha y envía manualmente.</li>
+  </ol>
+  <p>
+    <strong>Las credenciales NUNCA se envían a servidores externos</strong>. Todo el tráfico ocurre
+    entre la extensión del navegador y el servidor Monvel local del despacho, vía HTTPS.
+  </p>
+
+  <h2>4. Permisos solicitados y justificación</h2>
+  <table>
+    <thead>
+      <tr><th>Permiso</th><th>Para qué se usa</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>storage</code></td>
+        <td>Guardar la URL del servidor Monvel y el token de pareja en
+          <code>chrome.storage.local</code> (datos del propio usuario).</td>
+      </tr>
+      <tr>
+        <td><code>*://*.sat.gob.mx/*</code></td>
+        <td>Detectar el formulario de login del SAT (un <code>content_script</code> se inyecta
+          en estos dominios) para mostrar el banner de autollenado.</td>
+      </tr>
+      <tr>
+        <td><code>https://localhost:8443/*</code><br><code>https://127.0.0.1:8443/*</code></td>
+        <td>Comunicarse con el servidor Monvel local del despacho para obtener
+          las credenciales del cliente activo.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>La extensión <strong>NO solicita</strong> permisos para: <code>tabs</code>, <code>history</code>,
+    <code>cookies</code>, <code>webRequest</code>, ni acceso a otros sitios web.</p>
+
+  <h2>5. Encriptación y seguridad</h2>
+  <ul>
+    <li>La comunicación entre la extensión y el servidor Monvel viaja por <strong>HTTPS/TLS</strong>.</li>
+    <li>La contraseña CIEC se almacena <strong>cifrada con Fernet</strong> (AES-128-CBC + HMAC-SHA256)
+      en la base de datos del servidor Monvel, no en la extensión.</li>
+    <li>El token de pareja entre la extensión y el servidor tiene vigencia de <strong>90 días</strong> y es
+      revocable individualmente desde Monvel.</li>
+    <li>Cada solicitud de credenciales queda registrada en la bitácora de auditoría del servidor Monvel.</li>
+  </ul>
+
+  <h2>6. Acceso, rectificación y eliminación de datos</h2>
+  <p>
+    Como esta extensión no almacena datos en servidores propios ni los comparte con terceros, los únicos
+    datos involucrados son los del propio usuario en su navegador y los del servidor Monvel del despacho.
+  </p>
+  <ul>
+    <li><strong>Eliminar datos de la extensión:</strong> desinstalar la extensión desde
+      <code>chrome://extensions/</code> elimina automáticamente el token y la URL almacenados.</li>
+    <li><strong>Revocar el token:</strong> el contador puede revocar individualmente cualquier
+      token desde el panel administrativo de Monvel (<em>Configuración → Extensión Chrome</em>).</li>
+    <li><strong>Eliminar credenciales del despacho:</strong> el administrador del despacho puede
+      eliminar las contraseñas CIEC almacenadas desde el módulo de clientes de Monvel.</li>
+  </ul>
+
+  <h2>7. Cambios al aviso de privacidad</h2>
+  <p>
+    Si actualizamos este aviso, la nueva versión se publicará en esta misma URL y se anotará la
+    fecha de actualización al inicio del documento. Cambios sustanciales (recopilación nueva de datos,
+    nuevos permisos) requerirán que el usuario reinstale o re-autorice la extensión.
+  </p>
+
+  <h2>8. Contacto</h2>
+  <p>
+    Despacho Monvel<br>
+    Correo: <code>contabilidad.fac2225@gmail.com</code><br>
+    Teléfono: 594 135 00 96<br>
+    Sistema: <code>Monvel · Sistema CFDI</code>
+  </p>
+
+  <hr>
+  <p style="font-size: 12px; color: #888; margin-top: 30px">
+    Este aviso de privacidad se proporciona para cumplir con los requisitos del Chrome Web Store
+    Developer Program Policies y la <em>Ley Federal de Protección de Datos Personales en Posesión
+    de los Particulares (LFPDPPP)</em> de México.
+  </p>
+</body>
+</html>

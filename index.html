@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MONVEL — El software que tu despacho se merece</title>
+<meta name="description" content="Plataforma todo-en-uno para despachos contables en México: descarga SAT, CFDI 4.0, nómina, contabilidad y declaración anual. Tus datos en tu servidor.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Monvel — Todo tu despacho, en un solo lugar">
+<meta property="og:description" content="El software contable que tu despacho se merece. Plataforma todo-en-uno para despachos en México — sin nube extranjera.">
+<meta property="og:url" content="https://www.monvel.mx/">
+<meta property="og:locale" content="es_MX">
+<meta property="og:image" content="https://www.monvel.mx/og-image.png">
+<meta property="og:image:width" content="1400">
+<meta property="og:image:height" content="560">
+<meta property="og:image:alt" content="Monvel — Despacho Monvel · Todo tu despacho, en un solo lugar">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Monvel — Todo tu despacho, en un solo lugar">
+<meta name="twitter:description" content="El software contable que tu despacho se merece.">
+<meta name="twitter:image" content="https://www.monvel.mx/og-image.png">
+<meta name="theme-color" content="#5C1722">
+<link rel="icon" type="image/png" sizes="32x32" href="logo-monvel-mark.png">
+<link rel="icon" type="image/png" sizes="192x192" href="logo-monvel-mark.png">
+<link rel="apple-touch-icon" href="logo-monvel-mark.png">
+<link rel="shortcut icon" href="logo-monvel-mark.png">
+<link rel="canonical" href="https://www.monvel.mx/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"Organization","name":"Monvel","url":"https://www.monvel.mx/","description":"Plataforma contable, fiscal y CFDI para despachos en México.","contactPoint":{"@type":"ContactPoint","email":"contacto@monvel.mx","contactType":"sales","areaServed":"MX","availableLanguage":"Spanish"}},
+    {"@type":"SoftwareApplication","name":"Monvel","operatingSystem":"Web, iOS, Android (PWA)","applicationCategory":"BusinessApplication","applicationSubCategory":"AccountingApplication","offers":{"@type":"Offer","price":"299","priceCurrency":"MXN","priceValidUntil":"2026-12-31"},"description":"Plataforma todo-en-uno para despachos contables en México: descarga SAT, CFDI 4.0, nómina, contabilidad y declaración anual."},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"¿Necesito instalar algo en mi computadora?","acceptedAnswer":{"@type":"Answer","text":"No. Monvel corre 100% en tu navegador. Solo abres tu cuenta y entras. Si quieres, se instala en tu celular como app (PWA)."}},
+      {"@type":"Question","name":"¿Cómo migro mis datos de CONTPAQi, Alegra o Excel?","acceptedAnswer":{"@type":"Answer","text":"Sin costo. Nos conectamos al SAT con tu CIEC, descargamos todo tu histórico de CFDIs y armamos tu contabilidad automáticamente."}},
+      {"@type":"Question","name":"¿Mis datos están seguros? ¿Dónde viven?","acceptedAnswer":{"@type":"Answer","text":"En tu propio servidor, dentro de tu despacho, en México. Cifrados en disco con respaldos automáticos. Cumple LFPDPPP."}},
+      {"@type":"Question","name":"¿Cuántos clientes (RFC) puedo manejar?","acceptedAnswer":{"@type":"Answer","text":"Ilimitados desde el plan Básico. No cobramos por RFC adicional."}}
+    ]}
+  ]
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --vin:#5C1722; --vin-dk:#3d0f17; --vin-lt:#7a2030;
+  --gold:#C9A84C; --gold-lt:#e8c96a;
+  --slate:#2D3142; --cream:#F8F4EF;
+  --txt:#1a1a2e; --txt-m:#5a5a7a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--txt);background:#fff;line-height:1.6;overflow-x:hidden}
+img,table{max-width:100%}
+
+/* ── HERO (Vintage Spirit) ── */
+.hero{
+  background:
+    repeating-linear-gradient(135deg,transparent 0 28px,rgba(201,168,76,.025) 28px 29px),
+    linear-gradient(135deg,var(--vin-dk) 0%,var(--vin) 50%,var(--vin-dk) 100%);
+  color:#fff;padding:56px 64px 48px;position:relative;overflow:hidden
+}
+.hero::before{
+  content:'';position:absolute;inset:18px;border:1px solid rgba(201,168,76,.28);pointer-events:none
+}
+.hero::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-lt),var(--gold))
+}
+.hero-inner{display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;max-width:1080px;margin:0 auto;position:relative;z-index:1}
+.hero-logo{width:200px;height:200px;border-radius:50%;flex-shrink:0;
+  max-width:none;aspect-ratio:1/1;object-fit:cover;
+  box-shadow:0 12px 36px rgba(0,0,0,.5),0 0 0 3px rgba(201,168,76,.18),0 0 0 5px var(--vin),0 0 0 6px rgba(201,168,76,.4);
+  display:block}
+.brand-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:14px;color:var(--gold);font-size:11.5px;letter-spacing:5px;text-transform:uppercase;font-weight:600}
+.brand-eyebrow .hl{width:28px;height:1px;background:var(--gold)}
+.brand-name{font-family:'Cormorant Garamond',serif;font-size:78px;font-weight:700;line-height:.95;letter-spacing:1.5px;color:#fff;margin-bottom:14px}
+.brand-name .m{color:inherit}
+.brand-ornament{display:flex;align-items:center;gap:10px;max-width:480px;margin-bottom:14px}
+.brand-ornament .hl{flex:1;height:1px}
+.brand-ornament .hl:first-child{background:linear-gradient(90deg,transparent,var(--gold) 80%)}
+.brand-ornament .hl:last-child{background:linear-gradient(90deg,var(--gold) 20%,transparent)}
+.brand-ornament .diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
+.brand-tag{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;font-weight:500;color:var(--gold-lt);margin-bottom:10px}
+.brand-sub{font-family:'Inter',sans-serif;font-size:14.5px;color:rgba(255,255,255,.72);max-width:460px;font-weight:400;line-height:1.5}
+.hero-stats{display:flex;gap:16px}
+.hero-cta-row{display:flex;gap:18px;align-items:center;margin-top:24px;flex-wrap:wrap}
+.hero-cta-2{color:rgba(255,255,255,.82);text-decoration:none;font-size:13px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.32);padding-bottom:2px;transition:color .15s,border-color .15s}
+.hero-cta-2:hover{color:#fff;border-color:#fff}
+.stat-box{
+  background:rgba(255,255,255,.08);border:1px solid rgba(201,168,76,.35);
+  border-radius:12px;padding:18px 26px;text-align:center;backdrop-filter:blur(4px)
+}
+.stat-num{font-size:34px;font-weight:700;color:var(--gold);display:block;line-height:1}
+.stat-lbl{font-size:10.5px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1020px;margin:0 auto;padding:0 64px}
+section{padding:52px 0}
+.gold-line{width:48px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-lt));border-radius:2px;margin-bottom:18px}
+.sec-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--vin);margin-bottom:8px}
+.sec-title.wh{color:#fff}
+.sec-sub{font-size:14.5px;color:var(--txt-m);margin-bottom:36px;max-width:620px}
+
+/* ── APP PREVIEW (mockup) ── */
+.pv-wrap{padding-top:50px;padding-bottom:8px}
+.preview{background:#fff;border-radius:16px;box-shadow:0 22px 60px rgba(61,15,23,.20);border:1px solid #ededed;overflow:hidden;max-width:900px;margin:0 auto}
+.pv-bar{background:linear-gradient(90deg,#f3eef0,#ece6e9);padding:11px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #e6dfe2}
+.pv-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
+.pv-url{margin-left:12px;font-size:12px;color:#9a8e93;background:#fff;border:1px solid #eee;border-radius:6px;padding:5px 16px;flex:1;max-width:300px}
+.pv-body{padding:24px}
+.pv-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin-bottom:18px}
+.pv-kpi{background:var(--cream);border-radius:11px;padding:15px 16px;border:1px solid #efe9e3}
+.pv-k-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--txt-m);display:block}
+.pv-k-num{font-size:20px;font-weight:700;font-family:'Playfair Display',serif;display:block;margin-top:5px}
+.pv-spark{display:flex;align-items:flex-end;gap:3px;height:24px;margin-top:10px}
+.pv-spark i{flex:1;background:linear-gradient(180deg,var(--gold-lt),var(--gold));border-radius:2px 2px 0 0;display:block}
+.pv-rows{display:flex;flex-direction:column;gap:8px}
+.pv-row{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:11px 15px;background:#fafafa;border:1px solid #f0f0f0;border-radius:9px;font-size:12.5px;color:var(--slate)}
+.pv-amt{color:var(--txt-m);font-variant-numeric:tabular-nums}
+.pv-tag{font-size:9.5px;font-weight:700;padding:3px 11px;border-radius:20px;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}
+.pv-tag.ded{background:#e7f6ec;color:#2f9e5e}
+.pv-tag.nod{background:#fdeaea;color:#c0392b}
+.pv-cap{text-align:center;font-size:13.5px;color:var(--txt-m);margin-top:18px;font-style:italic}
+
+/* ── PAIN POINTS ── */
+.pain-bg{background:var(--cream)}
+.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pain{background:#fff;border-radius:12px;padding:28px;border-left:4px solid var(--vin);box-shadow:0 2px 14px rgba(0,0,0,.06)}
+.pain-ico{font-size:30px;margin-bottom:12px;display:block}
+.pain-ttl{font-weight:700;font-size:13px;color:var(--vin);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px}
+.pain p{font-size:13.5px;color:var(--txt-m);line-height:1.65;text-align:justify;hyphens:auto}
+
+/* ── FEATURES ── */
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.feat{background:var(--cream);border-radius:14px;padding:26px;border-top:3px solid var(--gold);transition:transform .15s,box-shadow .15s}
+.feat:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(92,23,34,.10)}
+.feat-ico{
+  width:50px;height:50px;background:linear-gradient(135deg,var(--vin),var(--vin-lt));
+  border-radius:13px;display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:15px;color:var(--gold-lt);font-weight:700;
+  box-shadow:0 6px 16px rgba(92,23,34,.28);border:1px solid rgba(201,168,76,.45)
+}
+.feat-ttl{font-weight:700;font-size:14.5px;color:var(--slate);margin-bottom:8px}
+.feat p{font-size:12.5px;color:var(--txt-m);line-height:1.62;text-align:justify;hyphens:auto}
+
+/* ── REPLACES STRIP ── */
+.repl{background:#fff;border:1px dashed rgba(201,168,76,.55);border-radius:14px;padding:26px 30px;margin-top:34px;text-align:center}
+.repl-ttl{font-family:'Playfair Display',serif;font-size:18px;color:var(--vin);font-weight:700;margin-bottom:14px}
+.repl-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.repl-tag{font-size:12.5px;color:var(--txt-m);background:var(--cream);border-radius:20px;padding:7px 15px;border:1px solid #ececec}
+.repl-tag s{color:#b9b3bf}
+
+/* ── COMPARISON ── */
+.comp-bg{background:linear-gradient(135deg,var(--vin-dk),var(--vin));padding:52px 0}
+.ctbl{width:100%;border-collapse:collapse;font-size:13px}
+.ctbl th{padding:13px 12px;text-align:center;font-weight:600;border-bottom:2px solid rgba(201,168,76,.25)}
+.ctbl th:first-child{text-align:left;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);width:34%}
+.ctbl th.mv{background:rgba(201,168,76,.14);color:var(--gold-lt);border-radius:8px 8px 0 0}
+.ctbl th.ot{color:rgba(255,255,255,.5)}
+.ctbl td{padding:10px 12px;text-align:center;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.06)}
+.ctbl td:first-child{text-align:left;color:rgba(255,255,255,.7)}
+.ctbl td.mv{background:rgba(201,168,76,.07);font-weight:600}
+.yes{color:#4ade80!important;font-size:16px}
+.no{color:rgba(255,255,255,.2)!important;font-size:16px}
+.par{color:#fbbf24!important;font-size:11.5px}
+
+/* ── HISTORY ── */
+.hist-bg{background:var(--cream)}
+.hist-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hist-txt p{font-size:14.5px;color:var(--txt-m);line-height:1.78;margin-bottom:14px;text-align:justify;hyphens:auto}
+.hist-txt strong{color:var(--vin)}
+.founders{background:#fff;border-radius:16px;padding:36px;text-align:center;border:1px solid rgba(201,168,76,.2);box-shadow:0 2px 16px rgba(0,0,0,.05)}
+.fdr{margin-bottom:22px}
+.fdr-av{
+  width:62px;height:62px;background:linear-gradient(135deg,var(--vin),var(--vin-lt));
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:22px;font-family:'Playfair Display',serif;font-weight:700;color:#fff;
+  margin:0 auto 12px
+}
+.fdr-name{font-weight:700;font-size:14px;color:var(--slate)}
+.fdr-role{font-size:12px;color:var(--txt-m);margin-top:3px;line-height:1.5}
+.fdr-div{height:1px;background:rgba(201,168,76,.2);margin:18px 0}
+.fdr-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--vin);line-height:1.65}
+
+/* ── STEPS ── */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+.steps::before{
+  content:'';position:absolute;top:26px;left:17%;right:17%;
+  height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-lt),var(--gold))
+}
+.step{text-align:center;padding:0 24px}
+.step-n{
+  width:52px;height:52px;background:linear-gradient(135deg,var(--vin),var(--vin-lt));
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:19px;font-weight:900;color:#fff;margin:0 auto 16px;
+  font-family:'Playfair Display',serif;border:3px solid var(--gold);position:relative;z-index:1
+}
+.step-ttl{font-weight:700;font-size:14px;color:var(--slate);margin-bottom:8px}
+.step p{font-size:13px;color:var(--txt-m);line-height:1.65}
+
+/* ── PRICING ── */
+.price-bg{background:var(--cream)}
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pc{background:#fff;border-radius:16px;padding:32px 26px;box-shadow:0 2px 16px rgba(0,0,0,.06);border:1px solid #ebebeb;position:relative}
+.pc.hot{border-color:var(--gold);box-shadow:0 4px 24px rgba(92,23,34,.12);transform:scale(1.03)}
+.hot-badge{
+  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(90deg,var(--vin),var(--vin-lt));color:#fff;
+  font-size:10.5px;font-weight:700;padding:4px 16px;border-radius:20px;letter-spacing:1px;text-transform:uppercase
+}
+.pc-plan{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--txt-m);margin-bottom:8px}
+.pc-price{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--vin);line-height:1}
+.pc-price sup{font-size:16px;font-family:'Inter',sans-serif;font-weight:400;color:var(--txt-m)}
+.pc-price sub{font-size:13px;font-family:'Inter',sans-serif;font-weight:400;color:var(--txt-m)}
+.pc-clients{font-size:12px;color:var(--txt-m);margin:8px 0 20px;padding-bottom:18px;border-bottom:1px solid #f0f0f0}
+.pc ul{list-style:none;margin-bottom:24px}
+.pc ul li{font-size:12.5px;color:var(--txt);padding:5px 0;display:flex;align-items:flex-start;gap:8px}
+.pc ul li::before{content:'✓';color:var(--vin);font-weight:700;flex-shrink:0}
+.pc-btn{
+  display:block;width:100%;padding:12px;border-radius:8px;text-align:center;
+  font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;
+  border:2px solid var(--vin);color:var(--vin);background:transparent;transition:all .2s
+}
+.pc.hot .pc-btn{background:var(--vin);color:#fff}
+.pc-note{font-size:11.5px;color:var(--txt-m);text-align:center;margin-top:20px}
+
+/* ── DEMO / LEAD FORM ── */
+.demo-bg{background:linear-gradient(135deg,var(--vin-dk),var(--vin) 60%,var(--vin-lt))}
+.demo-bg .sec-title{color:#fff}
+.demo-bg .sec-sub{color:rgba(255,255,255,.72)}
+.lead-form{background:#fff;border-radius:16px;padding:30px;max-width:660px;box-shadow:0 12px 44px rgba(0,0,0,.22)}
+.lf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.lf-field{margin-bottom:16px;display:flex;flex-direction:column}
+.lf-field label{font-size:12px;font-weight:600;color:var(--slate);margin-bottom:5px}
+.lf-field input,.lf-field select,.lf-field textarea{border:1px solid #d8d2cc;border-radius:8px;padding:10px 12px;font-size:14px;font-family:inherit;color:var(--txt);background:#fff;width:100%}
+.lf-field input:focus,.lf-field select:focus,.lf-field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.18)}
+.lf-field textarea{resize:vertical}
+.lf-btn{background:linear-gradient(90deg,var(--vin),var(--vin-lt));color:#fff;border:0;border-radius:8px;padding:13px 26px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit;width:100%;transition:opacity .2s}
+.lf-btn:hover{opacity:.92}
+.lf-note{font-size:11px;color:var(--txt-m);text-align:center;margin-top:12px}
+@media(max-width:600px){.lf-row{grid-template-columns:1fr}.lead-form{padding:22px 18px}}
+
+/* ── ANIMACIONES Y MICRO-INTERACCIONES ── */
+html{scroll-behavior:smooth}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.08s}
+.reveal-d2{transition-delay:.16s}
+.reveal-d3{transition-delay:.24s}
+
+/* Hero con malla de luz para profundidad (no agresivo) */
+.hero{background:
+  radial-gradient(ellipse at top right,rgba(201,168,76,.18) 0%,transparent 55%),
+  radial-gradient(ellipse at bottom left,rgba(122,32,48,.45) 0%,transparent 60%),
+  linear-gradient(135deg,var(--vin-dk) 0%,var(--vin) 55%,var(--vin-lt) 100%)}
+
+/* Hover lifts elegantes en cards de contenido */
+.pain{transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s}
+.pain:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(92,23,34,.13)}
+.step{transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.step:hover{transform:translateY(-3px)}
+.pc{transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s}
+.pc:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(92,23,34,.16)}
+.pc.hot:hover{transform:scale(1.03) translateY(-5px)}
+
+/* Hover en filas de la tabla comparativa */
+.ctbl tbody tr{transition:background .2s}
+.ctbl tbody tr:hover{background:rgba(201,168,76,.07)}
+
+/* Sparklines del mockup: animación de barras al entrar en pantalla */
+.pv-spark i{transform-origin:bottom;transform:scaleY(0);transition:transform .9s cubic-bezier(.16,1,.3,1)}
+.pv-spark.in i{transform:scaleY(1)}
+.pv-spark.in i:nth-child(1){transition-delay:.00s}
+.pv-spark.in i:nth-child(2){transition-delay:.08s}
+.pv-spark.in i:nth-child(3){transition-delay:.16s}
+.pv-spark.in i:nth-child(4){transition-delay:.24s}
+.pv-spark.in i:nth-child(5){transition-delay:.32s}
+.pv-spark.in i:nth-child(6){transition-delay:.40s}
+
+/* Underline animado en nav del sticky header */
+.hd-nav a{position:relative;padding-bottom:3px}
+.hd-nav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.hd-nav a:hover::after,.hd-nav a.active::after{transform:scaleX(1)}
+
+/* Cursor parpadeante para el efecto typewriter de Velia */
+.tw-cursor{display:inline-block;width:2px;height:1em;background:var(--vin);margin-left:2px;vertical-align:-2px;animation:tw-blink 1s steps(2) infinite}
+@keyframes tw-blink{50%{opacity:0}}
+
+/* Focus visibles para accesibilidad (WCAG 2.1) */
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+  outline:3px solid rgba(201,168,76,.55);outline-offset:2px;border-radius:6px
+}
+
+/* Respeto a prefers-reduced-motion (accesibilidad) */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .reveal,.reveal-d1,.reveal-d2,.reveal-d3{opacity:1;transform:none;transition:none}
+  .pv-spark i{transform:scaleY(1);transition:none}
+  .feat:hover,.pain:hover,.step:hover,.pc:hover,.ctbl tbody tr:hover{transform:none;box-shadow:none}
+  .tw-cursor{animation:none}
+}
+
+/* ── STICKY HEADER ── */
+.hd-sticky{position:sticky;top:0;background:rgba(61,15,23,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;z-index:100;border-bottom:1px solid rgba(201,168,76,.25)}
+.hd-inner{max-width:1020px;margin:0 auto;padding:12px 64px;display:flex;align-items:center;gap:24px}
+.hd-brand{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:24px;color:#fff;text-decoration:none;letter-spacing:1.2px;white-space:nowrap}
+.hd-brand .hd-m{color:inherit}
+.hd-brand::before{content:'';display:inline-block;width:5px;height:5px;background:var(--gold);transform:rotate(45deg);vertical-align:middle;margin-right:11px;position:relative;top:-3px}
+.hd-nav{display:flex;gap:22px;margin-left:auto}
+.hd-nav a{color:rgba(255,255,255,.78);text-decoration:none;font-size:13px;font-weight:500;transition:color .15s}
+.hd-nav a:hover{color:var(--gold-lt)}
+.hd-cta{background:linear-gradient(90deg,var(--gold),var(--gold-lt));color:var(--slate);padding:8px 18px;border-radius:7px;font-weight:700;font-size:13px;text-decoration:none}
+@media(max-width:640px){.hd-inner{padding:10px 16px;gap:10px}.hd-nav{display:none}.hd-brand{font-size:18px}.hd-cta{padding:7px 14px;font-size:12px}}
+
+/* ── VELIA (IA) BLOCK ── */
+.velia-bg{background:linear-gradient(135deg,#1a1a2e,var(--vin-dk));color:#fff}
+.velia-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.velia-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:600}
+.velia-bg .sec-title{color:#fff}
+.velia-lead{font-size:14.5px;color:rgba(255,255,255,.78);margin:8px 0 18px;line-height:1.75;text-align:justify}
+.velia-lead strong{color:var(--gold-lt)}
+.velia-feats{list-style:none}
+.velia-feats li{font-size:13.5px;color:rgba(255,255,255,.72);padding:6px 0 6px 22px;position:relative;line-height:1.5}
+.velia-feats li::before{content:'✦';position:absolute;left:0;color:var(--gold);font-size:14px}
+.velia-feats em{color:var(--gold-lt);font-style:italic}
+.velia-bubble{background:#fff;border-radius:18px;padding:22px;box-shadow:0 18px 50px rgba(0,0,0,.4);max-width:420px;margin-left:auto}
+.vb-msg{padding:11px 14px;border-radius:12px;font-size:13px;margin-bottom:10px;line-height:1.5}
+.vb-user{background:#f0f0f5;color:var(--slate);margin-left:30px;border-bottom-right-radius:3px}
+.vb-bot{background:linear-gradient(135deg,var(--cream),#fbf4ea);color:var(--txt);margin-right:30px;border-bottom-left-radius:3px;border-left:3px solid var(--gold)}
+.vb-bot b{color:var(--vin)}
+@media(max-width:900px){.velia-grid{grid-template-columns:1fr;gap:28px}.velia-bubble{margin:0 auto}}
+
+/* ── PRIVACY BLOCK ── */
+.priv-bg{background:linear-gradient(135deg,#0f1820,#1d2632);color:#fff}
+.priv-grid{display:grid;grid-template-columns:auto 1fr;gap:38px;align-items:center}
+.priv-shield{font-size:96px;line-height:1;filter:drop-shadow(0 6px 20px rgba(201,168,76,.35))}
+.priv-bg .sec-title{color:#fff}
+.priv-bg .sec-sub{color:rgba(255,255,255,.74);text-align:justify;max-width:none}
+.priv-bg .sec-sub strong{color:var(--gold-lt)}
+.priv-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.priv-tag{background:rgba(201,168,76,.13);border:1px solid rgba(201,168,76,.4);color:var(--gold-lt);font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:20px}
+@media(max-width:640px){.priv-grid{grid-template-columns:1fr;text-align:center;gap:20px}.priv-shield{font-size:72px}.priv-tags{justify-content:center}}
+
+/* ── FAQ ── */
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-q{background:var(--cream);border-radius:10px;border-left:3px solid var(--gold)}
+.faq-q summary{padding:16px 22px;cursor:pointer;font-weight:600;font-size:14px;color:var(--slate);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq-q summary::-webkit-details-marker{display:none}
+.faq-q summary::after{content:'+';font-size:22px;color:var(--vin);font-weight:300;transition:transform .2s;flex-shrink:0}
+.faq-q[open] summary::after{transform:rotate(45deg)}
+.faq-q p{padding:0 22px 18px;font-size:13.5px;color:var(--txt-m);line-height:1.7;text-align:justify;margin:0}
+
+/* ── WHATSAPP FAB ── */
+.wa-fab{position:fixed;bottom:24px;right:24px;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.4),0 0 0 4px rgba(37,211,102,.15);z-index:1000;transition:transform .2s,box-shadow .2s;text-decoration:none}
+.wa-fab:hover{transform:scale(1.08);box-shadow:0 10px 32px rgba(37,211,102,.5)}
+@media print{.wa-fab,.hd-sticky{display:none}}
+
+/* ── FOOTER ── */
+.footer{
+  background:linear-gradient(135deg,var(--slate),var(--vin-dk));color:#fff;
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;align-items:center;
+  padding:40px 64px
+}
+.ft-brand .fn{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;letter-spacing:1.2px;color:#fff}
+.ft-brand .fn .m{color:inherit}
+.ft-brand .ft{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold-lt);margin-top:4px;font-style:italic}
+.ft-contact p{font-size:13px;color:rgba(255,255,255,.65);margin-bottom:9px;display:flex;align-items:center;gap:9px}
+.ft-cta{text-align:right}
+.btn-demo{
+  display:inline-block;background:linear-gradient(90deg,var(--gold),var(--gold-lt));
+  color:var(--slate);padding:14px 28px;border-radius:8px;font-weight:700;font-size:14px;
+  text-decoration:none;letter-spacing:.4px
+}
+.btn-note{font-size:11px;color:rgba(255,255,255,.3);margin-top:8px;text-align:right}
+
+/* ── TABLET (≤ 900px) ── */
+@media(max-width:900px){
+  .hero{padding:40px 32px 36px}
+  .hero-inner{grid-template-columns:1fr;gap:22px;justify-items:center;text-align:center}
+  .hero-logo{width:160px;height:160px}
+  .brand-name{font-size:60px;letter-spacing:1.2px}
+  .brand-eyebrow{justify-content:center}
+  .brand-ornament{margin-left:auto;margin-right:auto}
+  .brand-sub{margin-left:auto;margin-right:auto}
+  .hero-cta-row{justify-content:center}
+  .brand-tag{font-size:21px}
+  .wrap{padding:0 32px}
+  section{padding:38px 0}
+  .pains{grid-template-columns:1fr 1fr}
+  .feats{grid-template-columns:1fr 1fr}
+  .comp-bg .wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .ctbl{min-width:620px}
+  .hist-grid{grid-template-columns:1fr;gap:28px}
+  .founders{max-width:480px}
+  .steps::before{display:none}
+  .steps{grid-template-columns:1fr;gap:16px}
+  .step{text-align:left;display:flex;align-items:flex-start;gap:14px;padding:0}
+  .step-n{margin:0;flex-shrink:0}
+  .prices{grid-template-columns:1fr}
+  .pc.hot{transform:none}
+  .footer{grid-template-columns:1fr 1fr;padding:32px}
+  .ft-cta{grid-column:1/-1;text-align:left}
+  .btn-note{text-align:left}
+}
+
+/* ── MOBILE (≤ 600px) ── */
+@media(max-width:600px){
+  .hero{padding:26px 16px 24px}
+  .hero::before{inset:10px}
+  .hero-logo{width:120px;height:120px}
+  .brand-name{font-size:44px;letter-spacing:.8px;margin-bottom:10px}
+  .brand-eyebrow{font-size:10px;letter-spacing:3.5px;gap:8px;margin-bottom:10px}
+  .brand-eyebrow .hl{width:18px}
+  .brand-ornament{margin-bottom:10px}
+  .brand-tag{font-size:17px;margin-bottom:8px}
+  .brand-sub{font-size:13px}
+  .hero-stats{gap:8px;flex-wrap:wrap}
+  .stat-box{padding:10px 14px;flex:1;min-width:72px}
+  .stat-num{font-size:24px}
+  .stat-lbl{font-size:9px}
+  .wrap{padding:0 16px}
+  section{padding:28px 0}
+  .sec-title{font-size:20px}
+  .sec-sub{font-size:13px;margin-bottom:20px}
+  .gold-line{margin-bottom:12px}
+  .pv-wrap{padding-top:30px}
+  .pv-body{padding:16px}
+  .pv-k-num{font-size:17px}
+  .pain-bg section,.price-bg section,.hist-bg section{padding:28px 0}
+  .pains{grid-template-columns:1fr}
+  .pain{padding:22px 20px}
+  .pain-ico{font-size:26px}
+  .feats{grid-template-columns:1fr}
+  .feat{padding:22px 20px}
+  .feat-ico{width:44px;height:44px;font-size:21px}
+  .repl{padding:22px 18px}
+  .comp-bg{padding:32px 0}
+  .comp-bg .wrap{padding:0 16px}
+  .ctbl{min-width:600px;font-size:12px}
+  .ctbl th,.ctbl td{padding:9px 9px}
+  .hist-grid{grid-template-columns:1fr;gap:22px}
+  .founders{padding:24px 20px}
+  .fdr-av{width:52px;height:52px;font-size:18px}
+  .steps{grid-template-columns:1fr;gap:14px}
+  .steps::before{display:none}
+  .step{text-align:left;display:flex;align-items:flex-start;gap:12px;padding:0}
+  .step-n{width:44px;height:44px;font-size:16px;margin:0;flex-shrink:0}
+  .prices{grid-template-columns:1fr}
+  .pc.hot{transform:none}
+  .pc{padding:26px 20px}
+  .pc-price{font-size:32px}
+  .hot-badge{font-size:9.5px;padding:3px 12px}
+  .footer{grid-template-columns:1fr;gap:20px;padding:26px 16px}
+  .ft-brand .fn{font-size:26px}
+  .ft-cta{text-align:left}
+  .btn-demo{display:block;text-align:center;padding:14px 20px;box-sizing:border-box}
+  .btn-note{text-align:left}
+  .ft-contact p{font-size:12.5px}
+  .pc-note{font-size:11px}
+}
+
+/* ── PRINT ── */
+@media print{
+  body{font-size:11px}
+  .hero{padding:36px 48px}
+  .wrap{padding:0 48px}
+  section{padding:32px 0}
+  .footer{padding:28px 48px}
+  .hero-stats{display:none}
+  .feat:hover{transform:none;box-shadow:none}
+  .pc.hot{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hd-sticky">
+  <div class="hd-inner">
+    <a href="#" class="hd-brand">MONVEL</a>
+    <nav class="hd-nav">
+      <a href="#features">Módulos</a>
+      <a href="#pricing">Planes</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#demo" class="hd-cta">Solicitar demo</a>
+  </div>
+</header>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<div class="hero">
+  <div class="hero-inner">
+    <img class="hero-logo" src="logo-monvel.jpg" alt="Despacho Monvel · Montalvo Velázquez">
+    <div>
+      <div class="brand-eyebrow"><span class="hl"></span><span>Despacho Monvel</span><span class="hl"></span></div>
+      <h1 class="brand-name">MONVEL</h1>
+      <div class="brand-ornament"><span class="hl"></span><span class="diamond"></span><span class="hl"></span></div>
+      <div class="brand-tag">"Todo tu despacho, en un solo lugar."</div>
+      <div class="brand-sub">Plataforma contable, fiscal y CFDI para despachos en México</div>
+      <div class="hero-cta-row">
+        <a href="#demo" class="btn-demo">Solicita tu demo gratis →</a>
+        <a href="#features" class="hero-cta-2">Ver todo lo que hace ↓</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box">
+        <span class="stat-num">86</span>
+        <span class="stat-lbl">Reglas LISR</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">∞</span>
+        <span class="stat-lbl">Clientes RFC</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">1</span>
+        <span class="stat-lbl">Plataforma todo-en-uno</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ APP PREVIEW ═══════════════════ -->
+<div class="wrap">
+<section class="pv-wrap">
+  <div class="preview">
+    <div class="pv-bar">
+      <span class="pv-dot" style="background:#ff5f56"></span>
+      <span class="pv-dot" style="background:#ffbd2e"></span>
+      <span class="pv-dot" style="background:#27c93f"></span>
+      <span class="pv-url">app.monvel.mx</span>
+    </div>
+    <div class="pv-body">
+      <div class="pv-kpis">
+        <div class="pv-kpi">
+          <span class="pv-k-lbl">Ingresos del mes</span>
+          <span class="pv-k-num" style="color:#2f9e5e">$1,284,500</span>
+          <span class="pv-spark"><i style="height:45%"></i><i style="height:62%"></i><i style="height:50%"></i><i style="height:78%"></i><i style="height:68%"></i><i style="height:96%"></i></span>
+        </div>
+        <div class="pv-kpi">
+          <span class="pv-k-lbl">Egresos del mes</span>
+          <span class="pv-k-num" style="color:#c0392b">$842,300</span>
+          <span class="pv-spark"><i style="height:38%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:60%"></i><i style="height:48%"></i><i style="height:70%"></i></span>
+        </div>
+        <div class="pv-kpi">
+          <span class="pv-k-lbl">IVA por pagar</span>
+          <span class="pv-k-num" style="color:var(--vin)">$70,752</span>
+          <span class="pv-spark"><i style="height:30%"></i><i style="height:48%"></i><i style="height:40%"></i><i style="height:65%"></i><i style="height:55%"></i><i style="height:72%"></i></span>
+        </div>
+        <div class="pv-kpi">
+          <span class="pv-k-lbl">CFDIs clasificados</span>
+          <span class="pv-k-num" style="color:var(--gold)">98%</span>
+          <span class="pv-spark"><i style="height:60%"></i><i style="height:70%"></i><i style="height:80%"></i><i style="height:85%"></i><i style="height:92%"></i><i style="height:98%"></i></span>
+        </div>
+      </div>
+      <div class="pv-rows">
+        <div class="pv-row"><span>Factura · Proveedor de papelería</span><span class="pv-amt">$ 3,480.00</span><span class="pv-tag ded">Deducible</span></div>
+        <div class="pv-row"><span>Factura · Restaurante (consumo)</span><span class="pv-amt">$ 1,250.00</span><span class="pv-tag nod">No deducible</span></div>
+        <div class="pv-row"><span>Factura · Renta de oficina</span><span class="pv-amt">$ 18,000.00</span><span class="pv-tag ded">Deducible</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="pv-cap">Una sola pantalla: descarga del SAT, clasifica, concilia y declara.</p>
+</section>
+</div>
+
+<!-- ═══════════════════ HISTORY (movida arriba 14-jun: prioridad/identificación) ═══════════════════ -->
+<div class="hist-bg">
+<div class="wrap">
+<section>
+  <div class="hist-grid">
+    <div class="hist-txt">
+      <div class="gold-line"></div>
+      <h2 class="sec-title" style="margin-bottom:22px">Por qué existe MONVEL</h2>
+      <p>MONVEL no nació en un laboratorio de innovación ni en una aceleradora tecnológica. <strong>Nació en un despacho contable real.</strong></p>
+      <p>Detrás de MONVEL están dos personas: <strong>A. Joseline Velázquez Hernández</strong>, Maestra en Derecho Fiscal con despacho propio, que durante años descargó CFDIs manualmente, concilió en Excel y revisó la LISR página por página — e <strong>Irvin Montalvo Espada</strong>, Ingeniero en Mecatrónica, que aplicó metodología técnica y visión de producto para automatizar todo ese proceso.</p>
+      <p>El nombre une sus dos apellidos. El software une dos mundos: la experiencia jurídico-fiscal real con la ingeniería de software. El resultado es una herramienta que <strong>solo podía haber sido diseñada por alguien que la necesitaba de verdad.</strong></p>
+    </div>
+    <div class="founders">
+      <div class="fdr">
+        <div class="fdr-av">J</div>
+        <div class="fdr-name">A. Joseline Velázquez Hernández</div>
+        <div class="fdr-role">Maestra en Derecho Fiscal<br>Directora — Despacho Monvel</div>
+      </div>
+      <div class="fdr-div"></div>
+      <div class="fdr" style="margin-bottom:0">
+        <div class="fdr-av">I</div>
+        <div class="fdr-name">Irvin Montalvo Espada</div>
+        <div class="fdr-role">Ingeniero en Mecatrónica<br>Arquitectura y Desarrollo de Software</div>
+      </div>
+      <div class="fdr-div"></div>
+      <p class="fdr-quote">"Diseñamos el software que ella siempre necesitó y que nunca existió."</p>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<!-- ═══════════════════ PAIN POINTS ═══════════════════ -->
+<!-- ═══════════════════ VELIA (IA) ═══════════════════ -->
+<div class="velia-bg">
+<div class="wrap">
+<section>
+  <div class="velia-grid">
+    <div class="velia-txt">
+      <div class="gold-line"></div>
+      <div class="velia-tag">🤖 Asistente con Inteligencia Artificial</div>
+      <h2 class="sec-title">Conoce a Velia</h2>
+      <p class="velia-lead">La IA que entiende la <strong>Ley del ISR mexicana</strong> — no la genérica de afuera. Velia revisa CFDIs, responde dudas fiscales con cita al artículo y prepara borradores de declaración.</p>
+      <ul class="velia-feats">
+        <li>Pregúntale en español: <em>"¿es deducible esta factura de gasolina?"</em></li>
+        <li>Te responde con la cita exacta del artículo LISR</li>
+        <li>Aprende los criterios de tu despacho con el tiempo</li>
+        <li>Trabaja sobre TUS datos (en tu servidor), no manda nada a la nube</li>
+      </ul>
+    </div>
+    <div class="velia-bubble">
+      <div class="vb-msg vb-user">¿es deducible un consumo en restaurante por $1,250?</div>
+      <div class="vb-msg vb-bot">Sí, pero solo el <b>8.5%</b>. Art. 28 fracción XX LISR: los consumos en restaurantes son deducibles únicamente al 8.5% siempre que se paguen con tarjeta. ¿Lo clasifico así?</div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<div class="pain-bg">
+<div class="wrap">
+<section>
+  <div class="gold-line"></div>
+  <h2 class="sec-title">¿Cuántos programas usa tu despacho cada mes?</h2>
+  <p class="sec-sub">Uno para descargar del SAT, otro para timbrar, otro para la nómina, otro para la contabilidad — y Excel para todo lo demás. El trabajo de un contador merece una sola herramienta hecha para él.</p>
+  <div class="pains">
+    <div class="pain">
+      <span class="pain-ico">⏱️</span>
+      <div class="pain-ttl">Descarga manual del SAT</div>
+      <p>Entrar uno a uno al portal por cada cliente: CFDIs, Constancia de Situación Fiscal, Opinión de Cumplimiento. Horas que no cobras, semana tras semana.</p>
+    </div>
+    <div class="pain">
+      <span class="pain-ico">📊</span>
+      <div class="pain-ttl">Todo termina en Excel</div>
+      <p>Conciliar el banco, armar la balanza, calcular la declaración anual, revisar deducibilidad. Hojas que se rompen, fórmulas que nadie más entiende.</p>
+    </div>
+    <div class="pain">
+      <span class="pain-ico">🧩</span>
+      <div class="pain-ttl">Software disperso</div>
+      <p>Una licencia por cada RFC, módulos que se cobran aparte, datos que no se hablan entre sí. Pagas de más y reconcilias a mano lo que debería estar conectado.</p>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<!-- ═══════════════════ FEATURES / MÓDULOS ═══════════════════ -->
+<div class="wrap">
+<section>
+  <div class="gold-line"></div>
+  <h2 class="sec-title" id="features">Todo el despacho, en un solo sistema</h2>
+  <p class="sec-sub">Ocho módulos integrados que comparten la misma información. Sin licencias por RFC. Sin módulos que se cobran aparte. 100% en tu navegador.</p>
+  <div class="feats">
+
+    <div class="feat">
+      <div class="feat-ico">↓</div>
+      <div class="feat-ttl">Descarga y cumplimiento SAT</div>
+      <p>Descarga masiva de CFDIs, Constancia de Situación Fiscal y Opinión 32-D con la e.firma del cliente. Extensión de navegador que autollena el portal del SAT, alerta de proveedores en Lista 69-B (EFOS) y avisos de vencimiento de FIEL, CIEC y CSD.</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-ico">⊞</div>
+      <div class="feat-ttl">Facturación CFDI 4.0</div>
+      <p>Emite y cancela facturas, notas de crédito, recibos de honorarios y complementos de pago. Complementos Carta Porte 3.1, Comercio Exterior e IEDU (colegiaturas). Borradores, asistente paso a paso y timbrado con tu propio PAC.</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-ico">₱</div>
+      <div class="feat-ttl">Nómina</div>
+      <p>Timbra recibos de nómina CFDI 4.0. Calcula ISR, IMSS, subsidio al empleo y aguinaldo, valida cada recibo contra las tablas del DOF y genera la póliza contable de la nómina en automático.</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-ico">∑</div>
+      <div class="feat-ttl">Contabilidad completa</div>
+      <p>Balance General, Estado de Resultados, Balanza y Auxiliar en pantalla. Catálogo SAT (Anexo 24), pólizas automáticas desde los CFDIs, activos fijos con depreciación e indicadores financieros — sin salir a Excel.</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-ico">§</div>
+      <div class="feat-ttl">Declaraciones y fiscal</div>
+      <p>Declaración Anual de Personas Físicas y Morales asistida (con topes de deducciones personales), IVA e ISR provisional, DIOT y conciliación contable-fiscal con depreciación fiscal vs. contable.</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-ico">✓</div>
+      <div class="feat-ttl">86 reglas de deducibilidad LISR</div>
+      <p>Cada CFDI se clasifica como deducible, no deducible o parcial, con referencia al artículo exacto de la Ley del ISR. Menos riesgo de multa para tu cliente, menos revisión manual para ti.</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-ico">✦</div>
+      <div class="feat-ttl">Aprende de tu despacho</div>
+      <p>Monvel memoriza cómo trabajas a cada cliente: la deducibilidad por proveedor, la cuenta contable que usas y los movimientos bancarios recurrentes. Lo decides una vez y lo repite el mes siguiente — y si lo deshaces, lo olvida. La competencia te obliga a configurarlo todo a mano, cada vez.</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-ico">⇌</div>
+      <div class="feat-ttl">Conciliación bancaria</div>
+      <p>Sube el estado de cuenta y Monvel cruza cada movimiento contra los CFDIs y las pólizas contables, con lectores por banco. En minutos, no en horas — y corriges los empates a mano cuando quieras.</p>
+    </div>
+
+    <div class="feat">
+      <div class="feat-ico">◎</div>
+      <div class="feat-ttl">Gestión del despacho</div>
+      <p>Varios contadores en un solo servidor, tablero por cliente con KPIs y alertas, cobranza de tus honorarios, reportes ejecutivos en PDF, asistente con Inteligencia Artificial, portal de autoservicio para el contribuyente y respaldos cifrados automáticos.</p>
+    </div>
+
+  </div>
+
+  <div class="repl">
+    <div class="repl-ttl">Monvel reemplaza, en una sola cuota:</div>
+    <div class="repl-tags">
+      <span class="repl-tag"><s>Descarga manual del SAT</s></span>
+      <span class="repl-tag"><s>Software de timbrado</s></span>
+      <span class="repl-tag"><s>Software de nómina</s></span>
+      <span class="repl-tag"><s>Software de contabilidad</s></span>
+      <span class="repl-tag"><s>Hojas de Excel</s></span>
+      <span class="repl-tag"><s>Una licencia por RFC</s></span>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════ COMPARISON ═══════════════════ -->
+<!-- ═══════════════════ PRIVACIDAD ═══════════════════ -->
+<div class="priv-bg">
+<div class="wrap">
+<section>
+  <div class="priv-grid">
+    <div class="priv-shield">🛡️</div>
+    <div>
+      <div class="gold-line"></div>
+      <h2 class="sec-title">Tus datos NO viven en una nube extranjera</h2>
+      <p class="sec-sub">A diferencia de Alegra, Bind o Aspel-COI, Monvel se instala en <strong>tu propio servidor</strong> — los datos fiscales de tus clientes nunca salen de tu despacho. Cifrado en disco, respaldos automáticos, cumplimiento LFPDPPP. Si Google o AWS bloquearan tu cuenta mañana, tu información sigue contigo.</p>
+      <div class="priv-tags">
+        <span class="priv-tag">📍 Datos en México</span>
+        <span class="priv-tag">🔒 Cifrado en disco</span>
+        <span class="priv-tag">💾 Respaldos automáticos</span>
+        <span class="priv-tag">⚖️ Cumple LFPDPPP</span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
+<div class="comp-bg">
+<div class="wrap">
+  <div class="gold-line"></div>
+  <h2 class="sec-title wh">MONVEL vs la competencia</h2>
+  <p style="font-size:14px;color:rgba(255,255,255,.5);margin-bottom:32px">Lo que un despacho contable mexicano necesita de verdad</p>
+  <table class="ctbl">
+    <thead>
+      <tr>
+        <th>Característica</th>
+        <th class="mv">MONVEL</th>
+        <th class="ot">CONTPAQi</th>
+        <th class="ot">Aspel</th>
+        <th class="ot">Alegra</th>
+        <th class="ot">Portal SAT</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Descarga automática de CFDIs del SAT</td><td class="mv"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+      <tr><td>CSF y Opinión 32-D automáticas</td><td class="mv"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="par">Manual</span></td></tr>
+      <tr><td>Emisión CFDI 4.0 + complementos</td><td class="mv"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="par">Parcial</span></td><td><span class="par">Básico</span></td></tr>
+      <tr><td>Nómina CFDI con validador SAT</td><td class="mv"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="par">Básico</span></td><td><span class="no">✕</span></td></tr>
+      <tr><td>Contabilidad completa en pantalla</td><td class="mv"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="par">Parcial</span></td><td><span class="no">✕</span></td></tr>
+      <tr><td>Declaración Anual PF/PM asistida</td><td class="mv"><span class="yes">✓</span></td><td><span class="par">Parcial</span></td><td><span class="par">Parcial</span></td><td><span class="no">✕</span></td><td><span class="par">Manual</span></td></tr>
+      <tr><td>86 reglas de deducibilidad LISR</td><td class="mv"><span class="yes">✓</span></td><td><span class="par">Manual</span></td><td><span class="par">Manual</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+      <tr><td>Conciliación bancaria integrada</td><td class="mv"><span class="yes">✓</span></td><td><span class="par">Parcial</span></td><td><span class="no">✕</span></td><td><span class="par">Parcial</span></td><td><span class="no">✕</span></td></tr>
+      <tr><td>Asistente con Inteligencia Artificial</td><td class="mv"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+      <tr><td>Multi-RFC en una sola licencia</td><td class="mv"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+      <tr><td>Multi-usuario en tu propio servidor</td><td class="mv"><span class="yes">✓</span></td><td><span class="par">Parcial</span></td><td><span class="par">Parcial</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+      <tr><td>Aprende del despacho (deducibilidad y cuentas por proveedor)</td><td class="mv"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+      <tr><td>Comparador de regímenes (en qué régimen pagas menos)</td><td class="mv"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
+      <tr><td>Se actualiza solo cuando el SAT cambia un formato</td><td class="mv"><span class="yes">✓</span></td><td><span class="par">Actualizas tú</span></td><td><span class="par">Actualizas tú</span></td><td><span class="par">Actualizas tú</span></td><td><span class="no">✕</span></td></tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+<div class="wrap">
+<section>
+  <div class="gold-line"></div>
+  <h2 class="sec-title">¿Cómo funciona?</h2>
+  <p class="sec-sub" style="margin-bottom:48px">Tres pasos para tener a cada cliente bajo control — del SAT a la declaración.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-n">1</div>
+      <div class="step-ttl">Registra a tu cliente</div>
+      <p>Agrega el RFC y carga la e.firma o CIEC. Monvel se conecta al SAT y descarga CFDIs, Constancia y Opinión de Cumplimiento.</p>
+    </div>
+    <div class="step">
+      <div class="step-n">2</div>
+      <div class="step-ttl">Clasifica y contabiliza</div>
+      <p>Las 86 reglas LISR clasifican cada CFDI y las pólizas se arman solas. Concilia el banco y revisa Balance, Estado de Resultados y Balanza al instante.</p>
+    </div>
+    <div class="step">
+      <div class="step-n">3</div>
+      <div class="step-ttl">Declara y entrega</div>
+      <p>Calcula IVA, ISR y la Declaración Anual, emite o timbra lo que haga falta, y entrega reportes en PDF — todo desde la misma pantalla.</p>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ═══════════════════ PRICING ═══════════════════ -->
+<div class="price-bg" id="pricing">
+<div class="wrap">
+<section>
+  <div class="gold-line"></div>
+  <h2 class="sec-title">Planes y precios</h2>
+  <p class="sec-sub">Todas las funciones incluidas en cada plan. Sin módulos que se cobran aparte. Sin costo por RFC adicional.</p>
+  <div class="prices">
+    <div class="pc">
+      <div class="pc-plan">Básico</div>
+      <div class="pc-price"><sup>$</sup>299<sub> MXN/mes</sub></div>
+      <div class="pc-clients">Hasta 10 clientes RFC · 1 usuario</div>
+      <ul>
+        <li>Descarga SAT (CFDIs, CSF, Opinión 32-D)</li>
+        <li>Facturación CFDI 4.0 + complementos</li>
+        <li>Nómina y contabilidad completas</li>
+        <li>86 reglas LISR + conciliación bancaria</li>
+        <li>Declaración Anual, IVA, ISR y DIOT</li>
+        <li>Migración gratuita desde tu software actual</li>
+        <li>Soporte por correo</li>
+      </ul>
+      <a href="#demo" class="pc-btn">Solicitar demo</a>
+    </div>
+    <div class="pc hot">
+      <div class="hot-badge">Más popular</div>
+      <div class="pc-plan">Profesional</div>
+      <div class="pc-price"><sup>$</sup>599<sub> MXN/mes</sub></div>
+      <div class="pc-clients">Hasta 30 clientes RFC · 3 usuarios</div>
+      <ul>
+        <li>Todo lo del plan Básico</li>
+        <li>Asistente con Inteligencia Artificial</li>
+        <li>Portal de autoservicio para tus clientes</li>
+        <li>Acceso desde internet de forma segura</li>
+        <li>Reportes ejecutivos y alertas de vigencias</li>
+        <li>Capacitación de arranque incluida</li>
+        <li>Soporte prioritario por WhatsApp</li>
+      </ul>
+      <a href="#demo" class="pc-btn">Solicitar demo</a>
+    </div>
+    <div class="pc">
+      <div class="pc-plan">Despacho Plus</div>
+      <div class="pc-price"><sup>$</sup>999<sub> MXN/mes</sub></div>
+      <div class="pc-clients">Clientes ilimitados · Usuarios ilimitados</div>
+      <ul>
+        <li>Todo lo del plan Profesional</li>
+        <li>Servidor en tus propias instalaciones</li>
+        <li>Capacitación inicial incluida</li>
+        <li>Respaldos cifrados automáticos</li>
+        <li>SLA de soporte 24 horas</li>
+      </ul>
+      <a href="#demo" class="pc-btn">Solicitar demo</a>
+    </div>
+  </div>
+  <p class="pc-note">* Precios en pesos mexicanos, IVA no incluido. Factura disponible. Cancela cuando quieras.</p>
+</section>
+</div>
+</div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<!-- ═══════════════════ DEMO / FORMULARIO ═══════════════════ -->
+<!-- ═══════════════════ FAQ ═══════════════════ -->
+<div class="wrap" id="faq">
+<section>
+  <div class="gold-line"></div>
+  <h2 class="sec-title">Preguntas frecuentes</h2>
+  <p class="sec-sub">Lo que los contadores nos preguntan antes de probarlo.</p>
+  <div class="faq-list">
+    <details class="faq-q"><summary>¿Necesito instalar algo en mi computadora?</summary><p>No. Monvel corre 100% en tu navegador. Solo abres tu cuenta y entras. Si quieres, se instala en tu celular como app (PWA, sin pasar por la tienda de apps).</p></details>
+    <details class="faq-q"><summary>¿Cómo migro mis datos de CONTPAQi, Alegra o Excel?</summary><p>Sin costo. Nos conectamos al SAT con tu CIEC, descargamos todo tu histórico de CFDIs y armamos tu contabilidad automáticamente. No reescribes nada a mano.</p></details>
+    <details class="faq-q"><summary>¿Mis datos están seguros? ¿Dónde viven?</summary><p>En tu propio servidor, dentro de tu despacho, en México. Cifrados en disco con respaldos automáticos. No los mandamos a ninguna nube extranjera — cumple LFPDPPP.</p></details>
+    <details class="faq-q"><summary>¿Cuántos clientes (RFC) puedo manejar?</summary><p>Ilimitados desde el plan Básico. No cobramos por RFC adicional, a diferencia de la mayoría del mercado.</p></details>
+    <details class="faq-q"><summary>¿Funciona en celular?</summary><p>Sí. Monvel es 100% web e instalable como app en tu celular sin pasar por la tienda de apps. Lo abres con un toque, igual que cualquier app nativa.</p></details>
+    <details class="faq-q"><summary>¿Puedo timbrar facturas y nóminas?</summary><p>Sí. Incluye CFDI 4.0 (facturas, notas de crédito, complementos de pago, Carta Porte, Comercio Exterior, IEDU) y Nómina con validador SAT. Usas tu propio PAC (BYOPAC).</p></details>
+    <details class="faq-q"><summary>¿Qué pasa si decido cancelar?</summary><p>Cancelas cuando quieras, sin penalización. Te entregamos toda tu información (CFDIs, pólizas, reportes) para que te la lleves. Tus datos son tuyos.</p></details>
+    <details class="faq-q"><summary>¿Quién está detrás de Monvel?</summary><p>Un despacho contable real (Despacho Monvel, dirigido por la Mtra. A. Joseline Velázquez) + un equipo de ingeniería (Irvin Montalvo). No somos una startup genérica — entendemos al contador porque lo vivimos.</p></details>
+  </div>
+</section>
+</div>
+
+<div class="demo-bg" id="demo">
+<div class="wrap">
+<section>
+  <div class="gold-line"></div>
+  <h2 class="sec-title">Solicita tu demo gratis</h2>
+  <p class="sec-sub">Déjanos tus datos y te mostramos Monvel funcionando para un despacho como el tuyo. Sin costo y sin compromiso.</p>
+  <form class="lead-form" action="https://formspree.io/f/mzdwoepg" method="POST">
+    <input type="hidden" name="_subject" value="Nuevo lead de demo — Monvel">
+    <div class="lf-row">
+      <div class="lf-field"><label>Nombre *</label><input type="text" name="nombre" required></div>
+      <div class="lf-field"><label>Correo *</label><input type="email" name="correo" required></div>
+    </div>
+    <div class="lf-row">
+      <div class="lf-field"><label>Nombre del despacho</label><input type="text" name="despacho"></div>
+      <div class="lf-field"><label>¿Cuántos clientes manejas?</label>
+        <select name="num_clientes">
+          <option value="">Selecciona…</option>
+          <option>1 a 5</option>
+          <option>6 a 20</option>
+          <option>21 a 50</option>
+          <option>Más de 50</option>
+        </select>
+      </div>
+    </div>
+    <div class="lf-field"><label>¿Para qué necesitas Monvel? ¿Qué te gustaría resolver? *</label><textarea name="motivo" rows="3" required></textarea></div>
+    <button type="submit" class="lf-btn">Solicitar mi demo →</button>
+    <p class="lf-note">Tus datos solo se usan para contactarte sobre Monvel. No los compartimos con nadie.</p>
+  </form>
+</section>
+</div>
+</div>
+
+<div class="footer">
+  <div class="ft-brand">
+    <div class="fn"><span class="m">M</span>ONVEL</div>
+    <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px">El software que tu despacho se merece</div>
+    <div class="ft">"Todo tu despacho, en un solo lugar."</div>
+    <div style="margin-top:14px;font-size:10.5px;color:rgba(255,255,255,.3)">México · 2026 · Todos los derechos reservados</div>
+  </div>
+  <div class="ft-contact">
+    <p>✉️ &nbsp;contacto@monvel.mx</p>
+    <p>📱 &nbsp;Soporte por WhatsApp</p>
+    <p>🌐 &nbsp;www.monvel.mx</p>
+    <p>📍 &nbsp;México</p>
+  </div>
+  <div class="ft-cta">
+    <a href="#demo" class="btn-demo">Solicitar Demo Gratis</a>
+    <div class="btn-note">Sin costo · Sin compromiso · En tu despacho</div>
+  </div>
+</div>
+
+<!-- Cloudflare Web Analytics: configurado en modo "Automatic" en el panel de CF → no requiere script aquí, CF lo inyecta solo para sitios servidos por Pages -->
+<!-- ═══ WhatsApp flotante ═══ -->
+<a href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20de%20Monvel" target="_blank" rel="noopener" class="wa-fab" aria-label="Contáctanos por WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.520-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/>
+  </svg>
+</a>
+
+<script>
+/* Animaciones de scroll, contadores, typewriter — respeta prefers-reduced-motion */
+(() => {
+  'use strict';
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+  const prefersReduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduce) return;
+
+  /* 1. Reveal-on-scroll: fade + slide-up cuando el elemento entra al viewport */
+  const revealSel = '.preview, .pain, .feat, .repl, .ctbl, .velia-grid, .priv-grid, .hist-grid, .step, .pc, .faq-q, .lead-form, .pv-spark, .pv-kpi';
+  const revealEls = $$(revealSel);
+  revealEls.forEach((el, i) => {
+    if (!el.classList.contains('pv-spark')) el.classList.add('reveal');
+    if (i % 3 === 1) el.classList.add('reveal-d1');
+    else if (i % 3 === 2) el.classList.add('reveal-d2');
+  });
+
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('in');
+      /* Contador animado en stat-num cuando entra el stat-box */
+      if (en.target.matches('.stat-box')) {
+        const num = en.target.querySelector('.stat-num');
+        const target = parseInt((num.textContent || '').trim(), 10);
+        if (Number.isFinite(target) && !num.dataset.done) {
+          num.dataset.done = '1';
+          const t0 = performance.now();
+          const dur = 1100;
+          const tick = (t) => {
+            const p = Math.min((t - t0) / dur, 1);
+            const eased = 1 - Math.pow(1 - p, 3);
+            num.textContent = Math.round(target * eased);
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      }
+      obs.unobserve(en.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => io.observe(el));
+  $$('.stat-box').forEach(el => io.observe(el));
+
+  /* 2. Resaltado activo de la nav del sticky header según sección visible */
+  const anchors = ['#features', '#pricing', '#faq', '#demo'];
+  const sections = anchors.map(a => document.querySelector(a)).filter(Boolean);
+  const navLinks = $$('.hd-nav a');
+  const onScroll = () => {
+    const y = window.scrollY + 140;
+    let active = null;
+    sections.forEach(s => { if (s.offsetTop <= y) active = '#' + s.id; });
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === active));
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* 3. Typewriter sobre la pregunta del usuario en el chat de Velia */
+  const user = document.querySelector('.vb-user');
+  if (user) {
+    const full = user.textContent.trim();
+    user.textContent = '';
+    let started = false;
+    const start = () => {
+      if (started) return; started = true;
+      const cursor = document.createElement('span');
+      cursor.className = 'tw-cursor';
+      user.appendChild(cursor);
+      let i = 0;
+      const tick = () => {
+        if (i < full.length) {
+          user.insertBefore(document.createTextNode(full[i++]), cursor);
+          setTimeout(tick, 26 + Math.random() * 28);
+        } else {
+          setTimeout(() => cursor.remove(), 900);
+        }
+      };
+      tick();
+    };
+    const tio = new IntersectionObserver(es => {
+      es.forEach(e => { if (e.isIntersecting) { start(); tio.disconnect(); } });
+    }, { threshold: 0.55 });
+    tio.observe(user);
+  }
+})();
+</script>
+
+</body>
+</html>
