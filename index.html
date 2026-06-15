@@ -89,6 +89,8 @@ img,table{max-width:100%}
 .hero-cta-row{display:flex;gap:18px;align-items:center;margin-top:24px;flex-wrap:wrap}
 .hero-cta-2{color:rgba(255,255,255,.82);text-decoration:none;font-size:13px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.32);padding-bottom:2px;transition:color .15s,border-color .15s}
 .hero-cta-2:hover{color:#fff;border-color:#fff}
+.btn-aula{display:inline-flex;align-items:center;gap:7px;color:var(--gold-lt);text-decoration:none;font-size:13.5px;font-weight:600;border:1px solid rgba(201,168,76,.55);border-radius:9px;padding:13px 22px;transition:background .15s,border-color .15s,color .15s}
+.btn-aula:hover{background:rgba(201,168,76,.14);border-color:var(--gold);color:#fff}
 .stat-box{
   background:rgba(255,255,255,.08);border:1px solid rgba(201,168,76,.35);
   border-radius:12px;padding:18px 26px;text-align:center;backdrop-filter:blur(4px)
@@ -275,23 +277,33 @@ html{scroll-behavior:smooth}
 
 /* ── Comparador de tiempos (método tradicional vs Monvel) ── */
 .time-bg{background:linear-gradient(180deg,#fff 0%,var(--cream) 100%)}
-.tcmp{max-width:820px;margin:6px auto 0;display:flex;flex-direction:column;gap:16px}
-.tcmp-row{background:#fff;border:1px solid rgba(201,168,76,.18);border-radius:12px;padding:16px 22px;box-shadow:0 2px 14px rgba(0,0,0,.04);transition:transform .25s,box-shadow .25s}
-.tcmp-row:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.07)}
-.tcmp-task{font-weight:600;font-size:14.5px;color:var(--txt);margin-bottom:13px}
-.tcmp-bars{display:flex;flex-direction:column;gap:9px}
-.tcmp-bar{display:flex;align-items:center;gap:12px;font-size:12.5px}
-.tcmp-bar .lbl{width:84px;flex-shrink:0;color:var(--txt-m);text-align:right;font-weight:500}
-.tcmp-bar .track{flex:1;height:13px;border-radius:7px;background:#f0ece4;overflow:hidden}
-.tcmp-bar .fill{display:block;height:100%;border-radius:7px}
+.tcmp{max-width:740px;margin:4px auto 0;display:flex;flex-direction:column;gap:10px}
+.tcmp-row{background:#fff;border:1px solid rgba(201,168,76,.18);border-radius:11px;padding:12px 18px;box-shadow:0 2px 12px rgba(0,0,0,.04);transition:transform .2s,box-shadow .2s}
+.tcmp-row:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.07)}
+.tcmp-task{font-weight:600;font-size:13.5px;color:var(--txt);margin-bottom:8px}
+.tcmp-bars{display:flex;flex-direction:column;gap:6px}
+.tcmp-bar{display:flex;align-items:center;gap:10px;font-size:11.5px}
+.tcmp-bar .lbl{width:62px;flex-shrink:0;color:var(--txt-m);text-align:right;font-weight:500}
+.tcmp-bar .track{flex:1;height:10px;border-radius:6px;background:#f0ece4;overflow:hidden}
+.tcmp-bar .fill{display:block;height:100%;border-radius:6px}
 .tcmp-bar.trad .fill{background:linear-gradient(90deg,#c07882,#9a4651)}
 .tcmp-bar.mv .fill{background:linear-gradient(90deg,var(--gold),var(--gold-lt))}
-.tcmp-bar .val{width:92px;flex-shrink:0;font-weight:700;font-variant-numeric:tabular-nums;text-align:left}
+.tcmp-bar .val{width:72px;flex-shrink:0;font-weight:700;font-variant-numeric:tabular-nums;text-align:left}
 .tcmp-bar.trad .val{color:#9a4651}
 .tcmp-bar.mv .val{color:#9a7b1e}
-.tcmp-total{text-align:center;margin-top:28px;font-size:15.5px;color:var(--txt-m)}
-.tcmp-total strong{color:var(--vin);font-size:19px}
-.tcmp-note{text-align:center;font-size:11.5px;color:var(--txt-m);opacity:.7;margin-top:8px}
+.tcmp-total{text-align:center;margin-top:22px;font-size:15px;color:var(--txt-m)}
+.tcmp-total strong{color:var(--vin);font-size:18px}
+.tcmp-note{text-align:center;font-size:11px;color:var(--txt-m);opacity:.7;margin-top:7px}
+@media(max-width:600px){
+  .tcmp-row{padding:11px 13px;border-radius:9px}
+  .tcmp-task{font-size:12.5px;margin-bottom:7px}
+  .tcmp-bar{gap:7px;font-size:10.5px}
+  .tcmp-bar .lbl{width:52px}
+  .tcmp-bar .val{width:58px}
+  .tcmp-bar .track{height:9px}
+  .tcmp-total{font-size:13.5px;margin-top:18px}
+  .tcmp-total strong{font-size:16px}
+}
 
 /* Sparklines del mockup: animación de barras al entrar en pantalla */
 .pv-spark i{transform-origin:bottom;transform:scaleY(0);transition:transform .9s cubic-bezier(.16,1,.3,1)}
@@ -527,7 +539,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-brand">
-      <img class="hero-logo" src="logo-monvel.jpg" alt="Monvel — software contable para despachos, hecho en Despacho Montalvo Velázquez">
+      <img class="hero-logo" src="logo-monvel.jpg" alt="Monvel — software contable para despachos en México, hecho por contadores">
       <span class="hero-made">Hecho por un despacho real</span>
     </div>
     <div>
@@ -538,6 +550,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
       <div class="brand-sub">Plataforma contable, fiscal y CFDI para despachos en México</div>
       <div class="hero-cta-row">
         <a href="#demo" class="btn-demo">Solicita tu demo gratis →</a>
+        <a href="https://aula.monvel.mx" target="_blank" rel="noopener" class="btn-aula">🧪 Pruébalo sin registro</a>
         <a href="#features" class="hero-cta-2">Ver todo lo que hace ↓</a>
       </div>
     </div>
@@ -611,24 +624,25 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
       <div class="gold-line"></div>
       <div class="sec-eyebrow">Lo que ningún competidor puede copiar</div>
       <h2 class="sec-title" style="margin-bottom:22px">Por qué existe MONVEL</h2>
-      <p class="hist-lead">Monvel no lo diseñó una empresa de tecnología que nunca pisó un despacho. <strong>Lo creó un despacho contable mexicano de verdad, cansado de perder horas en lo que un sistema debería resolver solo.</strong></p>
-      <p>Detrás de Monvel hay dos personas que se complementan: <strong>A. Joseline Velázquez Hernández</strong> — Maestra en Derecho Fiscal, con despacho propio — que durante años descargó los CFDIs uno por uno, concilió en hojas de Excel y revisó la Ley del ISR página por página; e <strong>Irvin Montalvo Espada</strong> — Ingeniero en Mecatrónica — que convirtió todo ese conocimiento fiscal en un sistema que hace el trabajo en automático.</p>
-      <p>El nombre une sus apellidos. El sistema une dos mundos que casi nunca se encuentran: <strong>el conocimiento fiscal real y la ingeniería.</strong> Por eso Monvel resuelve lo que un contador vive todos los días — no lo que alguien de fuera imagina que necesita.</p>
+      <p class="hist-lead">Si te has quedado de noche cerrando declaraciones, descargando CFDIs uno por uno y peleando con hojas de Excel que solo tú entiendes… <strong>Monvel se hizo pensando exactamente en ti.</strong></p>
+      <p>No lo diseñó una empresa de tecnología que nunca pisó un despacho. Lo creó <strong>un despacho contable mexicano de verdad</strong>, cansado de perder horas en lo que un sistema debería hacer solo.</p>
+      <p>Nació de la unión de dos mundos que casi nunca se encuentran: una <strong>contadora fiscalista con despacho propio</strong> —que durante años vivió la descarga manual del SAT, la conciliación en Excel y la Ley del ISR revisada renglón por renglón— y un <strong>ingeniero</strong> que convirtió todo ese conocimiento en un sistema que hace el trabajo solo.</p>
+      <p>Por eso Monvel entiende tu día como contador: <strong>resuelve lo que tú vives, no lo que alguien de fuera imagina que necesitas.</strong></p>
     </div>
     <div class="founders">
       <div class="fdr">
-        <div class="fdr-av">J</div>
-        <div class="fdr-name">A. Joseline Velázquez Hernández</div>
-        <div class="fdr-role"><strong>Directora — Despacho Monvel</strong><br>Maestra en Derecho Fiscal · dirección fiscal</div>
+        <div class="fdr-av">⚖️</div>
+        <div class="fdr-name">Dirección Fiscal</div>
+        <div class="fdr-role">Maestra en Derecho Fiscal · despacho contable propio</div>
       </div>
       <div class="fdr-div"></div>
       <div class="fdr" style="margin-bottom:0">
-        <div class="fdr-av">I</div>
-        <div class="fdr-name">Irvin Montalvo Espada</div>
-        <div class="fdr-role"><strong>Director de Desarrollo — Monvel</strong><br>Ingeniero en Mecatrónica · dirección de ingeniería</div>
+        <div class="fdr-av">💻</div>
+        <div class="fdr-name">Gerente de Ingeniería</div>
+        <div class="fdr-role">Ingeniería de software · automatización del despacho</div>
       </div>
       <div class="fdr-div"></div>
-      <p class="fdr-quote">"Diseñamos el software que ella siempre necesitó y que nunca existió."</p>
+      <p class="fdr-quote">"El software que un despacho real siempre necesitó y que nunca existió."</p>
     </div>
   </div>
 </section>
@@ -700,55 +714,55 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
     <div class="feat">
       <div class="feat-ico">↓</div>
       <div class="feat-ttl">Descarga y cumplimiento SAT</div>
-      <p>Descarga masiva de CFDIs, Constancia de Situación Fiscal y Opinión 32-D con la e.firma del cliente. Extensión de navegador que autollena el portal del SAT, alerta de proveedores en Lista 69-B (EFOS) y avisos de vencimiento de FIEL, CIEC y CSD.</p>
+      <p>CFDIs, CSF y Opinión 32-D masivos con la e.firma. Extensión que autollena el SAT y alerta de EFOS y vencimientos.</p>
     </div>
 
     <div class="feat">
       <div class="feat-ico">⊞</div>
       <div class="feat-ttl">Facturación CFDI 4.0</div>
-      <p>Emite y cancela facturas, notas de crédito, recibos de honorarios y complementos de pago. Complementos Carta Porte 3.1, Comercio Exterior e IEDU (colegiaturas). Borradores, asistente paso a paso y timbrado con tu propio PAC.</p>
+      <p>Factura, cancela, notas de crédito, honorarios y complementos (Carta Porte, Comercio Exterior). Timbra con tu propio PAC.</p>
     </div>
 
     <div class="feat">
       <div class="feat-ico">₱</div>
       <div class="feat-ttl">Nómina</div>
-      <p>Timbra recibos de nómina CFDI 4.0. Calcula ISR, IMSS, subsidio al empleo y aguinaldo, valida cada recibo contra las tablas del DOF y genera la póliza contable de la nómina en automático.</p>
+      <p>Recibos CFDI 4.0 con ISR, IMSS y subsidio calculados, validados contra el DOF, y su póliza automática.</p>
     </div>
 
     <div class="feat">
       <div class="feat-ico">∑</div>
       <div class="feat-ttl">Contabilidad completa</div>
-      <p>Balance General, Estado de Resultados, Balanza y Auxiliar en pantalla. Catálogo SAT (Anexo 24), pólizas automáticas desde los CFDIs, activos fijos con depreciación e indicadores financieros — sin salir a Excel.</p>
+      <p>Balance, Estado de Resultados, Balanza y pólizas automáticas desde los CFDIs. Anexo 24. Sin salir a Excel.</p>
     </div>
 
     <div class="feat">
       <div class="feat-ico">§</div>
       <div class="feat-ttl">Declaraciones y fiscal</div>
-      <p>Declaración Anual de Personas Físicas y Morales asistida (con topes de deducciones personales), IVA e ISR provisional, DIOT y conciliación contable-fiscal con depreciación fiscal vs. contable.</p>
+      <p>Anual de PF y PM, IVA, ISR provisional, DIOT y conciliación contable-fiscal — todas asistidas.</p>
     </div>
 
     <div class="feat">
       <div class="feat-ico">✓</div>
       <div class="feat-ttl">86 reglas de deducibilidad LISR</div>
-      <p>Cada CFDI se clasifica como deducible, no deducible o parcial, con referencia al artículo exacto de la Ley del ISR. Menos riesgo de multa para tu cliente, menos revisión manual para ti.</p>
+      <p>Cada CFDI clasificado como deducible, no deducible o parcial, con el artículo exacto de la ley.</p>
     </div>
 
     <div class="feat">
       <div class="feat-ico">✦</div>
       <div class="feat-ttl">Aprende de tu despacho</div>
-      <p>Monvel memoriza cómo trabajas a cada cliente: la deducibilidad por proveedor, la cuenta contable que usas y los movimientos bancarios recurrentes. Lo decides una vez y lo repite el mes siguiente — y si lo deshaces, lo olvida. La competencia te obliga a configurarlo todo a mano, cada vez.</p>
+      <p>Memoriza la deducibilidad, la cuenta y los movimientos de cada cliente. Lo decides una vez y lo repite el mes siguiente.</p>
     </div>
 
     <div class="feat">
       <div class="feat-ico">⇌</div>
       <div class="feat-ttl">Conciliación bancaria</div>
-      <p>Sube el estado de cuenta y Monvel cruza cada movimiento contra los CFDIs y las pólizas contables, con lectores por banco. En minutos, no en horas — y corriges los empates a mano cuando quieras.</p>
+      <p>Sube el estado de cuenta y cruza cada movimiento contra CFDIs y pólizas. En minutos, no en horas.</p>
     </div>
 
     <div class="feat">
       <div class="feat-ico">◎</div>
       <div class="feat-ttl">Gestión del despacho</div>
-      <p>Varios contadores en un solo servidor, tablero por cliente con KPIs y alertas, cobranza de tus honorarios, reportes ejecutivos en PDF, asistente con Inteligencia Artificial, portal de autoservicio para el contribuyente y respaldos cifrados automáticos.</p>
+      <p>Multi-usuario, tablero por cliente, cobranza, reportes en PDF, asistente con IA y respaldos automáticos.</p>
     </div>
 
   </div>
@@ -774,46 +788,39 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   <div class="gold-line"></div>
   <div class="sec-eyebrow">Lo que recuperas cada mes</div>
   <h2 class="sec-title">El método tradicional vs. Monvel</h2>
-  <p class="sec-sub">Las mismas tareas que hoy te comen el mes, automatizadas. Tiempos estimados por cliente: el flujo manual (portal del SAT + Excel + capturas) frente a Monvel.</p>
+  <p class="sec-sub">Las mismas tareas, ahora automáticas. Tiempo por cliente: a mano vs. con Monvel.</p>
   <div class="tcmp">
     <div class="tcmp-row">
-      <div class="tcmp-task">Descargar CFDIs, CSF y Opinión 32-D de un cliente</div>
+      <div class="tcmp-task">Descargar CFDIs, CSF y Opinión 32-D</div>
       <div class="tcmp-bars">
-        <div class="tcmp-bar trad"><span class="lbl">Tradicional</span><span class="track"><span class="fill" style="width:75%"></span></span><span class="val">~3 h</span></div>
+        <div class="tcmp-bar trad"><span class="lbl">A mano</span><span class="track"><span class="fill" style="width:75%"></span></span><span class="val">~3 h</span></div>
         <div class="tcmp-bar mv"><span class="lbl">Monvel</span><span class="track"><span class="fill" style="width:3%"></span></span><span class="val">~5 min</span></div>
       </div>
     </div>
     <div class="tcmp-row">
-      <div class="tcmp-task">Armar las pólizas contables del mes desde los CFDIs</div>
+      <div class="tcmp-task">Armar las pólizas del mes desde los CFDIs</div>
       <div class="tcmp-bars">
-        <div class="tcmp-bar trad"><span class="lbl">Tradicional</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">~4 h</span></div>
+        <div class="tcmp-bar trad"><span class="lbl">A mano</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">~4 h</span></div>
         <div class="tcmp-bar mv"><span class="lbl">Monvel</span><span class="track"><span class="fill" style="width:2%"></span></span><span class="val">Automático</span></div>
       </div>
     </div>
     <div class="tcmp-row">
       <div class="tcmp-task">Conciliar el estado de cuenta del banco</div>
       <div class="tcmp-bars">
-        <div class="tcmp-bar trad"><span class="lbl">Tradicional</span><span class="track"><span class="fill" style="width:50%"></span></span><span class="val">~2 h</span></div>
+        <div class="tcmp-bar trad"><span class="lbl">A mano</span><span class="track"><span class="fill" style="width:50%"></span></span><span class="val">~2 h</span></div>
         <div class="tcmp-bar mv"><span class="lbl">Monvel</span><span class="track"><span class="fill" style="width:5%"></span></span><span class="val">~10 min</span></div>
-      </div>
-    </div>
-    <div class="tcmp-row">
-      <div class="tcmp-task">Clasificar la deducibilidad de cada gasto (LISR)</div>
-      <div class="tcmp-bars">
-        <div class="tcmp-bar trad"><span class="lbl">Tradicional</span><span class="track"><span class="fill" style="width:50%"></span></span><span class="val">~2 h</span></div>
-        <div class="tcmp-bar mv"><span class="lbl">Monvel</span><span class="track"><span class="fill" style="width:2%"></span></span><span class="val">Automático</span></div>
       </div>
     </div>
     <div class="tcmp-row">
       <div class="tcmp-task">Preparar la declaración mensual (IVA / ISR)</div>
       <div class="tcmp-bars">
-        <div class="tcmp-bar trad"><span class="lbl">Tradicional</span><span class="track"><span class="fill" style="width:38%"></span></span><span class="val">~1.5 h</span></div>
+        <div class="tcmp-bar trad"><span class="lbl">A mano</span><span class="track"><span class="fill" style="width:38%"></span></span><span class="val">~1.5 h</span></div>
         <div class="tcmp-bar mv"><span class="lbl">Monvel</span><span class="track"><span class="fill" style="width:7%"></span></span><span class="val">~15 min</span></div>
       </div>
     </div>
   </div>
-  <p class="tcmp-total">De <strong>~12 h</strong> a <strong>~35 min</strong> por cliente, cada mes. Con 20 clientes son <strong>decenas de horas</strong> que vuelves a cobrar.</p>
-  <p class="tcmp-note">Tiempos estimados con fines ilustrativos; varían según el volumen y la complejidad de cada cliente.</p>
+  <p class="tcmp-total">De <strong>~10 h</strong> a <strong>~30 min</strong> por cliente cada mes. Con 20 clientes, decenas de horas que recuperas.</p>
+  <p class="tcmp-note">Tiempos estimados, ilustrativos.</p>
 </section>
 </div>
 </div>
@@ -976,7 +983,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
     <details class="faq-q"><summary>¿Funciona en celular?</summary><p>Sí. Monvel es 100% web e instalable como app en tu celular sin pasar por la tienda de apps. Lo abres con un toque, igual que cualquier app nativa.</p></details>
     <details class="faq-q"><summary>¿Puedo timbrar facturas y nóminas?</summary><p>Sí. Incluye CFDI 4.0 (facturas, notas de crédito, complementos de pago, Carta Porte, Comercio Exterior, IEDU) y Nómina con validador SAT. Usas tu propio PAC (BYOPAC).</p></details>
     <details class="faq-q"><summary>¿Qué pasa si decido cancelar?</summary><p>Cancelas cuando quieras, sin penalización. Te entregamos toda tu información (CFDIs, pólizas, reportes) para que te la lleves. Tus datos son tuyos.</p></details>
-    <details class="faq-q"><summary>¿Quién está detrás de Monvel?</summary><p>Un despacho contable real (Despacho Monvel, dirigido por la Mtra. A. Joseline Velázquez) + un equipo de ingeniería (Irvin Montalvo). No somos una empresa de tecnología cualquiera — entendemos al contador porque lo vivimos.</p></details>
+    <details class="faq-q"><summary>¿Quién está detrás de Monvel?</summary><p>Un despacho contable mexicano real (Despacho Monvel), dirigido por una Maestra en Derecho Fiscal, con ingeniería de software propia. No somos una empresa de tecnología cualquiera — entendemos al contador porque lo vivimos.</p></details>
   </div>
 </section>
 </div>
