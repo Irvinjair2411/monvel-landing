@@ -549,8 +549,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
       <div class="brand-tag">"Todo tu despacho, en un solo lugar."</div>
       <div class="brand-sub">Plataforma contable, fiscal y CFDI para despachos en México</div>
       <div class="hero-cta-row">
-        <a href="#demo" class="btn-demo">Solicita tu demo gratis →</a>
-        <a href="https://aula.monvel.mx" target="_blank" rel="noopener" class="btn-aula">🧪 Pruébalo sin registro</a>
+        <a href="#demo" class="btn-demo">Crear cuenta gratuita →</a>
+        <a href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener" class="btn-aula">🧪 Pruébalo sin registro</a>
         <a href="#features" class="hero-cta-2">Ver todo lo que hace ↓</a>
       </div>
     </div>
@@ -992,33 +992,63 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 <div class="wrap">
 <section>
   <div class="gold-line"></div>
-  <h2 class="sec-title">Solicita tu demo gratis</h2>
-  <p class="sec-sub">Déjanos tus datos y te mostramos Monvel funcionando para un despacho como el tuyo. Sin costo y sin compromiso.</p>
-  <form class="lead-form" action="https://formspree.io/f/mzdwoepg" method="POST">
-    <input type="hidden" name="_subject" value="Nuevo lead de demo — Monvel">
-    <div class="lf-row">
-      <div class="lf-field"><label>Nombre *</label><input type="text" name="nombre" required></div>
-      <div class="lf-field"><label>Correo *</label><input type="email" name="correo" required></div>
+  <h2 class="sec-title">Entra al Aula Virtual gratis</h2>
+  <p class="sec-sub">Crea tu cuenta en segundos y practica con CFDIs, pólizas, nómina y más — en un entorno seguro, con datos reales de ejemplo. Tus datos de acceso llegan directo a tu correo.</p>
+  <div class="lead-form">
+    <div id="registro-ok" style="display:none;text-align:center;padding:16px 0 8px">
+      <div style="font-size:44px;margin-bottom:10px">✅</div>
+      <h3 style="color:#6b0f35;margin:0 0 8px;font-size:20px">¡Cuenta creada!</h3>
+      <p style="color:#555;margin:0 0 22px;font-size:15px">Revisa tu correo — te enviamos tus datos de acceso al Aula.</p>
+      <a href="https://aula.monvel.mx" target="_blank" rel="noopener"
+         style="display:inline-block;background:#6b0f35;color:#fff;padding:13px 32px;
+                border-radius:7px;text-decoration:none;font-weight:700;font-size:15px">
+        Entrar al Aula Virtual →
+      </a>
     </div>
-    <div class="lf-row">
-      <div class="lf-field"><label>Nombre del despacho</label><input type="text" name="despacho"></div>
-      <div class="lf-field"><label>¿Cuántos clientes manejas?</label>
-        <select name="num_clientes">
-          <option value="">Selecciona…</option>
-          <option>1 a 5</option>
-          <option>6 a 20</option>
-          <option>21 a 50</option>
-          <option>Más de 50</option>
-        </select>
+    <div id="registro-fields">
+      <div class="lf-row">
+        <div class="lf-field"><label>Tu nombre *</label><input type="text" id="rf-nombre" placeholder="Ej: María González" autocomplete="name"></div>
+        <div class="lf-field"><label>Tu correo *</label><input type="email" id="rf-correo" placeholder="correo@despacho.mx" autocomplete="email"></div>
       </div>
+      <div class="lf-field"><label>Nombre de tu despacho</label><input type="text" id="rf-despacho" placeholder="Ej: Despacho González SC" autocomplete="organization"></div>
+      <div id="registro-error" style="display:none;background:#fef2f2;border:1px solid #fca5a5;color:#b91c1c;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:13px"></div>
+      <button type="button" class="lf-btn" id="registro-btn" onclick="enviarRegistroAula()">Crear mi cuenta gratuita →</button>
+      <p class="lf-note">Sin tarjeta ni compromiso. Solo te contactamos sobre Monvel.</p>
     </div>
-    <div class="lf-field"><label>¿Para qué necesitas Monvel? ¿Qué te gustaría resolver? *</label><textarea name="motivo" rows="3" required></textarea></div>
-    <button type="submit" class="lf-btn">Solicitar mi demo →</button>
-    <p class="lf-note">Tus datos solo se usan para contactarte sobre Monvel. No los compartimos con nadie.</p>
-  </form>
+  </div>
 </section>
 </div>
 </div>
+<script>
+async function enviarRegistroAula() {
+  var nombre   = (document.getElementById('rf-nombre').value  || '').trim();
+  var correo   = (document.getElementById('rf-correo').value  || '').trim();
+  var despacho = (document.getElementById('rf-despacho').value || '').trim();
+  var errDiv   = document.getElementById('registro-error');
+  var btn      = document.getElementById('registro-btn');
+  errDiv.style.display = 'none';
+  if (!nombre || !correo) {
+    errDiv.textContent = 'Por favor ingresa tu nombre y correo.';
+    errDiv.style.display = 'block'; return;
+  }
+  btn.disabled = true; btn.textContent = 'Creando tu cuenta…';
+  try {
+    var r = await fetch('https://aula.monvel.mx/aula/registro', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nombre: nombre, correo: correo, despacho: despacho })
+    });
+    var d = await r.json();
+    if (!r.ok) { throw new Error(d.detail || 'No se pudo crear la cuenta.'); }
+    document.getElementById('registro-fields').style.display = 'none';
+    document.getElementById('registro-ok').style.display = 'block';
+  } catch(e) {
+    errDiv.textContent = e.message || 'Ocurrió un error. Intenta de nuevo.';
+    errDiv.style.display = 'block';
+    btn.disabled = false; btn.textContent = 'Crear mi cuenta gratuita →';
+  }
+}
+</script>
 
 <div class="footer">
   <div class="ft-brand">
@@ -1034,8 +1064,8 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
     <p>📍 &nbsp;México</p>
   </div>
   <div class="ft-cta">
-    <a href="#demo" class="btn-demo">Solicitar Demo Gratis</a>
-    <div class="btn-note">Sin costo · Sin compromiso · En tu despacho</div>
+    <a href="#demo" class="btn-demo">Crear cuenta gratuita</a>
+    <div class="btn-note">Sin tarjeta · Sin compromiso · Acceso inmediato</div>
   </div>
 </div>
 
