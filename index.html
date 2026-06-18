@@ -305,6 +305,23 @@ html{scroll-behavior:smooth}
   .tcmp-total strong{font-size:16px}
 }
 
+/* ── MIGRACIÓN / CÁMBIATE SIN PERDER NADA ── */
+.mig-bg{background:#fff}
+.mig-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+.mig-lead{font-size:15px;line-height:1.78;color:var(--txt-m);margin-bottom:16px;text-align:justify;hyphens:auto}
+.mig-lead strong{color:var(--vin)}
+.mig-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.mig-chip{background:var(--cream);border:1.5px solid rgba(92,23,34,.15);border-radius:999px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--vin)}
+.mig-chip.hi{background:var(--vin);color:#fff;border-color:var(--vin)}
+.mig-card{background:var(--cream);border-radius:16px;padding:30px;border:1px solid rgba(201,168,76,.22);box-shadow:0 2px 14px rgba(0,0,0,.05)}
+.mig-card-ttl{font-family:'Playfair Display',serif;font-size:15.5px;font-weight:700;color:var(--vin);margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid rgba(201,168,76,.22)}
+.mig-steps{display:flex;flex-direction:column;gap:20px}
+.mig-step{display:flex;gap:16px;align-items:flex-start}
+.mig-n{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--vin),var(--vin-lt));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;font-family:'Playfair Display',serif;border:2px solid var(--gold)}
+.mig-ttl{font-weight:700;font-size:13.5px;color:var(--slate);margin-bottom:4px}
+.mig-step p{font-size:12.5px;color:var(--txt-m);line-height:1.62;margin:0}
+@media(max-width:900px){.mig-grid{grid-template-columns:1fr;gap:32px}}
+
 /* Sparklines del mockup: animación de barras al entrar en pantalla */
 .pv-spark i{transform-origin:bottom;transform:scaleY(0);transition:transform .9s cubic-bezier(.16,1,.3,1)}
 .pv-spark.in i{transform:scaleY(1)}
@@ -825,6 +842,57 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
 </div>
 </div>
 
+<!-- ═══════════════════ MIGRACIÓN SIN PERDER NADA ═══════════════════ -->
+<div class="mig-bg">
+<div class="wrap">
+<section class="reveal">
+  <div class="mig-grid">
+    <div class="mig-txt">
+      <div class="gold-line"></div>
+      <div class="sec-eyebrow">Sin miedo al cambio</div>
+      <h2 class="sec-title">Cámbiate.<br>Tu historial contable llega completo.</h2>
+      <p class="mig-lead">Si llevas años trabajando en otro programa de contabilidad, sabemos que tu mayor miedo es perder todo lo que construiste. <strong>No pasa.</strong> Monvel importa tu catálogo de cuentas, saldos iniciales, historial de clientes y pólizas anteriores de forma automática — en minutos, no en semanas.</p>
+      <p class="mig-lead" style="margin-bottom:0">El costo de cambiar a Monvel es <strong>cero</strong>. Tu historia se viene contigo.</p>
+      <div class="mig-chips">
+        <span class="mig-chip">✓ Catálogo de cuentas</span>
+        <span class="mig-chip">✓ Saldos iniciales</span>
+        <span class="mig-chip">✓ Historial de clientes</span>
+        <span class="mig-chip">✓ Pólizas anteriores</span>
+        <span class="mig-chip">✓ Cuentas por cobrar y pagar</span>
+        <span class="mig-chip hi">✓ Gratis en todos los planes</span>
+      </div>
+    </div>
+    <div class="mig-card reveal reveal-d1">
+      <div class="mig-card-ttl">¿Cómo funciona la migración?</div>
+      <div class="mig-steps">
+        <div class="mig-step">
+          <div class="mig-n">1</div>
+          <div>
+            <div class="mig-ttl">Descarga la herramienta</div>
+            <p>Un pequeño programa lee la base de datos de tu software actual — sin contraseña, sin acceso a internet — y genera un archivo con todo tu historial.</p>
+          </div>
+        </div>
+        <div class="mig-step">
+          <div class="mig-n">2</div>
+          <div>
+            <div class="mig-ttl">Súbelo a Monvel</div>
+            <p>En Configuración → Importar arrastras el archivo. Monvel lo analiza y te muestra un resumen antes de aplicar nada.</p>
+          </div>
+        </div>
+        <div class="mig-step">
+          <div class="mig-n">3</div>
+          <div>
+            <div class="mig-ttl">Listo en minutos</div>
+            <p>Tu historial ya está en Monvel. Sin reescribir una sola póliza a mano. Sin perder un solo dato.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+</div>
+
 <!-- ═══════════════════ COMPARISON ═══════════════════ -->
 <!-- ═══════════════════ PRIVACIDAD ═══════════════════ -->
 <div class="priv-bg">
@@ -977,7 +1045,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
   <p class="sec-sub">Lo que los contadores nos preguntan antes de probarlo.</p>
   <div class="faq-list">
     <details class="faq-q"><summary>¿Necesito instalar algo en mi computadora?</summary><p>No. Monvel corre 100% en tu navegador. Solo abres tu cuenta y entras. Si quieres, se instala en tu celular como app (PWA, sin pasar por la tienda de apps).</p></details>
-    <details class="faq-q"><summary>¿Cómo migro mis datos de mi programa actual o de Excel?</summary><p>Sin costo. Nos conectamos al SAT con tu CIEC, descargamos todo tu histórico de CFDIs y armamos tu contabilidad automáticamente. No reescribes nada a mano.</p></details>
+    <details class="faq-q"><summary>¿Cómo migro mis datos de mi programa actual?</summary><p>De dos formas, sin costo extra. <strong>Desde tu software actual:</strong> una pequeña herramienta lee tu base de datos, genera un archivo con tu catálogo de cuentas, saldos iniciales y pólizas, y Monvel lo importa en minutos — sin reescribir nada. <strong>Desde el SAT:</strong> con tu CIEC también descargamos todo tu histórico de CFDIs y armamos tu contabilidad automáticamente. En ambos casos, tu historia llega completa.</p></details>
     <details class="faq-q"><summary>¿Mis datos están seguros? ¿Dónde viven?</summary><p>En tu propio servidor, dentro de tu despacho, en México. Cifrados en disco con respaldos automáticos. No los mandamos a ninguna nube extranjera — cumple LFPDPPP.</p></details>
     <details class="faq-q"><summary>¿Cuántos clientes (RFC) puedo manejar?</summary><p>Ilimitados desde el plan Básico. No cobramos por RFC adicional, a diferencia de la mayoría del mercado.</p></details>
     <details class="faq-q"><summary>¿Funciona en celular?</summary><p>Sí. Monvel es 100% web e instalable como app en tu celular sin pasar por la tienda de apps. Lo abres con un toque, igual que cualquier app nativa.</p></details>
