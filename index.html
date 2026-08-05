@@ -1072,7 +1072,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,t
     <div id="registro-ok" style="display:none;text-align:center;padding:16px 0 8px">
       <div style="font-size:44px;margin-bottom:10px">✅</div>
       <h3 style="color:#6b0f35;margin:0 0 8px;font-size:20px">¡Cuenta creada!</h3>
-      <p style="color:#555;margin:0 0 22px;font-size:15px">Revisa tu correo — te enviamos tus datos de acceso al Aula.</p>
+      <!-- El texto lo pone JS con d.mensaje del servidor: si el correo de
+           bienvenida no pudo salir, ahí viene la contraseña de respaldo.
+           Antes este párrafo era fijo ("revisa tu correo") y el usuario se
+           quedaba SIN contraseña cuando el envío fallaba. -->
+      <p id="registro-ok-msg" style="color:#555;margin:0 0 22px;font-size:15px">Revisa tu correo — te enviamos tus datos de acceso al Aula.</p>
       <a href="https://aula.monvel.mx" target="_blank" rel="noopener"
          style="display:inline-block;background:#6b0f35;color:#fff;padding:13px 32px;
                 border-radius:7px;text-decoration:none;font-weight:700;font-size:15px">
@@ -1114,6 +1118,15 @@ async function enviarRegistroAula() {
     });
     var d = await r.json();
     if (!r.ok) { throw new Error(d.detail || 'No se pudo crear la cuenta.'); }
+    // Mostrar el mensaje REAL del servidor: si el correo de bienvenida no
+    // pudo enviarse, d.mensaje trae la contraseña de respaldo — sin esto el
+    // usuario se queda esperando un correo que nunca llega (caso real
+    // detectado el 04-ago-2026: dos registros sin un solo login).
+    var okMsg = document.getElementById('registro-ok-msg');
+    if (okMsg && d.mensaje) {
+      okMsg.textContent = d.mensaje;
+      if (d.enviado === false) { okMsg.style.fontWeight = '700'; okMsg.style.color = '#6b0f35'; }
+    }
     document.getElementById('registro-fields').style.display = 'none';
     document.getElementById('registro-ok').style.display = 'block';
   } catch(e) {
