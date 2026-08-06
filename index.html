@@ -1204,8 +1204,27 @@ async function enviarRegistroAula() {
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-  revealEls.forEach(el => io.observe(el));
+  /* Se observa TODO lo que lleve la clase `reveal`, no sólo lo que alcanzó el
+     selector de arriba (06-ago-2026). Dos bloques de la sección de MIGRACIÓN
+     traían `class="reveal"` escrita a mano en el HTML (líneas ~846 y ~863) y no
+     coincidían con ningún selector de `revealSel`: nunca se observaban, nunca
+     recibían la clase `in`, y se quedaban en opacity:0 PARA SIEMPRE. Eran
+     ~1,050 px de hueco blanco en la página de venta, justo debajo del
+     comparador de tiempos, con la sección «Cámbiate. Tu historial contable
+     llega completo.» invisible para cualquier visitante. */
+  $$('.reveal').forEach(el => io.observe(el));
   $$('.stat-box').forEach(el => io.observe(el));
+
+  /* Red de seguridad: si el observer NUNCA disparó (pestaña en segundo plano al
+     cargar, script bloqueado, navegador raro), el contenido se muestra igual.
+     En una página de venta, una animación que no corre es un detalle; contenido
+     invisible es una venta perdida. Sólo actúa si NADA se reveló, así que en el
+     caso normal las animaciones siguen funcionando como siempre. */
+  setTimeout(() => {
+    if (!document.querySelector('.reveal.in')) {
+      $$('.reveal').forEach(el => el.classList.add('in'));
+    }
+  }, 2500);
 
   /* 2. Resaltado activo de la nav del sticky header según sección visible */
   const anchors = ['#features', '#pricing', '#faq', '#demo'];
