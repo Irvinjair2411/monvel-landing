@@ -1,1378 +1,511 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es-MX">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MONVEL — El software que tu despacho se merece</title>
-<meta name="description" content="Plataforma todo-en-uno para despachos contables en México: descarga SAT, CFDI 4.0, nómina, contabilidad y declaración anual. Tus datos en tu servidor.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Monvel — Todo tu despacho, en un solo lugar">
-<meta property="og:description" content="El software contable que tu despacho se merece. Plataforma todo-en-uno para despachos en México — sin nube extranjera.">
-<meta property="og:url" content="https://www.monvel.mx/">
-<meta property="og:locale" content="es_MX">
-<meta property="og:image" content="https://www.monvel.mx/og-image.png">
-<meta property="og:image:width" content="1400">
-<meta property="og:image:height" content="560">
-<meta property="og:image:alt" content="Monvel — Despacho Monvel · Todo tu despacho, en un solo lugar">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Monvel — Todo tu despacho, en un solo lugar">
-<meta name="twitter:description" content="El software contable que tu despacho se merece.">
-<meta name="twitter:image" content="https://www.monvel.mx/og-image.png">
-<meta name="theme-color" content="#5C1722">
-<link rel="icon" type="image/png" sizes="32x32" href="logo-monvel-mark.png">
-<link rel="icon" type="image/png" sizes="192x192" href="logo-monvel-mark.png">
-<link rel="apple-touch-icon" href="logo-monvel-mark.png">
-<link rel="shortcut icon" href="logo-monvel-mark.png">
-<link rel="canonical" href="https://www.monvel.mx/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Monvel","url":"https://www.monvel.mx/","description":"Plataforma contable, fiscal y CFDI para despachos en México.","contactPoint":{"@type":"ContactPoint","email":"contacto@monvel.mx","contactType":"sales","areaServed":"MX","availableLanguage":"Spanish"}},{"@type":"SoftwareApplication","name":"Monvel","operatingSystem":"Web, iOS, Android (PWA)","applicationCategory":"BusinessApplication","applicationSubCategory":"AccountingApplication","offers":{"@type":"Offer","price":"299","priceCurrency":"MXN","priceValidUntil":"2026-12-31"},"description":"Plataforma todo-en-uno para despachos contables en México: descarga SAT, CFDI 4.0, nómina, contabilidad y declaración anual."},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Necesito instalar algo en mi computadora?","acceptedAnswer":{"@type":"Answer","text":"Tú y tu equipo no instalan nada: Monvel corre 100% en el navegador. Lo único que se instala una vez es el servidor de Monvel en una computadora de tu despacho (nosotros lo hacemos por ti), y de ahí en adelante todos entran desde su navegador, desde la oficina o desde fuera. También se puede usar en el celular como app (PWA)."}},{"@type":"Question","name":"¿Cómo migro mis datos de mi programa actual o de Excel?","acceptedAnswer":{"@type":"Answer","text":"Sin costo. Nos conectamos al SAT con tu CIEC, descargamos todo tu histórico de CFDIs y armamos tu contabilidad automáticamente."}},{"@type":"Question","name":"¿Mis datos están seguros? ¿Dónde viven?","acceptedAnswer":{"@type":"Answer","text":"En tu propio servidor, dentro de tu despacho, en México. Cifrados en disco con respaldos automáticos. Cumple LFPDPPP."}},{"@type":"Question","name":"¿Cuántos clientes (RFC) puedo manejar?","acceptedAnswer":{"@type":"Answer","text":"Según tu plan: Básico hasta 10 RFC, Profesional hasta 30 y Despacho Plus ilimitados. Dentro de tu plan no cobramos extra por RFC ni por cliente adicional, a diferencia de la mayoría del mercado."}},{"@type":"Question","name":"¿Cuántos timbres fiscales incluye Monvel y qué pasa si se me acaban?","acceptedAnswer":{"@type":"Answer","text":"El plan Básico incluye 100 timbres al mes, Profesional 400 y Despacho Plus 1,000, y con la promoción 2026 llevas el doble. La cuota se renueva el día 1 de cada mes. Si se te acaban, el timbre adicional cuesta $3.00 MXN o puedes agregar una bolsa de timbres a mejor precio, con vigencia de 12 meses."}},{"@type":"Question","name":"¿Mis clientes pueden consultar sus facturas sin llamarme?","acceptedAnswer":{"@type":"Answer","text":"Sí. Con el Portal del Cliente (planes Profesional y Despacho Plus) tú decides a qué contribuyentes les abres acceso. Cada uno ve sólo sus propios CFDIs con el XML descargable, su resumen del año y sus declaraciones ya presentadas. El trabajo interno del contador (pólizas, ajustes, borradores) nunca se muestra, ni ve información de tu despacho o de tus otros clientes."}}]}]}</script>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --vin:#5C1722; --vin-dk:#3d0f17; --vin-lt:#7a2030;
-  --gold:#C9A84C; --gold-lt:#e8c96a;
-  --slate:#2D3142; --cream:#F8F4EF;
-  --txt:#1a1a2e; --txt-m:#5a5a7a;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',system-ui,sans-serif;color:var(--txt);background:#fff;line-height:1.6;overflow-x:hidden}
-img,table{max-width:100%}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#65172A" />
+  <meta name="description" content="Monvel conecta CFDI, contabilidad, conciliación y declaraciones en una sola plataforma para despachos mexicanos." />
+  <meta property="og:title" content="Monvel | Software contable y fiscal para despachos" />
+  <meta property="og:description" content="De CFDI a declaración, sin volver a capturar." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://monvel.mx/" />
+  <link rel="canonical" href="https://monvel.mx/" />
+  <meta property="og:image" content="https://monvel.mx/og-image.png" />
+  <link rel="icon" type="image/png" href="logo-monvel-mark.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <title>Monvel | Software contable y fiscal para despachos</title>
+  <style>
+    :root {
+      --wine: #65172a;
+      --wine-deep: #3f0b18;
+      --wine-dark: #25060e;
+      --ivory: #f6f0e4;
+      --paper: #fffdf8;
+      --brass: #d6a944;
+      --brass-light: #f0d98a;
+      --ink: #251b1d;
+      --muted: #6c6062;
+      --green: #1c7650;
+      --line: rgba(101, 23, 42, .17);
+      --shadow: 0 24px 60px rgba(63, 11, 24, .12);
+      --max: 1240px;
+    }
 
-/* ── HERO (Vintage Spirit) ── */
-.hero{
-  background:
-    repeating-linear-gradient(135deg,transparent 0 28px,rgba(201,168,76,.025) 28px 29px),
-    linear-gradient(135deg,var(--vin-dk) 0%,var(--vin) 50%,var(--vin-dk) 100%);
-  color:#fff;padding:56px 64px 48px;position:relative;overflow:hidden
-}
-.hero::before{
-  content:'';position:absolute;inset:18px;border:1px solid rgba(201,168,76,.28);pointer-events:none
-}
-.hero::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--gold),var(--gold-lt),var(--gold))
-}
-.hero-inner{display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:center;max-width:1080px;margin:0 auto;position:relative;z-index:1}
-.hero-logo{width:200px;height:200px;border-radius:50%;flex-shrink:0;
-  max-width:none;aspect-ratio:1/1;object-fit:cover;
-  box-shadow:0 12px 36px rgba(0,0,0,.5),0 0 0 3px rgba(201,168,76,.18),0 0 0 5px var(--vin),0 0 0 6px rgba(201,168,76,.4);
-  display:block}
-.hero-brand{display:flex;flex-direction:column;align-items:center;gap:12px}
-.hero-made{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.62);font-weight:500;text-align:center}
-.brand-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:14px;color:var(--gold);font-size:11.5px;letter-spacing:5px;text-transform:uppercase;font-weight:600}
-.brand-eyebrow .hl{width:28px;height:1px;background:var(--gold)}
-.brand-name{font-family:'Cormorant Garamond',serif;font-size:78px;font-weight:700;line-height:.95;letter-spacing:1.5px;color:#fff;margin-bottom:14px}
-.brand-name .m{color:inherit}
-.brand-ornament{display:flex;align-items:center;gap:10px;max-width:480px;margin-bottom:14px}
-.brand-ornament .hl{flex:1;height:1px}
-.brand-ornament .hl:first-child{background:linear-gradient(90deg,transparent,var(--gold) 80%)}
-.brand-ornament .hl:last-child{background:linear-gradient(90deg,var(--gold) 20%,transparent)}
-.brand-ornament .diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0}
-.brand-tag{font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;font-weight:500;color:var(--gold-lt);margin-bottom:10px}
-.brand-sub{font-family:'Inter',sans-serif;font-size:14.5px;color:rgba(255,255,255,.72);max-width:460px;font-weight:400;line-height:1.5}
-.hero-stats{display:flex;gap:16px}
-.hero-cta-row{display:flex;gap:18px;align-items:center;margin-top:24px;flex-wrap:wrap}
-.hero-cta-2{color:rgba(255,255,255,.82);text-decoration:none;font-size:13px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.32);padding-bottom:2px;transition:color .15s,border-color .15s}
-.hero-cta-2:hover{color:#fff;border-color:#fff}
-.btn-aula{display:inline-flex;align-items:center;gap:7px;color:var(--gold-lt);text-decoration:none;font-size:13.5px;font-weight:600;border:1px solid rgba(201,168,76,.55);border-radius:9px;padding:13px 22px;transition:background .15s,border-color .15s,color .15s}
-.btn-aula:hover{background:rgba(201,168,76,.14);border-color:var(--gold);color:#fff}
-.stat-box{
-  background:rgba(255,255,255,.08);border:1px solid rgba(201,168,76,.35);
-  border-radius:12px;padding:18px 26px;text-align:center;backdrop-filter:blur(4px)
-}
-.stat-num{font-size:34px;font-weight:700;color:var(--gold);display:block;line-height:1}
-.stat-lbl{font-size:10.5px;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--ivory);
+      font-family: "IBM Plex Sans", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { letter-spacing: -.035em; }
+    h1, h2 { line-height: 1.02; }
+    h2 { color: var(--wine); font-size: clamp(2.45rem, 5vw, 4.65rem); font-weight: 650; }
+    h2 span { font-weight: 300; }
+    p { line-height: 1.75; }
+    :focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; }
 
-/* ── LAYOUT ── */
-.wrap{max-width:1020px;margin:0 auto;padding:0 64px}
-section{padding:52px 0}
-.gold-line{width:48px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-lt));border-radius:2px;margin-bottom:18px}
-.sec-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--vin);margin-bottom:8px}
-.sec-title.wh{color:#fff}
-.sec-sub{font-size:14.5px;color:var(--txt-m);margin-bottom:36px;max-width:620px}
+    .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .section { padding: 112px 0; scroll-margin-top: 80px; }
+    .label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: var(--wine);
+      font-family: "IBM Plex Mono", monospace;
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .label::before { content: attr(data-number); min-width: 38px; padding: 6px 0; text-align: center; border-block: 1px solid currentColor; }
+    .label.light { color: var(--brass-light); }
 
-/* ── APP PREVIEW (mockup) ── */
-.pv-wrap{padding-top:50px;padding-bottom:8px}
-.preview{background:#fff;border-radius:16px;box-shadow:0 22px 60px rgba(61,15,23,.20);border:1px solid #ededed;overflow:hidden;max-width:900px;margin:0 auto}
-.pv-bar{background:linear-gradient(90deg,#f3eef0,#ece6e9);padding:11px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #e6dfe2}
-.pv-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0}
-.pv-url{margin-left:12px;font-size:12px;color:#9a8e93;background:#fff;border:1px solid #eee;border-radius:6px;padding:5px 16px;flex:1;max-width:300px}
-.pv-body{padding:24px}
-.pv-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:13px;margin-bottom:18px}
-.pv-kpi{background:var(--cream);border-radius:11px;padding:15px 16px;border:1px solid #efe9e3}
-.pv-k-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:var(--txt-m);display:block}
-.pv-k-num{font-size:20px;font-weight:700;font-family:'Playfair Display',serif;display:block;margin-top:5px}
-.pv-spark{display:flex;align-items:flex-end;gap:3px;height:24px;margin-top:10px}
-.pv-spark i{flex:1;background:linear-gradient(180deg,var(--gold-lt),var(--gold));border-radius:2px 2px 0 0;display:block}
-.pv-rows{display:flex;flex-direction:column;gap:8px}
-.pv-row{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:11px 15px;background:#fafafa;border:1px solid #f0f0f0;border-radius:9px;font-size:12.5px;color:var(--slate)}
-.pv-amt{color:var(--txt-m);font-variant-numeric:tabular-nums}
-.pv-tag{font-size:9.5px;font-weight:700;padding:3px 11px;border-radius:20px;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}
-.pv-tag.ded{background:#e7f6ec;color:#2f9e5e}
-.pv-tag.nod{background:#fdeaea;color:#c0392b}
-.pv-cap{text-align:center;font-size:13.5px;color:var(--txt-m);margin-top:18px;font-style:italic}
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: .82rem;
+      font-weight: 700;
+      transition: transform .16s ease, background .16s ease, color .16s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button:active { transform: scale(.98); }
+    .button.gold { color: var(--wine-deep); background: var(--brass); }
+    .button.gold:hover { background: var(--brass-light); }
+    .button.wine { color: white; background: var(--wine); }
+    .button.outline { color: var(--wine); border-color: rgba(101, 23, 42, .38); }
 
-/* ── PAIN POINTS ── */
-.pain-bg{background:var(--cream)}
-.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.pain{background:#fff;border-radius:12px;padding:28px;border-left:4px solid var(--vin);box-shadow:0 2px 14px rgba(0,0,0,.06)}
-.pain-ico{font-size:30px;margin-bottom:12px;display:block}
-.pain-ttl{font-weight:700;font-size:13px;color:var(--vin);text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px}
-.pain p{font-size:13.5px;color:var(--txt-m);line-height:1.65;text-align:justify;hyphens:auto}
+    .header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      height: 76px;
+      color: white;
+      background: rgba(63, 11, 24, .95);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(14px);
+    }
+    .header-inner { height: 100%; display: flex; align-items: center; gap: 34px; }
+    .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+    .brand img { width: 48px; height: 48px; object-fit: cover; border-radius: 50%; box-shadow: 0 0 0 1px rgba(255,255,255,.5); }
+    .brand-copy { display: flex; flex-direction: column; line-height: 1; }
+    .brand-copy strong { font-size: 1.12rem; letter-spacing: .14em; }
+    .brand-copy small { margin-top: 5px; opacity: .58; font-family: "IBM Plex Mono", monospace; font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; }
+    .nav { display: flex; align-items: center; gap: 28px; margin-left: auto; }
+    .nav a { position: relative; text-decoration: none; font-size: .78rem; font-weight: 600; opacity: .82; }
+    .nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -8px; height: 1px; background: var(--brass); transition: right .18s ease; }
+    .nav a:hover::after { right: 0; }
+    .header .button { min-height: 40px; padding-inline: 17px; }
+    .menu-btn { display: none; width: 44px; height: 44px; margin-left: auto; color: white; border: 0; background: transparent; }
+    .menu-btn span, .menu-btn::before, .menu-btn::after { content: ""; display: block; width: 22px; height: 2px; margin: 5px auto; background: currentColor; }
 
-/* ── FEATURES ── */
-.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.feat{background:var(--cream);border-radius:14px;padding:26px;border-top:3px solid var(--gold);transition:transform .15s,box-shadow .15s}
-.feat:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(92,23,34,.10)}
-.feat-ico{
-  width:50px;height:50px;background:linear-gradient(135deg,var(--vin),var(--vin-lt));
-  border-radius:13px;display:flex;align-items:center;justify-content:center;
-  font-size:24px;margin-bottom:15px;color:var(--gold-lt);font-weight:700;
-  box-shadow:0 6px 16px rgba(92,23,34,.28);border:1px solid rgba(201,168,76,.45)
-}
-.feat-ttl{font-weight:700;font-size:14.5px;color:var(--slate);margin-bottom:8px}
-.feat p{font-size:12.5px;color:var(--txt-m);line-height:1.62;text-align:justify;hyphens:auto}
+    .mobile-panel { display: none; position: fixed; inset: 76px 0 auto; z-index: 45; padding: 26px 24px 32px; color: var(--wine); background: var(--ivory); border-bottom: 1px solid var(--line); box-shadow: var(--shadow); }
+    .mobile-panel.open { display: block; }
+    .mobile-panel a:not(.button) { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid var(--line); text-decoration: none; font-weight: 600; }
+    .mobile-panel .button { width: 100%; margin-top: 24px; }
 
-/* ── REPLACES STRIP ── */
-.repl{background:#fff;border:1px dashed rgba(201,168,76,.55);border-radius:14px;padding:26px 30px;margin-top:34px;text-align:center}
-.repl-ttl{font-family:'Playfair Display',serif;font-size:18px;color:var(--vin);font-weight:700;margin-bottom:14px}
-.repl-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.repl-tag{font-size:12.5px;color:var(--txt-m);background:var(--cream);border-radius:20px;padding:7px 15px;border:1px solid #ececec}
-.repl-tag s{color:#b9b3bf}
+    .hero {
+      /* svh y no px fijos: en pantallas cortas 870px desbordaba. */
+      min-height: clamp(620px, 94svh, 870px);
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-top: 76px;
+      overflow: hidden;
+      color: white;
+      background: var(--wine-deep);
+    }
+    /* Fondo por CSS y no <img>: si `hero.jpg` no esta, degrada al degradado
+       en silencio en vez de pintar el icono de imagen rota. La foto vivia en un
+       host prestado (manus.space) que puede caducar. */
+    .hero-bg { position: absolute; inset: 0 0 0 38%; width: 62%; height: 100%; opacity: .82; background-image: url("hero.jpg"); background-size: cover; background-position: center; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--wine-deep) 0 38%, rgba(63,11,24,.73) 60%, rgba(63,11,24,.18) 100%), linear-gradient(0deg, rgba(37,6,14,.75), transparent 45%); }
+    .hero-content { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 760px) 1fr; align-items: end; gap: 40px; }
+    .hero-copy { padding: 92px 0 100px; }
+    .eyebrow { display: flex; align-items: center; gap: 13px; color: var(--brass-light); font-family: "IBM Plex Mono", monospace; font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--brass); }
+    .hero h1 { max-width: 790px; margin: 26px 0 28px; font-size: clamp(3.7rem, 7vw, 6.9rem); font-weight: 650; }
+    .hero h1 span { color: var(--brass-light); font-weight: 300; }
+    .hero-lead { max-width: 610px; color: rgba(255,255,255,.76); font-size: 1.05rem; }
+    .hero-actions { display: flex; align-items: center; gap: 18px; margin-top: 34px; }
+    .hero-link { color: white; text-decoration: none; font-size: .8rem; font-weight: 700; border-bottom: 1px solid currentColor; padding-bottom: 5px; }
+    .microcopy { margin-top: 16px; color: rgba(255,255,255,.74); font-family: "IBM Plex Mono", monospace; font-size: .73rem; }
+    .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 100px; border: 1px solid rgba(255,255,255,.17); background: rgba(63,11,24,.64); backdrop-filter: blur(12px); }
+    .hero-stats div { min-height: 122px; padding: 22px 18px; border-right: 1px solid rgba(255,255,255,.17); }
+    .hero-stats div:last-child { border-right: 0; }
+    .hero-stats strong { display: block; color: var(--brass-light); font-size: 2rem; }
+    .hero-stats span { display: block; margin-top: 9px; opacity: .62; font-family: "IBM Plex Mono", monospace; font-size: .68rem; line-height: 1.35; letter-spacing: .06em; text-transform: uppercase; }
 
-/* ── COMPARISON ── */
-.comp-bg{background:linear-gradient(135deg,var(--vin-dk),var(--vin));padding:52px 0}
-.ctbl{width:100%;border-collapse:collapse;font-size:13px}
-.ctbl th{padding:13px 12px;text-align:center;font-weight:600;border-bottom:2px solid rgba(201,168,76,.25)}
-.ctbl th:first-child{text-align:left;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);width:34%}
-.ctbl th.mv{background:rgba(201,168,76,.14);color:var(--gold-lt);border-radius:8px 8px 0 0}
-.ctbl th.ot{color:rgba(255,255,255,.5)}
-.ctbl td{padding:10px 12px;text-align:center;color:rgba(255,255,255,.8);border-bottom:1px solid rgba(255,255,255,.06)}
-.ctbl td:first-child{text-align:left;color:rgba(255,255,255,.7)}
-.ctbl td.mv{background:rgba(201,168,76,.07);font-weight:600}
-.yes{color:#4ade80!important;font-size:16px}
-.no{color:rgba(255,255,255,.2)!important;font-size:16px}
-.par{color:#fbbf24!important;font-size:11.5px}
+    .replacement { color: var(--wine-deep); background: var(--brass); }
+    .replacement-inner { min-height: 92px; display: flex; align-items: center; gap: 22px; }
+    .replacement strong { flex-shrink: 0; }
+    .replacement-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .replacement-list span { padding: 7px 10px; border: 1px solid rgba(63,11,24,.27); font-family: "IBM Plex Mono", monospace; font-size: .68rem; text-transform: uppercase; }
 
-/* ── HISTORY ── */
-.hist-bg{background:var(--cream)}
-.hist-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.hist-txt p{font-size:14.5px;color:var(--txt-m);line-height:1.78;margin-bottom:14px;text-align:justify;hyphens:auto}
-.hist-txt strong{color:var(--vin)}
-.sec-eyebrow{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:10px}
-.hist-txt p.hist-lead{font-size:17.5px;line-height:1.6;color:var(--txt);text-align:left}
-.hist-txt p.hist-lead strong{color:var(--vin)}
-.founders{background:#fff;border-radius:16px;padding:36px;text-align:center;border:1px solid rgba(201,168,76,.2);box-shadow:0 2px 16px rgba(0,0,0,.05)}
-.fdr{margin-bottom:22px}
-.fdr-av{
-  width:62px;height:62px;background:linear-gradient(135deg,var(--vin),var(--vin-lt));
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:22px;font-family:'Playfair Display',serif;font-weight:700;color:#fff;
-  margin:0 auto 12px
-}
-.fdr-name{font-weight:700;font-size:14px;color:var(--slate)}
-.fdr-role{font-size:12px;color:var(--txt-m);margin-top:3px;line-height:1.5}
-.fdr-div{height:1px;background:rgba(201,168,76,.2);margin:18px 0}
-.fdr-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:14px;color:var(--vin);line-height:1.65}
+    .heading-row { display: grid; grid-template-columns: 1.1fr .7fr; gap: 70px; align-items: end; margin-top: 28px; }
+    .heading-row p { color: var(--muted); }
+    .process { background: var(--ivory); }
+    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 70px; border: 1px solid var(--line); }
+    .process-card { min-height: 320px; position: relative; padding: 30px; border-right: 1px solid var(--line); }
+    .process-card:last-child { border-right: 0; }
+    .process-card small { color: var(--wine); font-family: "IBM Plex Mono", monospace; }
+    .process-card h3 { margin-top: 74px; color: var(--wine); font-size: 1.65rem; font-weight: 650; }
+    .process-card p { color: var(--muted); font-size: .86rem; }
 
-/* ── STEPS ── */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
-.steps::before{
-  content:'';position:absolute;top:26px;left:17%;right:17%;
-  height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-lt),var(--gold))
-}
-.step{text-align:center;padding:0 24px}
-.step-n{
-  width:52px;height:52px;background:linear-gradient(135deg,var(--vin),var(--vin-lt));
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:19px;font-weight:900;color:#fff;margin:0 auto 16px;
-  font-family:'Playfair Display',serif;border:3px solid var(--gold);position:relative;z-index:1
-}
-.step-ttl{font-weight:700;font-size:14px;color:var(--slate);margin-bottom:8px}
-.step p{font-size:13px;color:var(--txt-m);line-height:1.65}
+    .modules { color: white; background: var(--wine-deep); }
+    .modules h2 { color: white; }
+    .modules .heading-row p { color: rgba(255,255,255,.64); }
+    .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 68px; border-top: 1px solid rgba(255,255,255,.14); border-left: 1px solid rgba(255,255,255,.14); }
+    .module { min-height: 270px; padding: 30px; border-right: 1px solid rgba(255,255,255,.14); border-bottom: 1px solid rgba(255,255,255,.14); }
+    .module small { color: var(--brass-light); font-family: "IBM Plex Mono", monospace; }
+    .module h3 { margin-top: 48px; font-size: 1.5rem; font-weight: 600; }
+    .module p { color: rgba(255,255,255,.62); font-size: .84rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
+    .tags span { padding: 5px 8px; color: var(--brass-light); border: 1px solid rgba(214,169,68,.3); font-family: "IBM Plex Mono", monospace; font-size: .67rem; text-transform: uppercase; }
 
-/* ── PRICING ── */
-.price-bg{background:var(--cream)}
-.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.pc{background:#fff;border-radius:16px;padding:32px 26px;box-shadow:0 2px 16px rgba(0,0,0,.06);border:1px solid #ebebeb;position:relative}
-.pc.hot{border-color:var(--gold);box-shadow:0 4px 24px rgba(92,23,34,.12);transform:scale(1.03)}
-.hot-badge{
-  position:absolute;top:-12px;left:50%;transform:translateX(-50%);
-  background:linear-gradient(90deg,var(--vin),var(--vin-lt));color:#fff;
-  font-size:10.5px;font-weight:700;padding:4px 16px;border-radius:20px;letter-spacing:1px;text-transform:uppercase
-}
-.pc-plan{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--txt-m);margin-bottom:8px}
-.pc-price{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:var(--vin);line-height:1}
-.pc-price sup{font-size:16px;font-family:'Inter',sans-serif;font-weight:400;color:var(--txt-m)}
-.pc-price sub{font-size:13px;font-family:'Inter',sans-serif;font-weight:400;color:var(--txt-m)}
-.pc-clients{font-size:12px;color:var(--txt-m);margin:8px 0 20px;padding-bottom:18px;border-bottom:1px solid #f0f0f0}
-.pc ul{list-style:none;margin-bottom:24px}
-.pc ul li{font-size:12.5px;color:var(--txt);padding:5px 0;display:flex;align-items:flex-start;gap:8px}
-.pc ul li::before{content:'✓';color:var(--vin);font-weight:700;flex-shrink:0}
-.pc-btn{
-  display:block;width:100%;padding:12px;border-radius:8px;text-align:center;
-  font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;
-  border:2px solid var(--vin);color:var(--vin);background:transparent;transition:all .2s
-}
-.pc.hot .pc-btn{background:var(--vin);color:#fff}
-.pc-note{font-size:11.5px;color:var(--txt-m);text-align:center;margin-top:20px}
+    .velia { background: var(--paper); }
+    .velia-layout { display: grid; grid-template-columns: .8fr 1fr; gap: 90px; align-items: center; }
+    .velia-art { aspect-ratio: 4/5; position: relative; display: grid; place-items: center; background: radial-gradient(circle at 68% 25%, rgba(214,169,68,.35), transparent 26%), linear-gradient(145deg, #f6f0e4, #d8c8b0); box-shadow: -22px 24px 0 var(--wine), var(--shadow); overflow: hidden; }
+    .velia-art::before, .velia-art::after { content: ""; position: absolute; border: 1px solid rgba(101,23,42,.33); border-radius: 50%; transform: rotate(-18deg); }
+    .velia-art::before { width: 68%; aspect-ratio: 1; }
+    .velia-art::after { width: 48%; aspect-ratio: 1; border-color: var(--brass); }
+    .velia-core { z-index: 2; width: 118px; height: 118px; display: grid; place-items: center; color: var(--brass-light); background: var(--wine); border-radius: 50%; font-family: "IBM Plex Mono", monospace; font-size: 1.6rem; box-shadow: 0 18px 40px rgba(63,11,24,.3); }
+    .chat { margin-top: 30px; border: 1px solid var(--line); background: var(--ivory); box-shadow: var(--shadow); }
+    .chat-head { display: flex; justify-content: space-between; padding: 13px 15px; color: var(--wine); border-bottom: 1px solid var(--line); font-size: .72rem; font-weight: 700; }
+    .chat-head span { color: var(--green); font-family: "IBM Plex Mono", monospace; font-size: .68rem; text-transform: uppercase; }
+    .question { width: 72%; margin: 18px 15px 9px auto; padding: 13px; background: white; border: 1px solid var(--line); font-size: .74rem; }
+    .answer { width: 86%; margin: 9px auto 18px 15px; padding: 14px; color: white; background: var(--wine); font-size: .74rem; line-height: 1.6; }
 
-/* ── DEMO / LEAD FORM ── */
-.demo-bg{background:linear-gradient(135deg,var(--vin-dk),var(--vin) 60%,var(--vin-lt))}
-.demo-bg .sec-title{color:#fff}
-.demo-bg .sec-sub{color:rgba(255,255,255,.72)}
-.lead-form{background:#fff;border-radius:16px;padding:30px;max-width:660px;box-shadow:0 12px 44px rgba(0,0,0,.22)}
-.lf-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.lf-field{margin-bottom:16px;display:flex;flex-direction:column}
-.lf-field label{font-size:12px;font-weight:600;color:var(--slate);margin-bottom:5px}
-.lf-field input,.lf-field select,.lf-field textarea{border:1px solid #d8d2cc;border-radius:8px;padding:10px 12px;font-size:14px;font-family:inherit;color:var(--txt);background:#fff;width:100%}
-.lf-field input:focus,.lf-field select:focus,.lf-field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.18)}
-.lf-field textarea{resize:vertical}
-.lf-btn{background:linear-gradient(90deg,var(--vin),var(--vin-lt));color:#fff;border:0;border-radius:8px;padding:13px 26px;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit;width:100%;transition:opacity .2s}
-.lf-btn:hover{opacity:.92}
-.lf-note{font-size:11px;color:var(--txt-m);text-align:center;margin-top:12px}
-@media(max-width:600px){.lf-row{grid-template-columns:1fr}.lead-form{padding:22px 18px}}
+    .time { background: #eadfcd; }
+    .time-layout { display: grid; grid-template-columns: .72fr 1.28fr; gap: 80px; align-items: center; }
+    .time-total { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--line); }
+    .time-total small { color: var(--wine); font-family: "IBM Plex Mono", monospace; text-transform: uppercase; }
+    .time-total div { display: flex; align-items: center; gap: 16px; margin-top: 8px; }
+    .time-total del { color: var(--muted); font-size: 2rem; }
+    .time-total strong { color: var(--green); font-size: 2.7rem; }
+    .time-table { background: var(--paper); border: 1px solid var(--line); box-shadow: 16px 16px 0 rgba(101,23,42,.08); }
+    .time-row { display: grid; grid-template-columns: 1fr 95px 130px; align-items: center; min-height: 72px; padding: 0 20px; border-bottom: 1px solid var(--line); font-size: .78rem; }
+    .time-row:last-child { border-bottom: 0; }
+    .time-row span:nth-child(2) { color: var(--muted); font-family: "IBM Plex Mono", monospace; }
+    .time-row strong { color: var(--green); font-family: "IBM Plex Mono", monospace; font-size: .78rem; }
 
-/* ── ANIMACIONES Y MICRO-INTERACCIONES ── */
-html{scroll-behavior:smooth}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
-.reveal.in{opacity:1;transform:translateY(0)}
-.reveal-d1{transition-delay:.08s}
-.reveal-d2{transition-delay:.16s}
-.reveal-d3{transition-delay:.24s}
+    .trust { background: var(--paper); }
+    .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .trust-card { padding: 48px; background: var(--ivory); border: 1px solid var(--line); }
+    .trust-card:nth-child(2) { background: var(--wine-deep); color: white; }
+    .trust-card:nth-child(2) h2 { color: white; }
+    .trust-card p { color: var(--muted); }
+    .trust-card:nth-child(2) p { color: rgba(255,255,255,.64); }
+    .seal { display: inline-flex; margin-top: 16px; padding: 8px 10px; color: var(--wine-deep); background: var(--brass-light); font-family: "IBM Plex Mono", monospace; font-size: .7rem; text-transform: uppercase; }
 
-/* Hero con malla de luz para profundidad (no agresivo) */
-.hero{background:
-  radial-gradient(ellipse at top right,rgba(201,168,76,.18) 0%,transparent 55%),
-  radial-gradient(ellipse at bottom left,rgba(122,32,48,.45) 0%,transparent 60%),
-  linear-gradient(135deg,var(--vin-dk) 0%,var(--vin) 55%,var(--vin-lt) 100%)}
+    .pricing { background: var(--ivory); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 65px; }
+    .plan { min-height: 530px; position: relative; display: flex; flex-direction: column; padding: 52px 32px 32px; background: var(--paper); border: 1px solid var(--line); box-shadow: 7px 7px 0 rgba(101,23,42,.05); }
+    .plan.featured { color: white; background: var(--wine-deep); border-color: var(--wine-deep); transform: translateY(-16px); box-shadow: var(--shadow); }
+    .folio { position: absolute; top: 18px; left: 32px; color: var(--wine); font-family: "IBM Plex Mono", monospace; font-size: .66rem; letter-spacing: .1em; }
+    .featured .folio { color: rgba(255,255,255,.5); }
+    .recommended { position: absolute; top: 0; right: 0; padding: 7px 11px; color: var(--wine-deep); background: var(--brass); font-family: "IBM Plex Mono", monospace; font-size: .66rem; text-transform: uppercase; }
+    .plan-name { color: var(--wine); font-family: "IBM Plex Mono", monospace; font-size: .7rem; letter-spacing: .11em; text-transform: uppercase; }
+    .featured .plan-name { color: var(--brass-light); }
+    .price { margin: 18px 0 14px; color: var(--wine); font-size: clamp(2.9rem, 4vw, 4rem); font-weight: 700; letter-spacing: -.055em; }
+    .featured .price { color: white; }
+    .plan > p { color: var(--muted); font-size: .75rem; }
+    .featured > p { color: rgba(255,255,255,.62); }
+    .stamps { margin: 18px 0; padding: 12px 0; color: var(--wine); border-block: 1px solid var(--line); font-size: .72rem; font-weight: 700; }
+    .featured .stamps { color: var(--brass-light); border-color: rgba(255,255,255,.16); }
+    .features { display: grid; gap: 11px; margin: 12px 0 28px; color: var(--muted); font-size: .75rem; }
+    .featured .features { color: rgba(255,255,255,.68); }
+    .features span::before { content: "✓"; margin-right: 8px; color: var(--green); }
+    .featured .features span::before { color: var(--brass-light); }
+    .plan .button { width: 100%; margin-top: auto; }
+    .featured .button.outline { color: var(--wine-deep); background: var(--brass); border-color: var(--brass); }
+    .pricing-note { max-width: 840px; margin: 28px auto 0; color: var(--muted); text-align: center; font-size: .76rem; }
 
-/* Hover lifts elegantes en cards de contenido */
-.pain{transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s}
-.pain:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(92,23,34,.13)}
-.step{transition:transform .25s cubic-bezier(.16,1,.3,1)}
-.step:hover{transform:translateY(-3px)}
-.pc{transition:transform .25s cubic-bezier(.16,1,.3,1),box-shadow .25s}
-.pc:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(92,23,34,.16)}
-.pc.hot:hover{transform:scale(1.03) translateY(-5px)}
+    .faq { background: var(--paper); }
+    .faq-layout { display: grid; grid-template-columns: .65fr 1.35fr; gap: 90px; align-items: start; }
+    .faq-intro { position: sticky; top: 112px; }
+    .faq-list { border-top: 1px solid var(--line); }
+    details { border-bottom: 1px solid var(--line); }
+    summary { min-height: 82px; display: grid; grid-template-columns: 32px 1fr 20px; align-items: center; gap: 10px; list-style: none; color: var(--wine); cursor: pointer; }
+    summary::-webkit-details-marker { display: none; }
+    summary small { font-family: "IBM Plex Mono", monospace; }
+    summary strong { font-size: 1rem; font-weight: 600; }
+    summary::after { content: "+"; font-size: 1.2rem; font-weight: 300; }
+    details[open] summary::after { content: "−"; }
+    details p { margin: 0; padding: 0 34px 24px 42px; color: var(--muted); font-size: .84rem; }
 
-/* Hover en filas de la tabla comparativa */
-.ctbl tbody tr{transition:background .2s}
-.ctbl tbody tr:hover{background:rgba(201,168,76,.07)}
+    .closing { position: relative; padding: 105px 0; color: white; background: var(--wine-deep); overflow: hidden; }
+    .closing::after { content: ""; position: absolute; width: 460px; height: 460px; right: -120px; top: -220px; border: 1px solid rgba(214,169,68,.2); border-radius: 50%; box-shadow: 0 0 0 65px rgba(214,169,68,.04), 0 0 0 130px rgba(214,169,68,.025); }
+    .closing-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr .62fr; gap: 90px; align-items: center; }
+    .closing h2 { color: white; }
+    .closing p { color: rgba(255,255,255,.66); }
+    .ticket { background: var(--ivory); color: var(--wine-deep); box-shadow: 14px 14px 0 var(--brass); }
+    .ticket-head, .ticket-foot { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; border-bottom: 1px dashed rgba(101,23,42,.3); }
+    .ticket-head img { width: 40px; height: 40px; object-fit: cover; border-radius: 50%; }
+    .ticket-head span, .ticket-foot { font-family: "IBM Plex Mono", monospace; font-size: .68rem; letter-spacing: .07em; }
+    .ticket-body { padding: 34px 20px; font-size: 1.12rem; font-weight: 650; }
+    .ticket-foot { border-top: 1px dashed rgba(101,23,42,.3); border-bottom: 0; }
 
-/* ── Comparador de tiempos (método tradicional vs Monvel) ── */
-.time-bg{background:linear-gradient(180deg,#fff 0%,var(--cream) 100%)}
-.tcmp{max-width:740px;margin:4px auto 0;display:flex;flex-direction:column;gap:10px}
-.tcmp-row{background:#fff;border:1px solid rgba(201,168,76,.18);border-radius:11px;padding:12px 18px;box-shadow:0 2px 12px rgba(0,0,0,.04);transition:transform .2s,box-shadow .2s}
-.tcmp-row:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,.07)}
-.tcmp-task{font-weight:600;font-size:13.5px;color:var(--txt);margin-bottom:8px}
-.tcmp-bars{display:flex;flex-direction:column;gap:6px}
-.tcmp-bar{display:flex;align-items:center;gap:10px;font-size:11.5px}
-.tcmp-bar .lbl{width:62px;flex-shrink:0;color:var(--txt-m);text-align:right;font-weight:500}
-.tcmp-bar .track{flex:1;height:10px;border-radius:6px;background:#f0ece4;overflow:hidden}
-.tcmp-bar .fill{display:block;height:100%;border-radius:6px}
-.tcmp-bar.trad .fill{background:linear-gradient(90deg,#c07882,#9a4651)}
-.tcmp-bar.mv .fill{background:linear-gradient(90deg,var(--gold),var(--gold-lt))}
-.tcmp-bar .val{width:72px;flex-shrink:0;font-weight:700;font-variant-numeric:tabular-nums;text-align:left}
-.tcmp-bar.trad .val{color:#9a4651}
-.tcmp-bar.mv .val{color:#9a7b1e}
-.tcmp-total{text-align:center;margin-top:22px;font-size:15px;color:var(--txt-m)}
-.tcmp-total strong{color:var(--vin);font-size:18px}
-.tcmp-note{text-align:center;font-size:11px;color:var(--txt-m);opacity:.7;margin-top:7px}
-@media(max-width:600px){
-  .tcmp-row{padding:11px 13px;border-radius:9px}
-  .tcmp-task{font-size:12.5px;margin-bottom:7px}
-  .tcmp-bar{gap:7px;font-size:10.5px}
-  .tcmp-bar .lbl{width:52px}
-  .tcmp-bar .val{width:58px}
-  .tcmp-bar .track{height:9px}
-  .tcmp-total{font-size:13.5px;margin-top:18px}
-  .tcmp-total strong{font-size:16px}
-}
+    .footer { padding: 58px 0 24px; color: rgba(255,255,255,.68); background: var(--wine-dark); }
+    .footer-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; }
+    .footer .brand { color: white; }
+    .footer-copy { max-width: 360px; margin-top: 18px; font-size: .76rem; }
+    .footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .footer-links div { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links strong { color: var(--brass-light); font-family: "IBM Plex Mono", monospace; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; }
+    .footer-links a { text-decoration: none; font-size: .72rem; }
+    .copyright { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); font-family: "IBM Plex Mono", monospace; font-size: .69rem; }
 
-/* ── MIGRACIÓN / CÁMBIATE SIN PERDER NADA ── */
-.mig-bg{background:#fff}
-.mig-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
-.mig-lead{font-size:15px;line-height:1.78;color:var(--txt-m);margin-bottom:16px;text-align:justify;hyphens:auto}
-.mig-lead strong{color:var(--vin)}
-.mig-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
-.mig-chip{background:var(--cream);border:1.5px solid rgba(92,23,34,.15);border-radius:999px;padding:5px 14px;font-size:12px;font-weight:600;color:var(--vin)}
-.mig-chip.hi{background:var(--vin);color:#fff;border-color:var(--vin)}
-.mig-card{background:var(--cream);border-radius:16px;padding:30px;border:1px solid rgba(201,168,76,.22);box-shadow:0 2px 14px rgba(0,0,0,.05)}
-.mig-card-ttl{font-family:'Playfair Display',serif;font-size:15.5px;font-weight:700;color:var(--vin);margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid rgba(201,168,76,.22)}
-.mig-steps{display:flex;flex-direction:column;gap:20px}
-.mig-step{display:flex;gap:16px;align-items:flex-start}
-.mig-n{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--vin),var(--vin-lt));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;font-family:'Playfair Display',serif;border:2px solid var(--gold)}
-.mig-ttl{font-weight:700;font-size:13.5px;color:var(--slate);margin-bottom:4px}
-.mig-step p{font-size:12.5px;color:var(--txt-m);line-height:1.62;margin:0}
-@media(max-width:900px){.mig-grid{grid-template-columns:1fr;gap:32px}}
+    .wa { position: fixed; right: 18px; bottom: 18px; z-index: 40; min-height: 48px; display: flex; align-items: center; padding: 0 16px; color: white; background: #167a4e; text-decoration: none; font-size: .7rem; font-weight: 700; box-shadow: 0 12px 28px rgba(22,122,78,.28); }
 
-/* Sparklines del mockup: animación de barras al entrar en pantalla */
-.pv-spark i{transform-origin:bottom;transform:scaleY(0);transition:transform .9s cubic-bezier(.16,1,.3,1)}
-.pv-spark.in i{transform:scaleY(1)}
-.pv-spark.in i:nth-child(1){transition-delay:.00s}
-.pv-spark.in i:nth-child(2){transition-delay:.08s}
-.pv-spark.in i:nth-child(3){transition-delay:.16s}
-.pv-spark.in i:nth-child(4){transition-delay:.24s}
-.pv-spark.in i:nth-child(5){transition-delay:.32s}
-.pv-spark.in i:nth-child(6){transition-delay:.40s}
+    @media (max-width: 1050px) {
+      .nav, .header > .wrap > .button { display: none; }
+      .menu-btn { display: block; }
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-bg { inset: auto 0 0; width: 100%; height: 52%; }
+      .hero::after { background: linear-gradient(180deg, var(--wine-deep) 0 42%, rgba(63,11,24,.65) 75%, rgba(37,6,14,.35)); }
+      .hero-stats { margin: 0 0 66px; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .process-card:nth-child(2) { border-right: 0; }
+      .module-grid { grid-template-columns: 1fr 1fr; }
+      .velia-layout, .time-layout { grid-template-columns: 1fr; }
+      .velia-art { max-width: 550px; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 620px; margin-inline: auto; }
+      .plan.featured { transform: none; }
+      .faq-layout { grid-template-columns: 1fr; gap: 50px; }
+      .faq-intro { position: static; }
+    }
 
-/* Underline animado en nav del sticky header */
-.hd-nav a{position:relative;padding-bottom:3px}
-.hd-nav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .25s cubic-bezier(.16,1,.3,1)}
-.hd-nav a:hover::after,.hd-nav a.active::after{transform:scaleX(1)}
+    @media (max-width: 720px) {
+      .wrap { width: calc(100% - 28px); }
+      .section { padding: 76px 0; }
+      .header { height: 68px; }
+      .brand img { width: 44px; height: 44px; }
+      .brand-copy small { display: none; }
+      .mobile-panel { top: 68px; }
+      .hero { min-height: clamp(600px, 96svh, 860px); padding-top: 68px; align-items: flex-start; }
+      .hero-copy { padding: 70px 0 30px; }
+      .hero h1 { font-size: clamp(3.2rem, 15vw, 4.65rem); }
+      .hero-actions { align-items: stretch; flex-direction: column; max-width: 360px; }
+      .hero-stats { grid-template-columns: repeat(3, 1fr); }
+      .hero-stats div { min-height: 96px; padding: 14px 9px; }
+      .hero-stats strong { font-size: 1.55rem; }
+      .replacement-inner { padding: 22px 0; align-items: flex-start; flex-direction: column; }
+      .heading-row { grid-template-columns: 1fr; gap: 20px; }
+      .process-grid, .module-grid, .trust-grid { grid-template-columns: 1fr; }
+      .process-card { min-height: 245px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .process-card h3 { margin-top: 40px; }
+      .module { min-height: 245px; }
+      .velia-art { width: calc(100% - 18px); }
+      .question, .answer { width: calc(100% - 30px); }
+      .time-row { grid-template-columns: 1fr 75px; gap: 8px; padding: 14px 16px; }
+      .time-row strong { grid-column: 1 / -1; }
+      .trust-card { padding: 32px 24px; }
+      .plan { padding: 52px 24px 28px; }
+      .closing-inner { grid-template-columns: 1fr; gap: 55px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-links { grid-template-columns: 1fr 1fr; }
+      .copyright { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .wa { width: 50px; justify-content: center; padding: 0; font-size: 0; }
+      .wa::after { content: "WA"; font-size: .65rem; }
+    }
 
-/* Cursor parpadeante para el efecto typewriter de Velia */
-.tw-cursor{display:inline-block;width:2px;height:1em;background:var(--vin);margin-left:2px;vertical-align:-2px;animation:tw-blink 1s steps(2) infinite}
-@keyframes tw-blink{50%{opacity:0}}
-
-/* Focus visibles para accesibilidad (WCAG 2.1) */
-a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
-  outline:3px solid rgba(201,168,76,.55);outline-offset:2px;border-radius:6px
-}
-
-/* ── Toques futuristas (cálidos: dorado + vino, nada de neón frío) ── */
-/* Logo del hero con un halo dorado que "respira" — premium y vivo */
-@keyframes mv-breathe{0%,100%{filter:drop-shadow(0 0 5px rgba(201,168,76,.22))}50%{filter:drop-shadow(0 0 17px rgba(201,168,76,.50))}}
-.hero-logo{animation:mv-breathe 4.8s ease-in-out infinite}
-/* Línea dorada inferior del hero con shimmer lento */
-@keyframes mv-line-shimmer{0%{background-position:0 0}100%{background-position:200% 0}}
-.hero::after{background:linear-gradient(90deg,var(--gold),var(--gold-lt),var(--gold),var(--gold-lt));background-size:200% 100%;animation:mv-line-shimmer 7s linear infinite}
-/* Glow dorado sutil al pasar el cursor por las tarjetas de módulos */
-.feat:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(92,23,34,.12),0 0 0 1px rgba(201,168,76,.40);border-top-color:var(--gold-lt)}
-
-/* Respeto a prefers-reduced-motion (accesibilidad) */
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto}
-  .hero-logo,.hero::after{animation:none!important}
-  .reveal,.reveal-d1,.reveal-d2,.reveal-d3{opacity:1;transform:none;transition:none}
-  .pv-spark i{transform:scaleY(1);transition:none}
-  .feat:hover,.pain:hover,.step:hover,.pc:hover,.ctbl tbody tr:hover{transform:none;box-shadow:none}
-  .tw-cursor{animation:none}
-}
-
-/* ── STICKY HEADER ── */
-.hd-sticky{position:sticky;top:0;background:rgba(61,15,23,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;z-index:100;border-bottom:1px solid rgba(201,168,76,.25)}
-.hd-inner{max-width:1020px;margin:0 auto;padding:12px 64px;display:flex;align-items:center;gap:24px}
-.hd-brand{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:24px;color:#fff;text-decoration:none;letter-spacing:1.2px;white-space:nowrap}
-.hd-brand .hd-m{color:inherit}
-.hd-brand::before{content:'';display:inline-block;width:5px;height:5px;background:var(--gold);transform:rotate(45deg);vertical-align:middle;margin-right:11px;position:relative;top:-3px}
-.hd-nav{display:flex;gap:22px;margin-left:auto}
-.hd-nav a{color:rgba(255,255,255,.78);text-decoration:none;font-size:13px;font-weight:500;transition:color .15s}
-.hd-nav a:hover{color:var(--gold-lt)}
-.hd-cta{background:linear-gradient(90deg,var(--gold),var(--gold-lt));color:var(--slate);padding:8px 18px;border-radius:7px;font-weight:700;font-size:13px;text-decoration:none}
-@media(max-width:640px){.hd-inner{padding:10px 16px;gap:10px}.hd-nav{display:none}.hd-brand{font-size:18px}.hd-cta{padding:7px 14px;font-size:12px}}
-
-/* ── VELIA (IA) BLOCK ── */
-.velia-bg{background:linear-gradient(135deg,#1a1a2e,var(--vin-dk));color:#fff}
-.velia-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
-.velia-tag{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;font-weight:600}
-.velia-bg .sec-title{color:#fff}
-.velia-lead{font-size:14.5px;color:rgba(255,255,255,.78);margin:8px 0 18px;line-height:1.75;text-align:justify}
-.velia-lead strong{color:var(--gold-lt)}
-.velia-feats{list-style:none}
-.velia-feats li{font-size:13.5px;color:rgba(255,255,255,.72);padding:6px 0 6px 22px;position:relative;line-height:1.5}
-.velia-feats li::before{content:'✦';position:absolute;left:0;color:var(--gold);font-size:14px}
-.velia-feats em{color:var(--gold-lt);font-style:italic}
-.velia-bubble{background:#fff;border-radius:18px;padding:22px;box-shadow:0 18px 50px rgba(0,0,0,.4);max-width:420px;margin-left:auto}
-.vb-msg{padding:11px 14px;border-radius:12px;font-size:13px;margin-bottom:10px;line-height:1.5}
-.vb-user{background:#f0f0f5;color:var(--slate);margin-left:30px;border-bottom-right-radius:3px}
-.vb-bot{background:linear-gradient(135deg,var(--cream),#fbf4ea);color:var(--txt);margin-right:30px;border-bottom-left-radius:3px;border-left:3px solid var(--gold)}
-.vb-bot b{color:var(--vin)}
-@media(max-width:900px){.velia-grid{grid-template-columns:1fr;gap:28px}.velia-bubble{margin:0 auto}}
-
-/* ── PRIVACY BLOCK ── */
-.priv-bg{background:linear-gradient(135deg,#0f1820,#1d2632);color:#fff}
-.priv-grid{display:grid;grid-template-columns:auto 1fr;gap:38px;align-items:center}
-.priv-shield{font-size:96px;line-height:1;filter:drop-shadow(0 6px 20px rgba(201,168,76,.35))}
-.priv-bg .sec-title{color:#fff}
-.priv-bg .sec-sub{color:rgba(255,255,255,.74);text-align:justify;max-width:none}
-.priv-bg .sec-sub strong{color:var(--gold-lt)}
-.priv-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.priv-tag{background:rgba(201,168,76,.13);border:1px solid rgba(201,168,76,.4);color:var(--gold-lt);font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:20px}
-@media(max-width:640px){.priv-grid{grid-template-columns:1fr;text-align:center;gap:20px}.priv-shield{font-size:72px}.priv-tags{justify-content:center}}
-
-/* ── FAQ ── */
-.faq-list{display:flex;flex-direction:column;gap:10px}
-.faq-q{background:var(--cream);border-radius:10px;border-left:3px solid var(--gold)}
-.faq-q summary{padding:16px 22px;cursor:pointer;font-weight:600;font-size:14px;color:var(--slate);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
-.faq-q summary::-webkit-details-marker{display:none}
-.faq-q summary::after{content:'+';font-size:22px;color:var(--vin);font-weight:300;transition:transform .2s;flex-shrink:0}
-.faq-q[open] summary::after{transform:rotate(45deg)}
-.faq-q p{padding:0 22px 18px;font-size:13.5px;color:var(--txt-m);line-height:1.7;text-align:justify;margin:0}
-
-/* ── WHATSAPP FAB ── */
-.wa-fab{position:fixed;bottom:24px;right:24px;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.4),0 0 0 4px rgba(37,211,102,.15);z-index:1000;transition:transform .2s,box-shadow .2s;text-decoration:none}
-.wa-fab:hover{transform:scale(1.08);box-shadow:0 10px 32px rgba(37,211,102,.5)}
-@media print{.wa-fab,.hd-sticky{display:none}}
-
-/* ── FOOTER ── */
-.footer{
-  background:linear-gradient(135deg,var(--slate),var(--vin-dk));color:#fff;
-  display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;align-items:center;
-  padding:40px 64px
-}
-.ft-brand .fn{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;letter-spacing:1.2px;color:#fff}
-.ft-brand .fn .m{color:inherit}
-.ft-brand .ft{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--gold-lt);margin-top:4px;font-style:italic}
-.ft-contact p{font-size:13px;color:rgba(255,255,255,.65);margin-bottom:9px;display:flex;align-items:center;gap:9px}
-.ft-cta{text-align:right}
-.btn-demo{
-  display:inline-block;background:linear-gradient(90deg,var(--gold),var(--gold-lt));
-  color:var(--slate);padding:14px 28px;border-radius:8px;font-weight:700;font-size:14px;
-  text-decoration:none;letter-spacing:.4px
-}
-.btn-note{font-size:11px;color:rgba(255,255,255,.3);margin-top:8px;text-align:right}
-
-/* ── TABLET (≤ 900px) ── */
-@media(max-width:900px){
-  .hero{padding:40px 32px 36px}
-  .hero-inner{grid-template-columns:1fr;gap:22px;justify-items:center;text-align:center}
-  .hero-logo{width:160px;height:160px}
-  .brand-name{font-size:60px;letter-spacing:1.2px}
-  .brand-eyebrow{justify-content:center}
-  .brand-ornament{margin-left:auto;margin-right:auto}
-  .brand-sub{margin-left:auto;margin-right:auto}
-  .hero-cta-row{justify-content:center}
-  .brand-tag{font-size:21px}
-  .wrap{padding:0 32px}
-  section{padding:38px 0}
-  .pains{grid-template-columns:1fr 1fr}
-  .feats{grid-template-columns:1fr 1fr}
-  .comp-bg .wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  .ctbl{min-width:620px}
-  .hist-grid{grid-template-columns:1fr;gap:28px}
-  .founders{max-width:480px}
-  .steps::before{display:none}
-  .steps{grid-template-columns:1fr;gap:16px}
-  .step{text-align:left;display:flex;align-items:flex-start;gap:14px;padding:0}
-  .step-n{margin:0;flex-shrink:0}
-  .prices{grid-template-columns:1fr}
-  .pc.hot{transform:none}
-  .footer{grid-template-columns:1fr 1fr;padding:32px}
-  .ft-cta{grid-column:1/-1;text-align:left}
-  .btn-note{text-align:left}
-}
-
-/* ── MOBILE (≤ 600px) ── */
-@media(max-width:600px){
-  .hero{padding:26px 16px 24px}
-  .hero::before{inset:10px}
-  .hero-logo{width:120px;height:120px}
-  .brand-name{font-size:44px;letter-spacing:.8px;margin-bottom:10px}
-  .brand-eyebrow{font-size:10px;letter-spacing:3.5px;gap:8px;margin-bottom:10px}
-  .brand-eyebrow .hl{width:18px}
-  .brand-ornament{margin-bottom:10px}
-  .brand-tag{font-size:17px;margin-bottom:8px}
-  .brand-sub{font-size:13px}
-  .hero-stats{gap:8px;flex-wrap:wrap}
-  .stat-box{padding:10px 14px;flex:1;min-width:72px}
-  .stat-num{font-size:24px}
-  .stat-lbl{font-size:9px}
-  .wrap{padding:0 16px}
-  section{padding:28px 0}
-  .sec-title{font-size:20px}
-  .sec-sub{font-size:13px;margin-bottom:20px}
-  .gold-line{margin-bottom:12px}
-  .pv-wrap{padding-top:30px}
-  .pv-body{padding:16px}
-  .pv-k-num{font-size:17px}
-  .pain-bg section,.price-bg section,.hist-bg section{padding:28px 0}
-  .pains{grid-template-columns:1fr}
-  .pain{padding:22px 20px}
-  .pain-ico{font-size:26px}
-  .feats{grid-template-columns:1fr}
-  .feat{padding:22px 20px}
-  .feat-ico{width:44px;height:44px;font-size:21px}
-  .repl{padding:22px 18px}
-  .comp-bg{padding:32px 0}
-  .comp-bg .wrap{padding:0 16px}
-  .ctbl{min-width:600px;font-size:12px}
-  .ctbl th,.ctbl td{padding:9px 9px}
-  .hist-grid{grid-template-columns:1fr;gap:22px}
-  .founders{padding:24px 20px}
-  .fdr-av{width:52px;height:52px;font-size:18px}
-  .steps{grid-template-columns:1fr;gap:14px}
-  .steps::before{display:none}
-  .step{text-align:left;display:flex;align-items:flex-start;gap:12px;padding:0}
-  .step-n{width:44px;height:44px;font-size:16px;margin:0;flex-shrink:0}
-  .prices{grid-template-columns:1fr}
-  .pc.hot{transform:none}
-  .pc{padding:26px 20px}
-  .pc-price{font-size:32px}
-  .hot-badge{font-size:9.5px;padding:3px 12px}
-  .footer{grid-template-columns:1fr;gap:20px;padding:26px 16px}
-  .ft-brand .fn{font-size:26px}
-  .ft-cta{text-align:left}
-  .btn-demo{display:block;text-align:center;padding:14px 20px;box-sizing:border-box}
-  .btn-note{text-align:left}
-  .ft-contact p{font-size:12.5px}
-  .pc-note{font-size:11px}
-}
-
-/* ── PRINT ── */
-@media print{
-  body{font-size:11px}
-  .hero{padding:36px 48px}
-  .wrap{padding:0 48px}
-  section{padding:32px 0}
-  .footer{padding:28px 48px}
-  .hero-stats{display:none}
-  .feat:hover{transform:none;box-shadow:none}
-  .pc.hot{transform:none}
-}
-</style>
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
 </head>
 <body>
-
-<header class="hd-sticky">
-  <div class="hd-inner">
-    <a href="#" class="hd-brand">MONVEL</a>
-    <nav class="hd-nav">
-      <a href="#features">Módulos</a>
-      <a href="#pricing">Planes</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <a href="#demo" class="hd-cta">Solicitar demo</a>
-  </div>
-</header>
-
-<!-- ═══════════════════ HERO ═══════════════════ -->
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-brand">
-      <img class="hero-logo" src="logo-monvel.jpg" alt="Monvel — software contable para despachos en México, hecho por contadores">
-      <span class="hero-made">Hecho por un despacho real</span>
-    </div>
-    <div>
-      <div class="brand-eyebrow"><span class="hl"></span><span>Software para despachos</span><span class="hl"></span></div>
-      <h1 class="brand-name">MONVEL</h1>
-      <div class="brand-ornament"><span class="hl"></span><span class="diamond"></span><span class="hl"></span></div>
-      <div class="brand-tag">"Todo tu despacho, en un solo lugar."</div>
-      <div class="brand-sub">Plataforma contable, fiscal y CFDI para despachos en México</div>
-      <div class="hero-cta-row">
-        <a href="#demo" class="btn-demo">Crear cuenta gratuita →</a>
-        <a href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener" class="btn-aula">🧪 Pruébalo sin registro</a>
-        <a href="#features" class="hero-cta-2">Ver todo lo que hace ↓</a>
-      </div>
-    </div>
-    <div class="hero-stats">
-      <div class="stat-box">
-        <span class="stat-num">86</span>
-        <span class="stat-lbl">Reglas LISR</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num">∞</span>
-        <span class="stat-lbl">Clientes RFC</span>
-      </div>
-      <div class="stat-box">
-        <span class="stat-num">1</span>
-        <span class="stat-lbl">Plataforma todo-en-uno</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ═══════════════════ APP PREVIEW ═══════════════════ -->
-<div class="wrap">
-<section class="pv-wrap">
-  <div class="preview">
-    <div class="pv-bar">
-      <span class="pv-dot" style="background:#ff5f56"></span>
-      <span class="pv-dot" style="background:#ffbd2e"></span>
-      <span class="pv-dot" style="background:#27c93f"></span>
-      <span class="pv-url">app.monvel.mx</span>
-    </div>
-    <div class="pv-body">
-      <div class="pv-kpis">
-        <div class="pv-kpi">
-          <span class="pv-k-lbl">Ingresos del mes</span>
-          <span class="pv-k-num" style="color:#2f9e5e">$1,284,500</span>
-          <span class="pv-spark"><i style="height:45%"></i><i style="height:62%"></i><i style="height:50%"></i><i style="height:78%"></i><i style="height:68%"></i><i style="height:96%"></i></span>
-        </div>
-        <div class="pv-kpi">
-          <span class="pv-k-lbl">Egresos del mes</span>
-          <span class="pv-k-num" style="color:#c0392b">$842,300</span>
-          <span class="pv-spark"><i style="height:38%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:60%"></i><i style="height:48%"></i><i style="height:70%"></i></span>
-        </div>
-        <div class="pv-kpi">
-          <span class="pv-k-lbl">IVA por pagar</span>
-          <span class="pv-k-num" style="color:var(--vin)">$70,752</span>
-          <span class="pv-spark"><i style="height:30%"></i><i style="height:48%"></i><i style="height:40%"></i><i style="height:65%"></i><i style="height:55%"></i><i style="height:72%"></i></span>
-        </div>
-        <div class="pv-kpi">
-          <span class="pv-k-lbl">CFDIs clasificados</span>
-          <span class="pv-k-num" style="color:var(--gold)">98%</span>
-          <span class="pv-spark"><i style="height:60%"></i><i style="height:70%"></i><i style="height:80%"></i><i style="height:85%"></i><i style="height:92%"></i><i style="height:98%"></i></span>
-        </div>
-      </div>
-      <div class="pv-rows">
-        <div class="pv-row"><span>Factura · Proveedor de papelería</span><span class="pv-amt">$ 3,480.00</span><span class="pv-tag ded">Deducible</span></div>
-        <div class="pv-row"><span>Factura · Restaurante (consumo)</span><span class="pv-amt">$ 1,250.00</span><span class="pv-tag nod">No deducible</span></div>
-        <div class="pv-row"><span>Factura · Renta de oficina</span><span class="pv-amt">$ 18,000.00</span><span class="pv-tag ded">Deducible</span></div>
-      </div>
-    </div>
-  </div>
-  <p class="pv-cap">Una sola pantalla: descarga del SAT, clasifica, concilia y declara.</p>
-</section>
-</div>
-
-<!-- ═══════════════════ HISTORY (movida arriba 14-jun: prioridad/identificación) ═══════════════════ -->
-<div class="hist-bg">
-<div class="wrap">
-<section>
-  <div class="hist-grid">
-    <div class="hist-txt">
-      <div class="gold-line"></div>
-      <div class="sec-eyebrow">Lo que ningún competidor puede copiar</div>
-      <h2 class="sec-title" style="margin-bottom:22px">Por qué existe MONVEL</h2>
-      <p class="hist-lead">Si te has quedado de noche cerrando declaraciones, descargando CFDIs uno por uno y peleando con hojas de Excel que solo tú entiendes… <strong>Monvel se hizo pensando exactamente en ti.</strong></p>
-      <p>No lo diseñó una empresa de tecnología que nunca pisó un despacho. Lo creó <strong>un despacho contable mexicano de verdad</strong>, cansado de perder horas en lo que un sistema debería hacer solo.</p>
-      <p>Nació de la unión de dos mundos que casi nunca se encuentran: una <strong>contadora fiscalista con despacho propio</strong> —que durante años vivió la descarga manual del SAT, la conciliación en Excel y la Ley del ISR revisada renglón por renglón— y un <strong>ingeniero</strong> que convirtió todo ese conocimiento en un sistema que hace el trabajo solo.</p>
-      <p>Por eso Monvel entiende tu día como contador: <strong>resuelve lo que tú vives, no lo que alguien de fuera imagina que necesitas.</strong></p>
-    </div>
-    <div class="founders">
-      <div class="fdr">
-        <div class="fdr-av">J</div>
-        <div class="fdr-name">Joseline Velázquez</div>
-        <div class="fdr-role"><strong>Directora — Despacho Monvel</strong><br>Maestra en Derecho Fiscal</div>
-      </div>
-      <div class="fdr-div"></div>
-      <div class="fdr" style="margin-bottom:0">
-        <div class="fdr-av">I</div>
-        <div class="fdr-name">Irvin Montalvo</div>
-        <div class="fdr-role"><strong>Gerente de Ingeniería</strong><br>Ingeniero en Mecatrónica</div>
-      </div>
-      <div class="fdr-div"></div>
-      <p class="fdr-quote">"El software que un despacho real siempre necesitó y que nunca existió."</p>
-    </div>
-  </div>
-</section>
-</div>
-</div>
-
-<!-- ═══════════════════ PAIN POINTS ═══════════════════ -->
-<!-- ═══════════════════ VELIA (IA) ═══════════════════ -->
-<div class="velia-bg">
-<div class="wrap">
-<section>
-  <div class="velia-grid">
-    <div class="velia-txt">
-      <div class="gold-line"></div>
-      <div class="velia-tag">🤖 Asistente con Inteligencia Artificial</div>
-      <h2 class="sec-title">Conoce a Velia</h2>
-      <p class="velia-lead">La IA que entiende la <strong>Ley del ISR mexicana</strong> — no la genérica de afuera. Velia revisa CFDIs, responde dudas fiscales con cita al artículo y prepara borradores de declaración.</p>
-      <ul class="velia-feats">
-        <li>Pregúntale en español: <em>"¿es deducible esta factura de gasolina?"</em></li>
-        <li>Te responde con la cita exacta del artículo LISR</li>
-        <li>Aprende los criterios de tu despacho con el tiempo</li>
-        <li>Tus datos viven en tu servidor; para responderte, Velia consulta un modelo de IA seguro enviando solo lo mínimo de la pregunta — nunca contraseñas ni llaves</li>
-      </ul>
-    </div>
-    <div class="velia-bubble">
-      <div class="vb-msg vb-user">¿es deducible un consumo en restaurante por $1,250?</div>
-      <div class="vb-msg vb-bot">Sí, pero solo el <b>8.5%</b>. Art. 28 fracción XX LISR: los consumos en restaurantes son deducibles únicamente al 8.5% siempre que se paguen con tarjeta. ¿Lo clasifico así?</div>
-    </div>
-  </div>
-</section>
-</div>
-</div>
-
-<div class="pain-bg">
-<div class="wrap">
-<section>
-  <div class="gold-line"></div>
-  <h2 class="sec-title">¿Cuántos programas usa tu despacho cada mes?</h2>
-  <p class="sec-sub">Uno para descargar del SAT, otro para timbrar, otro para la nómina, otro para la contabilidad — y Excel para todo lo demás. El trabajo de un contador merece una sola herramienta hecha para él.</p>
-  <div class="pains">
-    <div class="pain">
-      <span class="pain-ico">⏱️</span>
-      <div class="pain-ttl">Descarga manual del SAT</div>
-      <p>Entrar uno a uno al portal por cada cliente: CFDIs, Constancia de Situación Fiscal, Opinión de Cumplimiento. Horas que no cobras, semana tras semana.</p>
-    </div>
-    <div class="pain">
-      <span class="pain-ico">📊</span>
-      <div class="pain-ttl">Todo termina en Excel</div>
-      <p>Conciliar el banco, armar la balanza, calcular la declaración anual, revisar deducibilidad. Hojas que se rompen, fórmulas que nadie más entiende.</p>
-    </div>
-    <div class="pain">
-      <span class="pain-ico">🧩</span>
-      <div class="pain-ttl">Software disperso</div>
-      <p>Una licencia por cada RFC, módulos que se cobran aparte, datos que no se hablan entre sí. Pagas de más y reconcilias a mano lo que debería estar conectado.</p>
-    </div>
-  </div>
-</section>
-</div>
-</div>
-
-<!-- ═══════════════════ FEATURES / MÓDULOS ═══════════════════ -->
-<div class="wrap">
-<section>
-  <div class="gold-line"></div>
-  <h2 class="sec-title" id="features">Todo el despacho, en un solo sistema</h2>
-  <p class="sec-sub">Ocho módulos integrados que comparten la misma información. Sin licencias por RFC. Sin módulos que se cobran aparte. 100% en tu navegador.</p>
-  <div class="feats">
-
-    <div class="feat">
-      <div class="feat-ico">↓</div>
-      <div class="feat-ttl">Descarga y cumplimiento SAT</div>
-      <p>CFDIs, CSF y Opinión 32-D masivos con la e.firma. Extensión que autollena el SAT y alerta de EFOS y vencimientos.</p>
-    </div>
-
-    <div class="feat">
-      <div class="feat-ico">⊞</div>
-      <div class="feat-ttl">Facturación CFDI 4.0</div>
-      <p>Factura, cancela, notas de crédito, honorarios y complementos (Carta Porte, Comercio Exterior). <strong>Timbrado incluido en tu plan</strong> — sin comprar timbres aparte.</p>
-    </div>
-
-    <div class="feat">
-      <div class="feat-ico">₱</div>
-      <div class="feat-ttl">Nómina</div>
-      <p>Recibos CFDI 4.0 con ISR, IMSS y subsidio calculados con las tablas vigentes del Anexo&nbsp;8, y su póliza automática.</p>
-    </div>
-
-    <div class="feat">
-      <div class="feat-ico">∑</div>
-      <div class="feat-ttl">Contabilidad completa</div>
-      <p>Balance, Estado de Resultados, Balanza y pólizas automáticas desde los CFDIs. Anexo 24. Sin salir a Excel.</p>
-    </div>
-
-    <div class="feat">
-      <div class="feat-ico">§</div>
-      <div class="feat-ttl">Declaraciones y fiscal</div>
-      <p>Anual de PF y PM, IVA, ISR provisional, DIOT y conciliación contable-fiscal — todas asistidas.</p>
-    </div>
-
-    <div class="feat">
-      <div class="feat-ico">✓</div>
-      <div class="feat-ttl">86 reglas de deducibilidad LISR</div>
-      <p>Cada CFDI clasificado como deducible, no deducible o parcial, con el artículo exacto de la ley.</p>
-    </div>
-
-    <div class="feat">
-      <div class="feat-ico">✦</div>
-      <div class="feat-ttl">Aprende de tu despacho</div>
-      <p>Memoriza la deducibilidad, la cuenta y los movimientos de cada cliente. Lo decides una vez y lo repite el mes siguiente.</p>
-    </div>
-
-    <div class="feat">
-      <div class="feat-ico">⇌</div>
-      <div class="feat-ttl">Conciliación bancaria</div>
-      <p>Sube el estado de cuenta y cruza cada movimiento contra CFDIs y pólizas. En minutos, no en horas.</p>
-    </div>
-
-    <div class="feat">
-      <div class="feat-ico">◷</div>
-      <div class="feat-ttl">Agenda y reparto de trabajo</div>
-      <p><strong>Asigna pendientes a tus auxiliares</strong> y ve en qué va cada uno, sin preguntar. Con recurrencia, calendario y avisos. Y los vencimientos fiscales de cada cliente entran solos a la agenda — nada se queda en un papelito.</p>
-    </div>
-
-    <div class="feat">
-      <div class="feat-ico">◉</div>
-      <div class="feat-ttl">Te enseña a usarlo</div>
-      <p><strong>26 guías paso a paso dentro del sistema</strong>: el alta de un cliente, el cierre mensual, la conciliación, las declaraciones, la nómina. Nadie tiene que capacitar a tu equipo.</p>
-    </div>
-
-    <div class="feat">
-      <div class="feat-ico">◎</div>
-      <div class="feat-ttl">Gestión del despacho</div>
-      <p>Multi-usuario, tablero por cliente, cobranza, reportes en PDF, asistente con IA y respaldos automáticos.</p>
-    </div>
-
-    <div class="feat">
-      <div class="feat-ico">⚡</div>
-      <div class="feat-ttl">Timbrado que se configura solo</div>
-      <p>Sube el CSD de tu cliente y listo: <strong>Monvel gestiona su alta de timbrado automáticamente</strong>. Sin trámites con el PAC, sin correos, sin esperas — puede facturar el mismo día.</p>
-    </div>
-
-    <div class="feat">
-      <div class="feat-ico">🛡</div>
-      <div class="feat-ttl">Nunca pierdes nada</div>
-      <p>Respaldos automáticos verificados y un <strong>sobre de seguridad</strong> para tu llave de cifrado: hasta en el peor escenario (se quema el servidor, se pierde la contraseña) hay un camino de recuperación.</p>
-    </div>
-
-  </div>
-
-  <div class="repl">
-    <div class="repl-ttl">Monvel reemplaza, en una sola cuota:</div>
-    <div class="repl-tags">
-      <span class="repl-tag"><s>Descarga manual del SAT</s></span>
-      <span class="repl-tag"><s>Software de timbrado</s></span>
-      <span class="repl-tag"><s>Software de nómina</s></span>
-      <span class="repl-tag"><s>Software de contabilidad</s></span>
-      <span class="repl-tag"><s>Hojas de Excel</s></span>
-      <span class="repl-tag"><s>Una licencia por RFC</s></span>
-    </div>
-  </div>
-</section>
-</div>
-
-<!-- ═══════════════════ COMPARADOR DE TIEMPOS ═══════════════════ -->
-<div class="time-bg">
-<div class="wrap">
-<section>
-  <div class="gold-line"></div>
-  <div class="sec-eyebrow">Lo que recuperas cada mes</div>
-  <h2 class="sec-title">El método tradicional vs. Monvel</h2>
-  <p class="sec-sub">Las mismas tareas, ahora automáticas. Tiempo por cliente: a mano vs. con Monvel.</p>
-  <div class="tcmp">
-    <div class="tcmp-row">
-      <div class="tcmp-task">Descargar CFDIs, CSF y Opinión 32-D</div>
-      <div class="tcmp-bars">
-        <div class="tcmp-bar trad"><span class="lbl">A mano</span><span class="track"><span class="fill" style="width:75%"></span></span><span class="val">~3 h</span></div>
-        <div class="tcmp-bar mv"><span class="lbl">Monvel</span><span class="track"><span class="fill" style="width:3%"></span></span><span class="val">~5 min</span></div>
-      </div>
-    </div>
-    <div class="tcmp-row">
-      <div class="tcmp-task">Armar las pólizas del mes desde los CFDIs</div>
-      <div class="tcmp-bars">
-        <div class="tcmp-bar trad"><span class="lbl">A mano</span><span class="track"><span class="fill" style="width:100%"></span></span><span class="val">~4 h</span></div>
-        <div class="tcmp-bar mv"><span class="lbl">Monvel</span><span class="track"><span class="fill" style="width:2%"></span></span><span class="val">Automático</span></div>
-      </div>
-    </div>
-    <div class="tcmp-row">
-      <div class="tcmp-task">Conciliar el estado de cuenta del banco</div>
-      <div class="tcmp-bars">
-        <div class="tcmp-bar trad"><span class="lbl">A mano</span><span class="track"><span class="fill" style="width:50%"></span></span><span class="val">~2 h</span></div>
-        <div class="tcmp-bar mv"><span class="lbl">Monvel</span><span class="track"><span class="fill" style="width:5%"></span></span><span class="val">~10 min</span></div>
-      </div>
-    </div>
-    <div class="tcmp-row">
-      <div class="tcmp-task">Preparar la declaración mensual (IVA / ISR)</div>
-      <div class="tcmp-bars">
-        <div class="tcmp-bar trad"><span class="lbl">A mano</span><span class="track"><span class="fill" style="width:38%"></span></span><span class="val">~1.5 h</span></div>
-        <div class="tcmp-bar mv"><span class="lbl">Monvel</span><span class="track"><span class="fill" style="width:7%"></span></span><span class="val">~15 min</span></div>
-      </div>
-    </div>
-  </div>
-  <p class="tcmp-total">De <strong>~10 h</strong> a <strong>~30 min</strong> por cliente cada mes. Con 20 clientes, decenas de horas que recuperas.</p>
-  <p class="tcmp-note">Tiempos estimados, ilustrativos.</p>
-</section>
-</div>
-</div>
-
-<!-- ═══════════════════ MIGRACIÓN SIN PERDER NADA ═══════════════════ -->
-<div class="mig-bg">
-<div class="wrap">
-<section class="reveal">
-  <div class="mig-grid">
-    <div class="mig-txt">
-      <div class="gold-line"></div>
-      <div class="sec-eyebrow">Sin miedo al cambio</div>
-      <h2 class="sec-title">Cámbiate.<br>Tu historial contable llega completo.</h2>
-      <p class="mig-lead">Si llevas años trabajando en otro programa de contabilidad, sabemos que tu mayor miedo es perder todo lo que construiste. <strong>No pasa.</strong> Monvel importa tu catálogo de cuentas, saldos iniciales, historial de clientes y pólizas anteriores de forma automática — en minutos, no en semanas.</p>
-      <p class="mig-lead" style="margin-bottom:0">El costo de cambiar a Monvel es <strong>cero</strong>. Tu historia se viene contigo.</p>
-      <div class="mig-chips">
-        <span class="mig-chip">✓ Catálogo de cuentas</span>
-        <span class="mig-chip">✓ Saldos iniciales</span>
-        <span class="mig-chip">✓ Historial de clientes</span>
-        <span class="mig-chip">✓ Pólizas anteriores</span>
-        <span class="mig-chip">✓ Cuentas por cobrar y pagar</span>
-        <span class="mig-chip hi">✓ Gratis en todos los planes</span>
-      </div>
-    </div>
-    <div class="mig-card reveal reveal-d1">
-      <div class="mig-card-ttl">¿Cómo funciona la migración?</div>
-      <div class="mig-steps">
-        <div class="mig-step">
-          <div class="mig-n">1</div>
-          <div>
-            <div class="mig-ttl">Descarga la herramienta</div>
-            <p>Un pequeño programa lee la base de datos de tu software actual — sin contraseña, sin acceso a internet — y genera un archivo con todo tu historial.</p>
-          </div>
-        </div>
-        <div class="mig-step">
-          <div class="mig-n">2</div>
-          <div>
-            <div class="mig-ttl">Súbelo a Monvel</div>
-            <p>En Configuración → Importar arrastras el archivo. Monvel lo analiza y te muestra un resumen antes de aplicar nada.</p>
-          </div>
-        </div>
-        <div class="mig-step">
-          <div class="mig-n">3</div>
-          <div>
-            <div class="mig-ttl">Listo en minutos</div>
-            <p>Tu historial ya está en Monvel. Sin reescribir una sola póliza a mano. Sin perder un solo dato.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-</div>
-</div>
-
-<!-- ═══════════════════ AUTOMÁTICO / MIENTRAS DUERMES ═══════════════════ -->
-<div class="wrap">
-<section class="reveal">
-  <div class="gold-line"></div>
-  <div class="sec-eyebrow">Piloto automático</div>
-  <h2 class="sec-title">Monvel trabaja mientras duermes</h2>
-  <p class="sec-sub">Un buen sistema no te pide mantenimiento — se mantiene solo y te avisa qué hizo.</p>
-  <div class="feats">
-    <div class="feat">
-      <div class="feat-ico">🌙</div>
-      <div class="feat-ttl">Se actualiza solo, de madrugada</div>
-      <p>Las versiones nuevas se instalan entre 2 y 6 a.m., <strong>solo si nadie está trabajando</strong> y con respaldo automático previo. Al día siguiente te dice qué pasó. Tú amaneces con el sistema al día — y puedes apagarlo cuando quieras.</p>
-    </div>
-    <div class="feat">
-      <div class="feat-ico">📊</div>
-      <div class="feat-ttl">Tu resumen mensual, el día 1</div>
-      <p>Cada inicio de mes te llega al correo cómo cerró tu despacho: CFDIs emitidos y recibidos, tus 5 clientes con más actividad, cancelaciones detectadas, los vencimientos del mes que entra y la salud de tus respaldos.</p>
-    </div>
-    <div class="feat">
-      <div class="feat-ico">🔔</div>
-      <div class="feat-ttl">Te avisa antes de que duela</div>
-      <p>Timbres al 80% de tu plan, e.firma o CSD por vencer, proveedores en la lista de EFOS, CFDIs cancelados por terceros: Monvel lo detecta y te lo dice <strong>antes</strong> de que se vuelva un problema.</p>
-    </div>
-  </div>
-</section>
-</div>
-
-<!-- ═══════════════════ COMPARISON ═══════════════════ -->
-<!-- ═══════════════════ PRIVACIDAD ═══════════════════ -->
-<div class="priv-bg">
-<div class="wrap">
-<section>
-  <div class="priv-grid">
-    <div class="priv-shield">🛡️</div>
-    <div>
-      <div class="gold-line"></div>
-      <h2 class="sec-title">Tus datos NO viven en una nube extranjera</h2>
-      <p class="sec-sub">A diferencia de las plataformas contables en la nube, Monvel se instala en <strong>tu propio servidor</strong> — la base de datos fiscal de tus clientes vive en tu despacho, no en la nube de un tercero. Cifrado en disco, respaldos automáticos y contraseñas que jamás salen de tu equipo. Las únicas salidas a internet son las indispensables: el SAT, el proveedor de timbrado autorizado y, si usas a Velia, el servicio de IA (que recibe solo lo mínimo de cada consulta — nunca credenciales). Si Google o AWS bloquearan tu cuenta mañana, tu información sigue contigo.</p>
-      <p class="sec-sub" style="margin-top:10px">Y no nos lo tienes que creer: dentro de Monvel hay una pantalla que se llama <strong>«Qué datos viajan»</strong> con la lista completa de lo único que sale de tu servidor, cuándo y cómo lo apagas. Esa lista es un contrato: <strong>las pruebas automáticas de cada versión verifican que no exista ninguna salida no declarada</strong>. Transparencia auditada, no prometida.</p>
-      <div class="priv-tags">
-        <span class="priv-tag">📍 Datos en México</span>
-        <span class="priv-tag">🔒 Cifrado en disco</span>
-        <span class="priv-tag">💾 Respaldos automáticos</span>
-        <span class="priv-tag">⚖️ Cumple LFPDPPP</span>
-        <span class="priv-tag">🔎 Transparencia auditada</span>
-        <span class="priv-tag">🚫 Cero telemetría</span>
-      </div>
-    </div>
-  </div>
-</section>
-</div>
-</div>
-
-<div class="comp-bg">
-<div class="wrap">
-  <div class="gold-line"></div>
-  <h2 class="sec-title wh">MONVEL vs la competencia</h2>
-  <p style="font-size:14px;color:rgba(255,255,255,.5);margin-bottom:32px">Lo que un despacho contable mexicano necesita de verdad</p>
-  <table class="ctbl">
-    <thead>
-      <tr>
-        <th>Característica</th>
-        <th class="mv">MONVEL</th>
-        <th class="ot">Software tradicional</th>
-        <th class="ot">Portal SAT</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Descarga automática de CFDIs del SAT</td><td class="mv"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
-      <tr><td>CSF y Opinión 32-D automáticas</td><td class="mv"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="par">Manual</span></td></tr>
-      <tr><td>Emisión CFDI 4.0 + complementos</td><td class="mv"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="par">Básico</span></td></tr>
-      <tr><td>Nómina CFDI con validador SAT</td><td class="mv"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="no">✕</span></td></tr>
-      <tr><td>Contabilidad completa en pantalla</td><td class="mv"><span class="yes">✓</span></td><td><span class="yes">✓</span></td><td><span class="no">✕</span></td></tr>
-      <tr><td>Declaración Anual PF/PM asistida</td><td class="mv"><span class="yes">✓</span></td><td><span class="par">Parcial</span></td><td><span class="par">Manual</span></td></tr>
-      <tr><td>86 reglas de deducibilidad LISR</td><td class="mv"><span class="yes">✓</span></td><td><span class="par">Manual</span></td><td><span class="no">✕</span></td></tr>
-      <tr><td>Conciliación bancaria integrada</td><td class="mv"><span class="yes">✓</span></td><td><span class="par">Parcial</span></td><td><span class="no">✕</span></td></tr>
-      <tr><td>Asistente con Inteligencia Artificial</td><td class="mv"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
-      <tr><td>Multi-RFC en una sola licencia</td><td class="mv"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
-      <tr><td>Multi-usuario en tu propio servidor</td><td class="mv"><span class="yes">✓</span></td><td><span class="par">Parcial</span></td><td><span class="no">✕</span></td></tr>
-      <tr><td>Aprende del despacho (deducibilidad y cuentas por proveedor)</td><td class="mv"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
-      <tr><td>Comparador de regímenes (en qué régimen pagas menos)</td><td class="mv"><span class="yes">✓</span></td><td><span class="no">✕</span></td><td><span class="no">✕</span></td></tr>
-      <tr><td>Se actualiza solo cuando el SAT cambia un formato</td><td class="mv"><span class="yes">✓</span></td><td><span class="par">Actualizas tú</span></td><td><span class="no">✕</span></td></tr>
-    </tbody>
-  </table>
-  <p style="font-size:11.5px;color:rgba(255,255,255,.4);margin-top:18px;max-width:760px">Comparación informativa frente al software contable tradicional (suites de escritorio y plataformas en la nube) y el portal del SAT, con base en sus capacidades estándar. No incluye marcas específicas; cada producto puede variar según versión y plan.</p>
-</div>
-</div>
-
-<!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
-<div class="wrap">
-<section>
-  <div class="gold-line"></div>
-  <h2 class="sec-title">¿Cómo funciona?</h2>
-  <p class="sec-sub" style="margin-bottom:48px">Tres pasos para tener a cada cliente bajo control — del SAT a la declaración.</p>
-  <div class="steps">
-    <div class="step">
-      <div class="step-n">1</div>
-      <div class="step-ttl">Registra a tu cliente</div>
-      <p>Agrega el RFC y carga la e.firma o CIEC. Monvel se conecta al SAT y descarga CFDIs, Constancia y Opinión de Cumplimiento.</p>
-    </div>
-    <div class="step">
-      <div class="step-n">2</div>
-      <div class="step-ttl">Clasifica y contabiliza</div>
-      <p>Las 86 reglas LISR clasifican cada CFDI y las pólizas se arman solas. Concilia el banco y revisa Balance, Estado de Resultados y Balanza al instante.</p>
-    </div>
-    <div class="step">
-      <div class="step-n">3</div>
-      <div class="step-ttl">Declara y entrega</div>
-      <p>Calcula IVA, ISR y la Declaración Anual, emite o timbra lo que haga falta, y entrega reportes en PDF — todo desde la misma pantalla.</p>
-    </div>
-  </div>
-</section>
-</div>
-
-<!-- ═══════════════════ PRICING ═══════════════════ -->
-<div class="price-bg" id="pricing">
-<div class="wrap">
-<section>
-  <div class="gold-line"></div>
-  <h2 class="sec-title">Planes y precios</h2>
-  <p class="sec-sub">Todas las funciones incluidas en cada plan. Sin módulos que se cobran aparte. Sin costo por RFC adicional.</p>
-  <div class="prices">
-    <div class="pc">
-      <div class="pc-plan">Básico</div>
-      <div class="pc-price"><sup>$</sup>299<sub> MXN/mes</sub></div>
-      <div class="pc-clients">Hasta 10 clientes RFC · 1 usuario<br><span style='opacity:.85'><s style='opacity:.55;font-weight:400'>50 timbres al mes</s> <strong style='color:#C9A84C'>100 timbres al mes</strong> <span style='font-size:.82em;background:#C9A84C;color:#3A1A24;border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap'>PROMO 2026</span></span></div>
-      <ul>
-        <li>Descarga SAT (CFDIs, CSF, Opinión 32-D)</li>
-        <li>Facturación CFDI 4.0 + complementos</li>
-        <li>Nómina y contabilidad completas</li>
-        <li>86 reglas LISR + conciliación bancaria</li>
-        <li>Declaración Anual, IVA, ISR y DIOT</li>
-        <li>Migración gratuita desde tu software actual</li>
-        <li>Soporte por correo</li>
-      </ul>
-      <a href="#demo" class="pc-btn">Solicitar demo</a>
-    </div>
-    <div class="pc hot">
-      <div class="hot-badge">Más popular</div>
-      <div class="pc-plan">Profesional</div>
-      <div class="pc-price"><sup>$</sup>599<sub> MXN/mes</sub></div>
-      <div class="pc-clients">Hasta 30 clientes RFC · 3 usuarios<br><span style='opacity:.85'><s style='opacity:.55;font-weight:400'>200 timbres al mes</s> <strong style='color:#C9A84C'>400 timbres al mes</strong> <span style='font-size:.82em;background:#C9A84C;color:#3A1A24;border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap'>PROMO 2026</span></span></div>
-      <ul>
-        <li>Todo lo del plan Básico</li>
-        <li>Asistente con Inteligencia Artificial</li>
-        <li>Portal del Cliente: <strong>deja de reenviar facturas</strong></li>
-        <li>Acceso desde internet de forma segura</li>
-        <li>Reportes ejecutivos y alertas de vigencias</li>
-        <li>Capacitación de arranque incluida</li>
-        <li>Soporte prioritario por WhatsApp</li>
-      </ul>
-      <a href="#demo" class="pc-btn">Solicitar demo</a>
-    </div>
-    <div class="pc">
-      <div class="pc-plan">Despacho Plus</div>
-      <div class="pc-price"><sup>$</sup>999<sub> MXN/mes</sub></div>
-      <div class="pc-clients">Clientes ilimitados · Usuarios ilimitados<br><span style='opacity:.85'><s style='opacity:.55;font-weight:400'>500 timbres al mes</s> <strong style='color:#C9A84C'>1,000 timbres al mes</strong> <span style='font-size:.82em;background:#C9A84C;color:#3A1A24;border-radius:4px;padding:1px 6px;font-weight:700;white-space:nowrap'>PROMO 2026</span></span></div>
-      <ul>
-        <li>Todo lo del plan Profesional</li>
-        <li><strong>Tu propia marca</strong>: tus clientes ven tu despacho, no Monvel</li>
-        <li><strong>Tu subdominio propio</strong>: tudespacho.monvel.mx</li>
-        <li><strong>Servidor virtualizado o en la nube</strong> (VMware, Hyper-V, Proxmox, VPS)</li>
-        <li>Usuarios y clientes RFC sin límite</li>
-        <li>SLA de soporte 24 horas</li>
-      </ul>
-      <a href="#demo" class="pc-btn">Solicitar demo</a>
-    </div>
-  </div>
-  <p class="pc-note">* Precios en pesos mexicanos, IVA no incluido. Factura disponible. Cancela cuando quieras. <strong>El timbrado va incluido en tu plan</strong>: no compras timbres por separado ni contratas nada con un tercero. Si necesitas más, el timbre adicional cuesta $3.00&nbsp;MXN, o puedes agregar una bolsa de timbres a mejor precio.<br><strong style='color:#C9A84C'>Promoción de lanzamiento 2026:</strong> el doble de timbres incluidos en los tres planes, para despachos que contraten <strong>antes del 31 de diciembre de 2026</strong>. Conservas el doble de timbres mientras mantengas tu plan activo, aunque después cambien nuestras condiciones. Cupo limitado a los primeros 20 despachos.</p>
-</section>
-</div>
-</div>
-
-<!-- ═══════════════════ FOOTER ═══════════════════ -->
-<!-- ═══════════════════ DEMO / FORMULARIO ═══════════════════ -->
-<!-- ═══════════════════ FAQ ═══════════════════ -->
-<div class="wrap" id="faq">
-<section>
-  <div class="gold-line"></div>
-  <h2 class="sec-title">Preguntas frecuentes</h2>
-  <p class="sec-sub">Lo que los contadores nos preguntan antes de probarlo.</p>
-  <div class="faq-list">
-    <details class="faq-q"><summary>¿Necesito instalar algo en mi computadora?</summary><p><strong>Tú y tu equipo no instalan nada</strong>: Monvel corre 100&nbsp;% en el navegador. Lo único que se instala <em>una vez</em> es el servidor de Monvel en una computadora de tu despacho — y eso lo hacemos nosotros por ti. De ahí en adelante todos entran desde su navegador, en la oficina o fuera de ella, y también se puede usar en el celular como app (PWA, sin pasar por la tienda de apps). Esa es justo la ventaja: <strong>tu información vive en tu despacho, no en la nube de un tercero</strong>.</p></details>
-    <details class="faq-q"><summary>¿Cómo migro mis datos de mi programa actual?</summary><p>De dos formas, sin costo extra. <strong>Desde tu software actual:</strong> una pequeña herramienta lee tu base de datos, genera un archivo con tu catálogo de cuentas, saldos iniciales y pólizas, y Monvel lo importa en minutos — sin reescribir nada. <strong>Desde el SAT:</strong> con tu CIEC también descargamos todo tu histórico de CFDIs y armamos tu contabilidad automáticamente. En ambos casos, tu historia llega completa.</p></details>
-    <details class="faq-q"><summary>¿Mis datos están seguros? ¿Dónde viven?</summary><p>En tu propio servidor, dentro de tu despacho, en México. Cifrados en disco con respaldos automáticos. No los mandamos a ninguna nube extranjera — cumple LFPDPPP.</p></details>
-    <details class="faq-q"><summary>¿Cuántos clientes (RFC) puedo manejar?</summary><p>Según tu plan: <strong>Básico hasta 10 RFC</strong>, <strong>Profesional hasta 30</strong> y <strong>Despacho&nbsp;Plus ilimitados</strong>. Dentro de tu plan <strong>no cobramos extra por RFC ni por cliente adicional</strong> — a diferencia de la mayoría del mercado, que factura por cada razón social que agregas.</p></details>
-    <details class="faq-q"><summary>¿Funciona en celular?</summary><p>Sí. Monvel es 100% web e instalable como app en tu celular sin pasar por la tienda de apps. Lo abres con un toque, igual que cualquier app nativa.</p></details>
-    <details class="faq-q"><summary>¿Puedo timbrar facturas y nóminas?</summary><p>Sí, y <strong>el timbrado va incluido en tu plan</strong>: no contratas a nadie más ni compras paquetes de timbres. Incluye CFDI 4.0 (facturas, notas de crédito, complementos de pago, Carta Porte, Comercio Exterior, IEDU) y Nómina con validador del SAT. Si tu despacho ya tiene su propio proveedor de timbrado contratado, también puedes seguir usándolo.</p></details>
-    <details class="faq-q"><summary>¿Cuántos timbres incluye mi plan y qué pasa si se me acaban?</summary><p>Básico <strong>100</strong>, Profesional <strong>400</strong> y Despacho&nbsp;Plus <strong>1,000</strong> timbres al mes — cantidades que ya incluyen la <strong>promoción 2026</strong> (el doble de la cuota de lista). La cuota se renueva el día 1 de cada mes. Si se te acaban, el timbre adicional cuesta <strong>$3.00&nbsp;MXN</strong>, o puedes agregar una <strong>bolsa de timbres</strong> a mejor precio (desde $1.70 por timbre, con vigencia de 12 meses). Nunca te quedas sin poder facturar.</p></details>
-    <details class="faq-q"><summary>¿Mis clientes pueden consultar sus facturas sin llamarme?</summary><p>Sí, con el <strong>Portal del Cliente</strong> (planes Profesional y Plus). <strong>Tú decides a quién le abres el acceso</strong>, cliente por cliente. El que lo tiene entra desde su navegador a ver <strong>sólo lo suyo</strong>: sus CFDIs con el XML descargable, su resumen del año y sus declaraciones <strong>ya presentadas</strong>. Tu trabajo interno — pólizas, ajustes, borradores de declaración — <strong>nunca se muestra</strong>, ni ve nada de tu despacho o de tus otros clientes. El resultado: dejas de reenviar facturas por WhatsApp sin exponer tu cocina.</p></details>
-    <details class="faq-q"><summary>¿Puedo instalarlo en un servidor virtual o en la nube?</summary><p>Sí, con el plan <strong>Despacho&nbsp;Plus</strong>: se puede correr en tu servidor virtualizado (VMware, Hyper-V, Proxmox) o en un VPS. En los planes Básico y Profesional la licencia opera sobre una computadora física del despacho — es parte de cómo protegemos tu licencia de copias no autorizadas.</p></details>
-    <details class="faq-q"><summary>¿Puedo presentarlo con la marca de mi despacho?</summary><p>Sí, en el plan <strong>Despacho&nbsp;Plus</strong>: tus clientes y tu equipo ven <strong>el nombre y el logo de tu despacho</strong> en lugar de Monvel, y entras por tu propio subdominio (tudespacho.monvel.mx). En los otros planes la marca de Monvel se mantiene como crédito discreto.</p></details>
-    <details class="faq-q"><summary>¿Es difícil aprenderlo? ¿Necesito capacitación?</summary><p>Monvel trae <strong>26 guías paso a paso dentro del sistema</strong>: te lleva de la mano en el alta de un cliente, el cierre mensual, la conciliación, las declaraciones y la nómina — cada una desde donde estás trabajando. Además, en los planes Profesional y Plus la <strong>capacitación de arranque va incluida</strong>. Y si prefieres practicar antes de decidir, puedes entrar al Aula Virtual con datos de ejemplo sin registrarte.</p></details>
-    <details class="faq-q"><summary>¿Qué pasa si decido cancelar?</summary><p>Cancelas cuando quieras, sin penalización. Te entregamos toda tu información (CFDIs, pólizas, reportes) para que te la lleves. Tus datos son tuyos.</p></details>
-    <details class="faq-q"><summary>¿Quién está detrás de Monvel?</summary><p>Un despacho contable mexicano real (Despacho Monvel), dirigido por una Maestra en Derecho Fiscal, con ingeniería de software propia. No somos una empresa de tecnología cualquiera — entendemos al contador porque lo vivimos.</p></details>
-  </div>
-</section>
-</div>
-
-<div class="demo-bg" id="demo">
-<div class="wrap">
-<section>
-  <div class="gold-line"></div>
-  <h2 class="sec-title">Entra al Aula Virtual gratis</h2>
-  <p class="sec-sub">Crea tu cuenta en segundos y practica con CFDIs, pólizas, nómina y más — en un entorno seguro, con datos reales de ejemplo. Tus datos de acceso llegan directo a tu correo.</p>
-  <div class="lead-form">
-    <div id="registro-ok" style="display:none;text-align:center;padding:16px 0 8px">
-      <div style="font-size:44px;margin-bottom:10px">✅</div>
-      <h3 style="color:#6b0f35;margin:0 0 8px;font-size:20px">¡Cuenta creada!</h3>
-      <!-- El texto lo pone JS con d.mensaje del servidor: si el correo de
-           bienvenida no pudo salir, ahí viene la contraseña de respaldo.
-           Antes este párrafo era fijo ("revisa tu correo") y el usuario se
-           quedaba SIN contraseña cuando el envío fallaba. -->
-      <p id="registro-ok-msg" style="color:#555;margin:0 0 22px;font-size:15px">Revisa tu correo — te enviamos tus datos de acceso al Aula.</p>
-      <a href="https://aula.monvel.mx" target="_blank" rel="noopener"
-         style="display:inline-block;background:#6b0f35;color:#fff;padding:13px 32px;
-                border-radius:7px;text-decoration:none;font-weight:700;font-size:15px">
-        Entrar al Aula Virtual →
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#inicio" aria-label="Monvel, ir al inicio">
+        <img src="logo-monvel-mark.png" alt="Logo oficial de Montalvo Velázquez" />
+        <span class="brand-copy"><strong>MONVEL</strong><small>software fiscal</small></span>
       </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#producto">Producto</a><a href="#velia">Velia</a><a href="#seguridad">Seguridad</a><a href="#planes">Planes</a><a href="#preguntas">Preguntas</a>
+      </nav>
+      <a class="button gold" href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Probar gratis →</a>
+      <button class="menu-btn" id="menuButton" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
     </div>
-    <div id="registro-fields">
-      <div class="lf-row">
-        <div class="lf-field"><label>Tu nombre *</label><input type="text" id="rf-nombre" placeholder="Ej: María González" autocomplete="name"></div>
-        <div class="lf-field"><label>Tu correo *</label><input type="email" id="rf-correo" placeholder="correo@despacho.mx" autocomplete="email"></div>
+  </header>
+
+  <nav class="mobile-panel" id="mobilePanel" aria-label="Navegación móvil">
+    <a href="#producto">Producto <span>01</span></a><a href="#velia">Velia <span>02</span></a><a href="#seguridad">Seguridad <span>03</span></a><a href="#planes">Planes <span>04</span></a><a href="#preguntas">Preguntas <span>05</span></a>
+    <a class="button wine" href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Probar Monvel gratis →</a>
+  </nav>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-bg" role="presentation"></div>
+      <div class="wrap hero-content">
+        <div class="hero-copy">
+          <div class="eyebrow">Software fiscal para despachos mexicanos</div>
+          <h1>De CFDI a declaración, <span>sin volver a capturar.</span></h1>
+          <p class="hero-lead">Monvel descarga del SAT, aplica 86 reglas LISR, genera pólizas, concilia bancos y prepara declaraciones dentro del mismo flujo.</p>
+          <div class="hero-actions">
+            <a class="button gold" href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Probar Monvel gratis →</a>
+            <a class="hero-link" href="#producto">Ver cómo funciona ↓</a>
+          </div>
+          <div class="microcopy">Sin tarjeta · Datos de ejemplo · Acceso inmediato</div>
+        </div>
+        <div class="hero-stats">
+          <div><strong>86</strong><span>Reglas LISR</span></div><div><strong>∞</strong><span>Clientes en Plus</span></div><div><strong>MX</strong><span>Datos bajo control</span></div>
+        </div>
       </div>
-      <div class="lf-field"><label>Nombre de tu despacho</label><input type="text" id="rf-despacho" placeholder="Ej: Despacho González SC" autocomplete="organization"></div>
-      <div id="registro-error" style="display:none;background:#fef2f2;border:1px solid #fca5a5;color:#b91c1c;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:13px"></div>
-      <button type="button" class="lf-btn" id="registro-btn" onclick="enviarRegistroAula()">Crear mi cuenta gratuita →</button>
-      <p class="lf-note">Sin tarjeta ni compromiso. Solo te contactamos sobre Monvel.</p>
+    </section>
+
+    <section class="replacement">
+      <div class="wrap replacement-inner">
+        <strong>Una sola cuota reemplaza:</strong>
+        <div class="replacement-list"><span>Descarga SAT</span><span>Timbrado</span><span>Nómina</span><span>Excel paralelo</span><span>Licencia por RFC</span></div>
+      </div>
+    </section>
+
+    <section class="section process" id="producto">
+      <div class="wrap">
+        <div class="label" data-number="01">El flujo Monvel</div>
+        <div class="heading-row"><h2>Una misma información, <span>de principio a fin.</span></h2><p>Cada dato avanza al siguiente proceso. Lo que descargas del SAT alimenta la clasificación, las pólizas, la conciliación y la declaración.</p></div>
+        <div class="process-grid">
+          <article class="process-card"><small>01</small><h3>Conecta</h3><p>Descarga CFDI, Constancia de Situación Fiscal y Opinión 32-D desde un mismo lugar.</p></article>
+          <article class="process-card"><small>02</small><h3>Clasifica</h3><p>Aplica reglas LISR, aprende criterios del despacho y genera pólizas desde los comprobantes.</p></article>
+          <article class="process-card"><small>03</small><h3>Concilia</h3><p>Cruza movimientos bancarios con CFDI y pólizas, sin depender de hojas paralelas.</p></article>
+          <article class="process-card"><small>04</small><h3>Declara</h3><p>Revisa IVA, ISR, DIOT y anual con la misma información ya validada.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section modules" id="modulos">
+      <div class="wrap">
+        <div class="label light" data-number="02">Módulos conectados</div>
+        <div class="heading-row"><h2>Todo el despacho. <span>Seis frentes conectados.</span></h2><p>Sin comprar funciones aisladas. Cada módulo comparte la misma información y conserva el contexto de cada cliente.</p></div>
+        <div class="module-grid">
+          <article class="module"><small>01</small><h3>SAT y CFDI</h3><p>Descarga masiva, CSF, Opinión 32-D, facturación CFDI 4.0 y complementos.</p><div class="tags"><span>EFOS</span><span>Vigencias</span><span>Timbrado</span></div></article>
+          <article class="module"><small>02</small><h3>Contabilidad</h3><p>Pólizas automáticas, balanza, balance y estado de resultados desde los CFDI.</p><div class="tags"><span>Anexo 24</span><span>Reportes PDF</span></div></article>
+          <article class="module"><small>03</small><h3>Fiscal</h3><p>Anual PF y PM, IVA, ISR provisional, DIOT y conciliación contable-fiscal.</p><div class="tags"><span>86 reglas LISR</span></div></article>
+          <article class="module"><small>04</small><h3>Nómina</h3><p>Recibos CFDI con ISR, IMSS y subsidio calculados con tablas vigentes.</p><div class="tags"><span>Póliza automática</span><span>Validador SAT</span></div></article>
+          <article class="module"><small>05</small><h3>Operación</h3><p>Agenda, reparto de trabajo, tablero por cliente, cobranza y portal del cliente.</p><div class="tags"><span>Multiusuario</span><span>Alertas</span></div></article>
+          <article class="module"><small>06</small><h3>Automatización</h3><p>Repite criterios, instala actualizaciones, prepara resúmenes y protege respaldos.</p><div class="tags"><span>Velia</span><span>Piloto automático</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section velia" id="velia">
+      <div class="wrap velia-layout">
+        <div class="velia-art" aria-label="Representación visual de Velia"><div class="velia-core">V / IA</div></div>
+        <div>
+          <div class="label" data-number="03">Asistente con inteligencia artificial</div>
+          <h2>Una IA que habla ISR, <span>no generalidades.</span></h2>
+          <p>Velia revisa CFDI, responde dudas fiscales con referencia al artículo y aprende los criterios que tu despacho ya validó.</p>
+          <div class="chat"><div class="chat-head">Velia · Asistente fiscal <span>En línea</span></div><div class="question">¿Es deducible un consumo en restaurante por $1,250?</div><div class="answer">Sí, pero solo el <strong>8.5 %</strong> — y siempre que se haya pagado con tarjeta o monedero electrónico autorizado. Art. 28, fracción XX de la LISR. ¿Lo clasifico así?</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section time">
+      <div class="wrap time-layout">
+        <div><div class="label" data-number="04">Lo que recuperas cada mes</div><h2>Recupera el tiempo <span>que hoy no puedes cobrar.</span></h2><p>Las mismas tareas, con menos espera y sin volver a capturar datos entre sistemas.</p><div class="time-total"><small>Por cliente / mes</small><div><del>~10 h</del><span>→</span><strong>~30 min</strong></div></div></div>
+        <div class="time-table"><div class="time-row"><span>CFDI, CSF y Opinión 32-D</span><span>~3 h</span><strong>~5 min</strong></div><div class="time-row"><span>Pólizas del mes</span><span>~4 h</span><strong>Automático</strong></div><div class="time-row"><span>Conciliación bancaria</span><span>~2 h</span><strong>~10 min</strong></div><div class="time-row"><span>Declaración mensual</span><span>~1.5 h</span><strong>~15 min</strong></div></div>
+      </div>
+    </section>
+
+    <section class="section trust" id="seguridad">
+      <div class="wrap trust-grid">
+        <article class="trust-card"><div class="label" data-number="A">Migración</div><h2>Tu historial <span>llega contigo.</span></h2><p>Importa catálogo de cuentas, saldos iniciales, clientes, pólizas y cuentas por cobrar o pagar. Antes de aplicar cambios, revisas un resumen.</p><div class="seal">Migración sin costo</div></article>
+        <article class="trust-card"><div class="label light" data-number="B">Seguridad</div><h2>La base fiscal vive <span>en tu servidor.</span></h2><p>Monvel opera en el navegador, pero la información permanece en tu equipo o servidor, con cifrado en disco y respaldos automáticos.</p><div class="seal">Datos bajo tu control</div></article>
+      </div>
+    </section>
+
+    <section class="section pricing" id="planes">
+      <div class="wrap">
+        <div class="label" data-number="05">Planes</div>
+        <div class="heading-row"><h2>Todas las funciones. <span>Elige la capacidad.</span></h2><p>Sin módulos que se cobran aparte. El timbrado está incluido en tu plan.</p></div>
+        <div class="pricing-grid">
+          <article class="plan"><span class="folio">FOLIO · P-01</span><div class="plan-name">Básico</div><div class="price">$299</div><p>MXN / mes · 10 RFC · 1 usuario</p><div class="stamps">100 timbres / mes</div><div class="features"><span>Descarga SAT</span><span>Contabilidad y nómina</span><span>86 reglas LISR</span><span>Migración gratuita</span></div><a class="button outline" href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20de%20Monvel" target="_blank" rel="noopener">Solicitar demo →</a></article>
+          <article class="plan featured"><span class="recommended">Recomendado</span><span class="folio">FOLIO · P-02</span><div class="plan-name">Profesional</div><div class="price">$599</div><p>MXN / mes · 30 RFC · 3 usuarios</p><div class="stamps">400 timbres / mes</div><div class="features"><span>Todo lo del plan Básico</span><span>Asistente Velia</span><span>Portal del cliente</span><span>Soporte prioritario</span></div><a class="button outline" href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Probar Profesional →</a></article>
+          <article class="plan"><span class="folio">FOLIO · P-03</span><div class="plan-name">Despacho Plus</div><div class="price">$999</div><p>MXN / mes · RFC y usuarios ilimitados</p><div class="stamps">1,000 timbres / mes</div><div class="features"><span>Todo lo del Profesional</span><span>Marca de tu despacho</span><span>Subdominio propio</span><span>Servidor virtual o VPS</span></div><a class="button outline" href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20de%20Monvel" target="_blank" rel="noopener">Solicitar demo →</a></article>
+        </div>
+        <p class="pricing-note">Precios en pesos mexicanos, IVA no incluido. Los timbres indicados (100 / 400 / 1,000) ya incluyen la promoción 2026 — no se duplican. Los timbres adicionales se cobran por separado.</p>
+      </div>
+    </section>
+
+    <section class="section faq" id="preguntas">
+      <div class="wrap faq-layout">
+        <div class="faq-intro"><div class="label" data-number="06">Preguntas frecuentes</div><h2>Lo importante, <span>antes de probar.</span></h2><p>Respuestas directas sobre instalación, migración, timbrado y control de datos.</p></div>
+        <div class="faq-list">
+          <details open><summary><small>01</small><strong>¿Necesito instalar algo en mi computadora?</strong></summary><p>Tu equipo entra desde el navegador. La instalación única del servidor la realiza Monvel y después puedes acceder desde la oficina, fuera de ella o desde celular.</p></details>
+          <details><summary><small>02</small><strong>¿Cómo migro mis datos?</strong></summary><p>Una herramienta prepara catálogo, saldos y pólizas para importarlos. También puede reconstruirse el histórico de CFDI desde el SAT.</p></details>
+          <details><summary><small>03</small><strong>¿Dónde viven mis datos?</strong></summary><p>En el servidor de tu despacho, en México, con cifrado en disco y respaldos automáticos.</p></details>
+          <details><summary><small>04</small><strong>¿Cuántos RFC puedo manejar?</strong></summary><p>Básico admite 10, Profesional 30 y Despacho Plus no establece límite.</p></details>
+          <details><summary><small>05</small><strong>¿El timbrado está incluido?</strong></summary><p>Sí. Los planes incluyen CFDI 4.0, nómina y una cuota mensual de timbres.</p></details>
+          <details><summary><small>06</small><strong>¿Funciona en celular?</strong></summary><p>Sí. Es una aplicación web instalable como PWA y puede agregarse a la pantalla de inicio.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap closing-inner">
+        <div><div class="eyebrow">Haz una prueba real</div><h2>Prueba un cierre mensual <span>antes de decidir.</span></h2><p>Entra al Aula Virtual con datos de ejemplo y recorre CFDI, pólizas, nómina y declaraciones. Sin tarjeta, sin instalación y sin compromiso.</p><a class="button gold" href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Entrar al Aula Virtual →</a></div>
+        <div class="ticket"><div class="ticket-head"><img src="logo-monvel-mark.png" alt="Logo oficial de Monvel" /><span>ACCESO DE PRUEBA</span></div><div class="ticket-body">CFDI · Pólizas · Nómina · Declaraciones</div><div class="ticket-foot">Acceso inmediato · Sin tarjeta</div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div><a class="brand" href="#inicio"><img src="logo-monvel-mark.png" alt="Logo oficial de Monvel" /><span class="brand-copy"><strong>MONVEL</strong><small>software fiscal</small></span></a><p class="footer-copy">Software contable, fiscal y CFDI para despachos en México.</p></div>
+        <div class="footer-links"><div><strong>Explora</strong><a href="#producto">Producto</a><a href="#velia">Velia</a><a href="#planes">Planes</a></div><div><strong>Contacto</strong><a href="mailto:contacto@monvel.mx">contacto@monvel.mx</a><a href="https://wa.me/525941350096" target="_blank" rel="noopener">WhatsApp</a></div><div><strong>Acceso</strong><a href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Aula Virtual</a><a href="#preguntas">Preguntas</a><a href="privacy-policy.html">Aviso de privacidad</a></div></div>
+      </div>
+      <div class="copyright"><span>© 2026 Monvel. Todos los derechos reservados.</span><span>Hecho para despachos mexicanos.</span></div>
     </div>
-  </div>
-</section>
-</div>
-</div>
-<script>
-async function enviarRegistroAula() {
-  var nombre   = (document.getElementById('rf-nombre').value  || '').trim();
-  var correo   = (document.getElementById('rf-correo').value  || '').trim();
-  var despacho = (document.getElementById('rf-despacho').value || '').trim();
-  var errDiv   = document.getElementById('registro-error');
-  var btn      = document.getElementById('registro-btn');
-  errDiv.style.display = 'none';
-  if (!nombre || !correo) {
-    errDiv.textContent = 'Por favor ingresa tu nombre y correo.';
-    errDiv.style.display = 'block'; return;
-  }
-  btn.disabled = true; btn.textContent = 'Creando tu cuenta…';
-  try {
-    var r = await fetch('https://aula.monvel.mx/aula/registro', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nombre: nombre, correo: correo, despacho: despacho })
-    });
-    var d = await r.json();
-    if (!r.ok) { throw new Error(d.detail || 'No se pudo crear la cuenta.'); }
-    // Mostrar el mensaje REAL del servidor: si el correo de bienvenida no
-    // pudo enviarse, d.mensaje trae la contraseña de respaldo — sin esto el
-    // usuario se queda esperando un correo que nunca llega (caso real
-    // detectado el 04-ago-2026: dos registros sin un solo login).
-    var okMsg = document.getElementById('registro-ok-msg');
-    if (okMsg && d.mensaje) {
-      okMsg.textContent = d.mensaje;
-      if (d.enviado === false) { okMsg.style.fontWeight = '700'; okMsg.style.color = '#6b0f35'; }
+  </footer>
+
+  <a class="wa" href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20de%20Monvel" target="_blank" rel="noopener">Hablar con Monvel</a>
+
+  <script>
+    const menuButton = document.getElementById('menuButton');
+    const mobilePanel = document.getElementById('mobilePanel');
+    function closeMenu() {
+      mobilePanel.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      menuButton.setAttribute('aria-expanded', 'false');
     }
-    document.getElementById('registro-fields').style.display = 'none';
-    document.getElementById('registro-ok').style.display = 'block';
-  } catch(e) {
-    errDiv.textContent = e.message || 'Ocurrió un error. Intenta de nuevo.';
-    errDiv.style.display = 'block';
-    btn.disabled = false; btn.textContent = 'Crear mi cuenta gratuita →';
-  }
-}
-</script>
-
-<div class="footer">
-  <div class="ft-brand">
-    <div class="fn"><span class="m">M</span>ONVEL</div>
-    <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px">El software que tu despacho se merece</div>
-    <div class="ft">"Todo tu despacho, en un solo lugar."</div>
-    <div style="margin-top:14px;font-size:10.5px;color:rgba(255,255,255,.3)">México · 2026 · Todos los derechos reservados</div>
-  </div>
-  <div class="ft-contact">
-    <p>✉️ &nbsp;contacto@monvel.mx</p>
-    <p>📱 &nbsp;Soporte por WhatsApp</p>
-    <p>🌐 &nbsp;www.monvel.mx</p>
-    <p>📍 &nbsp;México</p>
-  </div>
-  <div class="ft-cta">
-    <a href="#demo" class="btn-demo">Crear cuenta gratuita</a>
-    <div class="btn-note">Sin tarjeta · Sin compromiso · Acceso inmediato</div>
-  </div>
-</div>
-
-<!-- Cloudflare Web Analytics: configurado en modo "Automatic" en el panel de CF → no requiere script aquí, CF lo inyecta solo para sitios servidos por Pages -->
-<!-- ═══ WhatsApp flotante ═══ -->
-<a href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20de%20Monvel" target="_blank" rel="noopener" class="wa-fab" aria-label="Contáctanos por WhatsApp">
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.371-.025-.520-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/>
-  </svg>
-</a>
-
-<script>
-/* Animaciones de scroll, contadores, typewriter — respeta prefers-reduced-motion */
-(() => {
-  'use strict';
-  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
-  const prefersReduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduce) return;
-
-  /* 1. Reveal-on-scroll: fade + slide-up cuando el elemento entra al viewport */
-  const revealSel = '.preview, .pain, .feat, .repl, .tcmp-row, .ctbl, .velia-grid, .priv-grid, .hist-grid, .step, .pc, .faq-q, .lead-form, .pv-spark, .pv-kpi';
-  const revealEls = $$(revealSel);
-  revealEls.forEach((el, i) => {
-    if (!el.classList.contains('pv-spark')) el.classList.add('reveal');
-    if (i % 3 === 1) el.classList.add('reveal-d1');
-    else if (i % 3 === 2) el.classList.add('reveal-d2');
-  });
-
-  const io = new IntersectionObserver((entries, obs) => {
-    entries.forEach(en => {
-      if (!en.isIntersecting) return;
-      en.target.classList.add('in');
-      /* Contador animado en stat-num cuando entra el stat-box */
-      if (en.target.matches('.stat-box')) {
-        const num = en.target.querySelector('.stat-num');
-        const target = parseInt((num.textContent || '').trim(), 10);
-        if (Number.isFinite(target) && !num.dataset.done) {
-          num.dataset.done = '1';
-          const t0 = performance.now();
-          const dur = 1100;
-          const tick = (t) => {
-            const p = Math.min((t - t0) / dur, 1);
-            const eased = 1 - Math.pow(1 - p, 3);
-            num.textContent = Math.round(target * eased);
-            if (p < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-        }
-      }
-      obs.unobserve(en.target);
+    menuButton.addEventListener('click', function () {
+      const opening = !mobilePanel.classList.contains('open');
+      mobilePanel.classList.toggle('open', opening);
+      document.body.classList.toggle('menu-open', opening);
+      menuButton.setAttribute('aria-expanded', String(opening));
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  /* Se observa TODO lo que lleve la clase `reveal`, no sólo lo que alcanzó el
-     selector de arriba (06-ago-2026). Dos bloques de la sección de MIGRACIÓN
-     traían `class="reveal"` escrita a mano en el HTML (líneas ~846 y ~863) y no
-     coincidían con ningún selector de `revealSel`: nunca se observaban, nunca
-     recibían la clase `in`, y se quedaban en opacity:0 PARA SIEMPRE. Eran
-     ~1,050 px de hueco blanco en la página de venta, justo debajo del
-     comparador de tiempos, con la sección «Cámbiate. Tu historial contable
-     llega completo.» invisible para cualquier visitante. */
-  $$('.reveal').forEach(el => io.observe(el));
-  $$('.stat-box').forEach(el => io.observe(el));
-
-  /* Red de seguridad: si el observer NUNCA disparó (pestaña en segundo plano al
-     cargar, script bloqueado, navegador raro), el contenido se muestra igual.
-     En una página de venta, una animación que no corre es un detalle; contenido
-     invisible es una venta perdida. Sólo actúa si NADA se reveló, así que en el
-     caso normal las animaciones siguen funcionando como siempre. */
-  setTimeout(() => {
-    if (!document.querySelector('.reveal.in')) {
-      $$('.reveal').forEach(el => el.classList.add('in'));
-    }
-  }, 2500);
-
-  /* 2. Resaltado activo de la nav del sticky header según sección visible */
-  const anchors = ['#features', '#pricing', '#faq', '#demo'];
-  const sections = anchors.map(a => document.querySelector(a)).filter(Boolean);
-  const navLinks = $$('.hd-nav a');
-  const onScroll = () => {
-    const y = window.scrollY + 140;
-    let active = null;
-    sections.forEach(s => { if (s.offsetTop <= y) active = '#' + s.id; });
-    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === active));
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  /* 3. Typewriter sobre la pregunta del usuario en el chat de Velia */
-  const user = document.querySelector('.vb-user');
-  if (user) {
-    const full = user.textContent.trim();
-    user.textContent = '';
-    let started = false;
-    const start = () => {
-      if (started) return; started = true;
-      const cursor = document.createElement('span');
-      cursor.className = 'tw-cursor';
-      user.appendChild(cursor);
-      let i = 0;
-      const tick = () => {
-        if (i < full.length) {
-          user.insertBefore(document.createTextNode(full[i++]), cursor);
-          setTimeout(tick, 26 + Math.random() * 28);
-        } else {
-          setTimeout(() => cursor.remove(), 900);
-        }
-      };
-      tick();
-    };
-    const tio = new IntersectionObserver(es => {
-      es.forEach(e => { if (e.isIntersecting) { start(); tio.disconnect(); } });
-    }, { threshold: 0.55 });
-    tio.observe(user);
-  }
-})();
-</script>
-
-<script>
-/* ───────────────────────────────────────────────────────────────────────────
-   TRAZABILIDAD DEL BOTÓN DE WHATSAPP (04-ago-2026, BITACORA #388)
-   Por qué: el primer prospecto real llegó por este botón — se supo porque el
-   mensaje que envió era IDÉNTICO al texto pre-llenado del enlace. Pero con un
-   solo texto para toda la página no se sabe QUÉ convenció: ¿el precio? ¿la
-   demo? ¿las funciones? Aquí el propio mensaje lo dice, en lenguaje natural
-   (nada de códigos raros que el prospecto vea y le extrañen), y de paso llega
-   mejor calificado: si escribe "quiero agendar una demostración" ya se sabe qué
-   quiere sin preguntar.
-
-   Va en su PROPIO bloque a propósito: el script de animaciones de arriba hace
-   `return` cuando el visitante pide "reducir movimiento", y ahí se llevaría
-   esto con él.
-   Si algo falla, el enlace conserva su href original — el canal de ventas NO
-   se rompe por un adorno.
-   ─────────────────────────────────────────────────────────────────────────── */
-(() => {
-  'use strict';
-  try {
-    const fab = document.querySelector('.wa-fab');
-    if (!fab) return;
-    const TEL = '525941350096';
-    const MENSAJES = [
-      { id: 'demo',     texto: 'Hola, quiero agendar una demostración de Monvel' },
-      { id: 'pricing',  texto: 'Hola, quiero información sobre los planes de Monvel' },
-      { id: 'features', texto: 'Hola, vi las funciones de Monvel y quiero más información' },
-      { id: 'faq',      texto: 'Hola, tengo una duda sobre Monvel' },
-    ];
-    const DEFECTO = 'Hola, me interesa saber más de Monvel';
-
-    /* Qué sección ocupa más pantalla AHORA (al momento del clic, no antes:
-       así refleja lo que la persona estaba leyendo cuando decidió escribir). */
-    const seccionVisible = () => {
-      const alto = window.innerHeight || 800;
-      let gana = null, mejor = 0;
-      for (const m of MENSAJES) {
-        const el = document.getElementById(m.id);
-        if (!el) continue;
-        const r = el.getBoundingClientRect();
-        const visible = Math.max(0, Math.min(r.bottom, alto) - Math.max(r.top, 0));
-        if (visible > mejor) { mejor = visible; gana = m; }
+    mobilePanel.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeMenu); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1050) closeMenu(); });
+    // Esc cierra y devuelve el foco al boton: quien navega con teclado no
+    // quedaba atrapado, pero tampoco tenia salida sin usar el raton.
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobilePanel.classList.contains('open')) {
+        closeMenu();
+        menuButton.focus();
       }
-      /* Umbral: si apenas se asoma un borde (<25% de la pantalla), no cuenta */
-      return (gana && mejor > alto * 0.25) ? gana.texto : DEFECTO;
-    };
-
-    const actualizar = () => {
-      try {
-        fab.href = `https://wa.me/${TEL}?text=${encodeURIComponent(seccionVisible())}`;
-      } catch (_e) { /* el href original sigue siendo válido */ }
-    };
-
-    /* En el clic (y en el touch, que en móvil ocurre antes) para acertarle a la
-       sección real; y una vez al cargar por si abre el enlace con el teclado. */
-    fab.addEventListener('mousedown', actualizar);
-    fab.addEventListener('touchstart', actualizar, { passive: true });
-    fab.addEventListener('focus', actualizar);
-    actualizar();
-  } catch (_e) { /* nunca romper la página por esto */ }
-})();
-</script>
-
+    });
+  </script>
 </body>
 </html>
