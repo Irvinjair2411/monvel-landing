@@ -4,24 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#65172A" />
-  <meta name="description" content="Software contable, fiscal y de nómina para despachos en México. Se instala en el servidor de tu despacho: la información de tus clientes no sale de ahí." />
+  <title>Monvel | Software contable y fiscal para despachos en México</title>
+  <meta name="description" content="CFDI, contabilidad electrónica, nómina, conciliación y declaraciones para despachos. Se instala en tu servidor: la contabilidad de tus clientes se queda ahí." />
+  <link rel="canonical" href="https://monvel.mx/" />
   <meta property="og:title" content="Monvel | Software contable y fiscal para despachos" />
-  <meta property="og:description" content="Del SAT a la declaración, en el servidor de tu despacho." />
+  <meta property="og:description" content="Descarga del SAT, facturación, contabilidad electrónica, nómina y declaraciones en el servidor de tu despacho. Desde $299 MXN al mes." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://monvel.mx/" />
   <meta property="og:locale" content="es_MX" />
   <meta property="og:site_name" content="Monvel" />
-  <link rel="canonical" href="https://monvel.mx/" />
   <meta property="og:image" content="https://monvel.mx/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Monvel, plataforma contable, fiscal y CFDI para despachos" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Monvel | Software contable y fiscal para despachos" />
-  <meta name="twitter:description" content="Del SAT a la declaración, en el servidor de tu despacho." />
+  <meta name="twitter:description" content="Descarga del SAT, facturación, contabilidad electrónica, nómina y declaraciones en el servidor de tu despacho. Desde $299 MXN al mes." />
   <meta name="twitter:image" content="https://monvel.mx/og-image.png" />
   <link rel="icon" type="image/png" href="logo-monvel-mark.png" />
+  <link rel="apple-touch-icon" href="logo-monvel-mark.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <title>Monvel | Software contable y fiscal para despachos</title>
   <style>
     :root {
       --wine: #65172a;
@@ -62,6 +66,9 @@
     h2 span { font-weight: 300; }
     p { line-height: 1.75; }
     :focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; }
+
+    .skip { position: absolute; left: -9999px; top: 8px; z-index: 100; padding: 10px 14px; color: var(--wine-deep); background: var(--brass); font-size: .8rem; font-weight: 700; text-decoration: none; }
+    .skip:focus { left: 8px; }
 
     .wrap { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
     .section { padding: 104px 0; scroll-margin-top: 80px; }
@@ -174,14 +181,14 @@
     .eyebrow::before { content: ""; width: 34px; height: 1px; background: var(--brass); }
     .hero h1 { max-width: 830px; margin: 26px 0 26px; font-size: clamp(2.9rem, 5.6vw, 5.5rem); font-weight: 650; }
     .hero h1 span { color: var(--brass-light); font-weight: 300; }
-    .hero-lead { max-width: 620px; color: rgba(255,255,255,.78); font-size: 1.05rem; }
+    .hero-lead { max-width: 640px; color: rgba(255,255,255,.8); font-size: 1.05rem; }
     .hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
     .microcopy { margin-top: 16px; color: rgba(255,255,255,.74); font-family: "IBM Plex Mono", monospace; font-size: .73rem; }
     .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); margin-bottom: 96px; border: 1px solid rgba(255,255,255,.17); background: rgba(63,11,24,.64); backdrop-filter: blur(12px); }
     .hero-stats div { min-height: 128px; padding: 20px 16px; border-right: 1px solid rgba(255,255,255,.17); }
     .hero-stats div:last-child { border-right: 0; }
     .hero-stats strong { display: block; color: var(--brass-light); font-size: 1.9rem; }
-    .hero-stats span { display: block; margin-top: 9px; opacity: .62; font-family: "IBM Plex Mono", monospace; font-size: .655rem; line-height: 1.4; letter-spacing: .05em; text-transform: uppercase; }
+    .hero-stats span { display: block; margin-top: 9px; opacity: .7; font-family: "IBM Plex Mono", monospace; font-size: .655rem; line-height: 1.4; letter-spacing: .05em; text-transform: uppercase; }
 
     .replacement { color: var(--wine-deep); background: var(--brass); }
     .replacement-inner { min-height: 92px; display: flex; align-items: center; gap: 22px; }
@@ -192,20 +199,7 @@
     .heading-row { display: grid; grid-template-columns: 1.1fr .8fr; gap: 64px; align-items: end; margin-top: 26px; }
     .heading-row p { color: var(--muted); margin-bottom: 0; }
 
-    /* ── 01 · Dónde viven los datos ───────────────────────────── */
-    .local { color: white; background: var(--wine-deep); }
-    .local h2 { color: white; }
-    .local .heading-row p { color: rgba(255,255,255,.66); }
-    .local-grid { display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 62px; border-top: 1px solid rgba(255,255,255,.14); border-left: 1px solid rgba(255,255,255,.14); }
-    .local-card { padding: 32px; border-right: 1px solid rgba(255,255,255,.14); border-bottom: 1px solid rgba(255,255,255,.14); }
-    .local-card small { color: var(--brass-light); font-family: "IBM Plex Mono", monospace; font-size: .68rem; letter-spacing: .1em; }
-    .local-card h3 { margin: 16px 0 12px; font-size: 1.3rem; font-weight: 600; }
-    .local-card p { margin: 0; color: rgba(255,255,255,.66); font-size: .87rem; }
-    .local-note { display: flex; gap: 16px; margin-top: 40px; padding: 22px 26px; border: 1px solid rgba(214,169,68,.34); background: rgba(214,169,68,.07); }
-    .local-note strong { color: var(--brass-light); }
-    .local-note p { margin: 0; color: rgba(255,255,255,.72); font-size: .86rem; }
-
-    /* ── 02 · El flujo ────────────────────────────────────────── */
+    /* ── El flujo ─────────────────────────────────────────────── */
     .process { background: var(--ivory); }
     .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 64px; border: 1px solid var(--line); }
     .process-card { min-height: 300px; position: relative; padding: 30px; border-right: 1px solid var(--line); }
@@ -214,7 +208,51 @@
     .process-card h3 { margin-top: 62px; color: var(--wine); font-size: 1.6rem; font-weight: 650; }
     .process-card p { margin-bottom: 0; color: var(--muted); font-size: .855rem; }
 
-    /* ── 03 · Módulos ─────────────────────────────────────────── */
+    /* ── Así se ve (capturas reales) ──────────────────────────── */
+    .gallery { background: var(--paper); }
+    .shots { margin-top: 54px; }
+    .shot-tabs { display: flex; gap: 8px; overflow-x: auto; padding: 2px 2px 8px; scrollbar-width: thin; }
+    .shot-tabs button { flex: 0 0 auto; min-height: 42px; padding: 0 15px; color: var(--wine); background: var(--ivory); border: 1px solid var(--line); border-radius: 2px; font-size: .76rem; font-weight: 600; cursor: pointer; }
+    .shot-tabs button:hover { border-color: rgba(101,23,42,.45); }
+    .shot-tabs button[aria-selected="true"] { color: white; background: var(--wine); border-color: var(--wine); }
+    .shot { margin: 14px 0 0; }
+    .shot[hidden] { display: none; }
+    .shot-frame { overflow: hidden; background: white; border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .shot-bar { display: flex; gap: 6px; padding: 10px 12px; background: #efe6d8; border-bottom: 1px solid var(--line); }
+    .shot-bar i { width: 9px; height: 9px; border-radius: 50%; background: rgba(101,23,42,.25); }
+    .shot-frame img { width: 100%; height: auto; }
+    .shot figcaption { margin-top: 14px; color: var(--muted); font-size: .88rem; line-height: 1.6; }
+    .shot figcaption strong { color: var(--wine); }
+    .shots-note { margin: 14px 0 0; color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: .7rem; line-height: 1.6; }
+
+    /* ── Dónde viven los datos ────────────────────────────────── */
+    .local { color: white; background: var(--wine-deep); }
+    .local h2 { color: white; }
+    .local .heading-row p { color: rgba(255,255,255,.7); }
+    .local-grid { display: grid; grid-template-columns: repeat(2, 1fr); margin-top: 62px; border-top: 1px solid rgba(255,255,255,.14); border-left: 1px solid rgba(255,255,255,.14); }
+    .local-card { padding: 32px; border-right: 1px solid rgba(255,255,255,.14); border-bottom: 1px solid rgba(255,255,255,.14); }
+    .local-card small { color: var(--brass-light); font-family: "IBM Plex Mono", monospace; font-size: .68rem; letter-spacing: .1em; }
+    .local-card h3 { margin: 16px 0 12px; font-size: 1.3rem; font-weight: 600; }
+    .local-card p { margin: 0; color: rgba(255,255,255,.7); font-size: .87rem; }
+    .local-note { display: flex; gap: 16px; margin-top: 40px; padding: 22px 26px; border: 1px solid rgba(214,169,68,.34); background: rgba(214,169,68,.07); }
+    .local-note strong { color: var(--brass-light); }
+    .local-note p { margin: 0; color: rgba(255,255,255,.76); font-size: .86rem; }
+    .local-shot { max-width: 980px; margin: 48px auto 0; }
+    .local-shot .shot-frame { border-color: rgba(255,255,255,.2); box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+    .local-shot .shot-bar { background: #2e0812; border-color: rgba(255,255,255,.12); }
+    .local-shot .shot-bar i { background: rgba(255,255,255,.3); }
+    .local-shot figcaption { margin-top: 14px; color: rgba(255,255,255,.66); font-size: .82rem; line-height: 1.6; }
+
+    /* ── Lo nuevo ─────────────────────────────────────────────── */
+    .news { background: var(--ivory); }
+    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 58px; background: var(--line); border: 1px solid var(--line); }
+    .news-card { padding: 28px; background: var(--paper); }
+    .news-card small { display: inline-block; padding: 4px 8px; color: var(--wine); border: 1px solid rgba(101,23,42,.25); font-family: "IBM Plex Mono", monospace; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
+    .news-card h3 { margin: 16px 0 10px; color: var(--wine); font-size: 1.1rem; font-weight: 650; line-height: 1.35; }
+    .news-card p { margin: 0; color: var(--muted); font-size: .845rem; }
+    .news-foot { margin: 22px 0 0; color: var(--muted); font-size: .8rem; }
+
+    /* ── Qué cubre ────────────────────────────────────────────── */
     .modules { background: var(--paper); }
     .module-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 62px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
     .module { min-height: 280px; padding: 30px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -224,7 +262,7 @@
     .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
     .tags span { padding: 5px 8px; color: var(--wine); border: 1px solid rgba(101,23,42,.25); font-family: "IBM Plex Mono", monospace; font-size: .655rem; text-transform: uppercase; }
 
-    /* ── 04 · Criterio ────────────────────────────────────────── */
+    /* ── Criterio ─────────────────────────────────────────────── */
     .rules { background: #eadfcd; }
     .rules-list { margin-top: 58px; border-top: 1px solid var(--line); }
     .rule { display: grid; grid-template-columns: 54px 1fr 1.25fr; gap: 26px; align-items: start; padding: 28px 0; border-bottom: 1px solid var(--line); }
@@ -232,7 +270,7 @@
     .rule strong { color: var(--wine); font-size: 1.06rem; font-weight: 650; line-height: 1.45; }
     .rule p { margin: 0; color: var(--muted); font-size: .86rem; }
 
-    /* ── 05 · Velia ───────────────────────────────────────────── */
+    /* ── Velia ────────────────────────────────────────────────── */
     .velia { background: var(--paper); }
     .velia-layout { display: grid; grid-template-columns: .8fr 1fr; gap: 80px; align-items: center; }
     .velia-art { aspect-ratio: 4/5; position: relative; display: grid; place-items: center; background: radial-gradient(circle at 68% 25%, rgba(214,169,68,.35), transparent 26%), linear-gradient(145deg, #f6f0e4, #d8c8b0); box-shadow: -22px 24px 0 var(--wine), var(--shadow); overflow: hidden; }
@@ -242,14 +280,15 @@
     .velia-core { z-index: 2; width: 118px; height: 118px; display: grid; place-items: center; color: var(--brass-light); background: var(--wine); border-radius: 50%; font-family: "IBM Plex Mono", monospace; font-size: 1.6rem; box-shadow: 0 18px 40px rgba(63,11,24,.3); }
     .chat { margin-top: 28px; border: 1px solid var(--line); background: var(--ivory); box-shadow: var(--shadow); }
     .chat-head { display: flex; justify-content: space-between; gap: 12px; padding: 13px 15px; color: var(--wine); border-bottom: 1px solid var(--line); font-size: .72rem; font-weight: 700; }
-    .chat-head span { color: var(--green); font-family: "IBM Plex Mono", monospace; font-size: .68rem; text-transform: uppercase; }
-    .question { width: 72%; margin: 18px 15px 9px auto; padding: 13px; background: white; border: 1px solid var(--line); font-size: .74rem; }
-    .answer { width: 86%; margin: 9px auto 18px 15px; padding: 14px; color: white; background: var(--wine); font-size: .74rem; line-height: 1.6; }
-    .disclosure { margin-top: 26px; padding: 20px 22px; border-left: 3px solid var(--brass); background: var(--ivory); }
+    .chat-head span { color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: .66rem; text-transform: uppercase; }
+    .question { width: 72%; margin: 18px 15px 9px auto; padding: 13px; background: white; border: 1px solid var(--line); font-size: .78rem; }
+    .answer { width: 86%; margin: 9px auto 18px 15px; padding: 14px; color: white; background: var(--wine); font-size: .78rem; line-height: 1.6; }
+    .velia-quota { margin-top: 18px; color: var(--muted); font-size: .84rem; }
+    .disclosure { margin-top: 22px; padding: 20px 22px; border-left: 3px solid var(--brass); background: var(--ivory); }
     .disclosure strong { display: block; color: var(--wine); font-size: .82rem; margin-bottom: 7px; }
     .disclosure p { margin: 0; color: var(--muted); font-size: .82rem; }
 
-    /* ── 06 · Trabaja solo ────────────────────────────────────── */
+    /* ── Trabaja solo ─────────────────────────────────────────── */
     .auto { background: var(--ivory); }
     .auto-layout { display: grid; grid-template-columns: .75fr 1.25fr; gap: 72px; align-items: start; }
     .auto-table { background: var(--paper); border: 1px solid var(--line); box-shadow: 14px 14px 0 rgba(101,23,42,.07); }
@@ -257,9 +296,19 @@
     .auto-row:last-child { border-bottom: 0; }
     .auto-row b { color: var(--wine); font-family: "IBM Plex Mono", monospace; font-size: .68rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; }
     .auto-row span { color: var(--muted); font-size: .855rem; line-height: 1.65; }
-    .auto-caveat { margin-top: 26px; color: var(--muted); font-size: .8rem; }
 
-    /* ── 07 · Migración ───────────────────────────────────────── */
+    /* ── Antes de publicar ────────────────────────────────────── */
+    .release { color: white; background: var(--wine-dark); }
+    .release h2 { color: white; }
+    .release .heading-row p { color: rgba(255,255,255,.68); }
+    .release-grid { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 58px; border-top: 1px solid rgba(255,255,255,.14); border-left: 1px solid rgba(255,255,255,.14); }
+    .release-card { padding: 30px 26px; border-right: 1px solid rgba(255,255,255,.14); border-bottom: 1px solid rgba(255,255,255,.14); }
+    .release-card strong { display: block; color: var(--brass-light); font-size: 2.3rem; font-weight: 650; letter-spacing: -.04em; line-height: 1; }
+    .release-card h3 { margin: 18px 0 10px; font-size: 1.05rem; font-weight: 600; line-height: 1.35; }
+    .release-card p { margin: 0; color: rgba(255,255,255,.68); font-size: .84rem; }
+    .release-foot { margin: 24px 0 0; color: rgba(255,255,255,.55); font-size: .78rem; }
+
+    /* ── Migración y puesta en marcha ─────────────────────────── */
     .trust { background: var(--paper); }
     .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
     .trust-card { display: flex; flex-direction: column; padding: 46px; background: var(--ivory); border: 1px solid var(--line); }
@@ -267,49 +316,65 @@
     .trust-card:nth-child(2) h2 { color: white; }
     .trust-card h2 { font-size: clamp(1.9rem, 3vw, 2.7rem); margin-top: 22px; }
     .trust-card p { color: var(--muted); font-size: .9rem; }
-    .trust-card:nth-child(2) p { color: rgba(255,255,255,.66); }
+    .trust-card:nth-child(2) p { color: rgba(255,255,255,.7); }
     .seal { align-self: flex-start; display: inline-flex; margin-top: auto; padding: 8px 10px; color: var(--wine-deep); background: var(--brass-light); font-family: "IBM Plex Mono", monospace; font-size: .7rem; text-transform: uppercase; }
 
-    /* ── 07 · Todo lo que incluye ─────────────────────────────── */
+    /* ── Comparación ──────────────────────────────────────────── */
+    .compare { background: var(--ivory); }
+    .cmp-wrap { margin-top: 56px; background: var(--paper); border: 1px solid var(--line); }
+    .cmp { width: 100%; border-collapse: collapse; font-size: .84rem; }
+    .cmp caption { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .cmp th, .cmp td { padding: 16px 18px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); }
+    .cmp thead th { color: var(--wine); background: #efe6d8; font-family: "IBM Plex Mono", monospace; font-size: .66rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .cmp thead th.yo { color: var(--brass-light); background: var(--wine); }
+    .cmp tbody th { width: 21%; color: var(--wine); font-weight: 650; }
+    .cmp td { color: var(--muted); line-height: 1.6; }
+    .cmp td.yo { color: var(--ink); background: rgba(214,169,68,.13); }
+    .cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom: 0; }
+    .cmp-note { margin: 18px 0 0; color: var(--muted); font-size: .8rem; }
+
+    /* ── Todo lo que incluye ──────────────────────────────────── */
     .all { color: white; background: var(--wine-dark); }
     .all h2 { color: white; }
-    .all .heading-row p { color: rgba(255,255,255,.62); }
+    .all .heading-row p { color: rgba(255,255,255,.66); }
     .all-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-top: 58px; background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.13); }
     .all-block { padding: 26px 28px; background: var(--wine-dark); }
     .all-block h3 { display: flex; align-items: baseline; gap: 12px; margin: 0 0 14px; color: var(--brass-light); font-size: 1.02rem; font-weight: 650; }
-    .all-block h3 b { color: rgba(255,255,255,.34); font-family: "IBM Plex Mono", monospace; font-size: .68rem; font-weight: 500; }
+    .all-block h3 b { color: rgba(255,255,255,.4); font-family: "IBM Plex Mono", monospace; font-size: .68rem; font-weight: 500; }
     .all-block ul { display: flex; flex-wrap: wrap; gap: 6px 0; margin: 0; padding: 0; list-style: none; }
-    .all-block li { color: rgba(255,255,255,.7); font-size: .805rem; line-height: 1.5; }
+    .all-block li { color: rgba(255,255,255,.74); font-size: .805rem; line-height: 1.5; }
     .all-block li::after { content: "·"; margin: 0 8px; color: var(--brass); }
     .all-block li:last-child::after { content: ""; margin: 0; }
-    .all-foot { margin-top: 26px; color: rgba(255,255,255,.52); font-size: .78rem; }
+    .all-foot { margin-top: 26px; color: rgba(255,255,255,.58); font-size: .78rem; }
 
-    /* ── 08 · Planes ──────────────────────────────────────────── */
-    .pricing { background: var(--ivory); }
+    /* ── Planes ───────────────────────────────────────────────── */
+    .pricing { background: var(--paper); }
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 62px; }
-    .plan { min-height: 520px; position: relative; display: flex; flex-direction: column; padding: 52px 30px 30px; background: var(--paper); border: 1px solid var(--line); box-shadow: 7px 7px 0 rgba(101,23,42,.05); }
+    .plan { min-height: 560px; position: relative; display: flex; flex-direction: column; padding: 52px 30px 30px; background: var(--ivory); border: 1px solid var(--line); box-shadow: 7px 7px 0 rgba(101,23,42,.05); }
     .plan.featured { color: white; background: var(--wine-deep); border-color: var(--wine-deep); transform: translateY(-16px); box-shadow: var(--shadow); }
     .folio { position: absolute; top: 18px; left: 30px; color: var(--wine); font-family: "IBM Plex Mono", monospace; font-size: .66rem; letter-spacing: .1em; }
-    .featured .folio { color: rgba(255,255,255,.5); }
+    .featured .folio { color: rgba(255,255,255,.55); }
     .recommended { position: absolute; top: 0; right: 0; padding: 7px 11px; color: var(--wine-deep); background: var(--brass); font-family: "IBM Plex Mono", monospace; font-size: .66rem; text-transform: uppercase; }
     .plan-name { color: var(--wine); font-family: "IBM Plex Mono", monospace; font-size: .7rem; letter-spacing: .11em; text-transform: uppercase; }
     .featured .plan-name { color: var(--brass-light); }
     .price { margin: 18px 0 12px; color: var(--wine); font-size: clamp(2.7rem, 4vw, 3.8rem); font-weight: 700; letter-spacing: -.055em; }
     .featured .price { color: white; }
-    .plan > p { color: var(--muted); font-size: .76rem; }
-    .featured > p { color: rgba(255,255,255,.62); }
-    .stamps { margin: 16px 0; padding: 12px 0; color: var(--wine); border-block: 1px solid var(--line); font-size: .72rem; font-weight: 700; }
+    .plan > p { margin-bottom: 4px; color: var(--muted); font-size: .76rem; }
+    .featured > p { color: rgba(255,255,255,.68); }
+    .plan .annual { margin: 0; color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: .68rem; }
+    .featured .annual { color: rgba(255,255,255,.6); }
+    .stamps { margin: 16px 0; padding: 12px 0; color: var(--wine); border-block: 1px solid var(--line); font-size: .74rem; font-weight: 700; line-height: 1.7; }
     .featured .stamps { color: var(--brass-light); border-color: rgba(255,255,255,.16); }
-    .features { display: grid; gap: 11px; margin: 12px 0 26px; color: var(--muted); font-size: .76rem; }
-    .featured .features { color: rgba(255,255,255,.7); }
+    .features { display: grid; gap: 11px; margin: 12px 0 26px; color: var(--muted); font-size: .78rem; }
+    .featured .features { color: rgba(255,255,255,.74); }
     .features span::before { content: "✓"; margin-right: 8px; color: var(--green); }
     .featured .features span::before { color: var(--brass-light); }
     .plan .button { width: 100%; margin-top: auto; }
     .featured .button.outline { color: var(--wine-deep); background: var(--brass); border-color: var(--brass); }
-    .pricing-note { max-width: 860px; margin: 26px auto 0; color: var(--muted); text-align: center; font-size: .76rem; }
+    .pricing-note { max-width: 900px; margin: 26px auto 0; color: var(--muted); text-align: center; font-size: .78rem; }
 
-    /* ── 09 · Preguntas ───────────────────────────────────────── */
-    .faq { background: var(--paper); }
+    /* ── Preguntas ────────────────────────────────────────────── */
+    .faq { background: var(--ivory); }
     .faq-layout { display: grid; grid-template-columns: .82fr 1.18fr; gap: 70px; align-items: start; }
     .faq-intro { position: sticky; top: 108px; }
     .faq-intro h2 { font-size: clamp(2rem, 3.1vw, 3.1rem); }
@@ -321,24 +386,24 @@
     summary strong { font-size: .98rem; font-weight: 600; line-height: 1.45; }
     summary::after { content: "+"; font-size: 1.2rem; font-weight: 300; }
     details[open] summary::after { content: "−"; }
-    details p { margin: 0; padding: 0 34px 24px 42px; color: var(--muted); font-size: .85rem; }
+    details p { margin: 0; padding: 0 34px 24px 42px; color: var(--muted); font-size: .86rem; }
 
-    /* ── 10 · Demo ────────────────────────────────────────────── */
+    /* ── Demostración ─────────────────────────────────────────── */
     .demo { color: white; background: var(--wine); }
     .demo-layout { display: grid; grid-template-columns: 1fr .8fr; gap: 70px; align-items: center; }
     .demo h2 { color: white; }
-    .demo p { color: rgba(255,255,255,.72); }
+    .demo p { color: rgba(255,255,255,.76); }
     .demo-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
     .demo-points { display: grid; gap: 1px; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.18); }
     .demo-points div { padding: 20px 22px; background: var(--wine); }
     .demo-points b { display: block; color: var(--brass-light); font-family: "IBM Plex Mono", monospace; font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 6px; }
-    .demo-points span { color: rgba(255,255,255,.8); font-size: .86rem; }
+    .demo-points span { color: rgba(255,255,255,.82); font-size: .86rem; }
 
     .closing { position: relative; padding: 100px 0; color: white; background: var(--wine-deep); overflow: hidden; }
     .closing::after { content: ""; position: absolute; width: 460px; height: 460px; right: -120px; top: -220px; border: 1px solid rgba(214,169,68,.2); border-radius: 50%; box-shadow: 0 0 0 65px rgba(214,169,68,.04), 0 0 0 130px rgba(214,169,68,.025); }
     .closing-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr .62fr; gap: 80px; align-items: center; }
     .closing h2 { color: white; }
-    .closing p { color: rgba(255,255,255,.66); }
+    .closing p { color: rgba(255,255,255,.7); }
     .ticket { background: var(--ivory); color: var(--wine-deep); box-shadow: 14px 14px 0 var(--brass); }
     .ticket-head, .ticket-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 20px; border-bottom: 1px dashed rgba(101,23,42,.3); }
     .ticket-head img { width: 40px; height: 40px; object-fit: cover; border-radius: 50%; }
@@ -346,14 +411,14 @@
     .ticket-body { padding: 32px 20px; font-size: 1.08rem; font-weight: 650; }
     .ticket-foot { border-top: 1px dashed rgba(101,23,42,.3); border-bottom: 0; }
 
-    .footer { padding: 56px 0 24px; color: rgba(255,255,255,.68); background: var(--wine-dark); }
+    .footer { padding: 56px 0 24px; color: rgba(255,255,255,.7); background: var(--wine-dark); }
     .footer-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; }
     .footer .brand { color: white; }
     .footer-copy { max-width: 380px; margin-top: 18px; font-size: .76rem; }
     .footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
     .footer-links div { display: flex; flex-direction: column; gap: 10px; }
     .footer-links strong { color: var(--brass-light); font-family: "IBM Plex Mono", monospace; font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; }
-    .footer-links a { text-decoration: none; font-size: .72rem; }
+    .footer-links a { text-decoration: none; font-size: .74rem; }
     .copyright { display: flex; justify-content: space-between; gap: 16px; margin-top: 44px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.1); font-family: "IBM Plex Mono", monospace; font-size: .69rem; }
 
     .wa { position: fixed; right: 18px; bottom: 18px; z-index: 40; min-height: 48px; display: flex; align-items: center; padding: 0 16px; color: white; background: #167a4e; text-decoration: none; font-size: .7rem; font-weight: 700; box-shadow: 0 12px 28px rgba(22,122,78,.28); }
@@ -367,12 +432,14 @@
       .hero-stats { margin: 0 0 60px; }
       .process-grid { grid-template-columns: 1fr 1fr; }
       .process-card:nth-child(2) { border-right: 0; }
-      .module-grid { grid-template-columns: 1fr 1fr; }
+      .module-grid, .news-grid { grid-template-columns: 1fr 1fr; }
+      .release-grid { grid-template-columns: 1fr 1fr; }
       .velia-layout, .auto-layout, .demo-layout { grid-template-columns: 1fr; gap: 48px; }
       .velia-art { max-width: 520px; }
       .rule { grid-template-columns: 44px 1fr; gap: 18px; }
       .rule p { grid-column: 2; }
       .pricing-grid { grid-template-columns: 1fr; max-width: 620px; margin-inline: auto; }
+      .plan { min-height: 0; }
       .plan.featured { transform: none; }
       .faq-layout { grid-template-columns: 1fr; gap: 46px; }
       .faq-intro { position: static; }
@@ -395,25 +462,36 @@
       .hero-stats { grid-template-columns: 1fr; }
       .hero-stats div { min-height: 0; padding: 16px 16px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.17); display: flex; align-items: baseline; gap: 14px; }
       .hero-stats div:last-child { border-bottom: 0; }
-      .hero-stats strong { font-size: 1.5rem; min-width: 62px; }
+      .hero-stats strong { font-size: 1.5rem; min-width: 70px; }
       .hero-stats span { margin-top: 0; }
       .replacement-inner { padding: 22px 0; align-items: flex-start; flex-direction: column; gap: 14px; }
       .heading-row { grid-template-columns: 1fr; gap: 18px; }
-      .process-grid, .module-grid, .local-grid, .trust-grid, .all-grid { grid-template-columns: 1fr; }
+      .process-grid, .module-grid, .local-grid, .trust-grid, .all-grid, .news-grid, .release-grid { grid-template-columns: 1fr; }
       .all-block { padding: 24px 22px; }
       .process-card { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); }
       .process-card:last-child { border-bottom: 0; }
       .process-card h3 { margin-top: 30px; font-size: 1.4rem; }
       .module { min-height: 0; }
       .module h3 { margin-top: 26px; }
+      .local-card { padding: 26px 22px; }
       .local-note { flex-direction: column; gap: 10px; padding: 20px; }
+      .news-card { padding: 24px 22px; }
+      .release-card { padding: 26px 22px; }
       .rule { grid-template-columns: 1fr; gap: 10px; padding: 22px 0; }
       .rule p { grid-column: 1; }
       .velia-art { width: 100%; }
       .question, .answer { width: calc(100% - 30px); }
       .auto-row { grid-template-columns: 1fr; gap: 6px; padding: 16px 18px; }
       .trust-card { padding: 30px 24px; }
+      .cmp thead { display: none; }
+      .cmp, .cmp tbody, .cmp tr, .cmp th, .cmp td { display: block; width: 100%; }
+      .cmp tbody tr { padding: 6px 0 10px; border-bottom: 1px solid var(--line); }
+      .cmp tbody tr:last-child { border-bottom: 0; }
+      .cmp tbody th { width: auto; padding: 14px 16px 6px; border-bottom: 0; }
+      .cmp td { padding: 8px 16px; border-bottom: 0; }
+      .cmp td::before { content: attr(data-l); display: block; margin-bottom: 2px; color: var(--wine); font-family: "IBM Plex Mono", monospace; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
       .plan { padding: 50px 22px 26px; }
+      details p { padding: 0 8px 22px 42px; }
       .demo-actions { flex-direction: column; align-items: stretch; }
       .footer-grid { grid-template-columns: 1fr; gap: 42px; }
       .footer-links { grid-template-columns: 1fr 1fr; }
@@ -429,102 +507,174 @@
   </style>
 </head>
 <body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+
   <header class="header">
     <div class="wrap header-inner">
       <a class="brand" href="#inicio" aria-label="Monvel, ir al inicio">
-        <img src="logo-monvel-mark.png" alt="Logo de Monvel" />
+        <img src="logo-monvel-mark.png" width="48" height="48" alt="Logo de Monvel" />
         <span class="brand-copy"><strong>MONVEL</strong><small>software fiscal</small></span>
       </a>
       <nav class="nav" aria-label="Navegación principal">
-        <a href="#seguridad">Tus datos</a><a href="#producto">Producto</a><a href="#criterio">Criterio</a><a href="#velia">Velia</a><a href="#incluye">Qué incluye</a><a href="#planes">Planes</a><a href="#preguntas">Preguntas</a>
+        <a href="#producto">Producto</a><a href="#pantallas">Así se ve</a><a href="#seguridad">Tus datos</a><a href="#novedades">Lo nuevo</a><a href="#planes">Planes</a><a href="#preguntas">Preguntas</a>
       </nav>
       <a class="button gold" href="#demo">Ver una demostración →</a>
-      <button class="menu-btn" id="menuButton" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+      <button class="menu-btn" id="menuButton" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobilePanel"><span></span></button>
     </div>
   </header>
 
   <nav class="mobile-panel" id="mobilePanel" aria-label="Navegación móvil">
-    <a href="#seguridad">Tus datos <span>01</span></a><a href="#producto">Producto <span>02</span></a><a href="#modulos">Qué cubre <span>03</span></a><a href="#criterio">Criterio <span>04</span></a><a href="#velia">Velia <span>05</span></a><a href="#incluye">Todo lo que incluye <span>07</span></a><a href="#planes">Planes <span>08</span></a><a href="#preguntas">Preguntas <span>09</span></a>
+    <a href="#producto">Producto <span>01</span></a><a href="#pantallas">Así se ve <span>02</span></a><a href="#seguridad">Tus datos <span>03</span></a><a href="#novedades">Lo nuevo <span>04</span></a><a href="#modulos">Qué cubre <span>05</span></a><a href="#velia">Velia <span>07</span></a><a href="#versiones">Cada versión <span>09</span></a><a href="#comparacion">Comparación <span>10</span></a><a href="#planes">Planes <span>12</span></a><a href="#preguntas">Preguntas <span>13</span></a>
     <a class="button wine" href="#demo">Ver una demostración →</a>
   </nav>
 
-  <main>
+  <main id="contenido">
     <section class="hero" id="inicio">
       <div class="hero-bg" role="presentation"></div>
       <div class="wrap hero-content">
         <div class="hero-copy">
           <div class="eyebrow">Software contable y fiscal para despachos mexicanos</div>
           <h1>Del SAT a la declaración, <span>sin salir de tu servidor.</span></h1>
-          <p class="hero-lead">Comprobantes, contabilidad, nómina, conciliación y declaraciones en un solo sistema, instalado en un equipo de tu despacho. La contabilidad de tus clientes se queda ahí.</p>
+          <p class="hero-lead">Para despachos y contadores que llevan varios RFC. Descarga del SAT, facturación, contabilidad electrónica, nómina, conciliación bancaria y declaraciones en un solo sistema, instalado en un equipo de tu despacho: la contabilidad y la e.firma de tus clientes se quedan ahí.</p>
           <div class="hero-actions">
             <a class="btn-demo" href="#demo">Ver una demostración →</a>
             <a class="button ghost" href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Entrar al Aula Virtual</a>
           </div>
-          <div class="microcopy">Aula Virtual: un Monvel completo con datos de ejemplo · Sin instalar · Sin tarjeta</div>
+          <div class="microcopy">Aula Virtual: un despacho de ejemplo ya cargado · Sin instalar · Sin tarjeta</div>
         </div>
         <div class="hero-stats">
-          <div><strong>0</strong><span>Datos tuyos en servidores de Monvel</span></div><div><strong>86</strong><span>Reglas de deducibilidad con su artículo</span></div><div><strong>+180</strong><span>Pruebas automáticas por versión</span></div>
+          <div><strong>$299</strong><span>MXN al mes por el despacho: 10 RFC y usuarios sin límite</span></div><div><strong>86</strong><span>Reglas de deducibilidad, cada una con su artículo</span></div><div><strong>200+</strong><span>Pruebas automáticas antes de publicar cada versión</span></div>
         </div>
       </div>
     </section>
 
-    <section class="replacement">
+    <section class="replacement" aria-label="Lo que reemplaza Monvel">
       <div class="wrap replacement-inner">
         <strong>Una sola cuota reemplaza:</strong>
         <div class="replacement-list"><span>Descarga del SAT</span><span>Facturación</span><span>Contabilidad</span><span>Nómina</span><span>Conciliación</span><span>Timbrado</span><span>Excel paralelo</span></div>
       </div>
     </section>
 
-    <section class="section local" id="seguridad">
+    <section class="section process" id="producto">
       <div class="wrap">
-        <div class="label light" data-number="01">Dónde viven los datos</div>
-        <div class="heading-row"><h2>Monvel se instala en tu despacho. <span>La información no sale de ahí.</span></h2><p>El sistema corre en un equipo tuyo y se usa desde el navegador: en la oficina, desde tu casa o desde el celular. Los XML, las pólizas y las credenciales de tus clientes viven en ese equipo, no en la nube de un proveedor.</p></div>
-        <div class="local-grid">
-          <article class="local-card"><small>01</small><h3>Sin telemetría ni analíticas</h3><p>Monvel no manda estadísticas de uso. Dentro del sistema hay una pantalla, «Qué datos viajan», que lista cada canal por el que algo sale de tu servidor: qué lleva, cuándo y cómo se apaga. Casi todos requieren un clic tuyo.</p></article>
-          <article class="local-card"><small>02</small><h3>Las credenciales van directo al SAT</h3><p>La CIEC y la e.firma de tus clientes se guardan cifradas y viajan a los servicios del SAT, nunca a Monvel. La firma de una cancelación se calcula dentro de tu servidor: la llave privada no sale de ahí.</p></article>
-          <article class="local-card"><small>03</small><h3>El estado de cuenta se lee aquí</h3><p>La lectura del estado de cuenta del banco se hace en tu propia computadora. No se manda a ningún servicio externo para interpretarla — y no se va a mandar sin que tú lo autorices cliente por cliente.</p></article>
-          <article class="local-card"><small>04</small><h3>Respaldo diario, probado solo</h3><p>Una tarea programada respalda la base todos los días, con los días de retención que tú indiques. Y una vez al día Monvel abre el último respaldo para comprobar que de verdad serviría para restaurar.</p></article>
-        </div>
-        <div class="local-note">
-          <p><strong>La contracara honesta:</strong> si el equipo donde vive Monvel está apagado, nadie entra y no salen avisos. Es el precio de que la información sea tuya y esté donde tú la puedes ver. Por eso el respaldo diario se guarda donde tú indiques y un vigilante revisa cada 15 minutos que el servicio, la base y el respaldo estén en orden, y avisa por correo si algo falla.</p>
+        <div class="label" data-number="01">El flujo Monvel</div>
+        <div class="heading-row"><h2>Una misma información, <span>de principio a fin.</span></h2><p>Cada dato avanza al siguiente proceso. Lo que descargas del SAT alimenta la clasificación, las pólizas, la conciliación y la declaración. No hay que volver a capturarlo en otro lado. Y la unidad es el despacho, no la empresa: tus clientes son renglones dentro de él, no una licencia cada uno.</p></div>
+        <div class="process-grid">
+          <article class="process-card"><small>01</small><h3>Conecta</h3><p>Descarga masiva de CFDI emitidos, recibidos y de retenciones, con e.firma o CIEC. También la Constancia de Situación Fiscal y la Opinión 32-D.</p></article>
+          <article class="process-card"><small>02</small><h3>Clasifica</h3><p>86 reglas de deducibilidad, cada una citada a su artículo de la LISR. Cuando fijas la cuenta contable de un proveedor, Monvel la recuerda y la reutiliza el mes siguiente.</p></article>
+          <article class="process-card"><small>03</small><h3>Concilia</h3><p>Cruza los movimientos del banco contra CFDI y pólizas. Lo que enlazas a mano lo aprende, y si aprendió mal, puedes hacer que lo olvide.</p></article>
+          <article class="process-card"><small>04</small><h3>Declara</h3><p>IVA, ISR provisional y DIOT salen del mismo cálculo que ves en pantalla, en el Excel y en el reporte del mes. Tú presentas en el portal del SAT y guardas el acuse junto a la declaración.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section process" id="producto">
+    <section class="section gallery" id="pantallas">
       <div class="wrap">
-        <div class="label" data-number="02">El flujo Monvel</div>
-        <div class="heading-row"><h2>Una misma información, <span>de principio a fin.</span></h2><p>Cada dato avanza al siguiente proceso. Lo que descargas del SAT alimenta la clasificación, las pólizas, la conciliación y la declaración. No hay que volver a capturarlo en otro lado.</p></div>
-        <div class="process-grid">
-          <article class="process-card"><small>01</small><h3>Conecta</h3><p>Descarga masiva de CFDI emitidos, recibidos y de retenciones, con e.firma o CIEC. También la Constancia de Situación Fiscal y la Opinión 32-D.</p></article>
-          <article class="process-card"><small>02</small><h3>Clasifica</h3><p>86 reglas de deducibilidad, cada una citada a su artículo de la LISR. Cuando fijas la cuenta contable de un proveedor, Monvel la recuerda y la reutiliza el mes siguiente.</p></article>
-          <article class="process-card"><small>03</small><h3>Concilia</h3><p>Cruza los movimientos del banco contra CFDI y pólizas. Lo que enlazas a mano lo aprende — y si aprendió mal, puedes hacer que lo olvide.</p></article>
-          <article class="process-card"><small>04</small><h3>Declara</h3><p>IVA, ISR provisional, DIOT y anual salen del mismo cálculo que ves en pantalla, en el Excel y en el reporte del mes. Una sola cifra por concepto.</p></article>
+        <div class="label" data-number="02">Así se ve</div>
+        <div class="heading-row"><h2>Capturas del sistema, <span>no maquetas.</span></h2><p>Así se ve Monvel 1.0.29 con un despacho de ejemplo. Elige una pantalla.</p></div>
+        <div class="shots" data-shots>
+          <div class="shot-tabs" role="tablist" aria-label="Pantallas de Monvel">
+            <button type="button" role="tab" id="tab-inicio" aria-controls="shot-inicio" aria-selected="true">Inicio del despacho</button>
+            <button type="button" role="tab" id="tab-clientes" aria-controls="shot-clientes" aria-selected="false" tabindex="-1">Mis clientes</button>
+            <button type="button" role="tab" id="tab-almacen" aria-controls="shot-almacen" aria-selected="false" tabindex="-1">Comprobantes</button>
+            <button type="button" role="tab" id="tab-polizas" aria-controls="shot-polizas" aria-selected="false" tabindex="-1">Pólizas</button>
+            <button type="button" role="tab" id="tab-impuestos" aria-controls="shot-impuestos" aria-selected="false" tabindex="-1">Impuestos</button>
+            <button type="button" role="tab" id="tab-diot" aria-controls="shot-diot" aria-selected="false" tabindex="-1">DIOT</button>
+            <button type="button" role="tab" id="tab-nomina" aria-controls="shot-nomina" aria-selected="false" tabindex="-1">Nómina</button>
+          </div>
+          <figure class="shot" id="shot-inicio" role="tabpanel" aria-labelledby="tab-inicio">
+            <div class="shot-frame"><div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="img/app-inicio.webp" width="1440" height="900" loading="lazy" decoding="async" alt="Pantalla de inicio de Monvel: número de clientes, comprobantes del mes, declaraciones por presentar, vencimientos próximos y clientes que necesitan atención" /></div>
+            <figcaption><strong>Inicio del despacho.</strong> Lo que vence, qué cliente necesita atención y por qué, y la actividad del día, para todo el despacho en una sola pantalla.</figcaption>
+          </figure>
+          <figure class="shot" id="shot-clientes" role="tabpanel" aria-labelledby="tab-clientes" hidden>
+            <div class="shot-frame"><div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="img/app-clientes.webp" width="1440" height="900" loading="lazy" decoding="async" alt="Lista de clientes de Monvel con su régimen, el estado de su Constancia, e.firma y sello, y si pueden facturar" /></div>
+            <figcaption><strong>Mis clientes.</strong> Todos tus RFC en una lista: qué documento le falta a cada uno, cuándo vence su e.firma y quién puede facturar hoy. Se filtra por régimen o por lo que falta.</figcaption>
+          </figure>
+          <figure class="shot" id="shot-almacen" role="tabpanel" aria-labelledby="tab-almacen" hidden>
+            <div class="shot-frame"><div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="img/app-almacen.webp" width="1440" height="900" loading="lazy" decoding="async" alt="Almacén de comprobantes de un cliente: fecha, emitido o recibido, contraparte, concepto, folio fiscal, subtotal, IVA y total" /></div>
+            <figcaption><strong>Comprobantes.</strong> Emitidos y recibidos de cada cliente, con filtros por columna, verificación ante el SAT y la deducibilidad ya aplicada.</figcaption>
+          </figure>
+          <figure class="shot" id="shot-polizas" role="tabpanel" aria-labelledby="tab-polizas" hidden>
+            <div class="shot-frame"><div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="img/app-polizas.webp" width="1440" height="900" loading="lazy" decoding="async" alt="Pólizas contables del mes generadas a partir de los CFDI, con tipo, fecha, concepto, referencia, debe y haber" /></div>
+            <figcaption><strong>Pólizas.</strong> Nacen de los CFDI del mes con un botón; las manuales y las recurrentes viven en la misma lista, con su cierre de mes.</figcaption>
+          </figure>
+          <figure class="shot" id="shot-impuestos" role="tabpanel" aria-labelledby="tab-impuestos" hidden>
+            <div class="shot-frame"><div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="img/app-impuestos.webp" width="1440" height="900" loading="lazy" decoding="async" alt="Pantalla de impuestos de un cliente: IVA a cargo, ISR del ejercicio, vencimientos de IVA, ISR y DIOT, y tabla de IVA por mes" /></div>
+            <figcaption><strong>Impuestos.</strong> IVA e ISR del mes con sus vencimientos, del mismo cálculo que la declaración y el Excel.</figcaption>
+          </figure>
+          <figure class="shot" id="shot-diot" role="tabpanel" aria-labelledby="tab-diot" hidden>
+            <div class="shot-frame"><div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="img/app-diot.webp" width="1440" height="900" loading="lazy" decoding="async" alt="DIOT de un cliente con sus proveedores, base e IVA acreditable por tasa, y el botón para descargar el archivo del SAT" /></div>
+            <figcaption><strong>DIOT.</strong> Por proveedor, con el layout de 54 campos, lista para descargar el archivo que se carga en el SAT.</figcaption>
+          </figure>
+          <figure class="shot" id="shot-nomina" role="tabpanel" aria-labelledby="tab-nomina" hidden>
+            <div class="shot-frame"><div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="img/app-nomina.webp" width="1440" height="900" loading="lazy" decoding="async" alt="Nómina de un cliente por empleado: recibos, percepciones, ISR, IMSS y neto pagado" /></div>
+            <figcaption><strong>Nómina.</strong> Por empleado y por periodo: percepciones, ISR, IMSS y neto, con sus constancias y su póliza.</figcaption>
+          </figure>
         </div>
+        <p class="shots-note">Capturas tomadas de Monvel 1.0.29 con datos de ejemplo: los nombres, RFC e importes son ficticios.</p>
+      </div>
+    </section>
+
+    <section class="section local" id="seguridad">
+      <div class="wrap">
+        <div class="label light" data-number="03">Dónde viven los datos</div>
+        <div class="heading-row"><h2>Monvel se instala en tu despacho. <span>La contabilidad de tus clientes se queda ahí.</span></h2><p>El sistema corre en un equipo tuyo y se usa desde el navegador: en la oficina, desde tu casa o desde el celular. Los XML, las pólizas y las credenciales de tus clientes viven en ese equipo, no en la nube de un proveedor.</p></div>
+        <div class="local-grid">
+          <article class="local-card"><small>01</small><h3>Sin analíticas ni rastreo</h3><p>Monvel no le manda a nadie por qué pantallas andas ni qué capturas. Todo lo que sale de tu servidor está declarado en la pantalla «Qué datos viajan»: qué lleva, cuándo y cómo se controla. Entre ello, una señal diaria con puros números —la versión, cuántos avisos activos, cuántas facturas en cola, cuántos comprobantes se emitieron en el mes— para que tu proveedor se entere si algo se rompe. Nunca nombres, RFC ni importes, y se puede apagar.</p></article>
+          <article class="local-card"><small>02</small><h3>Las credenciales van directo al SAT</h3><p>La CIEC y la e.firma de tus clientes se guardan cifradas y viajan a los servicios del SAT, nunca a Monvel. La firma de una cancelación se calcula dentro de tu servidor: la llave privada no sale de ahí.</p></article>
+          <article class="local-card"><small>03</small><h3>El estado de cuenta se lee aquí</h3><p>La lectura del estado de cuenta del banco se hace en tu propio servidor. No se manda a ningún servicio externo para interpretarla.</p></article>
+          <article class="local-card"><small>04</small><h3>Respaldo diario que se revisa solo</h3><p>Una tarea programada respalda la base y los documentos todos los días, con la retención que tú indiques. Después, Monvel revisa el último respaldo: que abra completo, que traiga la base, los documentos y las llaves, y que no sea viejo. Si un documento quedó fuera, te dice de quién es y qué hacer.</p></article>
+        </div>
+        <div class="local-note">
+          <p><strong>La contracara honesta:</strong> si el equipo donde vive Monvel está apagado, nadie entra y no salen avisos. Es el precio de que la información sea tuya y esté donde tú la puedes ver. Cuando el equipo enciende, Monvel arranca solo como servicio de Windows, sin que nadie inicie sesión, y si el servicio se detiene se reinicia solo. Un vigilante revisa cada 15 minutos que el servicio, la base y el respaldo estén en orden, y avisa por correo si algo falla.</p>
+        </div>
+        <figure class="local-shot">
+          <div class="shot-frame"><div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="img/app-transparencia.webp" width="1440" height="900" loading="lazy" decoding="async" alt="Ventana «Qué datos viajan» de Monvel: la lista de canales por los que algo sale del servidor, agrupados en los que van a Monvel, al SAT y al proveedor de timbrado, y otros servicios" /></div>
+          <figcaption>Configuración → «Qué datos viajan», como aparece dentro de Monvel. Cada renglón se abre y explica qué viaja, cuándo y cómo se controla. Si alguien agrega al sistema una salida que no esté en esta lista, las pruebas automáticas detienen la versión.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section news" id="novedades">
+      <div class="wrap">
+        <div class="label" data-number="04">Lo nuevo</div>
+        <div class="heading-row"><h2>16 versiones en septiembre. <span>Esto es lo que cambió para ti.</span></h2><p>Monvel se publica seguido y cada versión llega sola a tu servidor, con sus notas en español. Lo más importante del mes, hasta la versión 1.0.29 del 24 de septiembre:</p></div>
+        <div class="news-grid">
+          <article class="news-card"><small>Credenciales</small><h3>Contraseñas con espacios, ñ o acentos, tal como son</h3><p>Monvel prueba la contraseña de la e.firma y del sello tal como la escribes —también con el espacio que pega WhatsApp o una ñ escrita en otra computadora— y te dice con cuál abrió. No hace falta cambiarle la contraseña a la llave.</p></article>
+          <article class="news-card"><small>Personas físicas</small><h3>La e.firma se lee campo por campo</h3><p>El RFC y la CURP del certificado se toman cada uno de su lugar, así la descarga del SAT y el alta de un contribuyente persona física ya no se detienen con un falso «RFC distinto».</p></article>
+          <article class="news-card"><small>Facturación</small><h3>Antes de timbrar, la Constancia manda</h3><p>Si el nombre, el código postal o el régimen de la ficha no coinciden con la Constancia de Situación Fiscal, lo ves antes de que el SAT rechace la factura. Y si el sello es recién tramitado, te avisa que el SAT tarda hasta 72 horas en publicarlo.</p></article>
+          <article class="news-card"><small>Facturación</small><h3>Complementos de pago que se calculan solos</h3><p>En cada factura a crédito, «Administrar pagos» calcula la parcialidad, el saldo anterior y el saldo insoluto como el portal del SAT, y admite varios pagos en un mismo complemento.</p></article>
+          <article class="news-card"><small>Facturación</small><h3>Un asistente más claro, con el catálogo completo</h3><p>Pantallas rediseñadas; dirección del receptor con el catálogo de Correos de México; plantillas y repetir una factura anterior; las 178 monedas del SAT con sus decimales, e IEPS y retenciones elegidos de la lista oficial.</p></article>
+          <article class="news-card"><small>Expediente</small><h3>Documentos que se revisan de verdad</h3><p>La palomita de CSF, e.firma, CIEC o sello ya comprueba que el archivo exista y se pueda abrir. Si uno se perdió de vista, Monvel lo busca y lo vuelve a apuntar, siempre con tu confirmación.</p></article>
+          <article class="news-card"><small>Respaldo</small><h3>El respaldo te dice qué quedó fuera</h3><p>Si el documento de algún contribuyente no entró al respaldo de la noche, o un archivo estaba abierto y no se pudo copiar, el aviso dice de quién es y qué hacer.</p></article>
+          <article class="news-card"><small>Agenda</small><h3>La agenda se arma sola y te avisa</h3><p>Un botón propone el mes con la declaración, el IVA, la DIOT y la balanza que le toca a cada cliente según su régimen. Después, cada persona recibe un solo aviso al día con lo vencido, lo de hoy y lo de mañana; si activas los avisos al celular, te llegan aunque no tengas Monvel abierto.</p></article>
+          <article class="news-card"><small>Velia</small><h3>Velia sabe en qué pantalla estás</h3><p>Si preguntas «¿y esto por qué no cuadra?» mientras ves la conciliación de agosto, entiende de qué hablas. Sólo ve el nombre de la pantalla y el periodo elegido, nada de lo que hay en ella.</p></article>
+        </div>
+        <p class="news-foot">Cada versión trae dentro de Monvel sus notas completas: qué cambió y qué te toca revisar.</p>
       </div>
     </section>
 
     <section class="section modules" id="modulos">
       <div class="wrap">
-        <div class="label" data-number="03">Qué cubre</div>
-        <div class="heading-row"><h2>Todo el despacho. <span>Sin módulos que se cobran aparte.</span></h2><p>No es un facturador con contabilidad pegada: comprobantes, contabilidad completa con su Anexo 24, y nómina pesan lo mismo dentro del sistema. Y la unidad es el despacho, no la empresa — tus clientes son renglones dentro de él, no una licencia cada uno.</p></div>
+        <div class="label" data-number="05">Qué cubre</div>
+        <div class="heading-row"><h2>Todo el despacho. <span>Sin módulos que se cobran aparte.</span></h2><p>No es un facturador con contabilidad pegada: comprobantes, contabilidad completa con su Anexo 24 y nómina pesan lo mismo dentro del sistema.</p></div>
         <div class="module-grid">
-          <article class="module"><small>01</small><h3>SAT y comprobantes</h3><p>Descarga masiva, Constancia de Situación Fiscal, Opinión 32-D, facturación CFDI 4.0, cancelación, complemento de pago, carta porte y comercio exterior.</p><div class="tags"><span>52,513 claves SAT</span><span>Lista 69-B</span></div></article>
+          <article class="module"><small>01</small><h3>SAT y comprobantes</h3><p>Descarga masiva, Constancia de Situación Fiscal, Opinión 32-D, facturación CFDI 4.0 una por una o en lote, notas de crédito, cancelación y complemento de pago con sus saldos calculados.</p><div class="tags"><span>52,513 claves SAT</span><span>Lista 69-B</span></div></article>
           <article class="module"><small>02</small><h3>Contabilidad</h3><p>Pólizas manuales, automáticas desde los CFDI y recurrentes; catálogo de cuentas, auxiliar, balanza, balance, estado de resultados comparativo, activos fijos y cierre de mes.</p><div class="tags"><span>Anexo 24</span><span>Cierre mensual</span></div></article>
           <article class="module"><small>03</small><h3>Fiscal</h3><p>Declaración mensual y anual de persona física y moral, IVA, ISR provisional, DIOT, conciliación contable-fiscal y comparador de regímenes.</p><div class="tags"><span>DIOT 54 campos</span><span>86 reglas LISR</span></div></article>
-          <article class="module"><small>04</small><h3>Nómina</h3><p>Recibos CFDI de nómina con ISR y subsidio según las tarifas del Anexo 8, catálogo de empleados, retenciones del mes, constancia de sueldos y su póliza contable.</p><div class="tags"><span>Anexo 8</span><span>Póliza automática</span></div></article>
+          <article class="module"><small>04</small><h3>Nómina</h3><p>Recibos CFDI de nómina con ISR y subsidio según las tarifas del Anexo 8 para su periodicidad, catálogo de empleados, retenciones del mes, constancia de sueldos y su póliza contable.</p><div class="tags"><span>Anexo 8</span><span>Póliza automática</span></div></article>
           <article class="module"><small>05</small><h3>Conciliación bancaria</h3><p>Carga el estado de cuenta en CSV, Excel o PDF y cruza los movimientos contra CFDI y pólizas, con pagos parciales y un pago contra varias facturas.</p><div class="tags"><span>BBVA</span><span>Banamex</span><span>Santander</span><span>Banorte</span><span>HSBC</span></div></article>
-          <article class="module"><small>06</small><h3>La operación del despacho</h3><p>Agenda que se llena sola con la obligación que le toca a cada cliente, tablero por cliente, cobranza, usuarios con permisos por cliente y bitácora de quién hizo qué.</p><div class="tags"><span>Usuarios sin costo</span><span>Multiusuario</span></div></article>
+          <article class="module"><small>06</small><h3>La operación del despacho</h3><p>Agenda con las obligaciones de cada cliente, tablero por cliente, cobranza de tus honorarios, usuarios con permisos por cliente y bitácora de quién hizo qué.</p><div class="tags"><span>Usuarios sin costo</span><span>Multiusuario</span></div></article>
         </div>
       </div>
     </section>
 
     <section class="section rules" id="criterio">
       <div class="wrap">
-        <div class="label" data-number="04">Criterio</div>
+        <div class="label" data-number="06">Criterio</div>
         <div class="heading-row"><h2>Prefiere detenerse <span>antes que darte un número que no cuadra.</span></h2><p>Un sistema que se equivoca en silencio es peor que uno que no hace la tarea: el error aparece meses después, ya declarado. Éstas son reglas escritas dentro del producto.</p></div>
         <div class="rules-list">
-          <div class="rule"><small>01</small><strong>No se gasta un timbre en una factura que el SAT va a rechazar.</strong><p>Antes de enviarla revisa el código postal del receptor, su régimen fiscal, que ese régimen corresponda a su tipo de RFC y que tu sello esté vigente. Si algo no cuadra, te dice qué dato es y dónde se corrige.</p></div>
+          <div class="rule"><small>01</small><strong>No se gasta un timbre en una factura que el SAT va a rechazar.</strong><p>Antes de enviarla revisa el código postal del receptor, su régimen fiscal, que ese régimen corresponda a su tipo de RFC, que cada impuesto exista en el catálogo del SAT y que tu sello esté vigente. Si algo no cuadra, te dice qué dato es y dónde se corrige.</p></div>
           <div class="rule"><small>02</small><strong>«Vigente» lo dice el SAT, no Monvel.</strong><p>Lo recién timbrado queda como «Por confirmar» hasta que el SAT lo reporta. Si pasadas 72 horas sigue sin aparecer, se marca «No encontrado», sale de los cálculos y te avisa.</p></div>
           <div class="rule"><small>03</small><strong>Una lectura del banco que no cuadra no se guarda.</strong><p>Lo leído se compara contra los totales que el propio estado de cuenta imprime: saldo anterior, depósitos, retiros y saldo al corte. Si no coincide, se detiene. No deja cifras malas adentro con una advertencia en amarillo.</p></div>
           <div class="rule"><small>04</small><strong>La e.firma no se puede subir donde va el sello.</strong><p>Son archivos parecidos y el SAT no acepta la e.firma para timbrar. Monvel lo detecta leyendo el certificado, no el nombre del archivo, y te dice cuál va en cada lugar.</p></div>
@@ -535,54 +685,93 @@
 
     <section class="section velia" id="velia">
       <div class="wrap velia-layout">
-        <div class="velia-art" aria-label="Representación visual de Velia"><div class="velia-core">V / IA</div></div>
+        <div class="velia-art" role="img" aria-label="Representación visual de Velia"><div class="velia-core">V / IA</div></div>
         <div>
-          <div class="label" data-number="05">Velia · asistente</div>
+          <div class="label" data-number="07">Velia · asistente</div>
           <h2>Conoce tus datos <span>y el vocabulario del despacho.</span></h2>
-          <p>Velia responde sobre los clientes que ya tienes cargados: cuánto facturó uno en el mes, qué le falta para poder timbrar, por qué una cifra no coincide. Sabe qué es un complemento de pago, en qué se diferencian el sello y la e.firma, y qué significa cada situación de la lista 69-B. Siempre dice de qué periodo es el número que te da, y cuando algo no le cuadra lo advierte en vez de soltarlo como si nada.</p>
-          <div class="chat"><div class="chat-head">Velia · Asistente fiscal <span>En línea</span></div><div class="question">¿Es deducible un consumo en restaurante por $1,250?</div><div class="answer">Sí, pero solo el <strong>8.5 %</strong> — y siempre que se haya pagado con tarjeta o monedero electrónico autorizado. Art. 28, fracción XX de la LISR. ¿Lo clasifico así?</div></div>
+          <p>Velia contesta sobre los clientes que ya tienes cargados: cuánto facturó uno en el mes, qué sellos y e.firmas están por vencer, qué proveedores aparecen en la lista 69-B, qué avisos siguen abiertos. Sabe qué es un complemento de pago y en qué se diferencian el sello y la e.firma. Siempre dice de qué periodo es la cifra, avisa cuando algo no le cuadra y contesta que no puede cuando le pides algo que no hace. Consulta tu información; no la modifica.</p>
+          <div class="chat"><div class="chat-head">Velia · asistente del despacho <span>Ejemplo con datos ficticios</span></div><div class="question">¿Cuánto facturó La Espiga en agosto?</div><div class="answer">En agosto de 2026, Panadería La Espiga emitió <strong>14 facturas por $151,236.40</strong> antes de IVA, ya restadas las notas de crédito. Dejé fuera 1 factura cancelada. ¿Te la desgloso por cliente?</div></div>
+          <p class="velia-quota">Viene en los tres planes, con su cuota mensual de consultas: 75, 150 o 250. La cuota se renueva el día 1.</p>
           <div class="disclosure">
             <strong>Y aquí va la letra que sí conviene leer</strong>
-            <p>Velia es el único punto del sistema donde algo que tú escribes sale a internet. Viaja tu pregunta y la ficha del cliente que tengas abierto; no viaja tu base, ni tus XML, ni los clientes que no estés viendo. Es opcional: si no la usas, no viaja nada.</p>
+            <p>Velia es opcional y es el único lugar del sistema donde lo que escribes va a un servicio externo de inteligencia artificial. Viaja tu pregunta, la ficha del cliente que tengas abierto (RFC, nombre, tipo de persona y régimen) y el nombre de la pantalla con su periodo. No viaja tu base, ni tus XML, ni los clientes que no estés viendo. Si no la usas, no viaja nada.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section auto">
+    <section class="section auto" aria-labelledby="titulo-auto">
       <div class="wrap auto-layout">
         <div>
-          <div class="label" data-number="06">Trabaja aunque tú no estés</div>
-          <h2>Lo que Monvel revisa <span>mientras tú atiendes clientes.</span></h2>
+          <div class="label" data-number="08">Trabaja aunque tú no estés</div>
+          <h2 id="titulo-auto">Lo que Monvel revisa <span>mientras tú atiendes clientes.</span></h2>
           <p>Nada de esto se pide: corre solo, en el servidor de tu despacho, y sólo te habla cuando encuentra algo.</p>
         </div>
         <div class="auto-table">
-          <div class="auto-row"><b>Cada día</b><span>Respalda la base y comprueba que el último respaldo serviría para restaurar.</span></div>
+          <div class="auto-row"><b>Cada día</b><span>Respalda la base y los documentos, y revisa que el último respaldo esté completo y al día.</span></div>
           <div class="auto-row"><b>Cada día</b><span>Revisa vigencias: Opiniones 32-D vencidas o en negativa, sellos que ya no sirven y clientes que hoy no podrían timbrar.</span></div>
-          <div class="auto-row"><b>Cada día</b><span>Vigila cancelaciones ante el SAT — las facturas que recibes y también las que tú emitiste.</span></div>
+          <div class="auto-row"><b>Cada día</b><span>Vigila cancelaciones ante el SAT: las facturas que recibes y también las que tú emitiste.</span></div>
+          <div class="auto-row"><b>Cada día</b><span>Le avisa a cada responsable lo que sigue pendiente en la agenda: lo vencido, lo de hoy y lo de mañana, en un solo aviso.</span></div>
           <div class="auto-row"><b>Periódico</b><span>Compara a los proveedores de tus clientes contra la lista 69-B y te avisa, con el oficio y la fecha de publicación en el DOF para el expediente.</span></div>
-          <div class="auto-row"><b>Cada mes</b><span>Arma la agenda con la obligación que le toca a cada cliente según su régimen, y te enseña la lista antes de crear nada.</span></div>
           <div class="auto-row"><b>8:00 a. m.</b><span>Un resumen para cada persona del despacho con lo de los clientes que le tocan, más lo que es de todos.</span></div>
           <div class="auto-row"><b>Día 1</b><span>El cierre del mes anterior al correo: emitidas y recibidas, clientes con más actividad, cancelaciones y vencimientos del mes que entra.</span></div>
+          <div class="auto-row"><b>De madrugada</b><span>Si hay versión nueva y nadie está trabajando, la instala con respaldo previo y te deja dicho qué pasó.</span></div>
         </div>
       </div>
     </section>
 
-    <section class="section trust">
+    <section class="section release" id="versiones">
+      <div class="wrap">
+        <div class="label light" data-number="09">Antes de publicar</div>
+        <div class="heading-row"><h2>Cada versión pasa por esto <span>antes de llegar a tu servidor.</span></h2><p>No te pedimos que confíes: esto es lo que se hace con cada versión antes de publicarla. La 1.0.29, publicada el 24 de septiembre, pasó 202 de 202 baterías de pruebas.</p></div>
+        <div class="release-grid">
+          <article class="release-card"><strong>200+</strong><h3>Baterías de pruebas automáticas</h3><p>Levantan Monvel con datos de prueba y revisan cálculos fiscales, pólizas, nómina, conciliación y pantallas. Si una sola sale en rojo, la versión no se compila.</p></article>
+          <article class="release-card"><strong>1</strong><h3>Timbre real ante el SAT</h3><p>Se timbra un comprobante de verdad —y se cancela— para comprobar que el timbrado funciona con el SAT, no sólo en pruebas.</p></article>
+          <article class="release-card"><strong>Firmada</strong><h3>Tu servidor la comprueba antes de instalarla</h3><p>Verifica la firma del paquete, respalda la base y se actualiza de madrugada si nadie está trabajando. Si prefieres hacerlo tú, es un botón, y el modo automático se apaga cuando quieras.</p></article>
+          <article class="release-card"><strong>16</strong><h3>Versiones en septiembre</h3><p>Cada una con sus notas en español: qué cambió y qué te toca revisar, sin jerga.</p></article>
+        </div>
+        <p class="release-foot">Además de las pruebas, el paquete se verifica pieza por pieza y se arranca en una instalación limpia antes de publicarse.</p>
+      </div>
+    </section>
+
+    <section class="section trust" aria-label="Migración y puesta en marcha">
       <div class="wrap trust-grid">
-        <article class="trust-card"><div class="label" data-number="A">Migración</div><h2>Tu historial <span>llega contigo.</span></h2><p>Importadores para CONTPAQi, CONTPAQi Nóminas, Aspel COI, Aspel NOI y archivos de Excel o CSV: catálogo de cuentas, saldos iniciales, pólizas, clientes, empleados y cuentas por cobrar y por pagar. Si una columna no se reconoce, Monvel te pregunta a qué campo corresponde. El histórico de comprobantes se puede volver a bajar del SAT. Antes de aplicar nada, revisas un resumen.</p><div class="seal">Migración sin costo</div></article>
-        <article class="trust-card"><div class="label light" data-number="B">Puesta en marcha</div><h2>La instalación <span>la hacemos nosotros.</span></h2><p>Dejamos el servidor listo: base de datos, respaldo diario, correo de avisos y acceso desde fuera de la oficina. Tú y tu equipo entran desde el navegador, sin instalar nada en cada computadora, y también desde el celular agregando Monvel a la pantalla de inicio.</p><div class="seal">Instalación incluida</div></article>
+        <article class="trust-card"><div class="label" data-number="A">Migración</div><h2>Lo que ya tienes <span>se importa.</span></h2><p>Importadores para CONTPAQi, CONTPAQi Nóminas, Aspel COI, Aspel NOI y archivos de Excel o CSV: catálogo de cuentas, saldos iniciales, pólizas, clientes y empleados. Si una columna no se reconoce, Monvel te pregunta a qué campo corresponde. Antes de aplicar ves un resumen y eliges si se fusiona o se reemplaza; una póliza que no cuadra no entra, sin descartar las demás del archivo. Los comprobantes se vuelven a descargar del SAT.</p><div class="seal">Resumen antes de aplicar</div></article>
+        <article class="trust-card"><div class="label light" data-number="B">Puesta en marcha</div><h2>La instalación <span>la hacemos nosotros.</span></h2><p>Dejamos el servidor listo: base de datos, respaldo diario, correo de avisos y acceso desde fuera de la oficina. El instalador tarda de 10 a 20 minutos según tu internet. Tú y tu equipo entran desde el navegador, sin instalar nada en cada computadora, y también desde el celular agregando Monvel a la pantalla de inicio.</p><div class="seal">Instalación incluida</div></article>
+      </div>
+    </section>
+
+    <section class="section compare" id="comparacion">
+      <div class="wrap">
+        <div class="label" data-number="10">Comparación honesta</div>
+        <div class="heading-row"><h2>En la nube, en cada computadora <span>o en tu servidor.</span></h2><p>Cada forma de trabajar tiene su precio. Ésta es la diferencia, incluido lo que Monvel te pide a cambio.</p></div>
+        <div class="cmp-wrap">
+          <table class="cmp">
+            <caption>Comparación entre un sistema en la nube, un programa de escritorio y Monvel</caption>
+            <thead><tr><th scope="col">Qué comparar</th><th scope="col">Sistema en la nube</th><th scope="col">Programa de escritorio</th><th scope="col" class="yo">Monvel</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Dónde vive la información</th><td data-l="Nube">En los servidores del proveedor.</td><td data-l="Escritorio">En cada computadora donde se instala.</td><td data-l="Monvel" class="yo">En un equipo de tu despacho; tu equipo entra desde el navegador.</td></tr>
+              <tr><th scope="row">Cómo se cobra</th><td data-l="Nube">Suele cobrarse por empresa o por usuario.</td><td data-l="Escritorio">Suele cobrarse por empresa, por módulo o por equipo.</td><td data-l="Monvel" class="yo">Una cuota por despacho según cuántos RFC llevas. Los usuarios no se cobran.</td></tr>
+              <tr><th scope="row">Si se va el internet</th><td data-l="Nube">No se puede entrar.</td><td data-l="Escritorio">Se sigue trabajando en esa computadora.</td><td data-l="Monvel" class="yo">Se sigue usando en la red de la oficina; descargar del SAT y timbrar esperan a que vuelva.</td></tr>
+              <tr><th scope="row">Si se apaga el equipo</th><td data-l="Nube">No depende de ti.</td><td data-l="Escritorio">Se detiene esa computadora.</td><td data-l="Monvel" class="yo">Nadie entra hasta que el equipo encienda; al encender, Monvel arranca solo.</td></tr>
+              <tr><th scope="row">Respaldos</th><td data-l="Nube">Los hace el proveedor, donde él decide.</td><td data-l="Escritorio">Los configuras en cada computadora.</td><td data-l="Monvel" class="yo">Diarios, revisados por Monvel, en la carpeta que tú elijas.</td></tr>
+              <tr><th scope="row">Actualizaciones</th><td data-l="Nube">Las aplica el proveedor.</td><td data-l="Escritorio">Se instalan en cada computadora.</td><td data-l="Monvel" class="yo">Llegan solas de madrugada, firmadas y con respaldo previo.</td></tr>
+              <tr><th scope="row">Lo que necesitas</th><td data-l="Nube">Internet en todo momento.</td><td data-l="Escritorio">Una licencia por equipo o por empresa.</td><td data-l="Monvel" class="yo">Un equipo con Windows 10 u 11 que quede encendido en tu despacho.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="cmp-note">La descripción de la nube y del escritorio es general: cada producto tiene sus condiciones. Lo que dice la columna de Monvel es lo que hace la versión 1.0.29.</p>
       </div>
     </section>
 
     <section class="section all" id="incluye">
       <div class="wrap">
-        <div class="label light" data-number="07">Todo lo que incluye</div>
-        <div class="heading-row"><h2>Por si andas buscando <span>tu caso en particular.</span></h2><p>La lista larga, sin letra chiquita. Todo lo de aquí abajo está hoy en el producto y entra en cualquier plan: lo que cambia entre planes es cuántos RFC llevas y cuántos timbres traes al mes.</p></div>
+        <div class="label light" data-number="11">Todo lo que incluye</div>
+        <div class="heading-row"><h2>Por si andas buscando <span>tu caso en particular.</span></h2><p>La lista larga, sin letra chiquita. Todo lo de aquí abajo está hoy en el producto y entra en cualquier plan: lo que cambia entre planes es cuántos RFC llevas, cuántos timbres traes al mes y cuántas consultas a Velia.</p></div>
         <div class="all-grid">
           <article class="all-block">
             <h3><b>01</b>Comprobantes que emites</h3>
-            <ul><li>Asistente paso a paso</li><li>Factura, nota de crédito, traslado y exportación</li><li>Facturación en lote</li><li>Complemento de pago con la parcialidad y los saldos calculados en el servidor</li><li>Carta Porte 3.1</li><li>Comercio Exterior 2.0</li><li>Borradores y plantillas de factura</li><li>Repetir una factura anterior</li><li>Facturas recurrentes</li><li>Libreta de receptores que se llena desde la Constancia o desde un XML</li><li>Catálogo de conceptos</li><li>Diseño del PDF con el logo de tu cliente</li><li>Cancelación ante el SAT con los cuatro motivos</li><li>Cola que reintenta sola si el proveedor no contesta</li><li>52,513 claves de producto y servicio</li><li>Códigos postales y monedas validados contra el catálogo del SAT</li></ul>
+            <ul><li>Asistente paso a paso</li><li>Factura y nota de crédito</li><li>Facturación en lote</li><li>Complemento de pago con la parcialidad y los saldos calculados en el servidor</li><li>Varios pagos en un mismo complemento</li><li>IVA 0 %, 8 %, 16 % o exento, IEPS y retenciones del catálogo del SAT</li><li>Las 178 monedas del SAT con su tipo de cambio</li><li>Borradores y plantillas de factura</li><li>Repetir una factura anterior</li><li>Facturas recurrentes</li><li>Libreta de receptores que se llena desde la Constancia o desde un XML</li><li>Dirección del receptor con el catálogo de Correos de México</li><li>Aviso si la ficha no coincide con la Constancia</li><li>Catálogo de conceptos</li><li>Diseño del PDF con el logo de tu cliente</li><li>Marca de «CANCELADO» en cada hoja del PDF</li><li>Cancelación ante el SAT con los cuatro motivos</li><li>Cola que reintenta sola si el proveedor no contesta</li><li>52,513 claves de producto y servicio</li><li>Códigos postales y monedas validados contra el catálogo del SAT</li></ul>
           </article>
           <article class="all-block">
             <h3><b>02</b>Comprobantes que recibes</h3>
@@ -590,7 +779,7 @@
           </article>
           <article class="all-block">
             <h3><b>03</b>Expediente de cada cliente</h3>
-            <ul><li>Constancia de Situación Fiscal y Opinión 32-D descargadas con su e.firma</li><li>Camino asistido y carga manual cuando el portal del SAT se pone difícil</li><li>Vigilancia de vencimientos y de opiniones en negativa</li><li>Revisión de credenciales: qué es cada archivo, de quién, hasta cuándo sirve y si la contraseña abre la llave</li><li>Cotejo de la ficha contra la Constancia antes de timbrar</li><li>Expediente completo en ZIP</li><li>Envío por correo o por WhatsApp</li></ul>
+            <ul><li>Constancia de Situación Fiscal y Opinión 32-D descargadas con su e.firma</li><li>Camino asistido y carga manual cuando el portal del SAT se pone difícil</li><li>Vigilancia de vencimientos y de opiniones en negativa</li><li>Revisión de credenciales: qué es cada archivo, de quién, hasta cuándo sirve y si la contraseña abre la llave</li><li>Contraseñas con espacios, ñ o acentos, sin cambiarlas</li><li>Cotejo de la ficha contra la Constancia antes de timbrar</li><li>Archivos perdidos de vista: se reencuentran o se reponen desde un ZIP</li><li>Expediente completo en ZIP</li><li>Envío por correo o por WhatsApp</li></ul>
           </article>
           <article class="all-block">
             <h3><b>04</b>Contabilidad</h3>
@@ -602,11 +791,11 @@
           </article>
           <article class="all-block">
             <h3><b>06</b>Impuestos y declaraciones</h3>
-            <ul><li>IVA por mes</li><li>ISR provisional con la tabla del Art. 96 y las tarifas del DOF</li><li>DIOT con el layout de 54 campos</li><li>Declaración anual de persona física y de persona moral</li><li>Flujo de efectivo real para personas físicas</li><li>Arrendamiento con la opción del 35 % fijada por ejercicio</li><li>Comparador de regímenes: en cuál pagaría menos tu cliente</li><li>Conciliación contable-fiscal en formato de papel de trabajo</li><li>Historial de anuales con su acuse</li></ul>
+            <ul><li>IVA por mes</li><li>ISR provisional con la tabla del Art. 96 y las tarifas del DOF</li><li>DIOT con el layout de 54 campos</li><li>Declaración anual de persona física y de persona moral</li><li>Flujo de efectivo real para personas físicas</li><li>Retenciones a proveedores separadas de lo que paga tu cliente</li><li>Arrendamiento con la opción del 35 % fijada por ejercicio</li><li>Comparador de regímenes: en cuál pagaría menos tu cliente</li><li>Conciliación contable-fiscal en formato de papel de trabajo</li><li>Historial de anuales con su acuse</li></ul>
           </article>
           <article class="all-block">
             <h3><b>07</b>Nómina</h3>
-            <ul><li>Recibos CFDI de nómina</li><li>ISR y subsidio con las tarifas del Anexo 8</li><li>UMA y salario mínimo vigentes</li><li>Catálogo de empleados con importador e historial de movimientos de salario</li><li>Retenciones del mes</li><li>Constancia de percepciones y retenciones</li><li>Póliza contable de nómina</li><li>Calculadoras de salario diario integrado, aguinaldo, prima vacacional y finiquito</li><li>Validación del cálculo contra el método del SAT</li></ul>
+            <ul><li>Recibos CFDI de nómina</li><li>ISR y subsidio con las tarifas del Anexo 8 de su periodicidad</li><li>UMA y salario mínimo vigentes</li><li>Catálogo de empleados con importador e historial de movimientos de salario</li><li>Retenciones del mes</li><li>Constancia de percepciones y retenciones</li><li>Póliza contable de nómina</li><li>Calculadoras de salario diario integrado, aguinaldo, prima vacacional y finiquito</li><li>Validación del cálculo contra el método del SAT</li></ul>
           </article>
           <article class="all-block">
             <h3><b>08</b>Bancos</h3>
@@ -614,43 +803,45 @@
           </article>
           <article class="all-block">
             <h3><b>09</b>La operación de tu despacho</h3>
-            <ul><li>Agenda con recordatorios que se llena sola con las obligaciones del mes de cada cliente</li><li>Alarmas y eventos, cada uno con el botón que lleva a donde se arregla</li><li>Tablero por cliente y tablero del despacho</li><li>Cobranza de tus honorarios, con su propia numeración y su timbrado</li><li>Usuarios sin costo, con permisos por acción y por cliente asignado</li><li>Bitácora de quién hizo qué</li><li>Portal para que tu cliente consulte sus comprobantes y sus declaraciones y descargue sus XML</li><li>Reporte mensual en PDF para mandarle a tu cliente</li></ul>
+            <ul><li>Agenda que propone las obligaciones del mes de cada cliente según su régimen</li><li>Un aviso diario por persona con lo vencido, lo de hoy y lo de mañana</li><li>Avisos al celular sin costo, sin nombres ni importes en la pantalla bloqueada</li><li>Alarmas y eventos, cada uno con el botón que lleva a donde se arregla</li><li>Tablero por cliente y tablero del despacho</li><li>Cobranza de tus honorarios, con su propia numeración y su timbrado</li><li>Usuarios sin costo, con permisos por acción y por cliente asignado</li><li>Bitácora de quién hizo qué</li><li>Reporte mensual en PDF para mandarle a tu cliente</li></ul>
           </article>
           <article class="all-block">
             <h3><b>10</b>El sistema</h3>
-            <ul><li>Respaldo diario que se prueba solo</li><li>Sobre de rescate para recuperar las credenciales aunque se pierda la llave del servidor</li><li>Salud del sistema y la pantalla «¿Qué me falta para operar?»</li><li>Diagnóstico en un archivo para soporte</li><li>Actualizaciones firmadas con respaldo previo, de madrugada si lo prefieres</li><li>Código de acceso por correo en equipos nuevos, con códigos de respaldo</li><li>Una sola sesión por usuario</li><li>Acceso desde fuera de la oficina sin abrir puertos ni contratar IP fija</li><li>Extensión de Chrome que autollena el portal del SAT y sube la Constancia al expediente</li><li>Aplicación instalable en el celular, con avisos</li><li>Modo práctica con una empresa de mentiras completa, para entrenar a alguien sin tocar datos reales</li><li>25 recorridos guiados dentro de la aplicación</li><li>API con llaves para conectar otros sistemas</li></ul>
+            <ul><li>Respaldo diario que se revisa solo</li><li>Sobre de rescate para recuperar las credenciales aunque se pierda la llave del servidor</li><li>Salud del sistema y la pantalla «¿Qué me falta para operar?»</li><li>Diagnóstico para soporte en un archivo o con el botón «Enviar a soporte»</li><li>Actualizaciones firmadas con respaldo previo, de madrugada o con un botón</li><li>Pantalla «Qué datos viajan»</li><li>Código de acceso por correo en equipos nuevos, con códigos de respaldo</li><li>Una sola sesión por usuario</li><li>Acceso desde fuera de la oficina sin abrir puertos ni contratar IP fija</li><li>Extensión de Chrome que autollena el portal del SAT y sube la Constancia al expediente</li><li>Aplicación instalable en el celular, con avisos</li><li>Modo práctica con una empresa ficticia completa, para entrenar a alguien sin tocar datos reales</li><li>25 recorridos guiados dentro de la aplicación</li><li>API con llaves para conectar otros sistemas</li></ul>
           </article>
         </div>
-        <p class="all-foot">¿No encuentras el tuyo? Escríbenos y te decimos si Monvel lo hace hoy — o si no lo hace, también.</p>
+        <p class="all-foot">¿No encuentras el tuyo? Escríbenos y te decimos si Monvel lo hace hoy, o si no lo hace, también.</p>
       </div>
     </section>
 
     <section class="section pricing" id="planes">
       <div class="wrap">
-        <div class="label" data-number="08">Planes</div>
-        <div class="heading-row"><h2>Todas las funciones. <span>Elige la capacidad.</span></h2><p>Sin módulos que se cobran aparte y sin cobro por usuario: da de alta a todo tu equipo en cualquier plan. El timbrado va incluido.</p></div>
+        <div class="label" data-number="12">Planes</div>
+        <div class="heading-row"><h2>Todas las funciones. <span>Elige la capacidad.</span></h2><p>Sin módulos que se cobran aparte y sin cobro por usuario: da de alta a todo tu equipo en cualquier plan. El timbrado va incluido y la instalación la hacemos nosotros.</p></div>
         <div class="pricing-grid">
-          <article class="plan"><span class="folio">FOLIO · P-01</span><div class="plan-name">Básico</div><div class="price">$299</div><p>MXN / mes · 10 RFC · usuarios sin límite</p><div class="stamps">100 timbres / mes</div><div class="features"><span>Descarga del SAT y facturación</span><span>Contabilidad y nómina</span><span>86 reglas de deducibilidad</span><span>Migración sin costo</span></div><a class="button outline" href="#demo">Ver una demostración →</a></article>
-          <article class="plan featured"><span class="recommended">Recomendado</span><span class="folio">FOLIO · P-02</span><div class="plan-name">Profesional</div><div class="price">$599</div><p>MXN / mes · 30 RFC · usuarios sin límite</p><div class="stamps">400 timbres / mes</div><div class="features"><span>Todo lo del plan Básico</span><span>Asistente Velia</span><span>Portal para tus clientes</span><span>Atención directa por WhatsApp</span></div><a class="button outline" href="#demo">Ver una demostración →</a></article>
-          <article class="plan"><span class="folio">FOLIO · P-03</span><div class="plan-name">Despacho Plus</div><div class="price">$999</div><p>MXN / mes · RFC y usuarios sin límite</p><div class="stamps">1,000 timbres / mes</div><div class="features"><span>Todo lo del Profesional</span><span>La marca de tu despacho</span><span>Subdominio propio</span><span>Correo con tu dominio</span></div><a class="button outline" href="#demo">Ver una demostración →</a></article>
+          <article class="plan"><span class="folio">FOLIO · P-01</span><div class="plan-name">Básico</div><div class="price">$299</div><p>MXN al mes · 10 RFC · usuarios sin límite</p><p class="annual">o $2,990 al año: 2 meses sin costo</p><div class="stamps">100 timbres al mes<br />75 consultas a Velia al mes</div><div class="features"><span>Todas las funciones contables y fiscales</span><span>Descarga del SAT y facturación</span><span>Contabilidad electrónica y nómina</span><span>Instalación incluida</span></div><a class="button outline" href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20el%20plan%20B%C3%A1sico%20de%20Monvel" target="_blank" rel="noopener">Quiero el Básico →</a></article>
+          <article class="plan featured"><span class="recommended">Recomendado</span><span class="folio">FOLIO · P-02</span><div class="plan-name">Profesional</div><div class="price">$599</div><p>MXN al mes · 30 RFC · usuarios sin límite</p><p class="annual">o $5,990 al año: 2 meses sin costo</p><div class="stamps">400 timbres al mes<br />150 consultas a Velia al mes</div><div class="features"><span>Todo lo del plan Básico</span><span>Tres veces los RFC</span><span>Cuatro veces los timbres</span><span>El doble de consultas a Velia</span></div><a class="button outline" href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20el%20plan%20Profesional%20de%20Monvel" target="_blank" rel="noopener">Quiero el Profesional →</a></article>
+          <article class="plan"><span class="folio">FOLIO · P-03</span><div class="plan-name">Despacho Plus</div><div class="price">$999</div><p>MXN al mes · RFC y usuarios sin límite</p><p class="annual">o $9,990 al año: 2 meses sin costo</p><div class="stamps">1,000 timbres al mes<br />250 consultas a Velia al mes</div><div class="features"><span>Todo lo del Profesional</span><span>RFC sin límite</span><span>Correos de avisos desde tu propio dominio</span><span>Reportes y correos sin el crédito de Monvel</span></div><a class="button outline" href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20el%20plan%20Despacho%20Plus%20de%20Monvel" target="_blank" rel="noopener">Quiero el Despacho Plus →</a></article>
         </div>
-        <p class="pricing-note">Precios en pesos mexicanos, IVA no incluido. Los timbres indicados (100 / 400 / 1,000) ya incluyen la promoción 2026 — no se duplican. Si se te acaban, tu facturación no se detiene: los timbres adicionales se cobran por separado.</p>
+        <p class="pricing-note">Precios en pesos mexicanos, IVA no incluido. Los timbres sirven igual para facturas, complementos de pago y recibos de nómina. Si se te acaban, tu facturación sigue: los adicionales se cuentan y se cobran aparte, y Monvel te avisa al llegar al 80 % y al 100 % de tu cuota; como freno de seguridad hay un tope del triple de la cuota mensual, que se amplía con una bolsa de timbres. Las consultas a Velia se renuevan el día 1 de cada mes.</p>
       </div>
     </section>
 
     <section class="section faq" id="preguntas">
       <div class="wrap faq-layout">
-        <div class="faq-intro"><div class="label" data-number="09">Preguntas frecuentes</div><h2>Lo importante, <span>antes de decidir.</span></h2><p>Respuestas directas sobre dónde viven los datos, instalación, migración y timbrado.</p></div>
+        <div class="faq-intro"><div class="label" data-number="13">Preguntas frecuentes</div><h2>Lo importante, <span>antes de decidir.</span></h2><p>Respuestas directas sobre dónde viven los datos, qué pasa si algo falla, la instalación, la migración, el timbrado y la nómina.</p></div>
         <div class="faq-list">
-          <details open><summary><small>01</small><strong>¿Dónde viven los datos de mis clientes?</strong></summary><p>En el equipo donde se instala Monvel, que es tuyo. Desde ahí se usa en el navegador. Monvel no guarda una copia de tu contabilidad ni recibe telemetría: dentro del sistema puedes ver la lista completa de lo único que sale de tu servidor —y apagar casi todo—, en Configuración → «Qué datos viajan».</p></details>
-          <details><summary><small>02</small><strong>¿Tengo que instalar algo en cada computadora?</strong></summary><p>No. Se instala una sola vez en el equipo que hará de servidor —esa instalación la hacemos nosotros— y los demás entran desde el navegador, en la oficina o fuera de ella. En el celular se puede agregar a la pantalla de inicio y se usa como una aplicación.</p></details>
-          <details><summary><small>03</small><strong>¿Cómo traigo lo que ya tengo en otro sistema?</strong></summary><p>Con los importadores de CONTPAQi, CONTPAQi Nóminas, Aspel COI, Aspel NOI y archivos de Excel o CSV: catálogo de cuentas, saldos iniciales, pólizas, clientes y empleados. El histórico de comprobantes se puede volver a descargar del SAT. Siempre revisas un resumen antes de que se aplique nada, y la migración va sin costo.</p></details>
-          <details><summary><small>04</small><strong>¿El timbrado está incluido?</strong></summary><p>Sí. Cada plan trae una cuota mensual de timbres, y sirven igual para facturas y para recibos de nómina. El alta de cada uno de tus clientes ante el proveedor de timbrado se tramita sola en cuanto subes su sello, así que puede facturar el mismo día. Si la cuota se acaba, tu facturación no se detiene: los adicionales se cobran aparte.</p></details>
-          <details><summary><small>05</small><strong>¿Cuántos RFC y cuántos usuarios puedo manejar?</strong></summary><p>Básico admite 10 RFC, Profesional 30 y Despacho Plus no fija límite. Los usuarios no se cobran en ningún plan: da de alta a todo tu equipo, cada quien con su acceso, y puedes restringir a cada persona a los clientes que le tocan.</p></details>
-          <details><summary><small>06</small><strong>¿Qué pasa si se apaga el equipo o se va la luz?</strong></summary><p>Mientras el servidor esté apagado nadie entra y no salen avisos — es la contraparte de que la información sea tuya. Por eso Monvel respalda todos los días en la carpeta que tú elijas, prueba ese respaldo solo, y un vigilante revisa cada 15 minutos que el servicio, la base de datos y el respaldo estén en orden y avisa por correo si algo falla.</p></details>
-          <details><summary><small>07</small><strong>¿Y mi equipo? Cambiar de sistema siempre cuesta.</strong></summary><p>Monvel trae un modo práctica con una empresa de mentiras ya cargada —con sus facturas, sus movimientos de banco y sus empleados— para que entrenes a quien haga falta el ciclo completo sin tocar información real. Adentro hay además 25 recorridos guiados que van explicando cada pantalla mientras se usa.</p></details>
-          <details><summary><small>08</small><strong>¿Puedo verlo antes de contratar?</strong></summary><p>Sí, de dos formas. El Aula Virtual es un Monvel completo con datos de ejemplo: se abre en el navegador, sin instalar nada y sin tarjeta. Y si quieres verlo con los casos de tu despacho, agendamos una demostración en vivo.</p></details>
-          <details><summary><small>09</small><strong>¿Quién actualiza el sistema cuando el SAT cambia algo?</strong></summary><p>Nosotros. Monvel avisa dentro de la aplicación cuando hay una versión nueva y la instala con un clic, siempre con respaldo previo; si lo prefieres, lo hace de madrugada cuando nadie está trabajando. Cada versión llega con sus notas escritas en español, explicando qué cambió y qué te toca revisar.</p></details>
+          <details open><summary><small>01</small><strong>¿Los datos de mis clientes salen de mi despacho?</strong></summary><p>Tu contabilidad no: los XML, las pólizas, los estados financieros y las credenciales viven en el equipo donde se instala Monvel, que es tuyo. Lo que sí sale está declarado dentro del sistema, en Configuración → «Qué datos viajan»: cada factura que timbras va al proveedor de certificación, que es como funciona el timbrado ante el SAT; la descarga y las consultas van directo al SAT; y a Monvel sólo llegan el RFC y la razón social de los clientes que das de alta para timbrar, más una señal diaria con puros números que puedes apagar. Si usas a Velia, viaja lo que le escribes y la ficha del cliente que tengas abierto.</p></details>
+          <details><summary><small>02</small><strong>¿Y si se va la luz o se cae el servidor?</strong></summary><p>Mientras el equipo esté apagado nadie entra y no salen avisos: es la contraparte de que la información sea tuya. Al encender, Monvel arranca solo como servicio de Windows, sin que nadie inicie sesión, y si el servicio se detiene se reinicia solo. El respaldo diario se guarda en la carpeta que tú elijas y Monvel lo revisa cada día; además, un vigilante revisa cada 15 minutos que el servicio, la base de datos y el respaldo estén en orden, y avisa por correo si algo falla.</p></details>
+          <details><summary><small>03</small><strong>¿Cuánto tarda la instalación y qué necesito?</strong></summary><p>Un equipo con Windows 10 (versión 2004 o posterior) u 11 que quede encendido en tu despacho y unos 2.5 GB libres. El instalador tarda de 10 a 20 minutos según tu conexión a internet. La instalación la hacemos nosotros y dejamos listos el respaldo diario, el correo de avisos y el acceso desde fuera de la oficina. En las demás computadoras no se instala nada: se entra desde el navegador.</p></details>
+          <details><summary><small>04</small><strong>¿Qué pasa con mis clientes actuales y con lo que tengo en otro sistema?</strong></summary><p>Das de alta a cada cliente con su RFC; al subir su certificado, Monvel lee sus datos y coteja la ficha contra su Constancia. Lo que ya llevas en CONTPAQi, CONTPAQi Nóminas, Aspel COI, Aspel NOI o en Excel entra con los importadores —catálogo de cuentas, saldos iniciales, pólizas, clientes y empleados—, siempre con un resumen antes de aplicar. Los comprobantes se vuelven a descargar del SAT.</p></details>
+          <details><summary><small>05</small><strong>¿Puedo facturar en lote?</strong></summary><p>Sí. La facturación en lote toma los renglones de un Excel o CSV, reusa los datos fiscales que ya tienes en tu libreta de receptores y te deja revisar y ajustar cada renglón en pantalla antes de timbrar. Además hay facturas recurrentes, plantillas y un botón para repetir una factura anterior con el mismo receptor y los mismos conceptos; el folio, la fecha y los sellos nunca se copian.</p></details>
+          <details><summary><small>06</small><strong>¿Monvel hace nómina?</strong></summary><p>Sí: recibos CFDI de nómina con ISR y subsidio según las tarifas del Anexo 8 de su periodicidad —semanal, decenal, quincenal o mensual—, catálogo de empleados, retenciones del mes, constancia de sueldos y la póliza contable. Los timbres de tu plan sirven igual para facturas y para recibos.</p></details>
+          <details><summary><small>07</small><strong>¿El timbrado está incluido?</strong></summary><p>Sí. Cada plan trae su cuota mensual de timbres y no necesitas contratar un proveedor aparte. El alta de cada uno de tus clientes ante el proveedor de timbrado se tramita sola en cuanto subes su sello; si el sello es nuevo, el SAT tarda hasta 72 horas en publicarlo y Monvel te dice desde qué día intentar. Si la cuota se acaba, tu facturación sigue: los adicionales se cobran aparte.</p></details>
+          <details><summary><small>08</small><strong>¿Cuántos RFC y cuántos usuarios puedo manejar?</strong></summary><p>Básico admite 10 RFC, Profesional 30 y Despacho Plus no fija límite. Los usuarios no se cobran en ningún plan: da de alta a todo tu equipo, cada quien con su acceso, y puedes restringir a cada persona a los clientes que le tocan.</p></details>
+          <details><summary><small>09</small><strong>¿Y mi equipo? Cambiar de sistema siempre cuesta.</strong></summary><p>Monvel trae un modo práctica con una empresa ficticia ya cargada —con sus facturas, sus movimientos de banco y sus empleados— para que entrenes a quien haga falta en el ciclo completo sin tocar información real. Adentro hay además 25 recorridos guiados que van explicando cada pantalla mientras se usa.</p></details>
+          <details><summary><small>10</small><strong>¿Puedo verlo antes de contratar?</strong></summary><p>Sí, de dos formas. El Aula Virtual es Monvel con un despacho de ejemplo ya cargado: se abre en el navegador, sin instalar y sin tarjeta, en una sesión de práctica de una hora. La facturación y Velia se ven en la demostración en vivo, con los casos de tu despacho.</p></details>
+          <details><summary><small>11</small><strong>¿Quién actualiza el sistema cuando el SAT cambia algo?</strong></summary><p>Nosotros publicamos la versión y tu servidor la instala solo de madrugada, si nadie está trabajando, después de comprobar la firma del paquete y respaldar la base. También puedes hacerlo con un botón. Cada versión llega con sus notas en español; en septiembre salieron 16.</p></details>
         </div>
       </div>
     </section>
@@ -659,8 +850,8 @@
       <div class="wrap demo-layout">
         <div>
           <div class="eyebrow">Hablemos</div>
-          <h2>Véalo con los casos <span>de tu despacho.</span></h2>
-          <p>Una demostración en vivo, sin presentación de ventas: abrimos Monvel y recorremos el mes de un cliente como el tuyo — la descarga del SAT, la clasificación, las pólizas, la conciliación y la declaración. Si después quieres probarlo por tu cuenta, el Aula Virtual queda abierta.</p>
+          <h2>Velo con los casos <span>de tu despacho.</span></h2>
+          <p>Una demostración en vivo, sin presentación de ventas: abrimos Monvel y recorremos el mes de un cliente como el tuyo: la descarga del SAT, la clasificación, la factura, las pólizas, la conciliación y la declaración. Si después quieres probarlo por tu cuenta, el Aula Virtual queda abierta.</p>
           <div class="demo-actions">
             <a class="button gold" href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20una%20demostraci%C3%B3n%20de%20Monvel" target="_blank" rel="noopener">Escribir por WhatsApp →</a>
             <a class="button ghost" href="mailto:contacto@monvel.mx?subject=Demostraci%C3%B3n%20de%20Monvel">contacto@monvel.mx</a>
@@ -674,10 +865,10 @@
       </div>
     </section>
 
-    <section class="closing">
+    <section class="closing" aria-label="Aula Virtual">
       <div class="wrap closing-inner">
-        <div><div class="eyebrow">O pruébalo tú mismo</div><h2>Recorre un cierre mensual <span>antes de hablar con nadie.</span></h2><p>El Aula Virtual es Monvel completo con datos de ejemplo: CFDI, pólizas, nómina, conciliación y declaraciones. Se abre en el navegador, sin instalación, sin tarjeta y sin compromiso.</p><a class="button gold" href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Entrar al Aula Virtual →</a></div>
-        <div class="ticket"><div class="ticket-head"><img src="logo-monvel-mark.png" alt="Logo de Monvel" /><span>ACCESO DE PRUEBA</span></div><div class="ticket-body">CFDI · Pólizas · Nómina · Conciliación · Declaraciones</div><div class="ticket-foot">Acceso inmediato · Sin tarjeta</div></div>
+        <div><div class="eyebrow">O pruébalo tú mismo</div><h2>Recorre un mes completo <span>antes de hablar con nadie.</span></h2><p>El Aula Virtual es Monvel con un despacho de ejemplo ya cargado: comprobantes, pólizas, conciliación bancaria, nómina y declaraciones de los meses recientes. Se abre en el navegador, sin instalación, sin tarjeta y sin compromiso. Es un espacio de práctica compartido: no subas información real de tus clientes.</p><a class="button gold" href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Entrar al Aula Virtual →</a></div>
+        <div class="ticket"><div class="ticket-head"><img src="logo-monvel-mark.png" width="40" height="40" alt="Logo de Monvel" /><span>ACCESO DE PRUEBA</span></div><div class="ticket-body">CFDI · Pólizas · Nómina · Conciliación · Declaraciones</div><div class="ticket-foot">Acceso inmediato · Una hora de práctica</div></div>
       </div>
     </section>
   </main>
@@ -685,8 +876,8 @@
   <footer class="footer">
     <div class="wrap">
       <div class="footer-grid">
-        <div><a class="brand" href="#inicio"><img src="logo-monvel-mark.png" alt="Logo de Monvel" /><span class="brand-copy"><strong>MONVEL</strong><small>software fiscal</small></span></a><p class="footer-copy">Software contable, fiscal y de nómina para despachos en México. Instalado en tu servidor.</p></div>
-        <div class="footer-links"><div><strong>Explora</strong><a href="#seguridad">Tus datos</a><a href="#producto">Producto</a><a href="#velia">Velia</a><a href="#planes">Planes</a></div><div><strong>Contacto</strong><a href="mailto:contacto@monvel.mx">contacto@monvel.mx</a><a href="https://wa.me/525941350096" target="_blank" rel="noopener">WhatsApp</a><a href="#demo">Demostración</a></div><div><strong>Acceso</strong><a href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Aula Virtual</a><a href="#preguntas">Preguntas</a><a href="privacy-policy.html">Aviso de privacidad · Extensión SAT</a></div></div>
+        <div><a class="brand" href="#inicio"><img src="logo-monvel-mark.png" width="48" height="48" alt="Logo de Monvel" /><span class="brand-copy"><strong>MONVEL</strong><small>software fiscal</small></span></a><p class="footer-copy">Software contable, fiscal y de nómina para despachos en México. Instalado en tu servidor.</p></div>
+        <div class="footer-links"><div><strong>Explora</strong><a href="#producto">Producto</a><a href="#novedades">Lo nuevo</a><a href="#seguridad">Tus datos</a><a href="#planes">Planes</a></div><div><strong>Contacto</strong><a href="mailto:contacto@monvel.mx">contacto@monvel.mx</a><a href="https://wa.me/525941350096" target="_blank" rel="noopener">WhatsApp</a><a href="#demo">Demostración</a></div><div><strong>Acceso</strong><a href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Aula Virtual</a><a href="#preguntas">Preguntas</a><a href="privacy-policy.html">Aviso de privacidad · Extensión SAT</a></div></div>
       </div>
       <div class="copyright"><span>© 2026 Monvel. Todos los derechos reservados.</span><span>Hecho para despachos mexicanos.</span></div>
     </div>
@@ -700,16 +891,18 @@
     "@type": "SoftwareApplication",
     "name": "Monvel",
     "applicationCategory": "BusinessApplication",
-    "applicationSubCategory": "Software contable y fiscal",
-    "operatingSystem": "Windows Server (navegador para los usuarios)",
+    "applicationSubCategory": "Software contable y fiscal para despachos",
+    "operatingSystem": "Windows 10 (versión 2004 o posterior) y Windows 11; los usuarios entran desde el navegador",
+    "softwareVersion": "1.0.29",
     "inLanguage": "es-MX",
     "url": "https://monvel.mx/",
-    "description": "Software contable, fiscal y de nomina para despachos contables en Mexico. Se instala en el servidor del despacho: CFDI, contabilidad, nomina, conciliacion bancaria y declaraciones en un solo sistema.",
-    "areaServed": "MX",
+    "image": "https://monvel.mx/og-image.png",
+    "description": "Software contable, fiscal y de nómina para despachos contables en México. Se instala en el servidor del despacho: CFDI, contabilidad electrónica, nómina, conciliación bancaria y declaraciones en un solo sistema.",
+    "areaServed": { "@type": "Country", "name": "México" },
     "offers": [
-      { "@type": "Offer", "name": "Basico", "price": "299", "priceCurrency": "MXN", "category": "Suscripcion mensual", "url": "https://monvel.mx/#planes" },
-      { "@type": "Offer", "name": "Profesional", "price": "599", "priceCurrency": "MXN", "category": "Suscripcion mensual", "url": "https://monvel.mx/#planes" },
-      { "@type": "Offer", "name": "Despacho Plus", "price": "999", "priceCurrency": "MXN", "category": "Suscripcion mensual", "url": "https://monvel.mx/#planes" }
+      { "@type": "Offer", "name": "Básico", "description": "10 RFC, usuarios sin límite, 100 timbres y 75 consultas a Velia al mes. IVA no incluido.", "price": "299", "priceCurrency": "MXN", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "299", "priceCurrency": "MXN", "unitCode": "MON", "valueAddedTaxIncluded": false }, "url": "https://monvel.mx/#planes" },
+      { "@type": "Offer", "name": "Profesional", "description": "30 RFC, usuarios sin límite, 400 timbres y 150 consultas a Velia al mes. IVA no incluido.", "price": "599", "priceCurrency": "MXN", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "599", "priceCurrency": "MXN", "unitCode": "MON", "valueAddedTaxIncluded": false }, "url": "https://monvel.mx/#planes" },
+      { "@type": "Offer", "name": "Despacho Plus", "description": "RFC y usuarios sin límite, 1,000 timbres y 250 consultas a Velia al mes. IVA no incluido.", "price": "999", "priceCurrency": "MXN", "priceSpecification": { "@type": "UnitPriceSpecification", "price": "999", "priceCurrency": "MXN", "unitCode": "MON", "valueAddedTaxIncluded": false }, "url": "https://monvel.mx/#planes" }
     ]
   }
   </script>
@@ -737,6 +930,32 @@
         closeMenu();
         menuButton.focus();
       }
+    });
+
+    // Pestañas de capturas: una sola imagen visible a la vez. Las ocultas no se
+    // descargan hasta que se eligen (loading="lazy" + hidden), así la página
+    // no carga siete capturas de golpe. Flechas izquierda y derecha para teclado.
+    document.querySelectorAll('[data-shots]').forEach(function (caja) {
+      const tabs = Array.prototype.slice.call(caja.querySelectorAll('[role="tab"]'));
+      function activar(tab, enfocar) {
+        tabs.forEach(function (t) {
+          const elegido = t === tab;
+          t.setAttribute('aria-selected', String(elegido));
+          t.tabIndex = elegido ? 0 : -1;
+          const panel = document.getElementById(t.getAttribute('aria-controls'));
+          if (panel) panel.hidden = !elegido;
+        });
+        if (enfocar) tab.focus();
+      }
+      tabs.forEach(function (t, i) {
+        t.addEventListener('click', function () { activar(t, false); });
+        t.addEventListener('keydown', function (e) {
+          let otro = null;
+          if (e.key === 'ArrowRight') otro = tabs[(i + 1) % tabs.length];
+          if (e.key === 'ArrowLeft') otro = tabs[(i - 1 + tabs.length) % tabs.length];
+          if (otro) { e.preventDefault(); activar(otro, true); }
+        });
+      });
     });
   </script>
 </body>
