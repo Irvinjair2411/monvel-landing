@@ -284,9 +284,6 @@
     .question { width: 72%; margin: 18px 15px 9px auto; padding: 13px; background: white; border: 1px solid var(--line); font-size: .78rem; }
     .answer { width: 86%; margin: 9px auto 18px 15px; padding: 14px; color: white; background: var(--wine); font-size: .78rem; line-height: 1.6; }
     .velia-quota { margin-top: 18px; color: var(--muted); font-size: .84rem; }
-    .disclosure { margin-top: 22px; padding: 20px 22px; border-left: 3px solid var(--brass); background: var(--ivory); }
-    .disclosure strong { display: block; color: var(--wine); font-size: .82rem; margin-bottom: 7px; }
-    .disclosure p { margin: 0; color: var(--muted); font-size: .82rem; }
 
     /* ── Trabaja solo ─────────────────────────────────────────── */
     .auto { background: var(--ivory); }
@@ -416,6 +413,21 @@
     .ticket-head span, .ticket-foot { font-family: "IBM Plex Mono", monospace; font-size: .68rem; letter-spacing: .07em; }
     .ticket-body { padding: 32px 20px; font-size: 1.08rem; font-weight: 650; }
     .ticket-foot { border-top: 1px dashed rgba(101,23,42,.3); border-bottom: 0; }
+
+    /* ── Aviso de privacidad ──────────────────────────────────── */
+    .privacy { background: var(--paper); }
+    .privacy h2 { font-size: clamp(1.9rem, 3.2vw, 2.9rem); }
+    .privacy-body { max-width: 860px; margin-top: 44px; }
+    .privacy-meta { margin: 0 0 24px; color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: .7rem; line-height: 1.7; }
+    .privacy-lead { padding: 20px 22px; border-left: 3px solid var(--brass); background: var(--ivory); }
+    .privacy-lead p { margin: 0; color: var(--ink); }
+    .privacy-body h3 { margin: 34px 0 10px; color: var(--wine); font-size: 1.1rem; font-weight: 650; line-height: 1.35; }
+    .privacy-body p, .privacy-body li { color: var(--muted); font-size: .88rem; line-height: 1.7; overflow-wrap: anywhere; }
+    .privacy-body p { margin-bottom: 12px; }
+    .privacy-body ul { margin: 0 0 12px; padding-left: 20px; }
+    .privacy-body li { margin-bottom: 9px; }
+    .privacy-body strong { color: var(--ink); font-weight: 600; }
+    .privacy-body a, .privacy-meta a, .pricing-note a, .velia-quota a, details p a { color: var(--wine); }
 
     .footer { padding: 56px 0 24px; color: rgba(255,255,255,.7); background: var(--wine-dark); }
     .footer-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; }
@@ -569,7 +581,7 @@
           <article class="process-card"><small>01</small><h3>Conecta</h3><p>Descarga masiva de CFDI emitidos, recibidos y de retenciones, con e.firma o CIEC. También la Constancia de Situación Fiscal y la Opinión 32-D.</p></article>
           <article class="process-card"><small>02</small><h3>Clasifica</h3><p>86 reglas de deducibilidad, cada una citada a su artículo de la LISR. Cuando fijas la cuenta contable de un proveedor, Monvel la recuerda y la reutiliza el mes siguiente.</p></article>
           <article class="process-card"><small>03</small><h3>Concilia</h3><p>Cruza los movimientos del banco contra CFDI y pólizas. Lo que enlazas a mano lo aprende, y si aprendió mal, puedes hacer que lo olvide.</p></article>
-          <article class="process-card"><small>04</small><h3>Declara</h3><p>IVA, ISR provisional y DIOT salen del mismo cálculo que ves en pantalla, en el Excel y en el reporte del mes. Tú presentas en el portal del SAT y guardas el acuse junto a la declaración.</p></article>
+          <article class="process-card"><small>04</small><h3>Declara</h3><p>IVA, ISR provisional y DIOT salen del mismo cálculo que ves en pantalla, en el Excel y en el reporte del mes, con el archivo de la DIOT listo para cargar en el portal del SAT. El acuse se guarda junto a la declaración.</p></article>
         </div>
       </div>
     </section>
@@ -626,17 +638,17 @@
         <div class="label light" data-number="03">Dónde viven los datos</div>
         <div class="heading-row"><h2>Monvel se instala en tu despacho. <span>La contabilidad de tus clientes se queda ahí.</span></h2><p>El sistema corre en un equipo tuyo y se usa desde el navegador: en la oficina, desde tu casa o desde el celular. Los XML, las pólizas y las credenciales de tus clientes viven en ese equipo, no en la nube de un proveedor.</p></div>
         <div class="local-grid">
-          <article class="local-card"><small>01</small><h3>Sin analíticas ni rastreo</h3><p>Monvel no le manda a nadie por qué pantallas andas ni qué capturas. Todo lo que sale de tu servidor está declarado en la pantalla «Qué datos viajan»: qué lleva, cuándo y cómo se controla. Entre ello, una señal diaria con puros números —la versión, cuántos avisos activos, cuántas facturas en cola, cuántos comprobantes se emitieron en el mes— para que tu proveedor se entere si algo se rompe. Nunca nombres, RFC ni importes, y se puede apagar.</p></article>
+          <article class="local-card"><small>01</small><h3>Sin analíticas ni rastreo</h3><p>Monvel no le manda a nadie por qué pantallas andas ni qué capturas. Lo que sale de tu servidor está declarado en la pantalla «Qué datos viajan»: qué lleva, cuándo y cómo se controla. Entre ello, una señal diaria con puros números —la versión, cuántos avisos activos, cuántas facturas en cola, cuántos comprobantes se emitieron en el mes— para que tu proveedor se entere si algo se rompe. Nunca nombres, RFC ni importes.</p></article>
           <article class="local-card"><small>02</small><h3>Las credenciales van directo al SAT</h3><p>La CIEC y la e.firma de tus clientes se guardan cifradas y viajan a los servicios del SAT, nunca a Monvel. La firma de una cancelación se calcula dentro de tu servidor: la llave privada no sale de ahí.</p></article>
           <article class="local-card"><small>03</small><h3>El estado de cuenta se lee aquí</h3><p>La lectura del estado de cuenta del banco se hace en tu propio servidor. No se manda a ningún servicio externo para interpretarla.</p></article>
           <article class="local-card"><small>04</small><h3>Respaldo diario que se revisa solo</h3><p>Una tarea programada respalda la base y los documentos todos los días, con la retención que tú indiques. Después, Monvel revisa el último respaldo: que abra completo, que traiga la base, los documentos y las llaves, y que no sea viejo. Si un documento quedó fuera, te dice de quién es y qué hacer.</p></article>
         </div>
         <div class="local-note">
-          <p><strong>La contracara honesta:</strong> si el equipo donde vive Monvel está apagado, nadie entra y no salen avisos. Es el precio de que la información sea tuya y esté donde tú la puedes ver. Cuando el equipo enciende, Monvel arranca solo como servicio de Windows, sin que nadie inicie sesión, y si el servicio se detiene se reinicia solo. Un vigilante revisa cada 15 minutos que el servicio, la base y el respaldo estén en orden, y avisa por correo si algo falla.</p>
+          <p><strong>Arranca solo y se vigila solo:</strong> en cuanto el equipo enciende, Monvel arranca como servicio de Windows, sin que nadie inicie sesión, y si el servicio se detiene se reinicia solo. Un vigilante revisa cada 15 minutos que el servicio, la base y el respaldo estén en orden, y avisa por correo si algo falla.</p>
         </div>
         <figure class="local-shot">
           <div class="shot-frame"><div class="shot-bar" aria-hidden="true"><i></i><i></i><i></i></div><img src="img/app-transparencia.webp" width="1440" height="900" loading="lazy" decoding="async" alt="Ventana «Qué datos viajan» de Monvel: la lista de canales por los que algo sale del servidor, agrupados en los que van a Monvel, al SAT y al proveedor de timbrado, y otros servicios" /></div>
-          <figcaption>Configuración → «Qué datos viajan», como aparece dentro de Monvel. Cada renglón se abre y explica qué viaja, cuándo y cómo se controla. Si alguien agrega al sistema una salida que no esté en esta lista, las pruebas automáticas detienen la versión.</figcaption>
+          <figcaption>Configuración → «Qué datos viajan», como aparece dentro de Monvel. Cada renglón se abre y explica qué viaja, cuándo y cómo se controla, y una prueba automática coteja esta lista contra el código en cada versión. El detalle completo está en el <a href="#privacidad">aviso de privacidad</a>.</figcaption>
         </figure>
       </div>
     </section>
@@ -644,17 +656,17 @@
     <section class="section news" id="novedades">
       <div class="wrap">
         <div class="label" data-number="04">Lo nuevo</div>
-        <div class="heading-row"><h2>18 versiones en septiembre. <span>Esto es lo que cambió para ti.</span></h2><p>Monvel se publica seguido y cada versión llega sola a tu servidor, con sus notas en español. Lo más importante del mes, hasta la versión 1.0.29 del 24 de septiembre:</p></div>
+        <div class="heading-row"><h2>Una versión nueva cada pocos días. <span>Esto es lo que cambió para ti.</span></h2><p>Monvel se publica seguido y cada versión llega sola a tu servidor, con sus notas en español. Lo más importante de las últimas semanas, hasta la versión 1.0.40 del 6 de octubre:</p></div>
         <div class="news-grid">
-          <article class="news-card"><small>Credenciales</small><h3>Contraseñas con espacios, ñ o acentos, tal como son</h3><p>Monvel prueba la contraseña de la e.firma y del sello tal como la escribes —también con el espacio que pega WhatsApp o una ñ escrita en otra computadora— y te dice con cuál abrió. No hace falta cambiarle la contraseña a la llave.</p></article>
-          <article class="news-card"><small>Personas físicas</small><h3>La e.firma se lee campo por campo</h3><p>El RFC y la CURP del certificado se toman cada uno de su lugar, así la descarga del SAT y el alta de un contribuyente persona física ya no se detienen con un falso «RFC distinto».</p></article>
-          <article class="news-card"><small>Facturación</small><h3>Antes de timbrar, la Constancia manda</h3><p>Si el nombre, el código postal o el régimen de la ficha no coinciden con la Constancia de Situación Fiscal, lo ves antes de que el SAT rechace la factura. Y si el sello es recién tramitado, te avisa que el SAT tarda hasta 72 horas en publicarlo.</p></article>
-          <article class="news-card"><small>Facturación</small><h3>Complementos de pago que se calculan solos</h3><p>En cada factura a crédito, «Administrar pagos» calcula la parcialidad, el saldo anterior y el saldo insoluto como el portal del SAT, y admite varios pagos en un mismo complemento.</p></article>
-          <article class="news-card"><small>Facturación</small><h3>Un asistente más claro, con el catálogo completo</h3><p>Pantallas rediseñadas; dirección del receptor con el catálogo de Correos de México; plantillas y repetir una factura anterior; las 178 monedas del SAT con sus decimales, e IEPS y retenciones elegidos de la lista oficial.</p></article>
-          <article class="news-card"><small>Expediente</small><h3>Documentos que se revisan de verdad</h3><p>La palomita de CSF, e.firma, CIEC o sello ya comprueba que el archivo exista y se pueda abrir. Si uno se perdió de vista, Monvel lo busca y lo vuelve a apuntar, siempre con tu confirmación.</p></article>
-          <article class="news-card"><small>Respaldo</small><h3>El respaldo te dice qué quedó fuera</h3><p>Si el documento de algún contribuyente no entró al respaldo de la noche, o un archivo estaba abierto y no se pudo copiar, el aviso dice de quién es y qué hacer.</p></article>
-          <article class="news-card"><small>Agenda</small><h3>La agenda se arma sola y te avisa</h3><p>Un botón propone el mes con la declaración, el IVA, la DIOT y la balanza que le toca a cada cliente según su régimen. Después, cada persona recibe un solo aviso al día con lo vencido, lo de hoy y lo de mañana; si activas los avisos al celular, te llegan aunque no tengas Monvel abierto.</p></article>
-          <article class="news-card"><small>Velia</small><h3>Velia sabe en qué pantalla estás</h3><p>Si preguntas «¿y esto por qué no cuadra?» mientras ves la conciliación de agosto, entiende de qué hablas. Sólo ve el nombre de la pantalla y el periodo elegido, nada de lo que hay en ella.</p></article>
+          <article class="news-card"><small>Contabilidad</small><h3>Estados financieros con formato NIF</h3><p>En PDF y Excel. El balance te dice si cuadra y por cuánto, y avisa cuando la apertura no trae lo que dejaron los años anteriores. Si una versión anterior guardó con el signo cambiado el saldo de alguna cuenta de la balanza, Monvel lo corrige una sola vez, con respaldo y con aviso.</p></article>
+          <article class="news-card"><small>Declaraciones</small><h3>El IVA y el provisional, con más precisión</h3><p>El saldo a favor de IVA se arrastra a los meses siguientes, con sus devoluciones y compensaciones. El pago provisional de las personas morales usa el coeficiente de utilidad, la PTU y las pérdidas.</p></article>
+          <article class="news-card"><small>Almacén</small><h3>Los CFDI, como en Excel</h3><p>En el Almacén, «Ver como hoja» muestra los comprobantes como una hoja de cálculo: filtros, copiar y pegar, y deshacer.</p></article>
+          <article class="news-card"><small>Nómina</small><h3>Prepara, imprime y timbra la quincena</h3><p>Recibo en una hoja, borradores y diseño propio. Antes de timbrar, Monvel revisa la nómina con las reglas del SAT y te dice qué corregir.</p></article>
+          <article class="news-card"><small>Descarga del SAT</small><h3>Pide sólo los XML que faltan</h3><p>Monvel le pide al SAT únicamente los XML que no tienes. La Constancia y la Opinión 32-D se descargan en su horario, y cada 60 días te recuerda renovarlas.</p></article>
+          <article class="news-card"><small>Facturación</small><h3>Régimen, sucursal y relaciones al facturar</h3><p>Al facturar eliges el régimen y la sucursal del cliente, con la cuenta predial del inmueble. También se emiten facturas con relación de sustitución o de anticipo.</p></article>
+          <article class="news-card"><small>Seguridad</small><h3>Cada persona, sólo con sus clientes</h3><p>Un usuario nuevo nace sin acceso a ningún cliente hasta que un administrador le asigna los suyos. Monvel detecta intentos de intrusión, bloquea la dirección 24 horas y puede aceptar entradas sólo desde México.</p></article>
+          <article class="news-card"><small>Deducibilidad</small><h3>Concepto por concepto, con bitácora</h3><p>La deducibilidad se decide concepto por concepto, con reglas para bebidas alcohólicas, tabaco y medicinas. La Bitácora de ajustes guarda el antes y el después de cada cambio de deducibilidad y de pólizas.</p></article>
+          <article class="news-card"><small>Cierre de mes</small><h3>Vencimientos y cierre más claros</h3><p>Avisos de vencimiento de la contabilidad electrónica, la anual del 603 y el reparto de utilidades. Al cerrar el mes, te avisa de las facturas de contado sin cobro registrado o cobradas tarde.</p></article>
         </div>
         <p class="news-foot">Cada versión trae dentro de Monvel sus notas completas: qué cambió y qué te toca revisar.</p>
       </div>
@@ -669,7 +681,7 @@
           <article class="module"><small>02</small><h3>Contabilidad</h3><p>Pólizas manuales, automáticas desde los CFDI y recurrentes; catálogo de cuentas, auxiliar, balanza, balance, estado de resultados comparativo, activos fijos y cierre de mes.</p><div class="tags"><span>Anexo 24</span><span>Cierre mensual</span></div></article>
           <article class="module"><small>03</small><h3>Fiscal</h3><p>Declaración mensual y anual de persona física y moral, IVA, ISR provisional, DIOT, conciliación contable-fiscal y comparador de regímenes.</p><div class="tags"><span>DIOT 54 campos</span><span>86 reglas LISR</span></div></article>
           <article class="module"><small>04</small><h3>Nómina</h3><p>Recibos CFDI de nómina con ISR y subsidio según las tarifas del Anexo 8 para su periodicidad, catálogo de empleados, retenciones del mes, constancia de sueldos y su póliza contable.</p><div class="tags"><span>Anexo 8</span><span>Póliza automática</span></div></article>
-          <article class="module"><small>05</small><h3>Conciliación bancaria</h3><p>Carga el estado de cuenta en CSV, Excel o PDF y cruza los movimientos contra CFDI y pólizas, con pagos parciales y un pago contra varias facturas.</p><div class="tags"><span>BBVA</span><span>Banamex</span><span>Santander</span><span>Banorte</span><span>HSBC</span></div></article>
+          <article class="module"><small>05</small><h3>Conciliación bancaria</h3><p>Carga el estado de cuenta en CSV, Excel o PDF y cruza los movimientos contra CFDI y pólizas, con pagos parciales y un pago contra varias facturas.</p><div class="tags"><span>BBVA</span><span>Banamex</span><span>Santander</span><span>Banorte</span><span>HSBC</span><span>13 bancos más</span></div></article>
           <article class="module"><small>06</small><h3>La operación del despacho</h3><p>Agenda con las obligaciones de cada cliente, tablero por cliente, cobranza de tus honorarios, usuarios con permisos por cliente y bitácora de quién hizo qué.</p><div class="tags"><span>Usuarios sin costo</span><span>Multiusuario</span></div></article>
         </div>
       </div>
@@ -695,13 +707,10 @@
         <div>
           <div class="label" data-number="07">Velia · asistente</div>
           <h2>Conoce tus datos <span>y el vocabulario del despacho.</span></h2>
-          <p>Velia contesta sobre los clientes que ya tienes cargados: cuánto facturó uno en el mes, qué sellos y e.firmas están por vencer, qué proveedores aparecen en la lista 69-B, qué avisos siguen abiertos. Sabe qué es un complemento de pago y en qué se diferencian el sello y la e.firma. Siempre dice de qué periodo es la cifra, avisa cuando algo no le cuadra y contesta que no puede cuando le pides algo que no hace. Consulta tu información; no la modifica.</p>
+          <p>Velia contesta sobre los clientes que ya tienes cargados: cuánto facturó uno en el mes, qué sellos y e.firmas están por vencer, qué proveedores aparecen en la lista 69-B, qué avisos siguen abiertos. Sabe qué es un complemento de pago y en qué se diferencian el sello y la e.firma. Siempre dice de qué periodo es la cifra y avisa cuando algo no le cuadra. Consulta tu información; no la modifica.</p>
           <div class="chat"><div class="chat-head">Velia · asistente del despacho <span>Ejemplo con datos ficticios</span></div><div class="question">¿Cuánto facturó La Espiga en agosto?</div><div class="answer">En agosto de 2026, Panadería La Espiga emitió <strong>14 facturas por $151,236.40</strong> antes de IVA, ya restadas las notas de crédito. Dejé fuera 1 factura cancelada. ¿Te la desgloso por cliente?</div></div>
           <p class="velia-quota">Viene en los tres planes, con su cuota mensual de consultas: 75, 150 o 250. La cuota se renueva el día 1.</p>
-          <div class="disclosure">
-            <strong>Y aquí va la letra que sí conviene leer</strong>
-            <p>Velia es opcional y es el único lugar del sistema donde lo que escribes va a un servicio externo de inteligencia artificial. Viaja tu pregunta, la ficha del cliente que tengas abierto (RFC, nombre, tipo de persona y régimen) y el nombre de la pantalla con su periodo. No viaja tu base, ni tus XML, ni los clientes que no estés viendo. Si no la usas, no viaja nada.</p>
-          </div>
+          <p class="velia-quota">Velia es opcional y sólo trabaja cuando le preguntas: contesta con la contabilidad de tu despacho y no la modifica. Qué información usa y cómo se cuida: <a href="#privacidad">aviso de privacidad</a>.</p>
         </div>
       </div>
     </section>
@@ -734,7 +743,7 @@
           <article class="release-card"><strong>200+</strong><h3>Baterías de pruebas automáticas</h3><p>Levantan Monvel con datos de prueba y revisan cálculos fiscales, pólizas, nómina, conciliación y pantallas. Si una sola sale en rojo, la versión no se compila.</p></article>
           <article class="release-card"><strong>1</strong><h3>Timbre real ante el SAT</h3><p>Se timbra un comprobante de verdad —y se cancela— para comprobar que el timbrado funciona con el SAT, no sólo en pruebas.</p></article>
           <article class="release-card"><strong>Firmada</strong><h3>Tu servidor la comprueba antes de instalarla</h3><p>Verifica la firma del paquete, respalda la base y se actualiza de madrugada si nadie está trabajando. Si prefieres hacerlo tú, es un botón, y el modo automático se apaga cuando quieras.</p></article>
-          <article class="release-card"><strong>16</strong><h3>Versiones en septiembre</h3><p>Cada una con sus notas en español: qué cambió y qué te toca revisar, sin jerga.</p></article>
+          <article class="release-card"><strong>18</strong><h3>Versiones en septiembre</h3><p>Cada una con sus notas en español: qué cambió y qué te toca revisar, sin jerga.</p></article>
         </div>
         <p class="release-foot">Además de las pruebas, el paquete se verifica pieza por pieza y se arranca en una instalación limpia antes de publicarse.</p>
       </div>
@@ -742,15 +751,15 @@
 
     <section class="section trust" aria-label="Migración y puesta en marcha">
       <div class="wrap trust-grid">
-        <article class="trust-card"><div class="label" data-number="A">Migración</div><h2>Lo que ya tienes <span>se importa.</span></h2><p>La migración desde CONTPAQi y Aspel va incluida, sin costo. De CONTPAQi, con los XML de su contabilidad electrónica, entran el catálogo de cuentas, las balanzas y las pólizas; con su base extraída a un ZIP, el catálogo, los saldos de apertura y las pólizas de cada empresa. De Aspel COI, el catálogo y las pólizas desde Excel o CSV. Los empleados, desde CONTPAQi Nóminas (NOMIPAQ) y Aspel NOI. Si una columna no se reconoce, Monvel te pregunta a qué campo corresponde. Antes de aplicar ves un resumen y eliges si se fusiona o se reemplaza; una póliza que no cuadra no entra, sin descartar las demás del archivo. Los comprobantes se vuelven a descargar del SAT.</p><div class="seal">Migración incluida, sin costo</div></article>
+        <article class="trust-card"><div class="label" data-number="A">Migración</div><h2>Lo que ya tienes <span>se importa.</span></h2><p>La migración desde CONTPAQi y Aspel va incluida, sin costo. De CONTPAQi, con los XML de su contabilidad electrónica, entran el catálogo de cuentas, las balanzas y las pólizas; con su base extraída a un ZIP, el catálogo de cuentas y las pólizas de cada empresa. De Aspel COI, el catálogo y las pólizas desde Excel o CSV. Los empleados, desde CONTPAQi Nóminas (NOMIPAQ) y Aspel NOI. Si una columna no se reconoce, Monvel te pregunta a qué campo corresponde. Antes de aplicar ves un resumen y eliges si se fusiona o se reemplaza; una póliza que no cuadra no entra, sin descartar las demás del archivo. Los comprobantes los trae Monvel directo del SAT con la descarga masiva.</p><div class="seal">Migración incluida, sin costo</div></article>
         <article class="trust-card"><div class="label light" data-number="B">Puesta en marcha</div><h2>La instalación <span>la hacemos nosotros.</span></h2><p>Dejamos el servidor listo: base de datos, respaldo diario, correo de avisos y acceso desde fuera de la oficina. El instalador tarda de 10 a 20 minutos según tu internet. Tú y tu equipo entran desde el navegador, sin instalar nada en cada computadora, y también desde el celular agregando Monvel a la pantalla de inicio.</p><div class="seal">Instalación incluida</div></article>
       </div>
     </section>
 
     <section class="section compare" id="comparacion">
       <div class="wrap">
-        <div class="label" data-number="10">Comparación honesta</div>
-        <div class="heading-row"><h2>En la nube, en cada computadora <span>o en tu servidor.</span></h2><p>Cada forma de trabajar tiene su precio. Ésta es la diferencia, incluido lo que Monvel te pide a cambio.</p></div>
+        <div class="label" data-number="10">Comparación</div>
+        <div class="heading-row"><h2>En la nube, en cada computadora <span>o en tu servidor.</span></h2><p>Tres formas de trabajar, punto por punto: dónde vive la información, cómo se cobra, qué pasa sin internet y quién hace los respaldos y las actualizaciones.</p></div>
         <div class="cmp-wrap">
           <table class="cmp">
             <caption>Comparación entre un sistema en la nube, un programa de escritorio y Monvel</caption>
@@ -758,8 +767,7 @@
             <tbody>
               <tr><th scope="row">Dónde vive la información</th><td data-l="Nube">En los servidores del proveedor.</td><td data-l="Escritorio">En cada computadora donde se instala.</td><td data-l="Monvel" class="yo">En un equipo de tu despacho; tu equipo entra desde el navegador.</td></tr>
               <tr><th scope="row">Cómo se cobra</th><td data-l="Nube">Suele cobrarse por empresa o por usuario.</td><td data-l="Escritorio">Suele cobrarse por empresa, por módulo o por equipo.</td><td data-l="Monvel" class="yo">Una cuota por despacho según cuántos RFC llevas. Los usuarios no se cobran.</td></tr>
-              <tr><th scope="row">Si se va el internet</th><td data-l="Nube">No se puede entrar.</td><td data-l="Escritorio">Se sigue trabajando en esa computadora.</td><td data-l="Monvel" class="yo">Se sigue usando en la red de la oficina; descargar del SAT y timbrar esperan a que vuelva.</td></tr>
-              <tr><th scope="row">Si se apaga el equipo</th><td data-l="Nube">No depende de ti.</td><td data-l="Escritorio">Se detiene esa computadora.</td><td data-l="Monvel" class="yo">Nadie entra hasta que el equipo encienda; al encender, Monvel arranca solo.</td></tr>
+              <tr><th scope="row">Si se va el internet</th><td data-l="Nube">No se puede entrar.</td><td data-l="Escritorio">Se sigue trabajando en esa computadora.</td><td data-l="Monvel" class="yo">Se sigue trabajando en la red de la oficina, y las facturas que quedaron en cola se timbran solas cuando vuelve.</td></tr>
               <tr><th scope="row">Respaldos</th><td data-l="Nube">Los hace el proveedor, donde él decide.</td><td data-l="Escritorio">Los configuras en cada computadora.</td><td data-l="Monvel" class="yo">Diarios, revisados por Monvel, en la carpeta que tú elijas.</td></tr>
               <tr><th scope="row">Actualizaciones</th><td data-l="Nube">Las aplica el proveedor.</td><td data-l="Escritorio">Se instalan en cada computadora.</td><td data-l="Monvel" class="yo">Llegan solas de madrugada, firmadas y con respaldo previo.</td></tr>
               <tr><th scope="row">Lo que necesitas</th><td data-l="Nube">Internet en todo momento.</td><td data-l="Escritorio">Una licencia por equipo o por empresa.</td><td data-l="Monvel" class="yo">Un equipo con Windows 10 u 11 que quede encendido en tu despacho.</td></tr>
@@ -805,7 +813,7 @@
           </article>
           <article class="all-block">
             <h3><b>08</b>Bancos</h3>
-            <ul><li>Estado de cuenta en CSV, texto, Excel o PDF</li><li>BBVA, Banamex, Santander, Banorte, HSBC y formato genérico</li><li>Cruce con CFDI y con pólizas en varios niveles</li><li>Pagos parciales y un pago contra varias facturas</li><li>Memoria que aprende de cada enlace manual, y que puedes hacer que olvide</li><li>Candado que detiene una lectura que no cuadra contra los totales del documento</li><li>Bandeja de captura para lo que llega por WhatsApp o correo y todavía no se concilia</li></ul>
+            <ul><li>Estado de cuenta en CSV, texto, Excel o PDF</li><li>Reconoce el membrete de 18 bancos: BBVA, Banamex, Santander, Banorte, HSBC, Scotiabank, Banregio, Afirme, Banco Azteca, BanCoppel, BanBajío, Inbursa, Mifel, Multiva, Intercam, Actinver, CIBanco y Mizuho, más un formato genérico para cualquier otro</li><li>Cruce con CFDI y con pólizas en varios niveles</li><li>Pagos parciales y un pago contra varias facturas</li><li>Memoria que aprende de cada enlace manual, y que puedes hacer que olvide</li><li>Candado que detiene una lectura que no cuadra contra los totales del documento</li><li>Bandeja de captura para lo que llega por WhatsApp o correo y todavía no se concilia</li></ul>
           </article>
           <article class="all-block">
             <h3><b>09</b>La operación de tu despacho</h3>
@@ -817,7 +825,7 @@
           </article>
           <article class="all-block wide">
             <h3><b>11</b>Migración desde CONTPAQi y Aspel incluida, sin costo</h3>
-            <ul><li>CONTPAQi con los XML de la contabilidad electrónica: catálogo de cuentas, balanzas y pólizas</li><li>CONTPAQi con su base extraída a un ZIP: catálogo, saldos de apertura y pólizas de cada empresa</li><li>Aspel COI desde Excel o CSV: catálogo de cuentas y pólizas</li><li>Empleados desde CONTPAQi Nóminas (NOMIPAQ) y Aspel NOI</li><li>Los comprobantes se vuelven a descargar del SAT</li></ul>
+            <ul><li>CONTPAQi con los XML de la contabilidad electrónica: catálogo de cuentas, balanzas y pólizas</li><li>CONTPAQi con su base extraída a un ZIP: catálogo de cuentas y pólizas de cada empresa</li><li>Aspel COI desde Excel o CSV: catálogo de cuentas y pólizas</li><li>Empleados desde CONTPAQi Nóminas (NOMIPAQ) y Aspel NOI</li><li>Los comprobantes los trae Monvel directo del SAT con la descarga masiva</li></ul>
           </article>
         </div>
         <p class="all-foot">¿No encuentras el tuyo? Escríbenos y te decimos si Monvel lo hace hoy, o si no lo hace, también.</p>
@@ -827,14 +835,14 @@
     <section class="section pricing" id="planes">
       <div class="wrap">
         <div class="label" data-number="12">Planes</div>
-        <div class="heading-row"><h2>Todas las funciones. <span>Elige la capacidad.</span></h2><p>Sin módulos que se cobran aparte y sin cobro por usuario: da de alta a todo tu equipo en cualquier plan. El timbrado va incluido y la instalación la hacemos nosotros.</p></div>
-        <p class="founder"><b>Generación fundadora:</b> los primeros despachos reciben el doble de timbres (100 / 400 / 1,000) mientras dure esa generación.</p>
+        <div class="heading-row"><h2>Todas las funciones. <span>Elige la capacidad.</span></h2><p>Sin módulos que se cobran aparte y sin cobro por usuario: da de alta a todo tu equipo en cualquier plan. El timbrado va incluido, y la instalación y la migración las hacemos nosotros.</p></div>
+        <p class="founder"><b>Generación fundadora:</b> los despachos que entran ahora reciben el doble de timbres (100 / 400 / 1,000) y conservan ese beneficio al renovar.</p>
         <div class="pricing-grid">
-          <article class="plan"><span class="folio">FOLIO · P-01</span><div class="plan-name">Básico</div><div class="price">$299</div><p>MXN al mes · 10 RFC · usuarios sin límite</p><p class="annual">o $2,990 al año: 2 meses sin costo</p><div class="stamps">50 timbres al mes<small>Generación fundadora: 100 al mes</small>75 consultas a Velia al mes</div><div class="features"><span>Todas las funciones contables y fiscales</span><span>Descarga del SAT y facturación</span><span>Contabilidad electrónica y nómina</span><span>Instalación y migración incluidas</span></div><a class="button outline" href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20el%20plan%20B%C3%A1sico%20de%20Monvel" target="_blank" rel="noopener">Quiero el Básico →</a></article>
-          <article class="plan featured"><span class="recommended">Recomendado</span><span class="folio">FOLIO · P-02</span><div class="plan-name">Profesional</div><div class="price">$599</div><p>MXN al mes · 30 RFC · usuarios sin límite</p><p class="annual">o $5,990 al año: 2 meses sin costo</p><div class="stamps">200 timbres al mes<small>Generación fundadora: 400 al mes</small>150 consultas a Velia al mes</div><div class="features"><span>Todo lo del plan Básico</span><span>Tres veces los RFC</span><span>Cuatro veces los timbres</span><span>El doble de consultas a Velia</span></div><a class="button outline" href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20el%20plan%20Profesional%20de%20Monvel" target="_blank" rel="noopener">Quiero el Profesional →</a></article>
-          <article class="plan"><span class="folio">FOLIO · P-03</span><div class="plan-name">Despacho Plus</div><div class="price">$999</div><p>MXN al mes · RFC y usuarios sin límite</p><p class="annual">o $9,990 al año: 2 meses sin costo</p><div class="stamps">500 timbres al mes<small>Generación fundadora: 1,000 al mes</small>250 consultas a Velia al mes</div><div class="features"><span>Todo lo del Profesional</span><span>RFC sin límite</span><span>Correos de avisos desde tu propio dominio</span><span>Reportes y correos sin el crédito de Monvel</span></div><a class="button outline" href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20el%20plan%20Despacho%20Plus%20de%20Monvel" target="_blank" rel="noopener">Quiero el Despacho Plus →</a></article>
+          <article class="plan"><span class="folio">FOLIO · P-01</span><div class="plan-name">Básico</div><div class="price">$299</div><p>MXN al mes · 10 RFC · usuarios sin límite</p><p class="annual">o $2,990 al año: 2 meses sin costo</p><div class="stamps">50 timbres al mes<small>Generación fundadora: 100 al mes</small>75 consultas a Velia al mes</div><div class="features"><span>Todas las funciones contables y fiscales</span><span>Descarga del SAT y facturación</span><span>Contabilidad electrónica y nómina</span><span>Instalación y migración incluidas</span></div><a class="button outline" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20el%20plan%20B%C3%A1sico%20de%20Monvel" target="_blank" rel="noopener">Quiero el Básico →</a></article>
+          <article class="plan featured"><span class="recommended">Recomendado</span><span class="folio">FOLIO · P-02</span><div class="plan-name">Profesional</div><div class="price">$599</div><p>MXN al mes · 30 RFC · usuarios sin límite</p><p class="annual">o $5,990 al año: 2 meses sin costo</p><div class="stamps">200 timbres al mes<small>Generación fundadora: 400 al mes</small>150 consultas a Velia al mes</div><div class="features"><span>Todo lo del plan Básico</span><span>Tres veces los RFC</span><span>Cuatro veces los timbres</span><span>El doble de consultas a Velia</span></div><a class="button outline" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20el%20plan%20Profesional%20de%20Monvel" target="_blank" rel="noopener">Quiero el Profesional →</a></article>
+          <article class="plan"><span class="folio">FOLIO · P-03</span><div class="plan-name">Despacho Plus</div><div class="price">$999</div><p>MXN al mes · RFC y usuarios sin límite</p><p class="annual">o $9,990 al año: 2 meses sin costo</p><div class="stamps">500 timbres al mes<small>Generación fundadora: 1,000 al mes</small>250 consultas a Velia al mes</div><div class="features"><span>Todo lo del Profesional</span><span>RFC sin límite</span><span>Correos de avisos desde tu propio dominio</span><span>Reportes y correos sin el crédito de Monvel</span></div><a class="button outline" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20el%20plan%20Despacho%20Plus%20de%20Monvel" target="_blank" rel="noopener">Quiero el Despacho Plus →</a></article>
         </div>
-        <p class="pricing-note">Precios en pesos mexicanos, IVA no incluido. Los timbres sirven igual para facturas, complementos de pago y recibos de nómina. Si se te acaban, tu facturación sigue: los adicionales se cuentan y se cobran aparte, y Monvel te avisa al llegar al 80 % y al 100 % de tu cuota; como freno de seguridad hay un tope del triple de la cuota mensual, que se amplía con una bolsa de timbres. Las consultas a Velia se renuevan el día 1 de cada mes.</p>
+        <p class="pricing-note">Precios en pesos mexicanos, IVA no incluido. Los timbres sirven igual para facturas, complementos de pago y recibos de nómina. Si se te acaban, tu facturación sigue: los adicionales se cuentan y se cobran aparte, y Monvel te avisa al llegar al 80 % y al 100 % de tu cuota. Las consultas a Velia se renuevan el día 1 de cada mes. <a href="#privacidad">Condiciones completas</a>.</p>
       </div>
     </section>
 
@@ -842,17 +850,17 @@
       <div class="wrap faq-layout">
         <div class="faq-intro"><div class="label" data-number="13">Preguntas frecuentes</div><h2>Lo importante, <span>antes de decidir.</span></h2><p>Respuestas directas sobre dónde viven los datos, qué pasa si algo falla, la instalación, la migración, el timbrado y la nómina.</p></div>
         <div class="faq-list">
-          <details open><summary><small>01</small><strong>¿Los datos de mis clientes salen de mi despacho?</strong></summary><p>Tu contabilidad no: los XML, las pólizas, los estados financieros y las credenciales viven en el equipo donde se instala Monvel, que es tuyo. Lo que sí sale está declarado dentro del sistema, en Configuración → «Qué datos viajan»: cada factura que timbras va al proveedor de certificación, que es como funciona el timbrado ante el SAT; la descarga y las consultas van directo al SAT; y a Monvel sólo llegan el RFC y la razón social de los clientes que das de alta para timbrar, más una señal diaria con puros números que puedes apagar. Si usas a Velia, viaja lo que le escribes y la ficha del cliente que tengas abierto.</p></details>
-          <details><summary><small>02</small><strong>¿Y si se va la luz o se cae el servidor?</strong></summary><p>Mientras el equipo esté apagado nadie entra y no salen avisos: es la contraparte de que la información sea tuya. Al encender, Monvel arranca solo como servicio de Windows, sin que nadie inicie sesión, y si el servicio se detiene se reinicia solo. El respaldo diario se guarda en la carpeta que tú elijas y Monvel lo revisa cada día; además, un vigilante revisa cada 15 minutos que el servicio, la base de datos y el respaldo estén en orden, y avisa por correo si algo falla.</p></details>
+          <details open><summary><small>01</small><strong>¿Los datos de mis clientes salen de mi despacho?</strong></summary><p>Tu contabilidad no: los XML, las pólizas, los estados financieros y las credenciales viven en el equipo donde se instala Monvel, que es tuyo. Lo que sí sale está declarado dentro del sistema, en Configuración → «Qué datos viajan», y explicado en nuestro <a href="#privacidad">aviso de privacidad</a>: cada factura que timbras va al proveedor de certificación, que es como funciona el timbrado ante el SAT; la descarga y las consultas van directo al SAT; y a Monvel llegan el RFC y la razón social de los clientes que das de alta para timbrar, más una señal diaria con puros números. Si usas a Velia, viaja lo que le escribes y lo que ella consulta para contestarte.</p></details>
+          <details><summary><small>02</small><strong>¿Y si se va la luz o se cae el servidor?</strong></summary><p>Mientras el equipo está apagado, nadie entra a Monvel y no salen avisos. Al volver la luz, Monvel arranca solo como servicio de Windows, sin que nadie inicie sesión, y si el servicio se detiene se reinicia solo. El respaldo diario se guarda en la carpeta que tú elijas y Monvel lo revisa cada día; además, un vigilante revisa cada 15 minutos que el servicio, la base de datos y el respaldo estén en orden, y avisa por correo si algo falla.</p></details>
           <details><summary><small>03</small><strong>¿Cuánto tarda la instalación y qué necesito?</strong></summary><p>Un equipo con Windows 10 (versión 2004 o posterior) u 11 que quede encendido en tu despacho y unos 2.5 GB libres. El instalador tarda de 10 a 20 minutos según tu conexión a internet. La instalación la hacemos nosotros y dejamos listos el respaldo diario, el correo de avisos y el acceso desde fuera de la oficina. En las demás computadoras no se instala nada: se entra desde el navegador.</p></details>
-          <details><summary><small>04</small><strong>¿Qué pasa con mis clientes actuales y con lo que tengo en otro sistema?</strong></summary><p>Das de alta a cada cliente con su RFC; al subir su certificado, Monvel lee sus datos y coteja la ficha contra su Constancia. La migración desde CONTPAQi y Aspel va incluida, sin costo: de CONTPAQi entran el catálogo de cuentas, las balanzas y las pólizas con los XML de su contabilidad electrónica, o el catálogo, los saldos de apertura y las pólizas con su base extraída a un ZIP; de Aspel COI, el catálogo y las pólizas desde Excel o CSV; y los empleados, desde CONTPAQi Nóminas (NOMIPAQ) o Aspel NOI. Los comprobantes se vuelven a descargar del SAT.</p></details>
+          <details><summary><small>04</small><strong>¿Qué pasa con mis clientes actuales y con lo que tengo en otro sistema?</strong></summary><p>Das de alta a cada cliente con su RFC; al subir su certificado, Monvel lee sus datos y coteja la ficha contra su Constancia. La migración desde CONTPAQi y Aspel va incluida, sin costo: de CONTPAQi entran el catálogo de cuentas, las balanzas y las pólizas con los XML de su contabilidad electrónica, o el catálogo de cuentas y las pólizas con su base extraída a un ZIP; de Aspel COI, el catálogo y las pólizas desde Excel o CSV; y los empleados, desde CONTPAQi Nóminas (NOMIPAQ) o Aspel NOI. Los comprobantes los trae Monvel directo del SAT con la descarga masiva.</p></details>
           <details><summary><small>05</small><strong>¿Puedo facturar en lote?</strong></summary><p>Sí. La facturación en lote toma los renglones de un Excel o CSV, reusa los datos fiscales que ya tienes en tu libreta de receptores y te deja revisar y ajustar cada renglón en pantalla antes de timbrar. Además hay facturas recurrentes, plantillas y un botón para repetir una factura anterior con el mismo receptor y los mismos conceptos; el folio, la fecha y los sellos nunca se copian.</p></details>
           <details><summary><small>06</small><strong>¿Monvel hace nómina?</strong></summary><p>Sí: recibos CFDI de nómina con ISR y subsidio según las tarifas del Anexo 8 de su periodicidad —semanal, decenal, quincenal o mensual—, catálogo de empleados, retenciones del mes, constancia de sueldos y la póliza contable. Los timbres de tu plan sirven igual para facturas y para recibos.</p></details>
           <details><summary><small>07</small><strong>¿El timbrado está incluido?</strong></summary><p>Sí. Cada plan trae su cuota mensual de timbres y no necesitas contratar un proveedor aparte. El alta de cada uno de tus clientes ante el proveedor de timbrado se tramita sola en cuanto subes su sello; si el sello es nuevo, el SAT tarda hasta 72 horas en publicarlo y Monvel te dice desde qué día intentar. Si la cuota se acaba, tu facturación sigue: los adicionales se cobran aparte.</p></details>
           <details><summary><small>08</small><strong>¿Cuántos RFC y cuántos usuarios puedo manejar?</strong></summary><p>Básico admite 10 RFC, Profesional 30 y Despacho Plus no fija límite. Los usuarios no se cobran en ningún plan: da de alta a todo tu equipo, cada quien con su acceso, y puedes restringir a cada persona a los clientes que le tocan.</p></details>
           <details><summary><small>09</small><strong>¿Y mi equipo? Cambiar de sistema siempre cuesta.</strong></summary><p>Monvel trae un modo práctica con una empresa ficticia ya cargada —con sus facturas, sus movimientos de banco y sus empleados— para que entrenes a quien haga falta en el ciclo completo sin tocar información real. Adentro hay además 25 recorridos guiados que van explicando cada pantalla mientras se usa.</p></details>
-          <details><summary><small>10</small><strong>¿Puedo verlo antes de contratar?</strong></summary><p>Sí, de dos formas. El Aula Virtual es Monvel con un despacho de ejemplo ya cargado: se abre en el navegador, sin instalar y sin tarjeta, en una sesión de práctica de una hora. La facturación y Velia se ven en la demostración en vivo, con los casos de tu despacho.</p></details>
-          <details><summary><small>11</small><strong>¿Quién actualiza el sistema cuando el SAT cambia algo?</strong></summary><p>Nosotros publicamos la versión y tu servidor la instala solo de madrugada, si nadie está trabajando, después de comprobar la firma del paquete y respaldar la base. También puedes hacerlo con un botón. Cada versión llega con sus notas en español; en septiembre salieron 16.</p></details>
+          <details><summary><small>10</small><strong>¿Puedo verlo antes de contratar?</strong></summary><p>Sí, de dos formas. El Aula Virtual es Monvel con un despacho de ejemplo ya cargado: se abre en el navegador, sin instalar y sin tarjeta, en una sesión de práctica de una hora. Y en la demostración en vivo recorremos además la facturación y Velia con los casos de tu despacho.</p></details>
+          <details><summary><small>11</small><strong>¿Quién actualiza el sistema cuando el SAT cambia algo?</strong></summary><p>Nosotros publicamos la versión y tu servidor la instala solo de madrugada, si nadie está trabajando, después de comprobar la firma del paquete y respaldar la base. También puedes hacerlo con un botón. Cada versión llega con sus notas en español; en septiembre salieron 18.</p></details>
         </div>
       </div>
     </section>
@@ -864,7 +872,7 @@
           <h2>Velo con los casos <span>de tu despacho.</span></h2>
           <p>Una demostración en vivo, sin presentación de ventas: abrimos Monvel y recorremos el mes de un cliente como el tuyo: la descarga del SAT, la clasificación, la factura, las pólizas, la conciliación y la declaración. Si después quieres probarlo por tu cuenta, el Aula Virtual queda abierta.</p>
           <div class="demo-actions">
-            <a class="button gold" href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20una%20demostraci%C3%B3n%20de%20Monvel" target="_blank" rel="noopener">Escribir por WhatsApp →</a>
+            <a class="button gold" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20una%20demostraci%C3%B3n%20de%20Monvel" target="_blank" rel="noopener">Escribir por WhatsApp →</a>
             <a class="button ghost" href="mailto:contacto@monvel.mx?subject=Demostraci%C3%B3n%20de%20Monvel">contacto@monvel.mx</a>
           </div>
         </div>
@@ -878,8 +886,73 @@
 
     <section class="closing" aria-label="Aula Virtual">
       <div class="wrap closing-inner">
-        <div><div class="eyebrow">O pruébalo tú mismo</div><h2>Recorre un mes completo <span>antes de hablar con nadie.</span></h2><p>El Aula Virtual es Monvel con un despacho de ejemplo ya cargado: comprobantes, pólizas, conciliación bancaria, nómina y declaraciones de los meses recientes. Se abre en el navegador, sin instalación, sin tarjeta y sin compromiso. Es un espacio de práctica compartido: no subas información real de tus clientes.</p><a class="button gold" href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Entrar al Aula Virtual →</a></div>
+        <div><div class="eyebrow">O pruébalo tú mismo</div><h2>Recorre un mes completo <span>antes de hablar con nadie.</span></h2><p>El Aula Virtual es Monvel con un despacho de ejemplo ya cargado: comprobantes, pólizas, conciliación bancaria, nómina y declaraciones de los meses recientes. Se abre en el navegador, sin instalación, sin tarjeta y sin compromiso. Es un espacio de práctica compartido, pensado para trabajar con los datos de ejemplo.</p><a class="button gold" href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Entrar al Aula Virtual →</a></div>
         <div class="ticket"><div class="ticket-head"><img src="logo-monvel-mark-48.png" srcset="logo-monvel-mark-72.png 1.5x, logo-monvel-mark-96.png 2x, logo-monvel-mark-144.png 3x" width="40" height="40" alt="Logo de Monvel" /><span>ACCESO DE PRUEBA</span></div><div class="ticket-body">CFDI · Pólizas · Nómina · Conciliación · Declaraciones</div><div class="ticket-foot">Acceso inmediato · Una hora de práctica</div></div>
+      </div>
+    </section>
+
+    <section class="section privacy" id="privacidad">
+      <div class="wrap">
+        <div class="label" data-number="14">Aviso de privacidad</div>
+        <div class="heading-row"><h2>Qué se queda en tu despacho <span>y qué sale, dicho completo.</span></h2><p>Aquí está, sin resumir, lo que Monvel hace con la información: lo que vive en tu servidor, lo que llega a Monvel, lo que va al SAT y al proveedor de certificación, y lo que usa Velia. Es lo mismo que ves dentro del sistema en Configuración → «Qué datos viajan».</p></div>
+        <div class="privacy-body">
+          <p class="privacy-meta">Responsable: Monvel · <a href="mailto:contacto@monvel.mx">contacto@monvel.mx</a> · Última actualización: 26 de septiembre de 2026 · Aplica al software Monvel, a monvel.mx y al Aula Virtual. La extensión para el portal del SAT tiene <a href="privacy-policy.html">su propio aviso</a>.</p>
+          <div class="privacy-lead"><p><strong>En corto.</strong> Monvel se instala en un equipo de tu despacho. Los XML, las pólizas, los expedientes, los estados de cuenta y las credenciales de tus clientes viven ahí, y Monvel no tiene una puerta para entrar a esa base. Lo único que sale de tu servidor es lo que se describe en esta página; casi todo, con un clic tuyo de por medio.</p></div>
+
+          <h3>1. Lo que se queda en tu despacho, y de quién es</h3>
+          <p>La información de tus clientes y de sus trabajadores la guardas tú, en tu servidor, y ante la ley eres tú el responsable de esos datos. Monvel sólo recibe lo que se enumera abajo; cuando en alguno de esos flujos llega información de un contribuyente tuyo, la trata por tu cuenta y para atenderte. Tu servidor no manda estadísticas de uso, no tiene rastreadores y no le informa a nadie por qué pantallas andas.</p>
+
+          <h3>2. Lo que llega a Monvel, tu proveedor</h3>
+          <ul>
+            <li><strong>Al pedir o renovar tu licencia.</strong> El nombre, correo, teléfono y razón social que capturas; una huella técnica de tu servidor (resúmenes de sus identificadores, no el número de serie) y un reporte de uso con puros conteos: cuántos clientes, cuántos timbres en doce meses, qué versión. Sale sólo cuando tú lo pides.</li>
+            <li><strong>Altas de timbrado.</strong> El RFC y la razón social de cada cliente que das de alta para timbrar, para registrarlo ante el proveedor de certificación con la cuenta de Monvel; en el trámite de autorización van además su domicilio fiscal y el correo del usuario de tu despacho que lo aplica. El alta se lanza sola al completar el sello, y ese automático se apaga en Timbrado. Monvel conserva el registro de qué RFC dio de alta cada despacho, con su razón social y la fecha, para cotejar los timbres con el proveedor.</li>
+            <li><strong>Una señal diaria de salud.</strong> Una vez al día tu servidor manda un latido con conteos: versión, nombre de red del equipo, cuántos avisos activos y de qué tipo, rechazos del proveedor de timbrado en la semana, facturas en cola, número de clientes, comprobantes emitidos en 30 días, estado de la licencia y la salud de los datos en números. Si hay una falla que impide trabajar, avisa con más frecuencia hasta que se resuelva. Nunca lleva RFC, nombres, correos, folios ni importes.</li>
+            <li><strong>Órdenes de soporte.</strong> Cada 15 minutos tu servidor pregunta a Monvel Central si hay una orden de soporte pendiente: mandar el latido, enviar el diagnóstico, aplicar una actualización o volver a encontrar archivos movidos. Cada orden queda como evento en tu bitácora («Orden del proveedor: …») y el resultado que regresa va limpio de correos, RFC, folios e importes.</li>
+            <li><strong>El diagnóstico de soporte.</strong> Sale cuando un administrador pulsa «Enviar a soporte» o lo descarga y lo manda, y también cuando Monvel lo pide con una orden de soporte. Trae un resumen del equipo y de la licencia, los avisos activos, los rechazos del proveedor de timbrado, la cola de emisión, la configuración sin secretos, las rutas de archivos rotas, los certificados que no abren, el consumo de Velia en números, los últimos eventos y la parte final de los registros del servicio. Por eso puede incluir nombres, RFC, folios e importes de tus clientes que aparezcan en esos avisos, en la cola o en los registros, y nombres y correos de los usuarios de tu despacho. La llave del sistema, las contraseñas y los tokens se tachan antes de salir. Se usa sólo para atender tu caso.</li>
+            <li><strong>Actualizaciones.</strong> Tu servidor descarga un manifiesto firmado y, si hay versión nueva, el paquete. No manda nada tuyo; el servidor que aloja esos archivos ve la dirección IP de la conexión.</li>
+            <li><strong>Sobre de rescate.</strong> Junto a cada respaldo queda un archivo pequeño con la llave que cifra las credenciales de tu servidor, cerrado de manera que sólo Monvel puede abrirlo. Se queda en tu disco. Sólo viaja si tú nos lo mandas para recuperar tus credenciales después de perder esa llave.</li>
+          </ul>
+
+          <h3>3. Al SAT y al proveedor de certificación</h3>
+          <ul>
+            <li><strong>Al SAT</strong> van la CIEC y la e.firma de tus clientes, cifradas y directo a los servicios del SAT, para la descarga masiva, la Constancia, la Opinión y las consultas de estatus. Nunca pasan por Monvel.</li>
+            <li><strong>Al proveedor de certificación autorizado por el SAT</strong> van los comprobantes que decides timbrar y las cancelaciones que ordenas: así funciona el timbrado. Cada envío es una acción tuya, o de la cola que tú dejaste.</li>
+          </ul>
+
+          <h3>4. Velia, el asistente con inteligencia artificial</h3>
+          <p>Velia es opcional y es el único lugar del sistema donde lo que escribes va a un servicio externo de inteligencia artificial: Anthropic, en Estados Unidos, con la llave de Monvel. Para responderte, Velia consulta tu base y le manda al modelo sólo lo que necesita para esa pregunta:</p>
+          <ul>
+            <li>tu pregunta y los diez mensajes más recientes de esa conversación;</li>
+            <li>el nombre de la pantalla en la que estás y su periodo, y la ficha del cliente que tengas abierto: RFC, nombre, si es persona física o moral y su régimen;</li>
+            <li>el resultado de lo que consulte, que según la pregunta puede ser una lista de clientes con RFC, nombre y régimen; los datos de una ficha (giro, actividad, fecha de inicio de operaciones y vigencias de la e.firma y del sello); una muestra de comprobantes con RFC y nombre de la contraparte, fecha, total, IVA, deducibilidad y el primer concepto; los totales de un mes con sus cinco proveedores principales; tus proveedores en la lista 69-B; los vencimientos de e.firma y sello; los títulos de tus avisos; los saldos por cuenta de un periodo, o conteos del despacho.</li>
+          </ul>
+          <p>Nunca viajan tus XML, tus archivos, las llaves de la e.firma o del sello ni las contraseñas guardadas en Monvel (de la CIEC sólo viaja si está registrada o no). Tampoco la CURP, la fecha de nacimiento ni el domicilio de tus clientes, y el folio fiscal viaja recortado a sus primeros ocho caracteres. Sólo salen datos de los clientes que tu usuario tiene permiso de ver. Velia sólo consulta; no modifica nada. Las conversaciones se guardan en tu servidor. Si no usas Velia, no viaja nada.</p>
+          <p>Lo que escribas en el chat viaja tal cual: no captures ahí contraseñas ni números de cuenta. Si prefieres no tener Velia, un administrador retira su llave en Configuración → Velia; hoy, al activar o renovar la licencia, la llave se vuelve a instalar, así que conviene revisar ese ajuste después de cada renovación. Si tu despacho tiene su propia cuenta de Anthropic, puedes usar tu llave en esa misma pantalla, y entonces la relación con Anthropic es directa de tu despacho.</p>
+
+          <h3>5. Correos, avisos al celular y servicios que tú conectas</h3>
+          <ul>
+            <li><strong>Correos del sistema.</strong> Los códigos de acceso, los avisos diarios, el resumen mensual y los documentos que envías desde el expediente salen por el servicio de correo de Monvel, que usa a Brevo, un proveedor de envío en Francia (Unión Europea); esos correos pueden llevar el nombre de tus clientes. En el plan Despacho Plus puedes usar tu propio servidor de correo, y entonces nada pasa por esa ruta.</li>
+            <li><strong>Avisos al celular.</strong> Viajan cifrados por el servicio de notificaciones del navegador, que no puede leerlos, y en la pantalla bloqueada no muestran nombres ni importes.</li>
+            <li><strong>Acceso desde fuera de la oficina.</strong> Se hace con un túnel de Cloudflare (Estados Unidos, red global) bajo una dirección de monvel.mx; el tráfico va cifrado entre tu navegador, la red de Cloudflare y tu servidor.</li>
+            <li><strong>Servicios que tú conectas.</strong> Los códigos por SMS o WhatsApp (Twilio), los mensajes por WhatsApp Business (Meta), las conexiones a otros sistemas por la API y tu propio servidor de correo funcionan con tus cuentas; Monvel no los opera ni recibe esos datos. Si no los configuras, no existen.</li>
+            <li><strong>Hora confiable.</strong> Cada hora tu servidor consulta la hora a un servicio público de tiempo; no lleva datos tuyos.</li>
+          </ul>
+
+          <h3>6. El Aula Virtual y este sitio</h3>
+          <ul>
+            <li><strong>Aula Virtual.</strong> Al registrarte guardamos tu nombre, tu correo y el nombre de tu despacho para mandarte tus accesos y ponernos en contacto contigo. El Aula es un espacio compartido de práctica con datos de ejemplo que se reinicia cada noche; lo que se capture ahí pueden verlo otros visitantes, así que no captures información real de tus clientes.</li>
+            <li><strong>monvel.mx.</strong> Este sitio está alojado en Cloudflare Pages y carga sus tipografías desde Google Fonts; no tiene analíticas, cookies de seguimiento ni formularios que guarden datos. Si nos escribes por correo o WhatsApp, usamos lo que nos mandes sólo para contestarte.</li>
+          </ul>
+
+          <h3>7. Tus derechos</h3>
+          <p>Puedes pedir acceso a los datos que Monvel tiene de ti, corregirlos, cancelarlos u oponerte a su uso, y revocar tu consentimiento, escribiendo a <a href="mailto:contacto@monvel.mx">contacto@monvel.mx</a> con tu nombre, una copia de tu identificación y lo que solicitas; respondemos en los plazos que marca la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (Diario Oficial de la Federación, 20 de marzo de 2025). Si tu solicitud es sobre datos que están en el servidor de un despacho, el responsable es ese despacho y te decimos a quién dirigirte. La autoridad en la materia es la Secretaría Anticorrupción y Buen Gobierno.</p>
+
+          <h3>8. Condiciones de los planes que conviene tener a la mano</h3>
+          <p>Los precios son en pesos mexicanos más IVA. Si los timbres de tu cuota mensual se acaban, tu facturación sigue: los adicionales se cuentan y se cobran aparte, y Monvel te avisa al llegar al 80 % y al 100 %. Como freno de seguridad hay un tope del triple de la cuota mensual, que se amplía con una bolsa de timbres. Las consultas a Velia de cada plan se renuevan el día 1 de cada mes.</p>
+
+          <h3>9. Cambios a este aviso</h3>
+          <p>Cualquier cambio se publica en esta misma página, con su fecha.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -888,13 +961,13 @@
     <div class="wrap">
       <div class="footer-grid">
         <div><a class="brand" href="#inicio"><img src="logo-monvel-mark-48.png" srcset="logo-monvel-mark-72.png 1.5x, logo-monvel-mark-96.png 2x, logo-monvel-mark-144.png 3x" width="48" height="48" alt="Logo de Monvel" /><span class="brand-copy"><strong>MONVEL</strong><small>software fiscal</small></span></a><p class="footer-copy">Software contable, fiscal y de nómina para despachos en México. Instalado en tu servidor.</p></div>
-        <div class="footer-links"><div><strong>Explora</strong><a href="#producto">Producto</a><a href="#novedades">Lo nuevo</a><a href="#seguridad">Tus datos</a><a href="#planes">Planes</a></div><div><strong>Contacto</strong><a href="mailto:contacto@monvel.mx">contacto@monvel.mx</a><a href="https://wa.me/525941350096" target="_blank" rel="noopener">WhatsApp</a><a href="#demo">Demostración</a></div><div><strong>Acceso</strong><a href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Aula Virtual</a><a href="#preguntas">Preguntas</a><a href="privacy-policy.html">Aviso de privacidad · Extensión SAT</a></div></div>
+        <div class="footer-links"><div><strong>Explora</strong><a href="#producto">Producto</a><a href="#novedades">Lo nuevo</a><a href="#seguridad">Tus datos</a><a href="#planes">Planes</a></div><div><strong>Contacto</strong><a href="mailto:contacto@monvel.mx">contacto@monvel.mx</a><a href="https://wa.me/522201207439" target="_blank" rel="noopener">WhatsApp</a><a href="#demo">Demostración</a></div><div><strong>Acceso</strong><a href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Aula Virtual</a><a href="#preguntas">Preguntas</a><a href="#privacidad">Aviso de privacidad</a><a href="privacy-policy.html">Aviso de la extensión para el SAT</a></div></div>
       </div>
       <div class="copyright"><span>© 2026 Monvel. Todos los derechos reservados.</span><span>Hecho para despachos mexicanos.</span></div>
     </div>
   </footer>
 
-  <a class="wa" href="https://wa.me/525941350096?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20de%20Monvel" target="_blank" rel="noopener">Hablar con Monvel</a>
+  <a class="wa" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20de%20Monvel" target="_blank" rel="noopener">Hablar con Monvel</a>
 
   <script type="application/ld+json">
   {
@@ -904,7 +977,7 @@
     "applicationCategory": "BusinessApplication",
     "applicationSubCategory": "Software contable y fiscal para despachos",
     "operatingSystem": "Windows 10 (versión 2004 o posterior) y Windows 11; los usuarios entran desde el navegador",
-    "softwareVersion": "1.0.30",
+    "softwareVersion": "1.0.40",
     "inLanguage": "es-MX",
     "url": "https://monvel.mx/",
     "image": "https://monvel.mx/og-image.png",

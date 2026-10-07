@@ -16,6 +16,16 @@
     table { border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14px; }
     th, td { border: 1px solid #ddd; padding: 9px 12px; text-align: left; vertical-align: top; }
     th { background: #f5f0f1; color: #571320; }
+    /* Celular: las tablas de 4 columnas y las URLs largas desbordaban ~194 px.
+       Las palabras largas se parten y, si aun asi no cabe, la tabla se desplaza
+       sola en horizontal en vez de empujar toda la pagina. */
+    p, li, code, kbd { overflow-wrap: anywhere; }
+    td, th { overflow-wrap: break-word; }
+    @media (max-width: 600px) {
+      body { margin: 18px auto; padding: 0 14px; }
+      table { display: block; overflow-x: auto; font-size: 13px; }
+      th, td { padding: 7px 8px; }
+    }
     .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
     .badge-ok { background: #E8F5E9; color: #1B5E20; }
     .badge-no { background: #FFEBEE; color: #8E1212; }
@@ -165,7 +175,7 @@
   <p>
     Despacho Monvel<br>
     Correo: <code>contabilidad.fac2225@gmail.com</code><br>
-    Teléfono: 594 135 00 96<br>
+    Teléfono: 220 120 74 39<br>
     Sistema: <code>Monvel · Sistema CFDI</code>
   </p>
 
