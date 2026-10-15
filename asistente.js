@@ -201,7 +201,7 @@
     nombre: [],
     despacho: ['Trabajo por mi cuenta'],
     clientes: ['1 a 10', '11 a 30', '31 a 100', 'Más de 100'],
-    busca: ['Una presentación o demostración', 'Probarlo en el Aula Virtual', 'Conocer precios y planes', 'Migrar de CONTPAQi', 'Migrar de otro sistema', 'Otra cosa'],
+    busca: ['Resolver dudas', 'Probarlo en el Aula Virtual', 'Conocer precios y planes', 'Migrar de CONTPAQi', 'Migrar de otro sistema', 'Otra cosa'],
     conocio: ['Google', 'Facebook o Instagram', 'LinkedIn', 'Me lo recomendó un colega', 'Un evento o curso', 'Otro'],
     nota: ['No, es todo']
   };
@@ -212,7 +212,7 @@
   // Lo que cada botón de la página ya dice del interés del visitante.
   var CONTEXTO = {
     'plan-basico': 'El plan Básico', 'plan-profesional': 'El plan Profesional', 'plan-plus': 'El plan Despacho Plus',
-    'demo': 'Una presentación o demostración'
+    'demo': 'Resolver dudas'
   };
 
   var estado = { iniciado: false, paso: -1, campos: {}, conv: [], boton: 'fab', hrefOriginal: '', folio: '', listo: false, ocupado: false, iaUsada: false, iaNueva: true, consentimiento: false, guardado: false };
