@@ -518,6 +518,57 @@
       .wa::after { content: "WA"; font-size: .68rem; }
     }
 
+    /* Chat de bienvenida (Velia) · LEADS 14-oct-2026. Lo arma asistente.js. */
+    .mvc { position: fixed; right: 18px; bottom: 18px; z-index: 60; width: min(390px, calc(100vw - 36px)); height: min(600px, calc(100vh - 36px)); display: flex; flex-direction: column; color: var(--ink); background: var(--paper); border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(37,6,14,.32); }
+    .mvc[hidden] { display: none; }
+    .mvc-cab { display: flex; align-items: center; gap: 11px; padding: 11px 12px 11px 14px; color: white; background: var(--wine-deep); border-bottom: 2px solid var(--brass); }
+    .mvc-cab img { width: 34px; height: 34px; }
+    .mvc-tit { display: flex; flex-direction: column; line-height: 1.2; }
+    .mvc-tit strong { font-size: .95rem; letter-spacing: .02em; }
+    .mvc-tit small { color: var(--brass-light); font-family: "IBM Plex Mono", monospace; font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; }
+    .mvc-cerrar { margin-left: auto; width: 44px; height: 44px; color: white; background: transparent; border: 1px solid rgba(255,255,255,.3); font-size: 1.4rem; line-height: 1; cursor: pointer; }
+    .mvc-cerrar:hover { background: rgba(255,255,255,.1); }
+    .mvc-log { flex: 1; overflow-y: auto; padding: 14px 14px 6px; background: var(--ivory); overscroll-behavior: contain; }
+    .mvc-b { max-width: 88%; margin: 0 0 9px; padding: 9px 12px; font-size: .84rem; line-height: 1.5; white-space: pre-line; overflow-wrap: anywhere; }
+    .mvc-m { color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-left: 3px solid var(--brass); }
+    .mvc-v { margin-left: auto; color: white; background: var(--wine); }
+    .mvc-legal { color: var(--muted); font-size: .74rem; border-left-color: var(--line); }
+    .mvc-legal a, .mvc-pie a { color: var(--wine); }
+    .mvc-puntos { display: inline-flex; gap: 5px; }
+    .mvc-puntos span { width: 7px; height: 7px; border-radius: 50%; background: var(--brass); animation: mvc-p 1s infinite ease-in-out; }
+    .mvc-puntos span:nth-child(2) { animation-delay: .15s; } .mvc-puntos span:nth-child(3) { animation-delay: .3s; }
+    @keyframes mvc-p { 0%, 80%, 100% { opacity: .3; } 40% { opacity: 1; } }
+    .mvc-chips { display: flex; flex-wrap: wrap; gap: 7px; padding: 8px 14px 4px; background: var(--ivory); }
+    .mvc-chips:empty { display: none; }
+    .mvc-chip { min-height: 38px; padding: 6px 12px; color: var(--wine); background: var(--paper); border: 1px solid rgba(101,23,42,.38); border-radius: 2px; font-size: .78rem; font-weight: 600; cursor: pointer; text-align: left; }
+    .mvc-chip:hover { background: var(--brass-light); border-color: var(--brass); }
+    .mvc-chip-oro { color: var(--wine-deep); background: var(--brass); border-color: var(--brass); }
+    .mvc-chip:disabled, .mvc-enviar:disabled { opacity: .5; cursor: default; }
+    .mvc-form { display: flex; gap: 8px; padding: 10px 14px; background: var(--paper); border-top: 1px solid var(--line); }
+    .mvc-form[hidden] { display: none; }
+    .mvc-form input { flex: 1; min-width: 0; min-height: 44px; padding: 0 12px; color: var(--ink); background: white; border: 1px solid rgba(101,23,42,.3); border-radius: 2px; font: inherit; font-size: 16px; }
+    .mvc-form input:focus { outline: 2px solid var(--brass); outline-offset: 0; border-color: var(--brass); }
+    .mvc-enviar { min-height: 44px; padding: 0 16px; color: white; background: var(--wine); border: 0; border-radius: 2px; font-size: .8rem; font-weight: 700; cursor: pointer; }
+    .mvc-pie { margin: 0; padding: 6px 14px 9px; color: var(--muted); background: var(--paper); font-size: .68rem; line-height: 1.4; }
+    .mvc-resumen { margin: 4px 0 10px; padding: 12px; background: var(--paper); border: 1px solid var(--brass); }
+    .mvc-resumen div { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; border-bottom: 1px dashed var(--line); font-size: .78rem; }
+    .mvc-resumen span { color: var(--muted); }
+    .mvc-resumen b { text-align: right; overflow-wrap: anywhere; }
+    .mvc-wa { display: flex; align-items: center; justify-content: center; min-height: 48px; margin-top: 12px; color: white; background: #167a4e; text-decoration: none; font-size: .85rem; font-weight: 700; }
+    .mvc-wa:hover { background: #12643f; }
+    html.mvc-abierto .wa { display: none; }
+    /* Aviso discreto de la analítica propia (una vez por navegador). */
+    .mv-aviso { position: fixed; left: 18px; bottom: 18px; z-index: 39; max-width: min(420px, calc(100vw - 100px)); display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 9px 12px; color: var(--ink); background: var(--paper); border: 1px solid var(--line); border-left: 3px solid var(--brass); box-shadow: 0 10px 26px rgba(37,6,14,.14); font-size: .72rem; line-height: 1.45; }
+    .mv-aviso a { color: var(--wine); font-weight: 600; }
+    .mv-aviso button { margin-left: auto; min-height: 32px; padding: 0 10px; color: var(--wine); background: transparent; border: 1px solid rgba(101,23,42,.35); border-radius: 2px; font-size: .7rem; font-weight: 700; cursor: pointer; }
+    html.mvc-abierto .mv-aviso { display: none; }
+    @media (max-width: 560px) {
+      .mvc { right: 0; bottom: 0; width: 100vw; height: 100%; max-height: 100dvh; border: 0; }
+      html.mvc-abierto, html.mvc-abierto body { overflow: hidden; }
+      .mv-aviso { left: 10px; bottom: 10px; max-width: calc(100vw - 80px); }
+    }
+    @media (prefers-reduced-motion: reduce) { .mvc-puntos span { animation: none; opacity: .7; } }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition: none !important; }
@@ -838,9 +889,9 @@
         <div class="heading-row"><h2>Todas las funciones. <span>Elige la capacidad.</span></h2><p>Sin módulos que se cobran aparte y sin cobro por usuario: da de alta a todo tu equipo en cualquier plan. El timbrado va incluido, y la instalación y la migración las hacemos nosotros.</p></div>
         <p class="founder"><b>Generación fundadora:</b> los despachos que entran ahora reciben el doble de timbres (100 / 400 / 1,000) y conservan ese beneficio al renovar.</p>
         <div class="pricing-grid">
-          <article class="plan"><span class="folio">FOLIO · P-01</span><div class="plan-name">Básico</div><div class="price">$299</div><p>MXN al mes · 10 RFC · usuarios sin límite</p><p class="annual">o $2,990 al año: 2 meses sin costo</p><div class="stamps">50 timbres al mes<small>Generación fundadora: 100 al mes</small>75 consultas a Velia al mes</div><div class="features"><span>Todas las funciones contables y fiscales</span><span>Descarga del SAT y facturación</span><span>Contabilidad electrónica y nómina</span><span>Instalación y migración incluidas</span></div><a class="button outline" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20el%20plan%20B%C3%A1sico%20de%20Monvel" target="_blank" rel="noopener">Quiero el Básico →</a></article>
-          <article class="plan featured"><span class="recommended">Recomendado</span><span class="folio">FOLIO · P-02</span><div class="plan-name">Profesional</div><div class="price">$599</div><p>MXN al mes · 30 RFC · usuarios sin límite</p><p class="annual">o $5,990 al año: 2 meses sin costo</p><div class="stamps">200 timbres al mes<small>Generación fundadora: 400 al mes</small>150 consultas a Velia al mes</div><div class="features"><span>Todo lo del plan Básico</span><span>Tres veces los RFC</span><span>Cuatro veces los timbres</span><span>El doble de consultas a Velia</span></div><a class="button outline" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20el%20plan%20Profesional%20de%20Monvel" target="_blank" rel="noopener">Quiero el Profesional →</a></article>
-          <article class="plan"><span class="folio">FOLIO · P-03</span><div class="plan-name">Despacho Plus</div><div class="price">$999</div><p>MXN al mes · RFC y usuarios sin límite</p><p class="annual">o $9,990 al año: 2 meses sin costo</p><div class="stamps">500 timbres al mes<small>Generación fundadora: 1,000 al mes</small>250 consultas a Velia al mes</div><div class="features"><span>Todo lo del Profesional</span><span>RFC sin límite</span><span>Correos de avisos desde tu propio dominio</span><span>Reportes y correos sin el crédito de Monvel</span></div><a class="button outline" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20el%20plan%20Despacho%20Plus%20de%20Monvel" target="_blank" rel="noopener">Quiero el Despacho Plus →</a></article>
+          <article class="plan"><span class="folio">FOLIO · P-01</span><div class="plan-name">Básico</div><div class="price">$299</div><p>MXN al mes · 10 RFC · usuarios sin límite</p><p class="annual">o $2,990 al año: 2 meses sin costo</p><div class="stamps">50 timbres al mes<small>Generación fundadora: 100 al mes</small>75 consultas a Velia al mes</div><div class="features"><span>Todas las funciones contables y fiscales</span><span>Descarga del SAT y facturación</span><span>Contabilidad electrónica y nómina</span><span>Instalación y migración incluidas</span></div><a class="button outline" data-clic="plan-basico" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20el%20plan%20B%C3%A1sico%20de%20Monvel" target="_blank" rel="noopener">Quiero el Básico →</a></article>
+          <article class="plan featured"><span class="recommended">Recomendado</span><span class="folio">FOLIO · P-02</span><div class="plan-name">Profesional</div><div class="price">$599</div><p>MXN al mes · 30 RFC · usuarios sin límite</p><p class="annual">o $5,990 al año: 2 meses sin costo</p><div class="stamps">200 timbres al mes<small>Generación fundadora: 400 al mes</small>150 consultas a Velia al mes</div><div class="features"><span>Todo lo del plan Básico</span><span>Tres veces los RFC</span><span>Cuatro veces los timbres</span><span>El doble de consultas a Velia</span></div><a class="button outline" data-clic="plan-profesional" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20el%20plan%20Profesional%20de%20Monvel" target="_blank" rel="noopener">Quiero el Profesional →</a></article>
+          <article class="plan"><span class="folio">FOLIO · P-03</span><div class="plan-name">Despacho Plus</div><div class="price">$999</div><p>MXN al mes · RFC y usuarios sin límite</p><p class="annual">o $9,990 al año: 2 meses sin costo</p><div class="stamps">500 timbres al mes<small>Generación fundadora: 1,000 al mes</small>250 consultas a Velia al mes</div><div class="features"><span>Todo lo del Profesional</span><span>RFC sin límite</span><span>Correos de avisos desde tu propio dominio</span><span>Reportes y correos sin el crédito de Monvel</span></div><a class="button outline" data-clic="plan-plus" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20el%20plan%20Despacho%20Plus%20de%20Monvel" target="_blank" rel="noopener">Quiero el Despacho Plus →</a></article>
         </div>
         <p class="pricing-note">Precios en pesos mexicanos, IVA no incluido. Los timbres sirven igual para facturas, complementos de pago y recibos de nómina. Si se te acaban, tu facturación sigue: los adicionales se cuentan y se cobran aparte, y Monvel te avisa al llegar al 80 % y al 100 % de tu cuota. Las consultas a Velia se renuevan el día 1 de cada mes. <a href="#privacidad">Condiciones completas</a>.</p>
       </div>
@@ -872,7 +923,7 @@
           <h2>Velo con los casos <span>de tu despacho.</span></h2>
           <p>Una demostración en vivo, sin presentación de ventas: abrimos Monvel y recorremos el mes de un cliente como el tuyo: la descarga del SAT, la clasificación, la factura, las pólizas, la conciliación y la declaración. Si después quieres probarlo por tu cuenta, el Aula Virtual queda abierta.</p>
           <div class="demo-actions">
-            <a class="button gold" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20una%20demostraci%C3%B3n%20de%20Monvel" target="_blank" rel="noopener">Escribir por WhatsApp →</a>
+            <a class="button gold" data-clic="demo" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20una%20demostraci%C3%B3n%20de%20Monvel" target="_blank" rel="noopener">Escribir por WhatsApp →</a>
             <a class="button ghost" href="mailto:contacto@monvel.mx?subject=Demostraci%C3%B3n%20de%20Monvel">contacto@monvel.mx</a>
           </div>
         </div>
@@ -896,7 +947,7 @@
         <div class="label" data-number="14">Aviso de privacidad</div>
         <div class="heading-row"><h2>Qué se queda en tu despacho <span>y qué sale, dicho completo.</span></h2><p>Aquí está, sin resumir, lo que Monvel hace con la información: lo que vive en tu servidor, lo que llega a Monvel, lo que va al SAT y al proveedor de certificación, y lo que usa Velia. Es lo mismo que ves dentro del sistema en Configuración → «Qué datos viajan».</p></div>
         <div class="privacy-body">
-          <p class="privacy-meta">Responsable: Monvel · <a href="mailto:contacto@monvel.mx">contacto@monvel.mx</a> · Última actualización: 26 de septiembre de 2026 · Aplica al software Monvel, a monvel.mx y al Aula Virtual. La extensión para el portal del SAT tiene <a href="privacy-policy.html">su propio aviso</a>.</p>
+          <p class="privacy-meta">Responsable: Monvel · <a href="mailto:contacto@monvel.mx">contacto@monvel.mx</a> · Última actualización: 14 de octubre de 2026 · Aplica al software Monvel, a monvel.mx y al Aula Virtual. La extensión para el portal del SAT tiene <a href="privacy-policy.html">su propio aviso</a>.</p>
           <div class="privacy-lead"><p><strong>En corto.</strong> Monvel se instala en un equipo de tu despacho. Los XML, las pólizas, los expedientes, los estados de cuenta y las credenciales de tus clientes viven ahí, y Monvel no tiene una puerta para entrar a esa base. Lo único que sale de tu servidor es lo que se describe en esta página; casi todo, con un clic tuyo de por medio.</p></div>
 
           <h3>1. Lo que se queda en tu despacho, y de quién es</h3>
@@ -941,7 +992,8 @@
           <h3>6. El Aula Virtual y este sitio</h3>
           <ul>
             <li><strong>Aula Virtual.</strong> Al registrarte guardamos tu nombre, tu correo y el nombre de tu despacho para mandarte tus accesos y ponernos en contacto contigo. El Aula es un espacio compartido de práctica con datos de ejemplo que se reinicia cada noche; lo que se capture ahí pueden verlo otros visitantes, así que no captures información real de tus clientes.</li>
-            <li><strong>monvel.mx.</strong> Este sitio está alojado en Cloudflare Pages y carga sus tipografías desde Google Fonts; no tiene analíticas, cookies de seguimiento ni formularios que guarden datos. Si nos escribes por correo o WhatsApp, usamos lo que nos mandes sólo para contestarte.</li>
+            <li><strong>monvel.mx.</strong> Este sitio está alojado en Cloudflare Pages (Estados Unidos, red global) y carga sus tipografías desde Google Fonts. No usa cookies ni identifica tu equipo con una huella digital. Medimos las visitas de dos formas. Una es Cloudflare Web Analytics, que cuenta visitas, páginas, país, tipo de equipo y sitio de procedencia, siempre en conjunto. La otra es una analítica propia que registra el recorrido de cada visita, sin saber quién eres: el sitio del que llegaste y la campaña del enlace si la trae; el país y la ciudad aproximados que da la red (tu dirección IP no se guarda); el tipo de equipo, su sistema y su navegador a grandes rasgos; las secciones que viste, cuánto tiempo estuviste en cada una y hasta dónde bajaste; los botones que tocaste, y si abriste el chat. Cada visita se identifica con un número al azar que vive en esa pestaña del navegador y se olvida al cerrarla, así que no te seguimos entre visitas ni entre equipos. Esta medición no se envía si tu navegador tiene activada la opción «no rastrear» (GPC o DNT). Los recorridos se guardan 12 meses y después se borran solos.</li>
+            <li id="privacidad-chat"><strong>El chat de bienvenida.</strong> Antes de pasarte a WhatsApp, Velia te pregunta tu nombre, el nombre de tu despacho o empresa, cuántos clientes o RFC llevas, qué buscas de Monvel, cómo nos conociste y, si quieres, algo más. Guardamos esas respuestas, lo que escribas en el chat, un folio y la fecha. Al terminar, el recorrido de tu visita deja de ser anónimo: queda ligado a tu folio, para saber qué te interesó de la página. Usamos estos datos para atenderte: reconocer tu mensaje cuando nos escribas, preparar la presentación o la demostración que pediste y darte seguimiento comercial. Se guardan en Cloudflare durante 12 meses y después se borran solos. Cuando está disponible, Velia usa inteligencia artificial para entender lo que escribes y contestar tus dudas: el texto del chat y tus respuestas anteriores se envían a Anthropic (Estados Unidos); si no está disponible, el chat sigue con preguntas fijas. Al tocar «Enviar por WhatsApp» se abre WhatsApp (Meta) con tus respuestas ya escritas, y el mensaje sólo sale si tú lo envías. No escribas en el chat contraseñas, RFC ni datos de tus clientes: no hacen falta. Puedes pedir que borremos tus respuestas y tu recorrido escribiendo a contacto@monvel.mx con tu folio.</li>
           </ul>
 
           <h3>7. Tus derechos</h3>
@@ -961,13 +1013,13 @@
     <div class="wrap">
       <div class="footer-grid">
         <div><a class="brand" href="#inicio"><img src="logo-monvel-mark-48.png" srcset="logo-monvel-mark-72.png 1.5x, logo-monvel-mark-96.png 2x, logo-monvel-mark-144.png 3x" width="48" height="48" alt="Logo de Monvel" /><span class="brand-copy"><strong>MONVEL</strong><small>software fiscal</small></span></a><p class="footer-copy">Software contable, fiscal y de nómina para despachos en México. Instalado en tu servidor.</p></div>
-        <div class="footer-links"><div><strong>Explora</strong><a href="#producto">Producto</a><a href="#novedades">Lo nuevo</a><a href="#seguridad">Tus datos</a><a href="#planes">Planes</a></div><div><strong>Contacto</strong><a href="mailto:contacto@monvel.mx">contacto@monvel.mx</a><a href="https://wa.me/522201207439" target="_blank" rel="noopener">WhatsApp</a><a href="#demo">Demostración</a></div><div><strong>Acceso</strong><a href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Aula Virtual</a><a href="#preguntas">Preguntas</a><a href="#privacidad">Aviso de privacidad</a><a href="privacy-policy.html">Aviso de la extensión para el SAT</a></div></div>
+        <div class="footer-links"><div><strong>Explora</strong><a href="#producto">Producto</a><a href="#novedades">Lo nuevo</a><a href="#seguridad">Tus datos</a><a href="#planes">Planes</a></div><div><strong>Contacto</strong><a href="mailto:contacto@monvel.mx">contacto@monvel.mx</a><a data-clic="pie" href="https://wa.me/522201207439" target="_blank" rel="noopener">WhatsApp</a><a href="#demo">Demostración</a></div><div><strong>Acceso</strong><a href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Aula Virtual</a><a href="#preguntas">Preguntas</a><a href="#privacidad">Aviso de privacidad</a><a href="privacy-policy.html">Aviso de la extensión para el SAT</a></div></div>
       </div>
       <div class="copyright"><span>© 2026 Monvel. Todos los derechos reservados.</span><span>Hecho para despachos mexicanos.</span></div>
     </div>
   </footer>
 
-  <a class="wa" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20de%20Monvel" target="_blank" rel="noopener">Hablar con Monvel</a>
+  <a class="wa" data-clic="fab" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20de%20Monvel" target="_blank" rel="noopener">Hablar con Monvel</a>
 
   <script type="application/ld+json">
   {
@@ -1042,5 +1094,6 @@
       });
     });
   </script>
+  <script src="asistente.js" defer></script>
 </body>
 </html>
