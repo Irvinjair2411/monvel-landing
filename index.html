@@ -374,7 +374,30 @@
     .featured .features span::before { color: var(--brass-light); }
     .plan .button { width: 100%; margin-top: auto; }
     .featured .button.outline { color: var(--wine-deep); background: var(--brass); border-color: var(--brass); }
+    .plan .plan-founder { margin: 8px 0 0; font-family: "IBM Plex Mono", monospace; font-size: .68rem; }
+    .plan-founder a { color: var(--wine); font-weight: 600; }
     .pricing-note { max-width: 900px; margin: 26px auto 0; color: var(--muted); text-align: center; font-size: .78rem; }
+
+    /* ── Despachos fundadores (FUND43, 15-oct-2026) ───────────── */
+    .founders { color: white; background: var(--wine-dark); }
+    .founders h2 { color: white; }
+    .founders .heading-row p { color: rgba(255,255,255,.7); }
+    .founders-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; margin-top: 58px; background: rgba(255,255,255,.13); border: 1px solid rgba(255,255,255,.13); }
+    .founders-card { padding: 26px 24px; background: var(--wine-dark); }
+    .founders-card small { color: var(--brass-light); font-family: "IBM Plex Mono", monospace; font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; }
+    .founders-card h3 { margin: 14px 0 8px; font-size: 1.06rem; font-weight: 650; line-height: 1.35; }
+    .founders-card p { margin: 0; color: rgba(255,255,255,.7); font-size: .84rem; line-height: 1.6; }
+    .founders-card.custom { background: var(--wine-deep); box-shadow: inset 3px 0 0 var(--brass); }
+    .founders-card.custom p { margin-top: 14px; color: rgba(255,255,255,.86); }
+    .founders-deal { display: grid; grid-template-columns: 1.25fr .75fr; gap: 48px; align-items: center; margin-top: 40px; padding: 34px 36px; border: 1px solid rgba(214,169,68,.34); background: rgba(214,169,68,.07); }
+    .founders-deal h3 { margin: 0 0 10px; color: var(--brass-light); font-size: 1.15rem; font-weight: 650; }
+    .founders-deal p { margin: 0; color: rgba(255,255,255,.78); font-size: .9rem; }
+    .founders-deal p + p { margin-top: 12px; color: white; font-weight: 600; }
+    .founders-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-bottom: 18px; background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.14); }
+    .founders-facts span:first-child { grid-column: 1 / -1; }
+    .founders-facts span { padding: 12px 14px; background: var(--wine-dark); font-size: .86rem; }
+    .founders-facts b { display: block; margin-bottom: 4px; color: var(--brass-light); font-family: "IBM Plex Mono", monospace; font-size: .62rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .founders-cta .button { width: 100%; }
 
     /* ── Preguntas ────────────────────────────────────────────── */
     .faq { background: var(--ivory); }
@@ -461,6 +484,8 @@
       .plan.featured { transform: none; }
       .faq-layout { grid-template-columns: 1fr; gap: 46px; }
       .faq-intro { position: static; }
+      .founders-grid { grid-template-columns: 1fr 1fr; }
+      .founders-deal { grid-template-columns: 1fr; gap: 26px; }
       .closing-inner { grid-template-columns: 1fr; gap: 55px; }
     }
 
@@ -484,7 +509,9 @@
       .hero-stats span { margin-top: 0; }
       .replacement-inner { padding: 22px 0; align-items: flex-start; flex-direction: column; gap: 14px; }
       .heading-row { grid-template-columns: 1fr; gap: 18px; }
-      .process-grid, .module-grid, .local-grid, .trust-grid, .all-grid, .news-grid, .release-grid { grid-template-columns: 1fr; }
+      .process-grid, .module-grid, .local-grid, .trust-grid, .all-grid, .news-grid, .release-grid, .founders-grid { grid-template-columns: 1fr; }
+      .founders-card { padding: 22px; }
+      .founders-deal { padding: 26px 22px; }
       .all-block { padding: 24px 22px; }
       .process-card { min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); }
       .process-card:last-child { border-bottom: 0; }
@@ -593,7 +620,7 @@
   </header>
 
   <nav class="mobile-panel" id="mobilePanel" aria-label="Navegación móvil">
-    <a href="#producto">Producto <span>01</span></a><a href="#pantallas">Así se ve <span>02</span></a><a href="#seguridad">Tus datos <span>03</span></a><a href="#novedades">Lo nuevo <span>04</span></a><a href="#modulos">Qué cubre <span>05</span></a><a href="#velia">Velia <span>07</span></a><a href="#versiones">Cada versión <span>09</span></a><a href="#comparacion">Comparación <span>10</span></a><a href="#planes">Planes <span>12</span></a><a href="#preguntas">Preguntas <span>13</span></a>
+    <a href="#producto">Producto <span>01</span></a><a href="#pantallas">Así se ve <span>02</span></a><a href="#seguridad">Tus datos <span>03</span></a><a href="#novedades">Lo nuevo <span>04</span></a><a href="#modulos">Qué cubre <span>05</span></a><a href="#velia">Velia <span>07</span></a><a href="#versiones">Cada versión <span>09</span></a><a href="#comparacion">Comparación <span>10</span></a><a href="#planes">Planes <span>12</span></a><a href="#fundadores">Despachos fundadores <span>13</span></a><a href="#preguntas">Preguntas <span>14</span></a>
     <a class="button wine" href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Pruébalo en el Aula Virtual →</a>
   </nav>
 
@@ -889,7 +916,7 @@
         <div class="heading-row"><h2>Todas las funciones. <span>Elige la capacidad.</span></h2><p>Sin módulos que se cobran aparte y sin cobro por usuario: da de alta a todo tu equipo en cualquier plan. El timbrado va incluido, y la instalación y la migración las hacemos nosotros.</p></div>
         <p class="founder"><b>Generación fundadora:</b> los despachos que entran ahora reciben el doble de timbres (100 / 400 / 1,000) y conservan ese beneficio al renovar.</p>
         <div class="pricing-grid">
-          <article class="plan"><span class="folio">FOLIO · P-01</span><div class="plan-name">Básico</div><div class="price">$299</div><p>MXN al mes · 10 RFC · usuarios sin límite</p><p class="annual">o $2,990 al año: 2 meses sin costo</p><div class="stamps">50 timbres al mes<small>Generación fundadora: 100 al mes</small>75 consultas a Velia al mes</div><div class="features"><span>Todas las funciones contables y fiscales</span><span>Descarga del SAT y facturación</span><span>Contabilidad electrónica y nómina</span><span>Instalación y migración incluidas</span></div><a class="button outline" data-clic="plan-basico" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20el%20plan%20B%C3%A1sico%20de%20Monvel" target="_blank" rel="noopener">Quiero el Básico →</a></article>
+          <article class="plan"><span class="folio">FOLIO · P-01</span><div class="plan-name">Básico</div><div class="price">$299</div><p>MXN al mes · 10 RFC · usuarios sin límite</p><p class="annual">o $2,990 al año: 2 meses sin costo</p><p class="plan-founder"><a href="#fundadores">Disponible como despacho fundador →</a></p><div class="stamps">50 timbres al mes<small>Generación fundadora: 100 al mes</small>75 consultas a Velia al mes</div><div class="features"><span>Todas las funciones contables y fiscales</span><span>Descarga del SAT y facturación</span><span>Contabilidad electrónica y nómina</span><span>Instalación y migración incluidas</span></div><a class="button outline" data-clic="plan-basico" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20el%20plan%20B%C3%A1sico%20de%20Monvel" target="_blank" rel="noopener">Quiero el Básico →</a></article>
           <article class="plan featured"><span class="recommended">Recomendado</span><span class="folio">FOLIO · P-02</span><div class="plan-name">Profesional</div><div class="price">$599</div><p>MXN al mes · 30 RFC · usuarios sin límite</p><p class="annual">o $5,990 al año: 2 meses sin costo</p><div class="stamps">200 timbres al mes<small>Generación fundadora: 400 al mes</small>150 consultas a Velia al mes</div><div class="features"><span>Todo lo del plan Básico</span><span>Tres veces los RFC</span><span>Cuatro veces los timbres</span><span>El doble de consultas a Velia</span></div><a class="button outline" data-clic="plan-profesional" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20el%20plan%20Profesional%20de%20Monvel" target="_blank" rel="noopener">Quiero el Profesional →</a></article>
           <article class="plan"><span class="folio">FOLIO · P-03</span><div class="plan-name">Despacho Plus</div><div class="price">$999</div><p>MXN al mes · RFC y usuarios sin límite</p><p class="annual">o $9,990 al año: 2 meses sin costo</p><div class="stamps">500 timbres al mes<small>Generación fundadora: 1,000 al mes</small>250 consultas a Velia al mes</div><div class="features"><span>Todo lo del Profesional</span><span>RFC sin límite</span><span>Correos de avisos desde tu propio dominio</span><span>Reportes y correos sin el crédito de Monvel</span></div><a class="button outline" data-clic="plan-plus" href="https://wa.me/522201207439?text=Hola%2C%20me%20interesa%20el%20plan%20Despacho%20Plus%20de%20Monvel" target="_blank" rel="noopener">Quiero el Despacho Plus →</a></article>
         </div>
@@ -897,9 +924,37 @@
       </div>
     </section>
 
+    <section class="section founders" id="fundadores">
+      <div class="wrap">
+        <div class="label light" data-number="13">Despachos fundadores</div>
+        <div class="heading-row"><h2>Sé parte de la historia <span>de Monvel.</span></h2><p>Invitamos a un grupo de despachos a construir Monvel con nosotros: lo usan con sus clientes, nos cuentan qué mejorar y lo hacemos crecer juntos. El programa es para el plan Básico, va de hoy a enero de 2027 y tiene cupo limitado.</p></div>
+        <div class="founders-grid">
+          <article class="founders-card"><small>01</small><h3>Dos meses sin costo</h3><p>Noviembre y diciembre de 2026, con todo incluido.</p></article>
+          <article class="founders-card"><small>02</small><h3>Tu precio de fundador, congelado</h3><p>Desde enero de 2027 pagas el plan Básico a $299 + IVA al mes, y ese precio se queda así mientras sigas con Monvel.</p></article>
+          <article class="founders-card"><small>03</small><h3>100 timbres al mes</h3><p>El doble de los que trae el plan Básico.</p></article>
+          <article class="founders-card"><small>04</small><h3>Arrancamos contigo</h3><p>La instalación, el alta de tus clientes y la capacitación de tu equipo corren por nuestra cuenta.</p></article>
+          <article class="founders-card"><small>05</small><h3>Acceso anticipado</h3><p>Pruebas cada versión nueva antes que los demás despachos.</p></article>
+          <article class="founders-card"><small>06</small><h3>Soporte directo por WhatsApp</h3><p>Hablas directo con quienes hacemos Monvel.</p></article>
+          <article class="founders-card"><small>07</small><h3>Un mes gratis por recomendación</h3><p>Por cada contador que nos recomiendes y contrate Monvel.</p></article>
+          <article class="founders-card custom"><small>A la medida</small><p>Beneficios a la medida de tu despacho: según lo que aportes, podemos sumar Monvel con el logo de tu despacho y tu propia dirección, tudespacho.monvel.mx, para entrar desde cualquier parte de México.</p></article>
+        </div>
+        <div class="founders-deal">
+          <div>
+            <h3>Lo que te pedimos a cambio</h3>
+            <p>Durante noviembre y diciembre, cada semana nos cuentas tu experiencia: qué se te dificulta y qué mejoras te gustarían.</p>
+            <p>Con tu ayuda queremos crear la plataforma de contabilidad inteligente más completa que necesitan los contadores y despachos de México.</p>
+          </div>
+          <div class="founders-cta">
+            <div class="founders-facts"><span><b>Plan</b>Básico · $299 + IVA al mes desde enero de 2027</span><span><b>Periodo</b>De hoy a enero de 2027</span><span><b>Cupo</b>Limitado</span></div>
+            <a class="button gold" data-clic="fundador" href="https://wa.me/522201207439?text=Hola%2C%20quiero%20ser%20despacho%20fundador%20de%20Monvel" target="_blank" rel="noopener">Quiero ser despacho fundador →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section faq" id="preguntas">
       <div class="wrap faq-layout">
-        <div class="faq-intro"><div class="label" data-number="13">Preguntas frecuentes</div><h2>Lo importante, <span>antes de decidir.</span></h2><p>Respuestas directas sobre dónde viven los datos, qué pasa si algo falla, la instalación, la migración, el timbrado y la nómina.</p></div>
+        <div class="faq-intro"><div class="label" data-number="14">Preguntas frecuentes</div><h2>Lo importante, <span>antes de decidir.</span></h2><p>Respuestas directas sobre dónde viven los datos, qué pasa si algo falla, la instalación, la migración, el timbrado y la nómina.</p></div>
         <div class="faq-list">
           <details open><summary><small>01</small><strong>¿Los datos de mis clientes salen de mi despacho?</strong></summary><p>Tu contabilidad no: los XML, las pólizas, los estados financieros y las credenciales viven en el equipo donde se instala Monvel, que es tuyo. Lo que sí sale está declarado dentro del sistema, en Configuración → «Qué datos viajan», y explicado en nuestro <a href="#privacidad">aviso de privacidad</a>: cada factura que timbras va al proveedor de certificación, que es como funciona el timbrado ante el SAT; la descarga y las consultas van directo al SAT; y a Monvel llegan el RFC y la razón social de los clientes que das de alta para timbrar, más una señal diaria con puros números. Si usas a Velia, viaja lo que le escribes y lo que ella consulta para contestarte.</p></details>
           <details><summary><small>02</small><strong>¿Y si se va la luz o se cae el servidor?</strong></summary><p>Mientras el equipo está apagado, nadie entra a Monvel y no salen avisos. Al volver la luz, Monvel arranca solo como servicio de Windows, sin que nadie inicie sesión, y si el servicio se detiene se reinicia solo. El respaldo diario se guarda en la carpeta que tú elijas y Monvel lo revisa cada día; además, un vigilante revisa cada 15 minutos que el servicio, la base de datos y el respaldo estén en orden, y avisa por correo si algo falla.</p></details>
@@ -1013,7 +1068,7 @@
     <div class="wrap">
       <div class="footer-grid">
         <div><a class="brand" href="#inicio"><img src="logo-monvel-mark-48.png" srcset="logo-monvel-mark-72.png 1.5x, logo-monvel-mark-96.png 2x, logo-monvel-mark-144.png 3x" width="48" height="48" alt="Logo de Monvel" /><span class="brand-copy"><strong>MONVEL</strong><small>software fiscal</small></span></a><p class="footer-copy">Software contable, fiscal y de nómina para despachos en México. Instalado en tu servidor.</p></div>
-        <div class="footer-links"><div><strong>Explora</strong><a href="#producto">Producto</a><a href="#novedades">Lo nuevo</a><a href="#seguridad">Tus datos</a><a href="#planes">Planes</a></div><div><strong>Contacto</strong><a href="mailto:contacto@monvel.mx">contacto@monvel.mx</a><a data-clic="pie" href="https://wa.me/522201207439" target="_blank" rel="noopener">WhatsApp</a><a href="#demo">Resolver dudas</a></div><div><strong>Acceso</strong><a href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Aula Virtual</a><a href="#preguntas">Preguntas</a><a href="#privacidad">Aviso de privacidad</a><a href="privacy-policy.html">Aviso de la extensión para el SAT</a></div></div>
+        <div class="footer-links"><div><strong>Explora</strong><a href="#producto">Producto</a><a href="#novedades">Lo nuevo</a><a href="#seguridad">Tus datos</a><a href="#planes">Planes</a><a href="#fundadores">Despachos fundadores</a></div><div><strong>Contacto</strong><a href="mailto:contacto@monvel.mx">contacto@monvel.mx</a><a data-clic="pie" href="https://wa.me/522201207439" target="_blank" rel="noopener">WhatsApp</a><a href="#demo">Resolver dudas</a></div><div><strong>Acceso</strong><a href="https://aula.monvel.mx/aula/invitado-html" target="_blank" rel="noopener">Aula Virtual</a><a href="#preguntas">Preguntas</a><a href="#privacidad">Aviso de privacidad</a><a href="privacy-policy.html">Aviso de la extensión para el SAT</a></div></div>
       </div>
       <div class="copyright"><span>© 2026 Monvel. Todos los derechos reservados.</span><span>Hecho para despachos mexicanos.</span></div>
     </div>

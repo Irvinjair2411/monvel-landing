@@ -201,7 +201,7 @@
     nombre: [],
     despacho: ['Trabajo por mi cuenta'],
     clientes: ['1 a 10', '11 a 30', '31 a 100', 'Más de 100'],
-    busca: ['Resolver dudas', 'Probarlo en el Aula Virtual', 'Conocer precios y planes', 'Migrar de CONTPAQi', 'Migrar de otro sistema', 'Otra cosa'],
+    busca: ['Resolver dudas', 'Probarlo en el Aula Virtual', 'Conocer precios y planes', 'Ser despacho fundador', 'Migrar de CONTPAQi', 'Migrar de otro sistema', 'Otra cosa'],
     conocio: ['Google', 'Facebook o Instagram', 'LinkedIn', 'Me lo recomendó un colega', 'Un evento o curso', 'Otro'],
     nota: ['No, es todo']
   };
@@ -212,7 +212,8 @@
   // Lo que cada botón de la página ya dice del interés del visitante.
   var CONTEXTO = {
     'plan-basico': 'El plan Básico', 'plan-profesional': 'El plan Profesional', 'plan-plus': 'El plan Despacho Plus',
-    'demo': 'Resolver dudas'
+    'demo': 'Resolver dudas',
+    'fundador': 'Ser despacho fundador' // FUND43: así el prospecto sale marcado en Monvel Central
   };
 
   var estado = { iniciado: false, paso: -1, campos: {}, conv: [], boton: 'fab', hrefOriginal: '', folio: '', listo: false, ocupado: false, iaUsada: false, iaNueva: true, consentimiento: false, guardado: false };
@@ -320,6 +321,10 @@
       estado.hrefOriginal = href || ('https://wa.me/' + WA_NUMERO);
       estado.iniciado = true;
       saludo();
+    } else if (CONTEXTO[boton] && !estado.listo && estado.paso < PASOS.indexOf('busca')) {
+      // Chat ya empezado desde otro botón: si todavía no llega a «qué buscas», manda el interés más reciente.
+      estado.boton = boton;
+      estado.hrefOriginal = href || estado.hrefOriginal;
     }
     ui.raiz.hidden = false;
     document.documentElement.classList.add('mvc-abierto');
@@ -335,7 +340,9 @@
   }
 
   function saludo() {
-    burbuja('m', 'Hola, soy Velia, la asistente de Monvel. Antes de pasarte con Irvin por WhatsApp te hago cinco preguntas rápidas, para que llegues con todo listo y no tengas que repetir nada.');
+    // FUND43: quien llega desde «Quiero ser despacho fundador» ve su motivo desde el saludo.
+    var motivo = estado.boton === 'fundador' ? ' Qué gusto que quieras ser despacho fundador con el plan Básico.' : '';
+    burbuja('m', 'Hola, soy Velia, la asistente de Monvel.' + motivo + ' Antes de pasarte con Irvin por WhatsApp te hago cinco preguntas rápidas, para que llegues con todo listo y no tengas que repetir nada.');
     var nota = burbuja('m', '');
     nota.className += ' mvc-legal';
     nota.appendChild(document.createTextNode('Guardamos tus respuestas para darte seguimiento; cuando está disponible, Velia usa inteligencia artificial para entender lo que escribes. Detalles en el '));
@@ -364,7 +371,12 @@
     var p = PASOS[estado.paso];
     burbuja('m', PREGUNTAS[p](estado.campos));
     var ops = OPCIONES[p].slice();
-    if (p === 'busca' && CONTEXTO[estado.boton] && ops.indexOf(CONTEXTO[estado.boton]) < 0) ops.unshift(CONTEXTO[estado.boton]);
+    // El interés del botón tocado sale primero (si ya estaba en la lista, se sube; no se repite).
+    if (p === 'busca' && CONTEXTO[estado.boton]) {
+      var ya = ops.indexOf(CONTEXTO[estado.boton]);
+      if (ya >= 0) ops.splice(ya, 1);
+      ops.unshift(CONTEXTO[estado.boton]);
+    }
     ponerChips(ops, function (t) { responder(t, true); });
     ui.form.hidden = false;
     ui.input.placeholder = MARCADOR[p];
