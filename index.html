@@ -329,6 +329,14 @@
     .cmp td.yo { color: var(--ink); background: rgba(214,169,68,.13); }
     .cmp tbody tr:last-child th, .cmp tbody tr:last-child td { border-bottom: 0; }
     .cmp-note { margin: 18px 0 0; color: var(--muted); font-size: .8rem; }
+    /* Comparativa con fuente de cada cifra · COMPARA43 15-oct-2026 */
+    .cmp sup.ref { margin-left: 2px; font-family: "IBM Plex Mono", monospace; font-size: .62rem; line-height: 0; }
+    .cmp sup.ref a { color: var(--wine); font-weight: 600; text-decoration: none; }
+    .cmp sup.ref a:hover, .cmp sup.ref a:focus-visible { text-decoration: underline; }
+    .cmp-fuentes { margin: 14px 0 0; padding-left: 22px; color: var(--muted); font-size: .76rem; line-height: 1.55; }
+    .cmp-fuentes li { margin-top: 6px; scroll-margin-top: 90px; }
+    .cmp-fuentes a { color: var(--wine); overflow-wrap: anywhere; }
+    .cmp-fuentes li:target { color: var(--ink); background: rgba(214,169,68,.18); }
 
     /* ── Todo lo que incluye ──────────────────────────────────── */
     .all { color: white; background: var(--wine-dark); }
@@ -837,14 +845,17 @@
     <section class="section compare" id="comparacion">
       <div class="wrap">
         <div class="label" data-number="10">Comparación</div>
-        <div class="heading-row"><h2>En la nube, en cada computadora <span>o en tu servidor.</span></h2><p>Tres formas de trabajar, punto por punto: dónde vive la información, cómo se cobra, qué pasa sin internet y quién hace los respaldos y las actualizaciones.</p></div>
-        <div class="cmp-wrap">
+        <div class="heading-row"><h2>Monvel frente a los sistemas <span>en la nube para despachos.</span></h2><p>Y frente a un programa de escritorio, punto por punto: dónde vive la información, cuánto cuesta, cuántos usuarios entran, la nómina, las declaraciones, qué pasa sin internet y quién hace los respaldos y las actualizaciones.</p></div>
+        <div class="cmp-wrap" id="comparativa">
           <table class="cmp">
-            <caption>Comparación entre un sistema en la nube, un programa de escritorio y Monvel</caption>
+            <caption>Comparación entre un sistema en la nube para despachos, un programa de escritorio y Monvel, con la fuente de cada cifra</caption>
             <thead><tr><th scope="col">Qué comparar</th><th scope="col">Sistema en la nube</th><th scope="col">Programa de escritorio</th><th scope="col" class="yo">Monvel</th></tr></thead>
             <tbody>
               <tr><th scope="row">Dónde vive la información</th><td data-l="Nube">En los servidores del proveedor.</td><td data-l="Escritorio">En cada computadora donde se instala.</td><td data-l="Monvel" class="yo">En un equipo de tu despacho; tu equipo entra desde el navegador.</td></tr>
-              <tr><th scope="row">Cómo se cobra</th><td data-l="Nube">Suele cobrarse por empresa o por usuario.</td><td data-l="Escritorio">Suele cobrarse por empresa, por módulo o por equipo.</td><td data-l="Monvel" class="yo">Una cuota por despacho según cuántos RFC llevas. Los usuarios no se cobran.</td></tr>
+              <tr><th scope="row">Cómo se cobra</th><td data-l="Nube">Suele cobrarse por empresa o por usuario.</td><td data-l="Escritorio">Suele cobrarse por empresa, por módulo o por equipo.</td><td data-l="Monvel" class="yo">Una cuota por despacho según cuántos RFC llevas: $299 al mes con 10 RFC en el plan Básico, con el timbrado incluido.<sup class="ref"><a href="#fuente-1" aria-label="Fuente 1">1</a></sup></td></tr>
+              <tr><th scope="row">Usuarios del despacho</th><td data-l="Nube">Suele haber un número de usuarios por plan; los adicionales se cobran aparte.</td><td data-l="Escritorio">Suele cobrarse por equipo o por usuario.</td><td data-l="Monvel" class="yo">Sin límite en todos los planes: da de alta a todo tu equipo.<sup class="ref"><a href="#fuente-1" aria-label="Fuente 1">1</a></sup></td></tr>
+              <tr><th scope="row">Nómina</th><td data-l="Nube">Depende del sistema: algunos la calculan y otros sólo la timbran.</td><td data-l="Escritorio">Suele ser un programa o un módulo aparte.</td><td data-l="Monvel" class="yo">La calcula y la timbra: ISR y subsidio con las tarifas del Anexo 8 de su periodicidad, constancias y póliza.<sup class="ref"><a href="#fuente-2" aria-label="Fuente 2">2</a></sup></td></tr>
+              <tr><th scope="row">Declaraciones</th><td data-l="Nube">Depende del sistema: algunos arman las cifras para que las copies en el portal del SAT.</td><td data-l="Escritorio">Depende del programa y de los módulos que tengas.</td><td data-l="Monvel" class="yo">IVA, ISR provisional y DIOT salen del mismo cálculo, con el archivo de la DIOT listo para el portal del SAT y el acuse guardado junto a la declaración.<sup class="ref"><a href="#fuente-2" aria-label="Fuente 2">2</a></sup></td></tr>
               <tr><th scope="row">Si se va el internet</th><td data-l="Nube">No se puede entrar.</td><td data-l="Escritorio">Se sigue trabajando en esa computadora.</td><td data-l="Monvel" class="yo">Se sigue trabajando en la red de la oficina, y las facturas que quedaron en cola se timbran solas cuando vuelve.</td></tr>
               <tr><th scope="row">Respaldos</th><td data-l="Nube">Los hace el proveedor, donde él decide.</td><td data-l="Escritorio">Los configuras en cada computadora.</td><td data-l="Monvel" class="yo">Diarios, revisados por Monvel, en la carpeta que tú elijas.</td></tr>
               <tr><th scope="row">Actualizaciones</th><td data-l="Nube">Las aplica el proveedor.</td><td data-l="Escritorio">Se instalan en cada computadora.</td><td data-l="Monvel" class="yo">Llegan solas de madrugada, firmadas y con respaldo previo.</td></tr>
@@ -853,6 +864,10 @@
           </table>
         </div>
         <p class="cmp-note">La descripción de la nube y del escritorio es general: cada producto tiene sus condiciones. Lo que dice la columna de Monvel es lo que hace la versión 1.0.29.</p>
+        <ol class="cmp-fuentes" aria-label="Fuentes de la comparativa">
+          <li id="fuente-1">Precios, usuarios y timbrado de Monvel: sección <a href="#planes">Planes</a> de esta página, vigente al 15 de octubre de 2026. Precios en pesos, IVA no incluido.</li>
+          <li id="fuente-2">Nómina y declaraciones de Monvel: secciones <a href="#modulos">Módulos</a> y <a href="#producto">Producto</a> de esta página, consultadas el 15 de octubre de 2026.</li>
+        </ol>
       </div>
     </section>
 
