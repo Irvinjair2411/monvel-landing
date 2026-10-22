@@ -98,6 +98,26 @@ export function folioValido(f) {
   return typeof f === 'string' && /^MV-\d{6}-[2-9A-HJKMNP-Z]{4}$/.test(f);
 }
 
+// Código de referencia de la visita (LEADS44, 21-oct-2026): 4 caracteres legibles
+// (sin 0/O/1/I/L) que salen del `sid` al azar de la sesión, sin ningún dato personal.
+// La página lo agrega al texto de WhatsApp cuando la persona escribe sin pasar por el
+// chat, y aquí se recalcula igual para ligar el mensaje con su recorrido. DEBE dar lo
+// mismo que `refDeSid` de asistente.js (una prueba lo compara en el navegador).
+export function refDeSid(sid) {
+  const s = String(sid || '');
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+  h ^= h >>> 16; h = Math.imul(h, 2246822507) >>> 0;
+  h ^= h >>> 13; h = Math.imul(h, 3266489909) >>> 0;
+  h ^= h >>> 16; h >>>= 0;
+  let r = '';
+  for (let i = 0; i < 4; i++) { r += ALFABETO[h % ALFABETO.length]; h = Math.floor(h / ALFABETO.length); }
+  return r;
+}
+export function refValida(r) {
+  return typeof r === 'string' && /^[2-9A-HJKMNP-Z]{4}$/.test(r);
+}
+
 // Familia de sistema y navegador, a grandes rasgos (no es huella del equipo).
 export function sistemaYNavegador(ua) {
   ua = String(ua || '');

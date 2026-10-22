@@ -9,8 +9,14 @@
 // Cloudflare), cookies, ni nada que identifique al equipo. El `sid` es un número
 // al azar que vive en el sessionStorage de esa pestaña. La sesión es anónima
 // hasta que la persona deja sus datos en el chat: entonces trae su folio.
+//
+// LEADS44 (21-oct-2026): la sesión trae además `refcod`, un código corto que sale de
+// su propio `sid` (comun.js: refDeSid) y que la página escribe en el texto de WhatsApp
+// cuando la persona va directo, sin pasar por el chat. Así, el mensaje que le llega a
+// Irvin sin folio se puede ligar a su recorrido (tablero: ?ref=). No es un dato nuevo
+// de la persona: es el mismo número al azar de la pestaña, resumido.
 
-import { json, ahoraMX, kv, limpio, esBot, origenValido, leerJSON, sistemaYNavegador, folioValido, TTL_DIAS } from '../_lib/comun.js';
+import { json, ahoraMX, kv, limpio, esBot, origenValido, leerJSON, sistemaYNavegador, folioValido, refDeSid, refValida, TTL_DIAS } from '../_lib/comun.js';
 
 const ID = /^[a-z0-9_-]{1,32}$/;
 const TIPOS = new Set(['llego', 'seccion', 'bajo', 'clic', 'chat_abre', 'chat_resp', 'chat_cierra', 'lead', 'oculta', 'vuelve']);
@@ -31,6 +37,7 @@ export function limpiarEvento(e) {
   if (e.val !== undefined) o.val = limpio(e.val, 160);
   if (e.modo !== undefined) o.modo = ['ia', 'guiado', 'opcion'].includes(e.modo) ? e.modo : 'guiado';
   if (e.folio !== undefined && folioValido(e.folio)) o.folio = e.folio;
+  if (e.rc !== undefined) { const rc = limpio(e.rc, 4).toUpperCase(); if (refValida(rc)) o.rc = rc; }
   return o;
 }
 
@@ -70,6 +77,9 @@ export async function onRequestPost({ request, env }) {
   const { so, nav } = sistemaYNavegador(ua);
   const cf = request.cf || {};
   const folio = folioValido(d.folio) ? d.folio : '';
+  // LEADS44: código de referencia de la visita. Sólo se acepta si es el que sale de su propio sid.
+  const rcPropuesto = limpio(d.rc, 4).toUpperCase();
+  const refcod = refValida(rcPropuesto) && rcPropuesto === refDeSid(sid) ? rcPropuesto : '';
   const sesion = {
     sid, dia: diaLlave, inicio: new Date(inicio).toISOString(), ultimo: new Date(ahora).toISOString(),
     pagina: limpio(d.pagina, 80) || '/',
@@ -81,13 +91,14 @@ export async function onRequestPost({ request, env }) {
     clics: eventos.filter((e) => e.k === 'clic').length,
     chat: !!eventos.find((e) => e.k === 'chat_abre'),
     folio,
+    refcod,
     eventos,
   };
   const enWa = eventos.filter((e) => e.k === 'clic' && /^wa|^plan-|^demo|^fab|^pie/.test(e.id || '')).length;
   const meta = {
     h: ahoraMX(new Date(inicio)).hhmm, r: sesion.ref.slice(0, 40), us: sesion.utm.source.slice(0, 30), uc: sesion.utm.campaign.slice(0, 30),
     p: sesion.pais, ci: sesion.ciudad.slice(0, 24), eq: sesion.equipo.slice(0, 1), s: segundos, b: sesion.scroll,
-    c: sesion.clics, w: enWa, ch: sesion.chat ? 1 : 0, f: folio,
+    c: sesion.clics, w: enWa, ch: sesion.chat ? 1 : 0, f: folio, rc: refcod,
     top: Object.entries(secs).sort((a, b) => b[1] - a[1]).slice(0, 4).map((x) => x[0]),
   };
 

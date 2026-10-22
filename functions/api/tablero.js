@@ -6,10 +6,13 @@
 //                                           del periodo (máx. 62 días) + consumo de la IA
 // GET  ?sesion=s:AAAA-MM-DD:<sid>           una sesión con su recorrido completo
 // GET  ?folio=MV-AAMMDD-XXXX                un prospecto completo + su sesión
+// GET  ?ref=K7P3                            la(s) sesión(es) con ese código de referencia, el
+//                                           que sale en el WhatsApp de quien fue directo sin
+//                                           pasar por el chat (LEADS44, 21-oct-2026)
 // POST { accion: 'borrar', folio }          cancelación (derecho ARCO): borra el
 //                                           prospecto y la sesión ligada
 
-import { json, ahoraMX, kv, candadoToken, folioValido } from '../_lib/comun.js';
+import { json, ahoraMX, kv, candadoToken, folioValido, refDeSid, refValida } from '../_lib/comun.js';
 
 const DIA = /^\d{4}-\d{2}-\d{2}$/;
 const SESION = /^s:\d{4}-\d{2}-\d{2}:[a-z0-9]{10,24}$/;
@@ -47,6 +50,27 @@ export async function onRequestGet({ request, env }) {
     if (!SESION.test(sesion)) return json({ error: 'sesión inválida' }, 400);
     const crudo = await almacen.get(sesion);
     return crudo ? json(JSON.parse(crudo)) : json({ error: 'no existe' }, 404);
+  }
+
+  // LEADS44: el código sale del sid de la sesión (refDeSid), así que se recalcula desde el nombre de
+  // cada llave `s:<día>:<sid>`: encuentra también las sesiones guardadas antes de que se guardara el
+  // código. Revisa hasta 10,000 sesiones (12 meses de retención); si dos comparten código (hay 923,521
+  // combinaciones) regresa todas, con la más reciente primero, y trae completa sólo la única.
+  const refParam = url.searchParams.get('ref');
+  if (refParam) {
+    const ref = refParam.trim().toUpperCase();
+    if (!refValida(ref)) return json({ error: 'referencia inválida' }, 400);
+    const coincidencias = (await listarTodo(almacen, 's:', 10000))
+      .filter((k) => refDeSid(String(k.name).split(':')[2]) === ref)
+      .map((k) => ({ llave: k.name, dia: String(k.name).split(':')[1], ...(k.metadata || {}) }))
+      .sort((a, b) => String(b.llave).localeCompare(String(a.llave)));
+    if (!coincidencias.length) return json({ error: 'no existe', ref }, 404);
+    let ses = null;
+    if (coincidencias.length === 1) {
+      const crudo = await almacen.get(coincidencias[0].llave);
+      ses = crudo ? JSON.parse(crudo) : null;
+    }
+    return json({ ref, sesiones: coincidencias, sesion: ses });
   }
 
   const folio = url.searchParams.get('folio');

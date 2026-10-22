@@ -1,4 +1,4 @@
-/* Monvel · recorrido de la visita y chat de bienvenida (LEADS, 14-oct-2026).
+/* Monvel · recorrido de la visita y chat de bienvenida (LEADS, 14-oct-2026; LEADS44, 21-oct-2026).
  *
  * 1. RECORRIDO ANÓNIMO DE LA SESIÓN (para Monvel Central):
  *    de dónde llegó (dominio del referente y UTM), tipo de equipo, qué secciones
@@ -11,20 +11,27 @@
  *    - Se manda a /api/visita al ocultar o cerrar la página (una escritura).
  *    - Si el navegador pide «no rastrear» (GPC o DNT), no se manda nada.
  * 2. CHAT DE BIENVENIDA (Velia): los botones de WhatsApp abren primero el chat,
- *    que pregunta nombre, despacho, cuántos clientes lleva, qué busca y cómo nos
- *    conoció. Al final se guarda el prospecto (/api/lead), la sesión queda ligada
- *    a su folio y WhatsApp se abre con las respuestas y el folio ya escritos.
+ *    que pregunta el nombre y qué busca de Monvel (obligatorias) y, si la persona
+ *    quiere, cuántos clientes o RFC lleva (se puede omitir). Al final se guarda el
+ *    prospecto (/api/lead), la sesión queda ligada a su folio y WhatsApp se abre
+ *    con las respuestas y el folio ya escritos.
  *    - Modo guiado (preguntas fijas) siempre disponible.
  *    - Modo IA: si /api/velia responde (hay llave en el servidor), Velia entiende
  *      respuestas libres y contesta dudas. A la primera falla o al acabarse el
  *      cupo, el chat sigue en modo guiado. Nunca se pierde al prospecto.
  *    - Sin JavaScript, los enlaces siguen yendo directo a WhatsApp (href intacto).
+ * 3. CÓDIGO DE REFERENCIA (LEADS44): quien va a WhatsApp SIN pasar por el chat (el
+ *    enlace discreto «Prefiero ir directo a WhatsApp», Ctrl/clic medio, mantener
+ *    pulsado el enlace) manda un texto que termina en «(ref. K7P3)»: 4 caracteres sin
+ *    0/O/1/I/L que salen del id al azar de la sesión, sin datos personales. El mismo
+ *    código viaja en el recorrido (/api/visita) y Monvel Central lo busca en
+ *    /api/tablero?ref=. Con «no rastrear» (GPC/DNT) no se agrega, porque no se registra.
  */
 (function () {
   'use strict';
 
   var WA_NUMERO = '522201207439';
-  var AVISO_VERSION = '2026-10-14';
+  var AVISO_VERSION = '2026-10-21'; // el aviso cambió el 21-oct (preguntas del chat y código de referencia)
   var hayIA = true; // se apaga sola a la primera falla de /api/velia
 
   function guardarLocal(almacen, k, v) { try { window[almacen].setItem(k, v); return true; } catch (e) { return false; } }
@@ -43,6 +50,20 @@
     (window.crypto || window.msCrypto).getRandomValues(r);
     for (var i = 0; i < n; i++) s += abc[r[i] % abc.length];
     return s;
+  }
+  // LEADS44: código corto de referencia de la visita. DEBE dar lo mismo que refDeSid
+  // de functions/_lib/comun.js (una prueba lo compara): el servidor lo recalcula.
+  var ABC_REF = '23456789ABCDEFGHJKMNPQRSTUVWXYZ';
+  function refDeSid(sid) {
+    var h = 2166136261, i;
+    sid = String(sid || '');
+    for (i = 0; i < sid.length; i++) { h ^= sid.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+    h ^= h >>> 16; h = Math.imul(h, 2246822507) >>> 0;
+    h ^= h >>> 13; h = Math.imul(h, 3266489909) >>> 0;
+    h ^= h >>> 16; h >>>= 0;
+    var r = '';
+    for (i = 0; i < 4; i++) { r += ABC_REF[h % ABC_REF.length]; h = Math.floor(h / ABC_REF.length); }
+    return r;
   }
 
   /* ================================================== recorrido de la sesión */
@@ -64,6 +85,33 @@
   var ancho = window.innerWidth || 1024;
   var tactil = ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
   var equipo = ancho < 768 ? 'movil' : (tactil && ancho < 1200 ? 'tableta' : 'escritorio');
+
+  // Código de la visita; vacío si el navegador pidió «no rastrear» (no se registraría).
+  function refVisita() { return noRastrear ? '' : refDeSid(ses.sid); }
+  var TEXTO_BASE = 'Hola, me interesa saber más de Monvel';
+  var RX_REF = /\(ref\. ([2-9A-HJKMNP-Z]{4})\)\s*$/;
+  // Agrega « (ref. K7P3)» al texto prellenado de un enlace de wa.me (si ya lo trae, no repite).
+  function conRef(href) {
+    var rc = refVisita();
+    if (!rc) return href;
+    try {
+      var u = new URL(href, location.href);
+      if (u.hostname !== 'wa.me') return href;
+      var t = u.searchParams.get('text') || TEXTO_BASE;
+      if (RX_REF.test(t)) return href;
+      return u.origin + u.pathname + '?text=' + encodeURIComponent(t + ' (ref. ' + rc + ')');
+    } catch (e) { return href; }
+  }
+  function textoDe(href) { try { return new URL(href).searchParams.get('text') || ''; } catch (e) { return ''; } }
+  // Los enlaces de WhatsApp de la página llevan el código desde que carga: así también lo
+  // llevan si la persona los abre con Ctrl/clic medio o manteniéndolos pulsados (en el
+  // celular), caminos que no pasan por el chat. Sin JavaScript el href queda como estaba.
+  function marcarEnlacesWa() {
+    Array.prototype.forEach.call(document.querySelectorAll('a[href*="wa.me/' + WA_NUMERO + '"]'), function (a) {
+      var h = a.getAttribute('href'), n = conRef(h);
+      if (n !== h) a.setAttribute('href', n);
+    });
+  }
 
   function persistir() { guardarLocal('sessionStorage', 'mv_ses', JSON.stringify(ses)); }
   function evento(k, extra) {
@@ -143,6 +191,8 @@
     var h = a.getAttribute('href') || '';
     if (h.indexOf('wa.me') >= 0) {
       try { extra.wa = (new URL(h).searchParams.get('text') || '(sin texto)').slice(0, 160); } catch (er) { extra.wa = ''; }
+      var mref = RX_REF.exec(extra.wa || '');
+      if (mref) extra.rc = mref[1];
     }
     evento('clic', extra);
   }, true);
@@ -153,7 +203,7 @@
     persistir();
     var datos = JSON.stringify({
       sid: ses.sid, t0: ses.t0, ahora: Date.now(), dia: ses.dia, pagina: location.pathname,
-      r: ses.r, utm: ses.utm, eq: equipo, s: ses.s, bajo: ses.bajo, secs: ses.secs, ev: ses.ev, folio: ses.folio
+      r: ses.r, utm: ses.utm, eq: equipo, s: ses.s, bajo: ses.bajo, secs: ses.secs, ev: ses.ev, folio: ses.folio, rc: refVisita()
     });
     try {
       if (!urgente && navigator.sendBeacon) navigator.sendBeacon('/api/visita', new Blob([datos], { type: 'application/json' }));
@@ -186,28 +236,25 @@
     document.body.appendChild(d);
   }
   avisoDiscreto();
+  marcarEnlacesWa();
 
   /* ================================================== el chat */
-  var PASOS = ['nombre', 'despacho', 'clientes', 'busca', 'conocio', 'nota'];
+  // LEADS44: dos preguntas obligatorias (nombre y qué busca) y una opcional (cuántos RFC).
+  var PASOS = ['nombre', 'busca', 'clientes'];
+  var OPCIONALES = { clientes: true };
+  var OMITIR = 'Prefiero no decirlo';
   var PREGUNTAS = {
     nombre: function () { return '¿Cómo te llamas?'; },
-    despacho: function (c) { return 'Mucho gusto, ' + primerNombre(c.nombre) + '. ¿Cómo se llama tu despacho o empresa?'; },
-    clientes: function () { return '¿Cuántos clientes o RFC llevas hoy?'; },
-    busca: function () { return '¿Qué te gustaría de Monvel?'; },
-    conocio: function () { return '¿Cómo supiste de Monvel?'; },
-    nota: function () { return '¿Algo más que quieras contarle a Irvin? Es opcional.'; }
+    busca: function (c) { return 'Mucho gusto, ' + primerNombre(c.nombre) + '. ¿Qué te gustaría de Monvel?'; },
+    clientes: function () { return '¿Cuántos clientes o RFC llevas hoy? Es opcional.'; }
   };
   var OPCIONES = {
     nombre: [],
-    despacho: ['Trabajo por mi cuenta'],
-    clientes: ['1 a 10', '11 a 30', '31 a 100', 'Más de 100'],
     busca: ['Resolver dudas', 'Probarlo en el Aula Virtual', 'Conocer precios y planes', 'Ser despacho fundador', 'Migrar de CONTPAQi', 'Migrar de otro sistema', 'Otra cosa'],
-    conocio: ['Google', 'Facebook o Instagram', 'LinkedIn', 'Me lo recomendó un colega', 'Un evento o curso', 'Otro'],
-    nota: ['No, es todo']
+    clientes: ['1 a 10', '11 a 30', '31 a 100', 'Más de 100', OMITIR]
   };
   var MARCADOR = {
-    nombre: 'Tu nombre', despacho: 'Nombre del despacho o empresa', clientes: 'Por ejemplo, 25',
-    busca: 'Escribe lo que buscas', conocio: 'Escribe cómo nos conociste', nota: 'Escribe aquí (opcional)'
+    nombre: 'Tu nombre', busca: 'Escribe lo que buscas', clientes: 'Por ejemplo, 25 (opcional)'
   };
   // Lo que cada botón de la página ya dice del interés del visitante.
   var CONTEXTO = {
@@ -261,7 +308,26 @@
     var enviar = el('button', 'mvc-enviar', 'Enviar');
     enviar.type = 'submit';
     form.appendChild(input); form.appendChild(enviar);
-    form.addEventListener('submit', function (e) { e.preventDefault(); var t = input.value.trim(); if (t) { input.value = ''; responder(t, false); } });
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var t = input.value.trim();
+      if (t) { input.value = ''; responder(t, false); }
+      else if (OPCIONALES[PASOS[estado.paso]] && !estado.ocupado && !estado.listo) omitirPaso(); // vacío en un paso opcional = omitirlo
+    });
+
+    // La salida directa a WhatsApp no se quita: queda como enlace discreto bajo el chat, en todo momento.
+    var salida = el('p', 'mvc-salida');
+    var dir = el('a', 'mvc-directo', 'Prefiero ir directo a WhatsApp');
+    dir.href = conRef('https://wa.me/' + WA_NUMERO);
+    dir.target = '_blank';
+    dir.rel = 'noopener';
+    dir.addEventListener('click', function () {
+      // El enlace sigue su camino (pestaña nueva); aquí sólo se anota y se manda la sesión YA,
+      // porque en el celular la página pasa a segundo plano y el aviso de salida puede no salir.
+      evento('clic', { id: 'wa-directo', txt: 'Prefiero ir directo a WhatsApp', sec: 'chat', paso: estado.listo ? 'fin' : (PASOS[estado.paso] || 'inicio'), wa: (textoDe(dir.href) || '(sin texto)').slice(0, 160), rc: refVisita() });
+      enviarSesion(true);
+    });
+    salida.appendChild(dir);
 
     var pie = el('p', 'mvc-pie');
     pie.appendChild(document.createTextNode('Tus respuestas se guardan para atenderte. '));
@@ -270,10 +336,10 @@
     av.addEventListener('click', function () { cerrarChat(); });
     pie.appendChild(av);
 
-    raiz.appendChild(cab); raiz.appendChild(log); raiz.appendChild(chips); raiz.appendChild(form); raiz.appendChild(pie);
+    raiz.appendChild(cab); raiz.appendChild(log); raiz.appendChild(chips); raiz.appendChild(form); raiz.appendChild(salida); raiz.appendChild(pie);
     document.body.appendChild(raiz);
     raiz.addEventListener('keydown', function (e) { if (e.key === 'Escape') cerrarChat(); });
-    ui = { raiz: raiz, log: log, chips: chips, form: form, input: input, enviar: enviar };
+    ui = { raiz: raiz, log: log, chips: chips, form: form, input: input, enviar: enviar, salida: salida, directo: dir };
   }
 
   // de: 'v' visitante, 'm' Monvel. mo: quién contestó ('ia' o 'guiado').
@@ -326,6 +392,7 @@
       estado.boton = boton;
       estado.hrefOriginal = href || estado.hrefOriginal;
     }
+    ui.directo.href = conRef(estado.hrefOriginal);
     ui.raiz.hidden = false;
     document.documentElement.classList.add('mvc-abierto');
     setTimeout(function () { var f = ui.chips.querySelector('button') || ui.input; if (f && !f.disabled) f.focus(); }, 30);
@@ -342,7 +409,7 @@
   function saludo() {
     // FUND43: quien llega desde «Quiero ser despacho fundador» ve su motivo desde el saludo.
     var motivo = estado.boton === 'fundador' ? ' Qué gusto que quieras ser despacho fundador con el plan Básico.' : '';
-    burbuja('m', 'Hola, soy Velia, la asistente de Monvel.' + motivo + ' Antes de pasarte con Irvin por WhatsApp te hago cinco preguntas rápidas, para que llegues con todo listo y no tengas que repetir nada.');
+    burbuja('m', 'Hola, soy Velia, la asistente de Monvel.' + motivo + ' Antes de pasarte con Irvin por WhatsApp te hago un par de preguntas rápidas, para que llegues con todo listo y no tengas que repetir nada.');
     var nota = burbuja('m', '');
     nota.className += ' mvc-legal';
     nota.appendChild(document.createTextNode('Guardamos tus respuestas para darte seguimiento; cuando está disponible, Velia usa inteligencia artificial para entender lo que escribes. Detalles en el '));
@@ -353,16 +420,8 @@
     nota.appendChild(document.createTextNode('.'));
     ui.form.hidden = true;
     ponerChips([
-      { texto: 'Sí, empecemos', clase: 'mvc-chip-oro', accion: function () { estado.consentimiento = true; burbuja('v', 'Sí, empecemos'); evento('chat_resp', { paso: 'inicio', val: 'empezar', modo: 'opcion' }); siguiente(); } },
-      { texto: 'Prefiero ir directo a WhatsApp', accion: directo }
+      { texto: 'Sí, empecemos', clase: 'mvc-chip-oro', accion: function () { estado.consentimiento = true; burbuja('v', 'Sí, empecemos'); evento('chat_resp', { paso: 'inicio', val: 'empezar', modo: 'opcion' }); siguiente(); } }
     ]);
-  }
-
-  function directo() {
-    var wa = '';
-    try { wa = new URL(estado.hrefOriginal).searchParams.get('text') || ''; } catch (e) { wa = ''; }
-    evento('clic', { id: 'wa-directo', txt: 'Prefiero ir directo a WhatsApp', sec: 'chat', wa: wa || '(sin texto)' });
-    window.open(estado.hrefOriginal, '_blank', 'noopener');
   }
 
   function siguiente() {
@@ -381,12 +440,22 @@
     ui.form.hidden = false;
     ui.input.placeholder = MARCADOR[p];
     ui.input.value = '';
-    setTimeout(function () { if (p === 'nombre') ui.input.focus(); }, 30);
+    // Al aparecer las opciones y la caja de texto, el registro se encoge: se vuelve al fondo para que la
+    // pregunta nueva quede a la vista (en 853×533 se quedaba escondida detrás de las opciones).
+    ui.log.scrollTop = ui.log.scrollHeight;
+    setTimeout(function () { ui.log.scrollTop = ui.log.scrollHeight; if (p === 'nombre') ui.input.focus(); }, 30);
+  }
+
+  // Un paso opcional que se omite no guarda nada (el prospecto sigue siendo válido).
+  function omitirPaso() {
+    var p = PASOS[estado.paso];
+    evento('chat_resp', { paso: p, val: 'omitido', modo: 'opcion' });
+    siguiente();
   }
 
   function guardarCampo(valor, modo) {
     var p = PASOS[estado.paso];
-    estado.campos[p] = String(valor).trim().slice(0, p === 'nota' ? 400 : 120);
+    estado.campos[p] = String(valor).trim().slice(0, 120);
     evento('chat_resp', { paso: p, val: estado.campos[p].slice(0, 160), modo: modo });
     siguiente();
   }
@@ -395,6 +464,7 @@
   // Velia si está disponible; si no, se toma tal cual (modo guiado).
   function responder(texto, esChip) {
     if (estado.ocupado || estado.listo) return;
+    if (esChip && texto === OMITIR && OPCIONALES[PASOS[estado.paso]]) { burbuja('v', texto); return omitirPaso(); }
     burbuja('v', texto);
     if (esChip) return guardarCampo(texto, 'opcion');
     if (!hayIA) return guardarCampo(texto, 'guiado');
@@ -440,14 +510,9 @@
 
   function mensajeWhatsApp() {
     var c = estado.campos;
-    var quien = 'Hola, soy ' + c.nombre;
-    if (c.despacho && !/^(trabajo por mi cuenta|independiente)$/i.test(c.despacho)) quien += ', de ' + c.despacho;
-    else if (c.despacho) quien += ' (trabajo por mi cuenta)';
-    var lineas = [quien + '.'];
+    var lineas = ['Hola, soy ' + c.nombre + '.'];
     if (c.clientes) lineas.push('Llevo ' + c.clientes + ' clientes o RFC.');
     if (c.busca) lineas.push('Me interesa: ' + c.busca + '.');
-    if (c.conocio) lineas.push('Supe de Monvel por: ' + c.conocio + '.');
-    if (c.nota && !/^(no, es todo|sin comentarios)$/i.test(c.nota)) lineas.push('Nota: ' + c.nota);
     lineas.push('Folio ' + estado.folio);
     return lineas.join('\n');
   }
@@ -456,6 +521,7 @@
     estado.listo = true;
     ui.chips.innerHTML = '';
     ui.form.hidden = true;
+    ui.salida.hidden = true; // ya viene el botón «Enviar por WhatsApp», con folio
     estado.folio = folioLocal();
     escribiendo(true);
     cerrarTramo();
@@ -485,7 +551,7 @@
     var c = estado.campos;
     burbuja('m', 'Gracias, ' + primerNombre(c.nombre) + '. Tu folio es ' + estado.folio + '. Al tocar el botón se abre WhatsApp con tus respuestas ya escritas; sólo falta que lo envíes.');
     var tarjeta = el('div', 'mvc-resumen');
-    [['Nombre', c.nombre], ['Despacho', c.despacho], ['Clientes o RFC', c.clientes], ['Busca', c.busca], ['Nos conoció por', c.conocio]].forEach(function (f) {
+    [['Nombre', c.nombre], ['Busca', c.busca], ['Clientes o RFC', c.clientes]].forEach(function (f) {
       if (!f[1]) return;
       var fila = el('div');
       fila.appendChild(el('span', null, f[0]));
@@ -515,12 +581,13 @@
   // está: sin JavaScript, o con Ctrl/clic medio, siguen yendo directo.
   document.addEventListener('click', function (e) {
     var a = e.target.closest ? e.target.closest('a[href*="wa.me/' + WA_NUMERO + '"]') : null;
-    if (!a || a.classList.contains('mvc-wa')) return;
-    if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
+    if (!a || a.closest('.mvc')) return; // los enlaces del propio chat (resumen y «directo») siguen su camino
+    // Ctrl/Cmd/Shift/clic medio abren WhatsApp sin chat: el texto ya lleva el código, y la sesión se manda ya.
+    if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) { enviarSesion(true); return; }
     e.preventDefault();
     abrirChat(a.dataset.clic || 'wa', a.getAttribute('href'));
   });
 
   // Para las pruebas automáticas (no expone nada sensible).
-  window.__mvAsistente = { estado: estado, sesion: function () { return ses; }, mensaje: function () { return mensajeWhatsApp(); }, abrir: abrirChat, enviarSesion: enviarSesion };
+  window.__mvAsistente = { estado: estado, sesion: function () { return ses; }, mensaje: function () { return mensajeWhatsApp(); }, abrir: abrirChat, enviarSesion: enviarSesion, refDeSid: refDeSid, ref: refVisita };
 })();
